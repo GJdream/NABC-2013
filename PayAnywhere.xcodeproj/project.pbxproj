@@ -1,0 +1,338 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EDFE06FC16CC2CE200EED6D6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDFE06FB16CC2CE200EED6D6 /* UIKit.framework */; };
+		EDFE06FE16CC2CE200EED6D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDFE06FD16CC2CE200EED6D6 /* Foundation.framework */; };
+		EDFE070016CC2CE200EED6D6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDFE06FF16CC2CE200EED6D6 /* CoreGraphics.framework */; };
+		EDFE070616CC2CE200EED6D6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EDFE070416CC2CE200EED6D6 /* InfoPlist.strings */; };
+		EDFE070816CC2CE200EED6D6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFE070716CC2CE200EED6D6 /* main.m */; };
+		EDFE070C16CC2CE200EED6D6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFE070B16CC2CE200EED6D6 /* AppDelegate.m */; };
+		EDFE070E16CC2CE200EED6D6 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EDFE070D16CC2CE200EED6D6 /* Default.png */; };
+		EDFE071016CC2CE200EED6D6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EDFE070F16CC2CE200EED6D6 /* Default@2x.png */; };
+		EDFE071216CC2CE200EED6D6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EDFE071116CC2CE200EED6D6 /* Default-568h@2x.png */; };
+		EDFE072A16CC2D7900EED6D6 /* FinishPage.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFE071F16CC2D7900EED6D6 /* FinishPage.m */; };
+		EDFE072B16CC2D7900EED6D6 /* FirstBusPage.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFE072116CC2D7900EED6D6 /* FirstBusPage.m */; };
+		EDFE072C16CC2D7900EED6D6 /* FirstIndivPage.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFE072316CC2D7900EED6D6 /* FirstIndivPage.m */; };
+		EDFE072D16CC2D7900EED6D6 /* FirstPage.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFE072516CC2D7900EED6D6 /* FirstPage.m */; };
+		EDFE072E16CC2D7900EED6D6 /* SecBusPage.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFE072716CC2D7900EED6D6 /* SecBusPage.m */; };
+		EDFE072F16CC2D7900EED6D6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFE072916CC2D7900EED6D6 /* ViewController.m */; };
+		EDFE073216CC2DB400EED6D6 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDFE073016CC2DB400EED6D6 /* MainStoryboard.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		EDFE06F816CC2CE200EED6D6 /* PayAnywhere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PayAnywhere.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDFE06FB16CC2CE200EED6D6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		EDFE06FD16CC2CE200EED6D6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EDFE06FF16CC2CE200EED6D6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		EDFE070316CC2CE200EED6D6 /* PayAnywhere-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PayAnywhere-Info.plist"; sourceTree = "<group>"; };
+		EDFE070516CC2CE200EED6D6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EDFE070716CC2CE200EED6D6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EDFE070916CC2CE200EED6D6 /* PayAnywhere-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PayAnywhere-Prefix.pch"; sourceTree = "<group>"; };
+		EDFE070A16CC2CE200EED6D6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EDFE070B16CC2CE200EED6D6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EDFE070D16CC2CE200EED6D6 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		EDFE070F16CC2CE200EED6D6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		EDFE071116CC2CE200EED6D6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		EDFE071E16CC2D7900EED6D6 /* FinishPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinishPage.h; sourceTree = "<group>"; };
+		EDFE071F16CC2D7900EED6D6 /* FinishPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinishPage.m; sourceTree = "<group>"; };
+		EDFE072016CC2D7900EED6D6 /* FirstBusPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstBusPage.h; sourceTree = "<group>"; };
+		EDFE072116CC2D7900EED6D6 /* FirstBusPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstBusPage.m; sourceTree = "<group>"; };
+		EDFE072216CC2D7900EED6D6 /* FirstIndivPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstIndivPage.h; sourceTree = "<group>"; };
+		EDFE072316CC2D7900EED6D6 /* FirstIndivPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstIndivPage.m; sourceTree = "<group>"; };
+		EDFE072416CC2D7900EED6D6 /* FirstPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstPage.h; sourceTree = "<group>"; };
+		EDFE072516CC2D7900EED6D6 /* FirstPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstPage.m; sourceTree = "<group>"; };
+		EDFE072616CC2D7900EED6D6 /* SecBusPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecBusPage.h; sourceTree = "<group>"; };
+		EDFE072716CC2D7900EED6D6 /* SecBusPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecBusPage.m; sourceTree = "<group>"; };
+		EDFE072816CC2D7900EED6D6 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		EDFE072916CC2D7900EED6D6 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		EDFE073116CC2DB400EED6D6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EDFE06F516CC2CE200EED6D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDFE06FC16CC2CE200EED6D6 /* UIKit.framework in Frameworks */,
+				EDFE06FE16CC2CE200EED6D6 /* Foundation.framework in Frameworks */,
+				EDFE070016CC2CE200EED6D6 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EDFE06EF16CC2CE200EED6D6 = {
+			isa = PBXGroup;
+			children = (
+				EDFE070116CC2CE200EED6D6 /* PayAnywhere */,
+				EDFE06FA16CC2CE200EED6D6 /* Frameworks */,
+				EDFE06F916CC2CE200EED6D6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EDFE06F916CC2CE200EED6D6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EDFE06F816CC2CE200EED6D6 /* PayAnywhere.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EDFE06FA16CC2CE200EED6D6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EDFE06FB16CC2CE200EED6D6 /* UIKit.framework */,
+				EDFE06FD16CC2CE200EED6D6 /* Foundation.framework */,
+				EDFE06FF16CC2CE200EED6D6 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EDFE070116CC2CE200EED6D6 /* PayAnywhere */ = {
+			isa = PBXGroup;
+			children = (
+				EDFE073016CC2DB400EED6D6 /* MainStoryboard.storyboard */,
+				EDFE071E16CC2D7900EED6D6 /* FinishPage.h */,
+				EDFE071F16CC2D7900EED6D6 /* FinishPage.m */,
+				EDFE072016CC2D7900EED6D6 /* FirstBusPage.h */,
+				EDFE072116CC2D7900EED6D6 /* FirstBusPage.m */,
+				EDFE072216CC2D7900EED6D6 /* FirstIndivPage.h */,
+				EDFE072316CC2D7900EED6D6 /* FirstIndivPage.m */,
+				EDFE072416CC2D7900EED6D6 /* FirstPage.h */,
+				EDFE072516CC2D7900EED6D6 /* FirstPage.m */,
+				EDFE072616CC2D7900EED6D6 /* SecBusPage.h */,
+				EDFE072716CC2D7900EED6D6 /* SecBusPage.m */,
+				EDFE072816CC2D7900EED6D6 /* ViewController.h */,
+				EDFE072916CC2D7900EED6D6 /* ViewController.m */,
+				EDFE070A16CC2CE200EED6D6 /* AppDelegate.h */,
+				EDFE070B16CC2CE200EED6D6 /* AppDelegate.m */,
+				EDFE070216CC2CE200EED6D6 /* Supporting Files */,
+			);
+			path = PayAnywhere;
+			sourceTree = "<group>";
+		};
+		EDFE070216CC2CE200EED6D6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EDFE070316CC2CE200EED6D6 /* PayAnywhere-Info.plist */,
+				EDFE070416CC2CE200EED6D6 /* InfoPlist.strings */,
+				EDFE070716CC2CE200EED6D6 /* main.m */,
+				EDFE070916CC2CE200EED6D6 /* PayAnywhere-Prefix.pch */,
+				EDFE070D16CC2CE200EED6D6 /* Default.png */,
+				EDFE070F16CC2CE200EED6D6 /* Default@2x.png */,
+				EDFE071116CC2CE200EED6D6 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EDFE06F716CC2CE200EED6D6 /* PayAnywhere */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDFE071B16CC2CE200EED6D6 /* Build configuration list for PBXNativeTarget "PayAnywhere" */;
+			buildPhases = (
+				EDFE06F416CC2CE200EED6D6 /* Sources */,
+				EDFE06F516CC2CE200EED6D6 /* Frameworks */,
+				EDFE06F616CC2CE200EED6D6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PayAnywhere;
+			productName = PayAnywhere;
+			productReference = EDFE06F816CC2CE200EED6D6 /* PayAnywhere.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EDFE06F016CC2CE200EED6D6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = NAB;
+			};
+			buildConfigurationList = EDFE06F316CC2CE200EED6D6 /* Build configuration list for PBXProject "PayAnywhere" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = EDFE06EF16CC2CE200EED6D6;
+			productRefGroup = EDFE06F916CC2CE200EED6D6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EDFE06F716CC2CE200EED6D6 /* PayAnywhere */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EDFE06F616CC2CE200EED6D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDFE070616CC2CE200EED6D6 /* InfoPlist.strings in Resources */,
+				EDFE070E16CC2CE200EED6D6 /* Default.png in Resources */,
+				EDFE071016CC2CE200EED6D6 /* Default@2x.png in Resources */,
+				EDFE071216CC2CE200EED6D6 /* Default-568h@2x.png in Resources */,
+				EDFE073216CC2DB400EED6D6 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EDFE06F416CC2CE200EED6D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDFE070816CC2CE200EED6D6 /* main.m in Sources */,
+				EDFE070C16CC2CE200EED6D6 /* AppDelegate.m in Sources */,
+				EDFE072A16CC2D7900EED6D6 /* FinishPage.m in Sources */,
+				EDFE072B16CC2D7900EED6D6 /* FirstBusPage.m in Sources */,
+				EDFE072C16CC2D7900EED6D6 /* FirstIndivPage.m in Sources */,
+				EDFE072D16CC2D7900EED6D6 /* FirstPage.m in Sources */,
+				EDFE072E16CC2D7900EED6D6 /* SecBusPage.m in Sources */,
+				EDFE072F16CC2D7900EED6D6 /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EDFE070416CC2CE200EED6D6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDFE070516CC2CE200EED6D6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		EDFE073016CC2DB400EED6D6 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDFE073116CC2DB400EED6D6 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EDFE071916CC2CE200EED6D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		EDFE071A16CC2CE200EED6D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EDFE071C16CC2CE200EED6D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PayAnywhere/PayAnywhere-Prefix.pch";
+				INFOPLIST_FILE = "PayAnywhere/PayAnywhere-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		EDFE071D16CC2CE200EED6D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PayAnywhere/PayAnywhere-Prefix.pch";
+				INFOPLIST_FILE = "PayAnywhere/PayAnywhere-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EDFE06F316CC2CE200EED6D6 /* Build configuration list for PBXProject "PayAnywhere" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDFE071916CC2CE200EED6D6 /* Debug */,
+				EDFE071A16CC2CE200EED6D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDFE071B16CC2CE200EED6D6 /* Build configuration list for PBXNativeTarget "PayAnywhere" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDFE071C16CC2CE200EED6D6 /* Debug */,
+				EDFE071D16CC2CE200EED6D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EDFE06F016CC2CE200EED6D6 /* Project object */;
+}
