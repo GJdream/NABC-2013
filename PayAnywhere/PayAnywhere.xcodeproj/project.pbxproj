@@ -23,6 +23,11 @@
 		BA77821B16C8391F00987D3B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA7781F616C8391F00987D3B /* Foundation.framework */; };
 		BA77822316C8391F00987D3B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BA77822116C8391F00987D3B /* InfoPlist.strings */; };
 		BA77822616C8391F00987D3B /* PayAnywhereTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BA77822516C8391F00987D3B /* PayAnywhereTests.m */; };
+		BA9267E216CC205B00FE99B7 /* FirstPage.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9267E116CC205B00FE99B7 /* FirstPage.m */; };
+		BA9267E516CC20AE00FE99B7 /* FirstIndivPage.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9267E416CC20AE00FE99B7 /* FirstIndivPage.m */; };
+		BA9267E816CC20CA00FE99B7 /* FirstBusPage.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9267E716CC20CA00FE99B7 /* FirstBusPage.m */; };
+		BA9267EB16CC20DD00FE99B7 /* SecBusPage.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9267EA16CC20DD00FE99B7 /* SecBusPage.m */; };
+		BA9267EE16CC210100FE99B7 /* FinishPage.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9267ED16CC210100FE99B7 /* FinishPage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +63,16 @@
 		BA77822216C8391F00987D3B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BA77822416C8391F00987D3B /* PayAnywhereTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayAnywhereTests.h; sourceTree = "<group>"; };
 		BA77822516C8391F00987D3B /* PayAnywhereTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayAnywhereTests.m; sourceTree = "<group>"; };
+		BA9267E016CC205B00FE99B7 /* FirstPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstPage.h; sourceTree = "<group>"; };
+		BA9267E116CC205B00FE99B7 /* FirstPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstPage.m; sourceTree = "<group>"; };
+		BA9267E316CC20AE00FE99B7 /* FirstIndivPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstIndivPage.h; sourceTree = "<group>"; };
+		BA9267E416CC20AE00FE99B7 /* FirstIndivPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstIndivPage.m; sourceTree = "<group>"; };
+		BA9267E616CC20CA00FE99B7 /* FirstBusPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstBusPage.h; sourceTree = "<group>"; };
+		BA9267E716CC20CA00FE99B7 /* FirstBusPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstBusPage.m; sourceTree = "<group>"; };
+		BA9267E916CC20DD00FE99B7 /* SecBusPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecBusPage.h; sourceTree = "<group>"; };
+		BA9267EA16CC20DD00FE99B7 /* SecBusPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecBusPage.m; sourceTree = "<group>"; };
+		BA9267EC16CC210100FE99B7 /* FinishPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinishPage.h; sourceTree = "<group>"; };
+		BA9267ED16CC210100FE99B7 /* FinishPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinishPage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +135,16 @@
 				BA77820316C8391F00987D3B /* AppDelegate.h */,
 				BA77820416C8391F00987D3B /* AppDelegate.m */,
 				BA77820C16C8391F00987D3B /* MainStoryboard.storyboard */,
+				BA9267EC16CC210100FE99B7 /* FinishPage.h */,
+				BA9267ED16CC210100FE99B7 /* FinishPage.m */,
+				BA9267E316CC20AE00FE99B7 /* FirstIndivPage.h */,
+				BA9267E416CC20AE00FE99B7 /* FirstIndivPage.m */,
+				BA9267E616CC20CA00FE99B7 /* FirstBusPage.h */,
+				BA9267E716CC20CA00FE99B7 /* FirstBusPage.m */,
+				BA9267E916CC20DD00FE99B7 /* SecBusPage.h */,
+				BA9267EA16CC20DD00FE99B7 /* SecBusPage.m */,
+				BA9267E016CC205B00FE99B7 /* FirstPage.h */,
+				BA9267E116CC205B00FE99B7 /* FirstPage.m */,
 				BA77820F16C8391F00987D3B /* ViewController.h */,
 				BA77821016C8391F00987D3B /* ViewController.m */,
 				BA7781FB16C8391F00987D3B /* Supporting Files */,
@@ -273,6 +298,11 @@
 				BA77820116C8391F00987D3B /* main.m in Sources */,
 				BA77820516C8391F00987D3B /* AppDelegate.m in Sources */,
 				BA77821116C8391F00987D3B /* ViewController.m in Sources */,
+				BA9267E216CC205B00FE99B7 /* FirstPage.m in Sources */,
+				BA9267E516CC20AE00FE99B7 /* FirstIndivPage.m in Sources */,
+				BA9267E816CC20CA00FE99B7 /* FirstBusPage.m in Sources */,
+				BA9267EB16CC20DD00FE99B7 /* SecBusPage.m in Sources */,
+				BA9267EE16CC210100FE99B7 /* FinishPage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,6 +485,7 @@
 				BA77822B16C8391F00987D3B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BA77822C16C8391F00987D3B /* Build configuration list for PBXNativeTarget "PayAnywhereTests" */ = {
 			isa = XCConfigurationList;
@@ -463,6 +494,7 @@
 				BA77822E16C8391F00987D3B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
