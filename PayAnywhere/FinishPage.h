@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 NAB. All rights reserved.
 //
 
-// awesome Comment changed
+// awesome Comment
 
 #import <UIKit/UIKit.h>
 
