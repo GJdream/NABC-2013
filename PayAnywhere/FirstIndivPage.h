@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstIndivPage : UIViewController
+@interface FirstIndivPage : UIViewController<UITextFieldDelegate>
+{
+    NSMutableDictionary * userInfo;
+}
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *first;
 @property (weak, nonatomic) IBOutlet UITextField *last;
@@ -21,7 +24,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *ssn;
 @property (weak, nonatomic) IBOutlet UITextField *dba;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *term;
-@property (weak, nonatomic) IBOutlet UIButton *create;
+
+- (IBAction)create:(id)sender;
+
 
 
 @end
