@@ -587,7 +587,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6YW-Du-1ko" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3176" y="-1453"/>
+            <point key="canvasLocation" x="3300" y="-1585"/>
         </scene>
         <!--Sec Bus Page-->
         <scene sceneID="bhW-6R-pGp">
@@ -1070,6 +1070,40 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <point key="canvasLocation" x="-1666" y="-838"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="FinishPage" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FinishPage.h"/>
+        </class>
+        <class className="FirstBusPage" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstBusPage.h"/>
+        </class>
+        <class className="FirstIndivPage" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstIndivPage.h"/>
+            <relationships>
+                <relationship kind="action" name="create:"/>
+                <relationship kind="outlet" name="address" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="birth" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="dba" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="email" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="first" candidateClass="NSLayoutConstraint"/>
+                <relationship kind="outlet" name="last" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="phone" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="ssn" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="suitapt" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="term" candidateClass="NSLayoutConstraint"/>
+                <relationship kind="outlet" name="zip" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="FirstPage" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstPage.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="SecBusPage" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SecBusPage.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
