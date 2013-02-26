@@ -435,6 +435,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </view>
                     <navigationItem key="navigationItem" id="Rpv-DN-Azo">
                         <barButtonItem key="backBarButtonItem" title="Cancel" id="5AQ-hy-Nga"/>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="R7M-0a-IFe">
+                            <connections>
+                                <segue destination="Wgt-Ge-yuk" kind="push" id="XIB-tJ-dx5"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -589,7 +594,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6YW-Du-1ko" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3176" y="-1453"/>
+            <point key="canvasLocation" x="2252" y="-1547"/>
         </scene>
         <!--Sec Bus Page-->
         <scene sceneID="bhW-6R-pGp">
