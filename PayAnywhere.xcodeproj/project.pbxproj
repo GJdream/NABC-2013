@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EDE01D3516DED199001743AF /* TradeShowAgentHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE01D3416DED199001743AF /* TradeShowAgentHomeViewController.m */; };
 		EDFE06FC16CC2CE200EED6D6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDFE06FB16CC2CE200EED6D6 /* UIKit.framework */; };
 		EDFE06FE16CC2CE200EED6D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDFE06FD16CC2CE200EED6D6 /* Foundation.framework */; };
 		EDFE070016CC2CE200EED6D6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDFE06FF16CC2CE200EED6D6 /* CoreGraphics.framework */; };
@@ -26,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EDE01D3316DED199001743AF /* TradeShowAgentHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TradeShowAgentHomeViewController.h; sourceTree = "<group>"; };
+		EDE01D3416DED199001743AF /* TradeShowAgentHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TradeShowAgentHomeViewController.m; sourceTree = "<group>"; };
 		EDFE06F816CC2CE200EED6D6 /* PayAnywhere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PayAnywhere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDFE06FB16CC2CE200EED6D6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EDFE06FD16CC2CE200EED6D6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -114,6 +117,8 @@
 				EDFE070A16CC2CE200EED6D6 /* AppDelegate.h */,
 				EDFE070B16CC2CE200EED6D6 /* AppDelegate.m */,
 				EDFE070216CC2CE200EED6D6 /* Supporting Files */,
+				EDE01D3316DED199001743AF /* TradeShowAgentHomeViewController.h */,
+				EDE01D3416DED199001743AF /* TradeShowAgentHomeViewController.m */,
 			);
 			path = PayAnywhere;
 			sourceTree = "<group>";
@@ -206,6 +211,7 @@
 				EDFE072D16CC2D7900EED6D6 /* FirstPage.m in Sources */,
 				EDFE072E16CC2D7900EED6D6 /* SecBusPage.m in Sources */,
 				EDFE072F16CC2D7900EED6D6 /* ViewController.m in Sources */,
+				EDE01D3516DED199001743AF /* TradeShowAgentHomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
