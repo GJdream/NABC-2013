@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14A70B0216E3F31A005AD0CC /* BusinessButton.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 14A70AF916E3F31A005AD0CC /* BusinessButton.PNG */; };
+		14A70B0316E3F31A005AD0CC /* BusinessButtonGray.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 14A70AFA16E3F31A005AD0CC /* BusinessButtonGray.PNG */; };
+		14A70B0416E3F31A005AD0CC /* CardReader.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 14A70AFB16E3F31A005AD0CC /* CardReader.PNG */; };
+		14A70B0516E3F31A005AD0CC /* CreateAccountButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A70AFC16E3F31A005AD0CC /* CreateAccountButton.png */; };
+		14A70B0616E3F31A005AD0CC /* IndivButton.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 14A70AFD16E3F31A005AD0CC /* IndivButton.PNG */; };
+		14A70B0716E3F31A005AD0CC /* IndivButtonGray.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 14A70AFE16E3F31A005AD0CC /* IndivButtonGray.PNG */; };
+		14A70B0816E3F31A005AD0CC /* NABicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A70AFF16E3F31A005AD0CC /* NABicon.png */; };
+		14A70B0916E3F31A005AD0CC /* NABiconCompact.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A70B0016E3F31A005AD0CC /* NABiconCompact.png */; };
+		14A70B0A16E3F31A005AD0CC /* PAandLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A70B0116E3F31A005AD0CC /* PAandLogo.png */; };
 		EDE01D3516DED199001743AF /* TradeShowAgentHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE01D3416DED199001743AF /* TradeShowAgentHomeViewController.m */; };
 		EDFE06FC16CC2CE200EED6D6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDFE06FB16CC2CE200EED6D6 /* UIKit.framework */; };
 		EDFE06FE16CC2CE200EED6D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDFE06FD16CC2CE200EED6D6 /* Foundation.framework */; };
@@ -27,6 +36,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		14A70AF916E3F31A005AD0CC /* BusinessButton.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BusinessButton.PNG; sourceTree = "<group>"; };
+		14A70AFA16E3F31A005AD0CC /* BusinessButtonGray.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BusinessButtonGray.PNG; sourceTree = "<group>"; };
+		14A70AFB16E3F31A005AD0CC /* CardReader.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CardReader.PNG; sourceTree = "<group>"; };
+		14A70AFC16E3F31A005AD0CC /* CreateAccountButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CreateAccountButton.png; sourceTree = "<group>"; };
+		14A70AFD16E3F31A005AD0CC /* IndivButton.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IndivButton.PNG; sourceTree = "<group>"; };
+		14A70AFE16E3F31A005AD0CC /* IndivButtonGray.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IndivButtonGray.PNG; sourceTree = "<group>"; };
+		14A70AFF16E3F31A005AD0CC /* NABicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NABicon.png; sourceTree = "<group>"; };
+		14A70B0016E3F31A005AD0CC /* NABiconCompact.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NABiconCompact.png; sourceTree = "<group>"; };
+		14A70B0116E3F31A005AD0CC /* PAandLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PAandLogo.png; sourceTree = "<group>"; };
 		EDE01D3316DED199001743AF /* TradeShowAgentHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TradeShowAgentHomeViewController.h; sourceTree = "<group>"; };
 		EDE01D3416DED199001743AF /* TradeShowAgentHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TradeShowAgentHomeViewController.m; sourceTree = "<group>"; };
 		EDFE06F816CC2CE200EED6D6 /* PayAnywhere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PayAnywhere.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +89,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		14A70AF816E3F31A005AD0CC /* Buttons-Pictures */ = {
+			isa = PBXGroup;
+			children = (
+				14A70AF916E3F31A005AD0CC /* BusinessButton.PNG */,
+				14A70AFA16E3F31A005AD0CC /* BusinessButtonGray.PNG */,
+				14A70AFB16E3F31A005AD0CC /* CardReader.PNG */,
+				14A70AFC16E3F31A005AD0CC /* CreateAccountButton.png */,
+				14A70AFD16E3F31A005AD0CC /* IndivButton.PNG */,
+				14A70AFE16E3F31A005AD0CC /* IndivButtonGray.PNG */,
+				14A70AFF16E3F31A005AD0CC /* NABicon.png */,
+				14A70B0016E3F31A005AD0CC /* NABiconCompact.png */,
+				14A70B0116E3F31A005AD0CC /* PAandLogo.png */,
+			);
+			path = "Buttons-Pictures";
+			sourceTree = SOURCE_ROOT;
+		};
 		EDFE06EF16CC2CE200EED6D6 = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +160,7 @@
 		EDFE070216CC2CE200EED6D6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				14A70AF816E3F31A005AD0CC /* Buttons-Pictures */,
 				EDFE070316CC2CE200EED6D6 /* PayAnywhere-Info.plist */,
 				EDFE070416CC2CE200EED6D6 /* InfoPlist.strings */,
 				EDFE070716CC2CE200EED6D6 /* main.m */,
@@ -193,6 +228,15 @@
 				EDFE071016CC2CE200EED6D6 /* Default@2x.png in Resources */,
 				EDFE071216CC2CE200EED6D6 /* Default-568h@2x.png in Resources */,
 				EDFE073216CC2DB400EED6D6 /* MainStoryboard.storyboard in Resources */,
+				14A70B0216E3F31A005AD0CC /* BusinessButton.PNG in Resources */,
+				14A70B0316E3F31A005AD0CC /* BusinessButtonGray.PNG in Resources */,
+				14A70B0416E3F31A005AD0CC /* CardReader.PNG in Resources */,
+				14A70B0516E3F31A005AD0CC /* CreateAccountButton.png in Resources */,
+				14A70B0616E3F31A005AD0CC /* IndivButton.PNG in Resources */,
+				14A70B0716E3F31A005AD0CC /* IndivButtonGray.PNG in Resources */,
+				14A70B0816E3F31A005AD0CC /* NABicon.png in Resources */,
+				14A70B0916E3F31A005AD0CC /* NABiconCompact.png in Resources */,
+				14A70B0A16E3F31A005AD0CC /* PAandLogo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
