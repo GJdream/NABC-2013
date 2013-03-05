@@ -76,15 +76,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="DVV-T1-xwM" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="4fI-62-JMI"/>
+                            <constraint firstItem="Mg5-q4-G0n" firstAttribute="top" secondItem="en9-8D-gn2" secondAttribute="top" type="default" id="9cv-AG-zNg"/>
                             <constraint firstItem="DVV-T1-xwM" firstAttribute="top" secondItem="5" secondAttribute="top" constant="18" id="CgA-Pq-C2e"/>
-                            <constraint firstItem="Mg5-q4-G0n" firstAttribute="top" secondItem="5" secondAttribute="top" constant="196" id="GYe-Zb-C4H"/>
                             <constraint firstAttribute="bottom" secondItem="zD0-o7-1sg" secondAttribute="bottom" constant="29" id="KrX-eH-1CY"/>
                             <constraint firstItem="D7U-d2-Xqq" firstAttribute="centerX" secondItem="5" secondAttribute="centerX" type="default" id="TEA-Ny-uaY"/>
                             <constraint firstItem="D7U-d2-Xqq" firstAttribute="top" secondItem="5" secondAttribute="top" constant="55" id="XNg-ot-ggH"/>
+                            <constraint firstItem="en9-8D-gn2" firstAttribute="top" secondItem="5" secondAttribute="top" constant="196" id="YlY-Nn-dAa"/>
+                            <constraint firstItem="en9-8D-gn2" firstAttribute="baseline" secondItem="Mg5-q4-G0n" secondAttribute="baseline" type="default" id="ayT-ic-vTT"/>
                             <constraint firstAttribute="trailing" secondItem="Mg5-q4-G0n" secondAttribute="trailing" constant="181" id="cMN-RH-x0h"/>
                             <constraint firstAttribute="trailing" secondItem="zD0-o7-1sg" secondAttribute="trailing" constant="27" id="cyJ-16-mkK"/>
                             <constraint firstItem="en9-8D-gn2" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="173" id="exV-4h-ZWw"/>
-                            <constraint firstItem="Mg5-q4-G0n" firstAttribute="bottom" secondItem="en9-8D-gn2" secondAttribute="bottom" type="default" id="wr6-GT-WaY"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
