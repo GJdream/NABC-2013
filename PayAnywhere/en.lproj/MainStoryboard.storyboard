@@ -1206,7 +1206,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WvJ-sA-2Mi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1053" y="-1951"/>
+            <point key="canvasLocation" x="-1053" y="-1963"/>
         </scene>
         <!--Trade Show Agent Home View Controller - Agent Home Screen-->
         <scene sceneID="rdK-mu-M74">
@@ -1294,6 +1294,43 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="IndivButtonGray.PNG" width="268" height="71"/>
         <image name="PAandLogo.png" width="520" height="98"/>
     </resources>
+    <classes>
+        <class className="FinishPage" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FinishPage.h"/>
+        </class>
+        <class className="FirstBusPage" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstBusPage.h"/>
+        </class>
+        <class className="FirstIndivPage" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstIndivPage.h"/>
+            <relationships>
+                <relationship kind="action" name="create:"/>
+                <relationship kind="outlet" name="address" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="birth" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="dba" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="email" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="first" candidateClass="NSLayoutConstraint"/>
+                <relationship kind="outlet" name="last" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="phone" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="ssn" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="suitapt" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="term" candidateClass="NSLayoutConstraint"/>
+                <relationship kind="outlet" name="zip" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="FirstPage" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstPage.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="SecBusPage" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SecBusPage.h"/>
+        </class>
+        <class className="TradeShowAgentHomeViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TradeShowAgentHomeViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
