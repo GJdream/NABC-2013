@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface SecBusPage : UIViewController
+{
+    NSMutableDictionary * application;
+}
+
 - (IBAction)weAreA:(id)sender;
     
 @end
