@@ -16,6 +16,8 @@
 		1402E9E416E675590088CFD7 /* NABicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1402E9DB16E675590088CFD7 /* NABicon.png */; };
 		1402E9E516E675590088CFD7 /* NABiconCompact.png in Resources */ = {isa = PBXBuildFile; fileRef = 1402E9DC16E675590088CFD7 /* NABiconCompact.png */; };
 		1402E9E616E675590088CFD7 /* PAandLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 1402E9DD16E675590088CFD7 /* PAandLogo.png */; };
+		140798F916F007BE009AF305 /* BusinessSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 140798F716F007BE009AF305 /* BusinessSelected.png */; };
+		140798FA16F007BE009AF305 /* IndivSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 140798F816F007BE009AF305 /* IndivSelected.png */; };
 		EDE01D3516DED199001743AF /* TradeShowAgentHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE01D3416DED199001743AF /* TradeShowAgentHomeViewController.m */; };
 		EDFE06FC16CC2CE200EED6D6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDFE06FB16CC2CE200EED6D6 /* UIKit.framework */; };
 		EDFE06FE16CC2CE200EED6D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDFE06FD16CC2CE200EED6D6 /* Foundation.framework */; };
@@ -45,6 +47,8 @@
 		1402E9DB16E675590088CFD7 /* NABicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NABicon.png; sourceTree = "<group>"; };
 		1402E9DC16E675590088CFD7 /* NABiconCompact.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NABiconCompact.png; sourceTree = "<group>"; };
 		1402E9DD16E675590088CFD7 /* PAandLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PAandLogo.png; sourceTree = "<group>"; };
+		140798F716F007BE009AF305 /* BusinessSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BusinessSelected.png; sourceTree = "<group>"; };
+		140798F816F007BE009AF305 /* IndivSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IndivSelected.png; sourceTree = "<group>"; };
 		EDE01D3316DED199001743AF /* TradeShowAgentHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TradeShowAgentHomeViewController.h; sourceTree = "<group>"; };
 		EDE01D3416DED199001743AF /* TradeShowAgentHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TradeShowAgentHomeViewController.m; sourceTree = "<group>"; };
 		EDFE06F816CC2CE200EED6D6 /* PayAnywhere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PayAnywhere.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +96,8 @@
 		1402E9D416E675590088CFD7 /* Buttons-Pictures */ = {
 			isa = PBXGroup;
 			children = (
+				140798F716F007BE009AF305 /* BusinessSelected.png */,
+				140798F816F007BE009AF305 /* IndivSelected.png */,
 				1402E9D516E675590088CFD7 /* BusinessButton.PNG */,
 				1402E9D616E675590088CFD7 /* BusinessButtonGray.PNG */,
 				1402E9D716E675590088CFD7 /* CardReader.PNG */,
@@ -237,6 +243,8 @@
 				1402E9E416E675590088CFD7 /* NABicon.png in Resources */,
 				1402E9E516E675590088CFD7 /* NABiconCompact.png in Resources */,
 				1402E9E616E675590088CFD7 /* PAandLogo.png in Resources */,
+				140798F916F007BE009AF305 /* BusinessSelected.png in Resources */,
+				140798FA16F007BE009AF305 /* IndivSelected.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

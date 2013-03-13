@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="FLy-Hy-8FR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12A269" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="FLy-Hy-8FR">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -367,10 +367,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzv-Me-4B1">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="72" id="BQa-GU-8W3"/>
-                                    <constraint firstAttribute="width" constant="268" id="qe7-VH-R2D"/>
+                                    <constraint firstAttribute="width" constant="269" id="nQG-5Y-HMB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="As an Individual" image="IndivButtonGray.PNG">
+                                <state key="normal" title="As an Individual" image="IndivSelected.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1073,7 +1073,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sm3-F5-9Uu">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="268" id="du3-zJ-g9m"/>
+                                    <constraint firstAttribute="width" constant="269" id="TAx-fN-QRt"/>
                                     <constraint firstAttribute="height" constant="72" id="kL5-iB-QjQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -1090,7 +1090,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <constraint firstAttribute="width" constant="269" id="6eF-4X-0p3"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                <state key="normal" title="As A Business" image="BusinessButtonGray.PNG">
+                                <state key="normal" title="As A Business" image="BusinessSelected.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1194,12 +1194,20 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <barButtonItem title="Change Agent" id="C3Z-ju-CXM"/>
                                 </items>
                             </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="PAandLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="7lh-pS-iOv">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="76" id="GFu-XF-fzo"/>
+                                    <constraint firstAttribute="width" constant="390" id="LON-Pq-zr3"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="imB-JM-tlz" firstAttribute="trailing" secondItem="Imt-fV-AbM" secondAttribute="trailing" type="default" id="08z-LJ-Q9o"/>
+                            <constraint firstItem="7lh-pS-iOv" firstAttribute="centerX" secondItem="imB-JM-tlz" secondAttribute="centerX" type="default" id="4EZ-7o-dno"/>
                             <constraint firstItem="imB-JM-tlz" firstAttribute="leading" secondItem="Imt-fV-AbM" secondAttribute="leading" type="default" id="I6B-34-qca"/>
                             <constraint firstItem="imB-JM-tlz" firstAttribute="top" secondItem="Imt-fV-AbM" secondAttribute="top" type="default" id="a9N-Xw-60O"/>
+                            <constraint firstItem="7lh-pS-iOv" firstAttribute="centerY" secondItem="Imt-fV-AbM" secondAttribute="centerY" type="default" id="jQd-Dy-Sdr"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -1289,9 +1297,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
     </scenes>
     <resources>
         <image name="BusinessButtonGray.PNG" width="268" height="71"/>
+        <image name="BusinessSelected.png" width="520" height="120"/>
         <image name="CardReader.PNG" width="212" height="170"/>
         <image name="CreateAccountButton.png" width="587" height="132"/>
         <image name="IndivButtonGray.PNG" width="268" height="71"/>
+        <image name="IndivSelected.png" width="520" height="120"/>
         <image name="PAandLogo.png" width="520" height="98"/>
     </resources>
     <classes>
@@ -1337,6 +1347,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="wZz-hg-BBJ"/>
+        <segue reference="XIB-tJ-dx5"/>
     </inferredMetricsTieBreakers>
 </document>
