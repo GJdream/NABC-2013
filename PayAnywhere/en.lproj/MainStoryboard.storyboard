@@ -31,7 +31,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="uvt-9w-sfQ" kind="push" id="jNM-Wa-Akd"/>
+                                    <action selector="individual:" destination="2" eventType="touchUpInside" id="5c0-kU-RDE"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mg5-q4-G0n">
@@ -47,7 +47,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="xwO-6K-79D" kind="push" id="Fiy-Dr-TsA"/>
+                                    <action selector="business:" destination="2" eventType="touchUpInside" id="N3h-TQ-Hwp"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zD0-o7-1sg">
@@ -91,6 +91,10 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="P1o-oV-4gs"/>
                     </navigationItem>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <segue destination="uvt-9w-sfQ" kind="push" identifier="FirstIndividualSegue" id="C5C-ug-2y2"/>
+                        <segue destination="xwO-6K-79D" kind="push" identifier="FirstBusinessSegue" id="Iqd-Nv-uz2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
             </objects>
@@ -144,6 +148,9 @@
                                 </constraints>
                                 <date key="date" timeIntervalSinceReferenceDate="382477736.82221699">
                                     <!--2013-02-13 19:48:56 +0000-->
+                                </date>
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="-3187254469">
+                                    <!--1900-01-01 11:32:11 +0000-->
                                 </date>
                                 <timeZone key="timeZone" name="America/Los_Angeles">
                                     <data key="data">
@@ -346,7 +353,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </state>
                                 <connections>
                                     <action selector="create:" destination="uvt-9w-sfQ" eventType="touchUpInside" id="Zai-Cg-11A"/>
-                                    <segue destination="Wgt-Ge-yuk" kind="push" id="Rza-8T-ZDn"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jdn-s6-B1a">
@@ -478,11 +484,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </view>
                     <navigationItem key="navigationItem" id="Rpv-DN-Azo">
                         <barButtonItem key="backBarButtonItem" title="Cancel" id="5AQ-hy-Nga"/>
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="R7M-0a-IFe">
-                            <connections>
-                                <segue destination="Wgt-Ge-yuk" kind="push" id="XIB-tJ-dx5"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="R7M-0a-IFe"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -498,6 +500,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="suitapt" destination="c7y-CR-09l" id="NBr-43-qyD"/>
                         <outlet property="term" destination="Cuh-zx-HYN" id="f5O-23-qXd"/>
                         <outlet property="zip" destination="p4J-et-xkt" id="x4L-rL-4CY"/>
+                        <segue destination="Wgt-Ge-yuk" kind="push" identifier="FinishSegue" id="01R-D6-mqr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kh4-nU-sge" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1383,6 +1386,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="XIB-tJ-dx5"/>
+        <segue reference="01R-D6-mqr"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -11,5 +11,6 @@
 #import <UIKit/UIKit.h>
 
 @interface FinishPage : UIViewController
-
+{}
+@property(strong, nonatomic) NSMutableDictionary * application;
 @end
