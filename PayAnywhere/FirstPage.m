@@ -40,13 +40,13 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"FirstIndividualSegue"]) {
-        [self.application setObject:@"individual" forKey:@"ApplicationType"];
+        [self.application setObject:@"individual" forKey:@"Application Type"];
         FirstIndivPage * indivPage = segue.destinationViewController;
         indivPage.application = self.application;
     }
     else if ([segue.identifier isEqualToString:@"FirstBusinessSegue"])
     {
-        [self.application setObject:@"business" forKey:@"ApplicationType"];
+        [self.application setObject:@"business" forKey:@"Application Type"];
         FirstBusPage * busPage = segue.destinationViewController;
         busPage.application = self.application;
     }
