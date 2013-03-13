@@ -7,6 +7,8 @@
 //
 
 #import "FirstPage.h"
+#import "FirstBusPage.h"
+#import "FirstIndivPage.h"
 
 @interface FirstPage ()
 
@@ -26,13 +28,37 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	self.application = [[NSMutableDictionary alloc] init];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"FirstIndividualSegue"]) {
+        [self.application setObject:@"individual" forKey:@"ApplicationType"];
+        FirstIndivPage * indivPage = segue.destinationViewController;
+        indivPage.application = self.application;
+    }
+    else if ([segue.identifier isEqualToString:@"FirstBusinessSegue"])
+    {
+        [self.application setObject:@"business" forKey:@"ApplicationType"];
+        FirstBusPage * busPage = segue.destinationViewController;
+        busPage.application = self.application;
+    }
+  
+}
+
+- (IBAction)business:(id)sender {
+    [self performSegueWithIdentifier:@"FirstBusinessSegue" sender:nil];
+}
+
+- (IBAction)individual:(id)sender {
+    [self performSegueWithIdentifier:@"FirstIndividualSegue" sender:nil];
 }
 
 @end

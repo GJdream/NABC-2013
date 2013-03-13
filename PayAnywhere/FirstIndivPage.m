@@ -8,6 +8,7 @@
 
 #import "FirstIndivPage.h"
 
+
 @interface FirstIndivPage ()
 
 @end
@@ -26,6 +27,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSLog(@"application dictionary: %@", self.application);
     
     self.last.delegate = self;
     self.email.delegate = self;
@@ -52,9 +55,7 @@
 
 }
 
-
-#pragma mark
-#pragma mark Text Field Delegate
+#pragma mark - Text Field Delegate
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     if (textField.tag == 1) {
@@ -98,7 +99,14 @@
     return YES;
 }
 
+#pragma mark - Segue
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"FinishSegue"]) {
+        <#statements#>
+    }
+}
 
 
 

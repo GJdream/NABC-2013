@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface FirstBusPage : UIViewController
+{
+}
+
+@property (strong, nonatomic) NSMutableDictionary * application;
 
 @end

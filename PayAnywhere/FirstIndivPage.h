@@ -7,23 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FinishPage.h"
 
 @interface FirstIndivPage : UIViewController<UITextFieldDelegate>
 {
-    NSMutableDictionary * userInfo;
 }
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *first;
-@property (weak, nonatomic) IBOutlet UITextField *last;
-@property (weak, nonatomic) IBOutlet UITextField *email;
-@property (weak, nonatomic) IBOutlet UIButton *birth;
-@property (weak, nonatomic) IBOutlet UITextField *phone;
-@property (weak, nonatomic) IBOutlet UITextField *address;
-@property (weak, nonatomic) IBOutlet UITextField *suitapt;
-@property (weak, nonatomic) IBOutlet UITextField *zip;
-@property (weak, nonatomic) IBOutlet UITextField *ssn;
-@property (weak, nonatomic) IBOutlet UITextField *dba;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *term;
+@property (strong, nonatomic) NSMutableDictionary * application;
+
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *first;
+@property (strong, nonatomic) IBOutlet UITextField *last;
+@property (strong, nonatomic) IBOutlet UITextField *email;
+@property (strong, nonatomic) IBOutlet UIButton *birth;
+@property (strong, nonatomic) IBOutlet UITextField *phone;
+@property (strong, nonatomic) IBOutlet UITextField *address;
+@property (strong, nonatomic) IBOutlet UITextField *suitapt;
+@property (strong, nonatomic) IBOutlet UITextField *zip;
+@property (strong, nonatomic) IBOutlet UITextField *ssn;
+@property (strong, nonatomic) IBOutlet UITextField *dba;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *term;
 
 - (IBAction)create:(id)sender;
 
