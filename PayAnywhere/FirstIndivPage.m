@@ -104,7 +104,8 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"FinishSegue"]) {
-        <#statements#>
+        FinishPage * finishPage = segue.destinationViewController;
+        finishPage.application = self.application;
     }
 }
 
