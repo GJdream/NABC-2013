@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SecBusPage : UIViewController
-
+- (IBAction)weAreA:(id)sender;
+    
 @end

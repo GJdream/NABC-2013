@@ -19,6 +19,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
     }
     return self;
 }
@@ -35,4 +36,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)weAreA:(id)sender {
+    
+}
 @end
