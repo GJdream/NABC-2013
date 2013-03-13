@@ -15,13 +15,14 @@
 
 @property (strong, nonatomic) NSMutableDictionary * application;
 
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *first;
+
+@property (strong, nonatomic) IBOutlet UITextField *first;
 @property (strong, nonatomic) IBOutlet UITextField *last;
 @property (strong, nonatomic) IBOutlet UITextField *email;
 @property (strong, nonatomic) IBOutlet UIButton *birth;
 @property (strong, nonatomic) IBOutlet UITextField *phone;
 @property (strong, nonatomic) IBOutlet UITextField *address;
-@property (strong, nonatomic) IBOutlet UITextField *suitapt;
+@property (strong, nonatomic) IBOutlet UITextField *suiteApt;
 @property (strong, nonatomic) IBOutlet UITextField *zip;
 @property (strong, nonatomic) IBOutlet UITextField *ssn;
 @property (strong, nonatomic) IBOutlet UITextField *dba;

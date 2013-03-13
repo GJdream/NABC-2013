@@ -34,7 +34,7 @@
     self.email.delegate = self;
     self.phone.delegate = self;
     self.address.delegate = self;
-    self.suitapt.delegate = self;
+    self.suiteApt.delegate = self;
     self.zip.delegate = self;
     self.ssn.delegate = self;
     self.dba.delegate = self;
@@ -50,9 +50,7 @@
 }
 
 - (IBAction)create:(id)sender {
-
-//hopefully this works.
-
+    [self performSegueWithIdentifier:@"FinishSegue" sender:nil];
 }
 
 #pragma mark - Text Field Delegate
@@ -65,7 +63,7 @@
         [self.phone becomeFirstResponder];
     }
     else if (textField.tag == 4){
-        [self.suitapt becomeFirstResponder];
+        [self.suiteApt becomeFirstResponder];
     }
     else if (textField.tag == 5){
         [self.zip becomeFirstResponder];
@@ -104,6 +102,17 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"FinishSegue"]) {
+        
+        [self.application setObject:self.first.text forKey:@"First Name"];
+        [self.application setObject:self.last.text forKey:@"Last Name"];
+        [self.application setObject:self.email.text forKey:@"Email Address"];
+        [self.application setObject:self.phone.text forKey:@"Phone Number"];
+        [self.application setObject:self.address.text forKey:@"Residential Address"];
+        [self.application setObject:self.suiteApt.text forKey:@"Suite/Apartment"];
+        [self.application setObject:self.zip.text forKey:@"Zip Code"];
+        [self.application setObject:self.ssn.text forKey:@"SSN"];
+        [self.application setObject:self.dba.text forKey:@"DBA"];
+        
         FinishPage * finishPage = segue.destinationViewController;
         finishPage.application = self.application;
     }
