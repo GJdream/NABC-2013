@@ -13,6 +13,11 @@
 
 @end
 
+@interface NSDictionary(JSONCategories)
++(NSDictionary*)dictionaryWithContentsOfJSONURLString:
+(NSString*)urlAddress;
+@end
+
 @implementation FirstIndivPage
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -138,7 +143,7 @@
             
         NSString *postLength = [NSString stringWithFormat:@"%d", [jsonData length]];
         
-        NSLog(@"jsonData: %@", jsonData);
+        //NSLog(@"jsonData: %@", jsonData);
 
         //Make the JSON request
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
