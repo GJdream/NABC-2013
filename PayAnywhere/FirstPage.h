@@ -13,7 +13,6 @@
 }
 
 @property(strong, nonatomic) NSMutableDictionary * application;
-
 - (IBAction)business:(id)sender;
 
 - (IBAction)individual:(id)sender;

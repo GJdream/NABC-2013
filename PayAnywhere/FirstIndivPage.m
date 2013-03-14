@@ -13,6 +13,36 @@
 
 @end
 
+@interface NSDictionary(JSONCategories)
++(NSDictionary*)dictionaryWithContentsOfJSONURLString:
+(NSString*)urlAddress;
+-(NSData*)toJSON;
+@end
+
+@implementation NSDictionary(JSONCategories)
++(NSDictionary*)dictionaryWithContentsOfJSONURLString:
+(NSString*)urlAddress
+{
+    NSData* data = [NSData dataWithContentsOfURL:
+                    [NSURL URLWithString: urlAddress] ];
+    __autoreleasing NSError* error = nil;
+    id result = [NSJSONSerialization JSONObjectWithData:data
+                                                options:kNilOptions error:&error];
+    if (error != nil) return nil;
+    return result;
+}
+
+-(NSData*)toJSON
+{
+    NSError* error = nil;
+    id result = [NSJSONSerialization dataWithJSONObject:self
+                                                options:kNilOptions error:&error];
+    if (error != nil) return nil;
+    return result;
+}
+@end
+
+
 @implementation FirstIndivPage
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -112,6 +142,20 @@
         [self.application setObject:self.zip.text forKey:@"Zip Code"];
         [self.application setObject:self.ssn.text forKey:@"SSN"];
         [self.application setObject:self.dba.text forKey:@"DBA"];
+        
+        NSMutableDictionary *nameElements = [NSMutableDictionary dictionary];
+        
+        [nameElements setObject:self.first.text forKey:@"First Name"];
+        [nameElements setObject:self.last.text forKey:@"Last Name"];
+        [nameElements setObject:self.email.text forKey:@"Email Address"];
+        [nameElements setObject:self.phone.text forKey:@"Phone Number"];
+        [nameElements setObject:self.address.text forKey:@"Residential Address"];
+        [nameElements setObject:self.suiteApt.text forKey:@"Suite/Apartment"];
+        [nameElements setObject:self.zip.text forKey:@"Zip Code"];
+        [nameElements setObject:self.ssn.text forKey:@"SSN"];
+        [nameElements setObject:self.dba.text forKey:@"DBA"];
+        
+//        NSString* jsonString = [nameElements JSONString];
         
         FinishPage * finishPage = segue.destinationViewController;
         finishPage.application = self.application;

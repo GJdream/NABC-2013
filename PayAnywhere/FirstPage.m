@@ -59,6 +59,8 @@
 
 - (IBAction)individual:(id)sender {
     [self performSegueWithIdentifier:@"FirstIndividualSegue" sender:nil];
+
 }
+
 
 @end
