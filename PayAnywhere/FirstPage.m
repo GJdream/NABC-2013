@@ -39,7 +39,8 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"FirstIndividualSegue"]) {
+    if ([segue.identifier isEqualToString:@"FirstIndividualSegue"])
+    {
         [self.application setObject:@"individual" forKey:@"Application Type"];
         FirstIndivPage * indivPage = segue.destinationViewController;
         indivPage.application = self.application;

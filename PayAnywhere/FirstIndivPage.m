@@ -13,36 +13,6 @@
 
 @end
 
-@interface NSDictionary(JSONCategories)
-+(NSDictionary*)dictionaryWithContentsOfJSONURLString:
-(NSString*)urlAddress;
--(NSData*)toJSON;
-@end
-
-@implementation NSDictionary(JSONCategories)
-+(NSDictionary*)dictionaryWithContentsOfJSONURLString:
-(NSString*)urlAddress
-{
-    NSData* data = [NSData dataWithContentsOfURL:
-                    [NSURL URLWithString: urlAddress] ];
-    __autoreleasing NSError* error = nil;
-    id result = [NSJSONSerialization JSONObjectWithData:data
-                                                options:kNilOptions error:&error];
-    if (error != nil) return nil;
-    return result;
-}
-
--(NSData*)toJSON
-{
-    NSError* error = nil;
-    id result = [NSJSONSerialization dataWithJSONObject:self
-                                                options:kNilOptions error:&error];
-    if (error != nil) return nil;
-    return result;
-}
-@end
-
-
 @implementation FirstIndivPage
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -143,6 +113,9 @@
         [self.application setObject:self.ssn.text forKey:@"SSN"];
         [self.application setObject:self.dba.text forKey:@"DBA"];
         
+        NSLog(@"self: %@", self);
+
+        //Create a dictionary with the information from the text fields
         NSMutableDictionary *nameElements = [NSMutableDictionary dictionary];
         
         [nameElements setObject:self.first.text forKey:@"First Name"];
@@ -155,8 +128,35 @@
         [nameElements setObject:self.ssn.text forKey:@"SSN"];
         [nameElements setObject:self.dba.text forKey:@"DBA"];
         
-//        NSString* jsonString = [nameElements JSONString];
+        NSLog(@"nameElements: %@", nameElements);
         
+        //Create JSON using nameElements
+        NSError *error;
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:nameElements
+                                                           options:0
+                                                             error:&error];
+            
+        NSString *postLength = [NSString stringWithFormat:@"%d", [jsonData length]];
+        
+        NSLog(@"jsonData: %@", jsonData);
+
+        //Make the JSON request
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+        
+        //URL for individual POST
+        [request setURL:[NSURL URLWithString:@"http://141.212.105.78:8080/app.php/individual/"]];
+        [request setHTTPMethod:@"POST"];
+        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+        [request setValue:@"application/x-www-form-urlencoded;charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPBody:jsonData];
+        
+        //Create and recieve the response from the server
+        NSURLResponse *response;
+        NSData *POSTReply = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+        NSString *theReply = [[NSString alloc] initWithBytes:[POSTReply bytes] length:[POSTReply length] encoding: NSASCIIStringEncoding];
+        NSLog(@"Reply: %@", theReply);
+
+                
         FinishPage * finishPage = segue.destinationViewController;
         finishPage.application = self.application;
     }

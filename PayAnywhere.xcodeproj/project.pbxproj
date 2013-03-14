@@ -18,6 +18,7 @@
 		1402E9E616E675590088CFD7 /* PAandLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 1402E9DD16E675590088CFD7 /* PAandLogo.png */; };
 		140798F916F007BE009AF305 /* BusinessSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 140798F716F007BE009AF305 /* BusinessSelected.png */; };
 		140798FA16F007BE009AF305 /* IndivSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 140798F816F007BE009AF305 /* IndivSelected.png */; };
+		147721B616F249300015677E /* FinishButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 147721B516F249300015677E /* FinishButton.png */; };
 		14B47A7F16F111ED00197699 /* TradeShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B47A7E16F111ED00197699 /* TradeShow.m */; };
 		14B47A8316F1128100197699 /* Agent.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B47A8216F1128100197699 /* Agent.m */; };
 		14B47A8616F1129B00197699 /* Application.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B47A8516F1129B00197699 /* Application.m */; };
@@ -56,6 +57,7 @@
 		1402E9DD16E675590088CFD7 /* PAandLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PAandLogo.png; sourceTree = "<group>"; };
 		140798F716F007BE009AF305 /* BusinessSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BusinessSelected.png; sourceTree = "<group>"; };
 		140798F816F007BE009AF305 /* IndivSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IndivSelected.png; sourceTree = "<group>"; };
+		147721B516F249300015677E /* FinishButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FinishButton.png; path = ../FinishButton.png; sourceTree = "<group>"; };
 		14B47A7D16F111ED00197699 /* TradeShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TradeShow.h; path = Classes/TradeShow.h; sourceTree = "<group>"; };
 		14B47A7E16F111ED00197699 /* TradeShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TradeShow.m; path = Classes/TradeShow.m; sourceTree = "<group>"; };
 		14B47A8116F1128100197699 /* Agent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Agent.h; path = Classes/Agent.h; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 		1402E9D416E675590088CFD7 /* Buttons-Pictures */ = {
 			isa = PBXGroup;
 			children = (
+				147721B516F249300015677E /* FinishButton.png */,
 				14ECA6A716F14509009EEEF1 /* BusinessButtonSelected2.png */,
 				14ECA6A816F14509009EEEF1 /* BusinessButtonUnselected2.png */,
 				14ECA6A116F1412C009EEEF1 /* IndivButtonSelected2.png */,
@@ -284,6 +287,7 @@
 				14ECA6A616F1412C009EEEF1 /* IndivButtonUnselected2.png in Resources */,
 				14ECA6A916F14509009EEEF1 /* BusinessButtonSelected2.png in Resources */,
 				14ECA6AA16F14509009EEEF1 /* BusinessButtonUnselected2.png in Resources */,
+				147721B616F249300015677E /* FinishButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
