@@ -537,19 +537,18 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <constraint firstAttribute="width" constant="328" id="wQt-qK-AHO"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rBc-R4-Bpg">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="qop-Kb-lTo"/>
-                                    <constraint firstAttribute="width" constant="45" id="r7l-Z7-z3a"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rBc-R4-Bpg">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" backgroundImage="radio_uncheck.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="radioButtonOneClicked:" destination="Wgt-Ge-yuk" eventType="touchUpInside" id="aXF-bD-DI3"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="I already have a PayAnywhere Credit Card Reader" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vh3-KS-ye7">
                                 <constraints>
@@ -560,18 +559,18 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zDP-zw-5oG">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="38" id="ZyJ-14-F0B"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zDP-zw-5oG">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" backgroundImage="radio_uncheck.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="radioButtonTwoClicked:" destination="Wgt-Ge-yuk" eventType="touchUpInside" id="UwZ-zP-XY3"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Please send a free PayAnywhere Credit Card Reader to :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z9v-gn-bTu">
                                 <constraints>
@@ -582,20 +581,23 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uHI-nn-93B">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Address" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="213" translatesAutoresizingMaskIntoConstraints="NO" id="uHI-nn-93B">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="170" id="Fb3-qY-TdZ"/>
                                     <constraint firstAttribute="height" constant="71" id="au7-Ci-BVl"/>
+                                    <constraint firstAttribute="width" constant="213" id="pV2-i4-xwt"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H8V-XC-VA6">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="cgn-yh-Sv1"/>
+                                    <constraint firstAttribute="width" constant="88" id="fXE-du-aaY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Change">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -620,29 +622,31 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <constraints>
                             <constraint firstItem="kbK-bI-N5X" firstAttribute="leading" secondItem="qiE-VB-YYp" secondAttribute="leading" constant="42" id="1fp-IL-8um"/>
                             <constraint firstItem="Vh3-KS-ye7" firstAttribute="top" secondItem="qiE-VB-YYp" secondAttribute="top" constant="149" id="1oB-vC-j6Q"/>
-                            <constraint firstItem="rBc-R4-Bpg" firstAttribute="leading" secondItem="qiE-VB-YYp" secondAttribute="leading" constant="411" id="AQR-8Y-aVK"/>
-                            <constraint firstItem="z9v-gn-bTu" firstAttribute="baseline" secondItem="zDP-zw-5oG" secondAttribute="baseline" type="default" id="Bwb-3P-dWG"/>
-                            <constraint firstItem="rBc-R4-Bpg" firstAttribute="top" secondItem="qiE-VB-YYp" secondAttribute="top" constant="169" id="CVE-f4-jhv"/>
+                            <constraint firstItem="rBc-R4-Bpg" firstAttribute="leading" secondItem="qiE-VB-YYp" secondAttribute="leading" constant="429" id="7gC-ig-qOH"/>
                             <constraint firstItem="OD9-rM-KBL" firstAttribute="top" secondItem="qiE-VB-YYp" secondAttribute="top" constant="48" id="EGH-Q2-4kq"/>
-                            <constraint firstItem="z9v-gn-bTu" firstAttribute="centerY" secondItem="zDP-zw-5oG" secondAttribute="centerY" type="default" id="F0x-Hw-bXb"/>
-                            <constraint firstItem="zDP-zw-5oG" firstAttribute="top" secondItem="qiE-VB-YYp" secondAttribute="top" constant="248" id="I1d-e5-Tmh"/>
-                            <constraint firstItem="zDP-zw-5oG" firstAttribute="trailing" secondItem="rBc-R4-Bpg" secondAttribute="trailing" type="default" id="PQZ-LJ-kC0"/>
+                            <constraint firstItem="kbK-bI-N5X" firstAttribute="top" secondItem="rBc-R4-Bpg" secondAttribute="top" type="default" id="FhZ-hG-dyo"/>
                             <constraint firstItem="uHI-nn-93B" firstAttribute="top" secondItem="qiE-VB-YYp" secondAttribute="top" constant="315" id="PTV-3S-Ffa"/>
                             <constraint firstItem="kbK-bI-N5X" firstAttribute="top" secondItem="qiE-VB-YYp" secondAttribute="top" constant="170" id="R4M-QG-s6r"/>
-                            <constraint firstItem="OD9-rM-KBL" firstAttribute="leading" secondItem="qiE-VB-YYp" secondAttribute="leading" constant="239" id="TE9-m2-cbS"/>
+                            <constraint firstItem="zDP-zw-5oG" firstAttribute="centerY" secondItem="z9v-gn-bTu" secondAttribute="centerY" type="default" id="SCa-Q5-vkg"/>
+                            <constraint firstItem="zDP-zw-5oG" firstAttribute="top" secondItem="qiE-VB-YYp" secondAttribute="top" constant="252" id="Xug-ml-2qy"/>
                             <constraint firstItem="Vh3-KS-ye7" firstAttribute="leading" secondItem="qiE-VB-YYp" secondAttribute="leading" constant="500" id="aM2-vN-Vta"/>
+                            <constraint firstItem="OD9-rM-KBL" firstAttribute="leading" secondItem="qiE-VB-YYp" secondAttribute="leading" constant="239" id="aiI-Em-r2q"/>
+                            <constraint firstItem="zDP-zw-5oG" firstAttribute="leading" secondItem="rBc-R4-Bpg" secondAttribute="leading" type="default" id="cfv-UI-SlQ"/>
                             <constraint firstItem="z9v-gn-bTu" firstAttribute="leading" secondItem="Vh3-KS-ye7" secondAttribute="leading" type="default" id="gTO-yf-tGs"/>
+                            <constraint firstAttribute="trailing" secondItem="H8V-XC-VA6" secondAttribute="trailing" constant="181" id="lhR-vR-41a"/>
                             <constraint firstItem="sqz-zh-dEq" firstAttribute="leading" secondItem="qiE-VB-YYp" secondAttribute="leading" constant="445" id="m5p-km-86A"/>
+                            <constraint firstItem="H8V-XC-VA6" firstAttribute="top" secondItem="qiE-VB-YYp" secondAttribute="top" constant="329" id="mVT-wj-aty"/>
                             <constraint firstItem="uHI-nn-93B" firstAttribute="leading" secondItem="z9v-gn-bTu" secondAttribute="leading" type="default" id="oQu-tF-kds"/>
                             <constraint firstAttribute="bottom" secondItem="sqz-zh-dEq" secondAttribute="bottom" constant="121" id="vXp-6m-GmE"/>
-                            <constraint firstItem="H8V-XC-VA6" firstAttribute="centerY" secondItem="uHI-nn-93B" secondAttribute="centerY" type="default" id="vqp-nI-njb"/>
-                            <constraint firstItem="H8V-XC-VA6" firstAttribute="leading" secondItem="uHI-nn-93B" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="z7a-SP-8eW"/>
-                            <constraint firstItem="zDP-zw-5oG" firstAttribute="leading" secondItem="rBc-R4-Bpg" secondAttribute="leading" type="default" id="zaC-xu-MXy"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" id="vj1-Cd-BSK"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="radioButtonOne" destination="rBc-R4-Bpg" id="gld-b4-65o"/>
+                        <outlet property="radioButtonTwo" destination="zDP-zw-5oG" id="Cav-8B-fUk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6YW-Du-1ko" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1357,6 +1361,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="IndivButtonSelected2.png" width="520" height="120"/>
         <image name="IndivButtonUnselected2.png" width="520" height="120"/>
         <image name="PAandLogo.png" width="520" height="98"/>
+        <image name="radio_uncheck.png" width="30" height="30"/>
     </resources>
     <classes>
         <class className="BirthdayViewController" superclassName="UIViewController">
@@ -1375,6 +1380,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         </class>
         <class className="FinishPage" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FinishPage.h"/>
+            <relationships>
+                <relationship kind="action" name="radioButtonOneClicked:"/>
+                <relationship kind="action" name="radioButtonTwoClicked:"/>
+                <relationship kind="outlet" name="radioButtonOne" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="radioButtonTwo" candidateClass="UIButton"/>
+            </relationships>
         </class>
         <class className="FirstBusPage" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstBusPage.h"/>
@@ -1386,6 +1397,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstIndivPage.h"/>
             <relationships>
                 <relationship kind="action" name="create:"/>
+                <relationship kind="action" name="firstEdited:"/>
                 <relationship kind="action" name="togglePopover:"/>
                 <relationship kind="outlet" name="address" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="birth" candidateClass="UIButton"/>

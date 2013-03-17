@@ -16,4 +16,10 @@
 
 @property(strong, nonatomic) NSMutableDictionary * application;
 
+@property (strong, nonatomic) IBOutlet UIButton *radioButtonOne;
+- (IBAction)radioButtonOneClicked:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *radioButtonTwo;
+- (IBAction)radioButtonTwoClicked:(id)sender;
+
+
 @end
