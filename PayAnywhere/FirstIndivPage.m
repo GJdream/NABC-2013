@@ -165,15 +165,51 @@
         FinishPage * finishPage = segue.destinationViewController;
         finishPage.application = self.application;
     }
+    
+    //birth pop seague
+    if ([[segue identifier] isEqualToString:@"birthPopIndiv"]) {
+        currentPopoverSegue = (UIStoryboardPopoverSegue *)segue;
+        pvc = [segue destinationViewController];
+        [pvc setDelegate:self];
+    }
 }
 
+// birth pop
+@synthesize birth;
+@synthesize currentPopoverSegue;
+@synthesize pvc;
+@synthesize birthday;
 
 
+- (void)birthdayViewControllerIndivDidFinish:(BirthdayViewControllerIndiv *)controller
+{
+    [self.birthdayPopoverController dismissPopoverAnimated:YES];
+    self.birthdayPopoverController = nil;
+}
 
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
+{
+    self.birthdayPopoverController = nil;
+}
 
+- (IBAction)togglePopover:(id)sender
+{
+    if (self.birthdayPopoverController) {
+        [self.birthdayPopoverController dismissPopoverAnimated:YES];
+        self.birthdayPopoverController = nil;
+    } else {
+        [self performSegueWithIdentifier:@"showAlternate" sender:sender];
+    }
+}
 
-
-
+- (void)dismissPop: (NSDate *)date {
+    NSString *dateString = [NSDateFormatter localizedStringFromDate:date
+                                                          dateStyle:NSDateFormatterLongStyle
+                                                          timeStyle:NSDateFormatterNoStyle];
+    NSLog(@"%@",dateString);
+    
+    [birth setTitle:dateString forState:UIControlStateNormal];
+}
 
 
 @end

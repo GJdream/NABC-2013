@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 NAB. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "FinishPage.h"
+#import "birthdayViewControllerIndiv.h"
 
-@interface FirstIndivPage : UIViewController<UITextFieldDelegate>
+@interface FirstIndivPage : UIViewController<UITextFieldDelegate, BirthdayViewControllerIndivDelegate, UIPopoverControllerDelegate>
 {
 }
 
@@ -30,6 +30,10 @@
 
 - (IBAction)create:(id)sender;
 
-
+//birth pop
+@property (strong, nonatomic) UIPopoverController * birthdayPopoverController;
+@property (strong, nonatomic) NSDate *birthday;
+@property (strong, nonatomic) UIStoryboardPopoverSegue *currentPopoverSegue;
+@property (strong, nonatomic) BirthdayViewControllerIndiv *pvc;
 
 @end

@@ -55,11 +55,11 @@
 }
 
 - (IBAction)business:(id)sender {
-    [self performSegueWithIdentifier:@"FirstBusinessSegue" sender:nil];
+    [self performSegueWithIdentifier:@"FirstIndividualSegue" sender:nil];
 }
 
 - (IBAction)individual:(id)sender {
-    [self performSegueWithIdentifier:@"FirstIndividualSegue" sender:nil];
+    [self performSegueWithIdentifier:@"FirstBusinessSegue" sender:nil];
 
 }
 

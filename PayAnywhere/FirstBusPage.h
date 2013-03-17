@@ -6,12 +6,19 @@
 //  Copyright (c) 2013 NAB. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "birthdayViewController.h"
 
-@interface FirstBusPage : UIViewController
+@interface FirstBusPage : UIViewController <BirthdayViewControllerDelegate, UIPopoverControllerDelegate>
 {
 }
 
 @property (strong, nonatomic) NSMutableDictionary * application;
+
+@property (strong, nonatomic) IBOutlet UIButton *birthdayButton;
+
+@property (strong, nonatomic) UIPopoverController * birthdayPopoverController;
+@property (strong, nonatomic) NSDate *birthday;
+@property (strong, nonatomic) UIStoryboardPopoverSegue *currentPopoverSegue;
+@property (strong, nonatomic) BirthdayViewController *pvc;
 
 @end
