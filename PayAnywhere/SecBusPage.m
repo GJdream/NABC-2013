@@ -14,6 +14,11 @@
 
 @implementation SecBusPage
 
+@synthesize typeButton;
+@synthesize currentPopoverSeague;
+@synthesize pvc;
+//@synthesize type;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -82,5 +87,32 @@
 
 - (IBAction)weAreA:(id)sender {
     
+}
+
+//type
+
+- (void)typePickerViewControllerDidFinish:(TypePickerViewController *)controller
+{
+    [self.typePopoverController dismissPopoverAnimated:YES];
+    self.typePopoverController = nil;
+}
+
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
+{
+    self.typePopoverController = nil;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"selectedType"]) {
+        currentPopoverSeague = (UIStoryboardPopoverSegue *)segue;
+        pvc = [segue destinationViewController];
+        [pvc setDelegate:self];
+    }
+}
+
+- (void)dismissPop:(NSString *)type {
+    [typeButton setTitle:type forState:UIControlStateNormal];
+    //[[currentPopoverSeague popoverController] dismissPopoverAnimated: YES];
 }
 @end
