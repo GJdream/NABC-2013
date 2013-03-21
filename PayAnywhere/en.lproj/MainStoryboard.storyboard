@@ -970,18 +970,21 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UGn-K3-LDf">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UGn-K3-LDf">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="29" id="QWt-3m-ThM"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                <state key="normal">
+                                <state key="normal" image="checkboxSelected.png">
                                     <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="toggleBusFields:" destination="xwO-6K-79D" eventType="touchUpInside" id="bCa-Ac-gBf"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="PAandLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="JwI-Lb-aft">
                                 <constraints>
@@ -1064,7 +1067,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ui9-fi-dIv">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Suite / Apt #" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ui9-fi-dIv">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -1137,6 +1140,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g0h-mn-nhf">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -1148,7 +1152,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6FL-lb-wpJ">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Suite / Apt #" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6FL-lb-wpJ">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -1158,6 +1163,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Zip Code" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3jS-RU-izl">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -1205,6 +1211,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <constraint firstItem="cQQ-SV-6te" firstAttribute="leading" secondItem="XHq-2r-oD2" secondAttribute="leading" constant="146" id="R1u-gj-kQa"/>
                             <constraint firstItem="Tiw-j5-Hzp" firstAttribute="top" secondItem="Ntx-sq-wIG" secondAttribute="top" type="default" id="Rea-eR-keg"/>
                             <constraint firstItem="9yu-uU-eZE" firstAttribute="trailing" secondItem="AEY-hV-Kdd" secondAttribute="trailing" type="default" id="SIj-0x-aAr"/>
+                            <constraint firstItem="dzP-ZK-DLP" firstAttribute="bottom" secondItem="g0h-mn-nhf" secondAttribute="bottom" type="default" id="T0c-yF-550"/>
                             <constraint firstItem="Lhf-DD-qW9" firstAttribute="trailing" secondItem="esr-Hi-DmR" secondAttribute="trailing" type="default" id="Vfu-XQ-bru"/>
                             <constraint firstItem="IaU-lM-t2b" firstAttribute="trailing" secondItem="8ke-0f-GPi" secondAttribute="trailing" type="default" id="Wjy-Cd-Gmb"/>
                             <constraint firstItem="Lzk-FN-hGB" firstAttribute="trailing" secondItem="esr-Hi-DmR" secondAttribute="trailing" type="default" id="Xpq-Sg-02r"/>
@@ -1236,7 +1243,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <constraint firstItem="JwI-Lb-aft" firstAttribute="top" secondItem="XHq-2r-oD2" secondAttribute="top" constant="20" symbolic="YES" type="default" id="rsC-qE-hxW"/>
                             <constraint firstItem="Trd-2X-hea" firstAttribute="trailing" secondItem="ui9-fi-dIv" secondAttribute="trailing" type="default" id="stp-6d-NnC"/>
                             <constraint firstItem="C2j-fn-J6U" firstAttribute="baseline" secondItem="cuh-e6-G9p" secondAttribute="baseline" type="default" id="sx2-A3-DWj"/>
-                            <constraint firstItem="dzP-ZK-DLP" firstAttribute="bottom" secondItem="g0h-mn-nhf" secondAttribute="bottom" type="default" id="uEQ-FL-SWa"/>
                             <constraint firstItem="IaU-lM-t2b" firstAttribute="trailing" secondItem="9yu-uU-eZE" secondAttribute="trailing" type="default" id="uQw-6D-KRv"/>
                             <constraint firstItem="brR-pF-ULb" firstAttribute="trailing" secondItem="cuh-e6-G9p" secondAttribute="trailing" type="default" id="wGf-nO-si9"/>
                             <constraint firstItem="dzP-ZK-DLP" firstAttribute="trailing" secondItem="C2j-fn-J6U" secondAttribute="trailing" type="default" id="wcr-zw-URY"/>
@@ -1261,6 +1267,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <connections>
                         <outlet property="address" destination="igM-pR-dyK" id="uhg-Uu-aeh"/>
                         <outlet property="birthdayButton" destination="Ntx-sq-wIG" id="hsH-ou-JRv"/>
+                        <outlet property="businessAddress" destination="g0h-mn-nhf" id="Pr0-WG-Kv9"/>
+                        <outlet property="businessSuiteApt" destination="6FL-lb-wpJ" id="0yN-0q-V5Y"/>
+                        <outlet property="businessZip" destination="3jS-RU-izl" id="dc2-AA-U1a"/>
                         <outlet property="email" destination="brR-pF-ULb" id="QpD-WY-eMu"/>
                         <outlet property="first" destination="Uet-rY-DGX" id="ImJ-cv-6gW"/>
                         <outlet property="last" destination="Oey-MM-9ny" id="WzY-Xv-aMX"/>
@@ -1427,6 +1436,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="IndivButtonSelected2.png" width="520" height="120"/>
         <image name="IndivButtonUnselected2.png" width="520" height="120"/>
         <image name="PAandLogo.png" width="520" height="98"/>
+        <image name="checkboxSelected.png" width="58" height="59"/>
         <image name="radio_uncheck.png" width="30" height="30"/>
     </resources>
     <classes>
@@ -1456,8 +1466,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <class className="FirstBusPage" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstBusPage.h"/>
             <relationships>
+                <relationship kind="action" name="toggleBusFields:"/>
                 <relationship kind="outlet" name="address" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="birthdayButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="businessAddress" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="businessSuiteApt" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="businessZip" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="email" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="first" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="last" candidateClass="UITextField"/>

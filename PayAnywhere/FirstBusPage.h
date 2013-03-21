@@ -24,7 +24,11 @@
 @property (strong, nonatomic) IBOutlet UITextField *zip;
 @property (strong, nonatomic) IBOutlet UITextField *ssn;
 @property (strong, nonatomic) IBOutlet UIButton *sameAsBusAddress;
+@property (strong, nonatomic) IBOutlet UITextField *businessAddress;
+@property (strong, nonatomic) IBOutlet UITextField *businessSuiteApt;
+@property (strong, nonatomic) IBOutlet UITextField *businessZip;
 
+- (IBAction)toggleBusFields:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UIButton *birthdayButton;
 

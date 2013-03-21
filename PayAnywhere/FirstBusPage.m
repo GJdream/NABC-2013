@@ -16,6 +16,8 @@
 
 @implementation FirstBusPage
 
+bool fieldsOn;
+
 #pragma mark - Text Field Delegate
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
@@ -33,6 +35,15 @@
     }
     else if (textField.tag == 6){
         [self.ssn becomeFirstResponder];
+    }
+    else if (textField.tag == 7){
+        [self.businessAddress becomeFirstResponder];
+    }
+    else if (textField.tag == 8){
+        [self.businessSuiteApt becomeFirstResponder];
+    }
+    else if (textField.tag == 9){
+        [self.businessZip becomeFirstResponder];
     }
     else{
         [textField resignFirstResponder];
@@ -86,9 +97,16 @@
     self.suiteApt.delegate = self;
     self.zip.delegate = self;
     self.ssn.delegate = self;
+    self.businessAddress.delegate = self;
+    self.businessSuiteApt.delegate = self;
+    self.businessZip.delegate = self;
     
     
 	// Do any additional setup after loading the view.
+    
+    [self toggleTextFields];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -127,6 +145,12 @@
         [self.application setObject:self.suiteApt.text forKey:@"Suite/Apartment"];
         [self.application setObject:self.zip.text forKey:@"Zip Code"];
         [self.application setObject:self.ssn.text forKey:@"SSN"];
+        [self.application setObject:self.businessAddress.text forKey:@"Business Address"];
+        [self.application setObject:self.businessSuiteApt.text forKey:@"Business Suite/Apartment"];
+        [self.application setObject:self.businessZip.text forKey:@"Business Zip Code"];
+        
+
+        
         
         NSLog(@"application dictionary: %@", self.application);
         
@@ -146,4 +170,37 @@
     [birthdayButton setTitle:dateString forState:UIControlStateNormal];
 }
 
+- (IBAction)toggleBusFields:(id)sender {
+    fieldsOn=!fieldsOn;
+    [self toggleTextFields];
+}
+
+- (void)toggleTextFields{
+    //Create text field color
+    UIColor * grayedFieldColor = [UIColor colorWithRed:0.792 green:0.792 blue:0.7912 alpha:.5];
+    
+    if(!fieldsOn){
+        [self.businessAddress setEnabled:NO];
+        self.businessAddress.backgroundColor = grayedFieldColor;
+        [self.businessSuiteApt setEnabled:NO];
+        self.businessSuiteApt.backgroundColor = grayedFieldColor;
+        [self.businessZip setEnabled:NO];
+        self.businessZip.backgroundColor = grayedFieldColor;
+        
+        //Change Button Image
+        [self.sameAsBusAddress setImage:[UIImage imageNamed:@"checkboxSelected.png"] forState:UIControlStateNormal];
+    }
+    
+    else{
+        [self.businessAddress setEnabled:YES];
+        self.businessAddress.backgroundColor = [UIColor whiteColor];
+        [self.businessSuiteApt setEnabled:YES];
+        self.businessSuiteApt.backgroundColor = [UIColor whiteColor];
+        [self.businessZip setEnabled:YES];
+        self.businessZip.backgroundColor = [UIColor whiteColor];
+        
+        //Change Button Image
+        [self.sameAsBusAddress setImage:[UIImage imageNamed:@"checkboxUnselected.png"] forState:UIControlStateNormal];
+    }
+}
 @end
