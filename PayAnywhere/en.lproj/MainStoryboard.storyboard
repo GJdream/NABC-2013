@@ -964,6 +964,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="corpName" destination="9ba-bT-MJT" id="yug-AZ-QeT"/>
+                        <outlet property="dba" destination="RNY-cr-3og" id="R5l-kg-lqA"/>
+                        <outlet property="fedTaxId" destination="Yaa-Cr-Q78" id="MXi-iH-CBE"/>
+                        <outlet property="term" destination="KSf-ea-Rly" id="UjU-Mo-6hj"/>
                         <outlet property="typeButton" destination="leO-uj-rY1" id="uZh-cQ-RKm"/>
                     </connections>
                 </viewController>
@@ -1491,6 +1495,87 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="PAandLogo.png" width="520" height="98"/>
         <image name="radio_uncheck.png" width="30" height="30"/>
     </resources>
+    <classes>
+        <class className="BirthdayViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BirthdayViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="goBack:"/>
+                <relationship kind="outlet" name="birthdayPicker" candidateClass="UIDatePicker"/>
+            </relationships>
+        </class>
+        <class className="BirthdayViewControllerIndiv" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BirthdayViewControllerIndiv.h"/>
+            <relationships>
+                <relationship kind="action" name="goBack:"/>
+                <relationship kind="outlet" name="birthdayPicker" candidateClass="UIDatePicker"/>
+            </relationships>
+        </class>
+        <class className="FinishPage" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FinishPage.h"/>
+            <relationships>
+                <relationship kind="action" name="radioButtonOneClicked:"/>
+                <relationship kind="action" name="radioButtonTwoClicked:"/>
+                <relationship kind="outlet" name="radioButtonOne" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="radioButtonTwo" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="FirstBusPage" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstBusPage.h"/>
+            <relationships>
+                <relationship kind="outlet" name="address" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="birthdayButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="email" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="first" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="last" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="phone" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="sameAsBusAddress" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="ssn" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="suiteApt" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="zip" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="FirstIndivPage" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstIndivPage.h"/>
+            <relationships>
+                <relationship kind="action" name="create:"/>
+                <relationship kind="action" name="togglePopover:"/>
+                <relationship kind="outlet" name="address" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="birth" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="dba" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="email" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="first" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="last" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="phone" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="ssn" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="suiteApt" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="term" candidateClass="NSLayoutConstraint"/>
+                <relationship kind="outlet" name="zip" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="FirstPage" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstPage.h"/>
+            <relationships>
+                <relationship kind="action" name="business:"/>
+                <relationship kind="action" name="individual:"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="SecBusPage" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SecBusPage.h"/>
+            <relationships>
+                <relationship kind="action" name="weAreA:"/>
+                <relationship kind="outlet" name="corpName" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="dba" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="fedTaxId" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="term" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="TradeShowAgentHomeViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TradeShowAgentHomeViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

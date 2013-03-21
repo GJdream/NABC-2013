@@ -8,7 +8,7 @@
 
 #import "TypePickerViewController.h"
 
-@interface SecBusPage : UIViewController <TypePickerViewControllerDelegate, UIPopoverControllerDelegate>
+@interface SecBusPage : UIViewController <TypePickerViewControllerDelegate, UIPopoverControllerDelegate, UITextFieldDelegate>
 {
 }
 
