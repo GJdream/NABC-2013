@@ -13,10 +13,7 @@
 
 @end
 
-@interface NSDictionary(JSONCategories)
-+(NSDictionary*)dictionaryWithContentsOfJSONURLString:
-(NSString*)urlAddress;
-@end
+
 
 @implementation FirstIndivPage
 
@@ -107,7 +104,8 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"FinishSegue"]) {
-        
+
+        //Create a dictionary with the information from the text fields
         [self.application setObject:self.first.text forKey:@"First Name"];
         [self.application setObject:self.last.text forKey:@"Last Name"];
         [self.application setObject:self.email.text forKey:@"Email Address"];
@@ -119,25 +117,10 @@
         [self.application setObject:self.dba.text forKey:@"DBA"];
         
         NSLog(@"self: %@", self);
-
-        //Create a dictionary with the information from the text fields
-        NSMutableDictionary *nameElements = [NSMutableDictionary dictionary];
         
-        [nameElements setObject:self.first.text forKey:@"First Name"];
-        [nameElements setObject:self.last.text forKey:@"Last Name"];
-        [nameElements setObject:self.email.text forKey:@"Email Address"];
-        [nameElements setObject:self.phone.text forKey:@"Phone Number"];
-        [nameElements setObject:self.address.text forKey:@"Residential Address"];
-        [nameElements setObject:self.suiteApt.text forKey:@"Suite/Apartment"];
-        [nameElements setObject:self.zip.text forKey:@"Zip Code"];
-        [nameElements setObject:self.ssn.text forKey:@"SSN"];
-        [nameElements setObject:self.dba.text forKey:@"DBA"];
-        
-        NSLog(@"nameElements: %@", nameElements);
-        
-        //Create JSON using nameElements
+        //Create JSON using self.application
         NSError *error;
-        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:nameElements
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self.application
                                                            options:0
                                                              error:&error];
             

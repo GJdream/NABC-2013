@@ -10,8 +10,14 @@
 
 @interface SecBusPage : UIViewController <TypePickerViewControllerDelegate, UIPopoverControllerDelegate>
 {
-    NSMutableDictionary * application;
 }
+
+@property (strong, nonatomic) NSMutableDictionary * application;
+
+@property (strong, nonatomic) IBOutlet UITextField *corpName;
+@property (strong, nonatomic) IBOutlet UITextField *dba;
+@property (strong, nonatomic) IBOutlet UITextField *fedTaxId;
+@property (strong, nonatomic) IBOutlet UIButton *term;
 
 - (IBAction)weAreA:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *typeButton;

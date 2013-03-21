@@ -6,11 +6,23 @@
 //  Copyright (c) 2013 NAB. All rights reserved.
 //
 
+#import "SecBusPage.h"
 #import "birthdayViewController.h"
 
 @interface FirstBusPage : UIViewController <BirthdayViewControllerDelegate, UIPopoverControllerDelegate>
 
 @property (strong, nonatomic) NSMutableDictionary * application;
+
+@property (strong, nonatomic) IBOutlet UITextField *first;
+@property (strong, nonatomic) IBOutlet UITextField *last;
+@property (strong, nonatomic) IBOutlet UITextField *email;
+@property (strong, nonatomic) IBOutlet UITextField *phone;
+@property (strong, nonatomic) IBOutlet UITextField *address;
+@property (strong, nonatomic) IBOutlet UITextField *suiteApt;
+@property (strong, nonatomic) IBOutlet UITextField *zip;
+@property (strong, nonatomic) IBOutlet UITextField *ssn;
+@property (strong, nonatomic) IBOutlet UIButton *sameAsBusAddress;
+
 
 @property (strong, nonatomic) IBOutlet UIButton *birthdayButton;
 
