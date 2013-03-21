@@ -9,8 +9,6 @@
 #import "birthdayViewController.h"
 
 @interface FirstBusPage : UIViewController <BirthdayViewControllerDelegate, UIPopoverControllerDelegate>
-{
-}
 
 @property (strong, nonatomic) NSMutableDictionary * application;
 
