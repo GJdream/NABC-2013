@@ -86,6 +86,8 @@ bool fieldsOn;
 
 - (void)viewDidLoad
 {
+    NSNull * nullObj = [NSNull null];
+
     [super viewDidLoad];
     
     NSLog(@"application dictionary: %@", self.application);
@@ -102,7 +104,35 @@ bool fieldsOn;
     self.businessZip.delegate = self;
     
     
+    
 	// Do any additional setup after loading the view.
+    
+    //Fill in text fields if possible
+    if([self.application objectForKey:@"Last Name"] != nullObj)
+        self.last.text = [self.application objectForKey:@"Last Name"];
+    if([self.application objectForKey:@"First Name"] != nullObj)
+        self.first.text = [self.application objectForKey:@"First Name"];
+    if([self.application objectForKey:@"Email Address"] != nullObj)
+        self.email.text = [self.application objectForKey:@"Email Address"];
+    if([self.application objectForKey:@"Phone Number"] != nullObj)
+        self.phone.text = [self.application objectForKey:@"Phone Number"];
+    if([self.application objectForKey:@"Residential Address"] != nullObj)
+        self.address.text = [self.application objectForKey:@"Residential Address"];
+    if([self.application objectForKey:@"Suite/Apartment"] != nullObj)
+        self.suiteApt.text = [self.application objectForKey:@"Suite/Apartment"];
+    if([self.application objectForKey:@"Zip Code"] != nullObj)
+        self.zip.text = [self.application objectForKey:@"Zip Code"];
+    if([self.application objectForKey:@"SSN"] != nullObj)
+        self.ssn.text = [self.application objectForKey:@"SSN"];
+    
+    //Business1 only fields
+    if([self.application objectForKey:@"Business Address"] != nullObj)
+        self.businessAddress.text = [self.application objectForKey:@"Business Address"];
+    if([self.application objectForKey:@"Business Suite/Apartment"] != nullObj)
+        self.businessSuiteApt.text = [self.application objectForKey:@"Business Suite/Apartment"];
+    if([self.application objectForKey:@"Business Zip Code"] != nullObj)
+        self.businessZip.text = [self.application objectForKey:@"Business Zip Code"];
+
     
     [self toggleTextFields];
     
@@ -137,26 +167,19 @@ bool fieldsOn;
     }
     else if([[segue identifier] isEqualToString:@"SecondBusPageSegue"]) {
        
-        [self.application setObject:self.first.text forKey:@"First Name"];
-        [self.application setObject:self.last.text forKey:@"Last Name"];
-        [self.application setObject:self.email.text forKey:@"Email Address"];
-        [self.application setObject:self.phone.text forKey:@"Phone Number"];
-        [self.application setObject:self.address.text forKey:@"Residential Address"];
-        [self.application setObject:self.suiteApt.text forKey:@"Suite/Apartment"];
-        [self.application setObject:self.zip.text forKey:@"Zip Code"];
-        [self.application setObject:self.ssn.text forKey:@"SSN"];
-        [self.application setObject:self.businessAddress.text forKey:@"Business Address"];
-        [self.application setObject:self.businessSuiteApt.text forKey:@"Business Suite/Apartment"];
-        [self.application setObject:self.businessZip.text forKey:@"Business Zip Code"];
-        
-
-        
-        
+        [self fillBus1Dictionary];
         NSLog(@"application dictionary: %@", self.application);
         
         
         SecBusPage * secondBusPage = segue.destinationViewController;
         secondBusPage.application = self.application;
+    }
+    else if ([[segue identifier] isEqualToString:@"Bus1ToIndivSegue"]){
+        [self fillBus1Dictionary];
+        NSLog(@"application dictionary: %@", self.application);
+        FirstIndivPage * firstIndivPage = segue.destinationViewController;
+        firstIndivPage.application = self.application;
+        firstIndivPage->fromWhichBusPage = 1;
     }
     
 }
@@ -202,5 +225,25 @@ bool fieldsOn;
         //Change Button Image
         [self.sameAsBusAddress setImage:[UIImage imageNamed:@"checkboxUnselected.png"] forState:UIControlStateNormal];
     }
+}
+- (IBAction)fromBus1ToIndiv:(id)sender {
+    [self performSegueWithIdentifier:@"Bus1ToIndivSegue" sender:nil];
+}
+
+//Fill Dictionary
+- (void)fillBus1Dictionary{
+    
+    [self.application setObject:self.first.text forKey:@"First Name"];
+    [self.application setObject:self.last.text forKey:@"Last Name"];
+    [self.application setObject:self.email.text forKey:@"Email Address"];
+    [self.application setObject:self.phone.text forKey:@"Phone Number"];
+    [self.application setObject:self.address.text forKey:@"Residential Address"];
+    [self.application setObject:self.suiteApt.text forKey:@"Suite/Apartment"];
+    [self.application setObject:self.zip.text forKey:@"Zip Code"];
+    [self.application setObject:self.ssn.text forKey:@"SSN"];
+    [self.application setObject:self.businessAddress.text forKey:@"Business Address"];
+    [self.application setObject:self.businessSuiteApt.text forKey:@"Business Suite/Apartment"];
+    [self.application setObject:self.businessZip.text forKey:@"Business Zip Code"];
+    
 }
 @end

@@ -28,11 +28,13 @@
 
 - (void)viewDidLoad
 {
+    NSNull * nullObj = [NSNull null];
     [super viewDidLoad];
     
     NSLog(@"application dictionary: %@", self.application);
     
     self.last.delegate = self;
+    self.first.delegate = self;
     self.email.delegate = self;
     self.phone.delegate = self;
     self.address.delegate = self;
@@ -43,6 +45,26 @@
     
     
 	// Do any additional setup after loading the view.
+    
+    //Fill text fields if possible
+    if([self.application objectForKey:@"Last Name"] != nullObj)
+        self.last.text = [self.application objectForKey:@"Last Name"];
+    if([self.application objectForKey:@"First Name"] != nullObj)
+        self.first.text = [self.application objectForKey:@"First Name"];
+    if([self.application objectForKey:@"Email Address"] != nullObj)
+        self.email.text = [self.application objectForKey:@"Email Address"];
+    if([self.application objectForKey:@"Phone Number"] != nullObj)
+        self.phone.text = [self.application objectForKey:@"Phone Number"];
+    if([self.application objectForKey:@"Residential Address"] != nullObj)
+        self.address.text = [self.application objectForKey:@"Residential Address"];
+    if([self.application objectForKey:@"Suite/Apartment"] != nullObj)
+        self.suiteApt.text = [self.application objectForKey:@"Suite/Apartment"];
+    if([self.application objectForKey:@"Zip Code"] != nullObj)
+        self.zip.text = [self.application objectForKey:@"Zip Code"];
+    if([self.application objectForKey:@"SSN"] != nullObj)
+        self.ssn.text = [self.application objectForKey:@"SSN"];
+    if([self.application objectForKey:@"DBA"] != nullObj)
+        self.dba.text = [self.application objectForKey:@"DBA"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,6 +75,16 @@
 
 - (IBAction)create:(id)sender {
     [self performSegueWithIdentifier:@"FinishSegue" sender:nil];
+}
+
+- (IBAction)businessSegue:(id)sender {
+    if(fromWhichBusPage == 1){
+        [self performSegueWithIdentifier:@"IndivToBus1Segue" sender:nil];
+    }
+    else if (fromWhichBusPage == 2){
+        [self performSegueWithIdentifier:@"IndivToBus2Segue" sender:nil];
+    }
+
 }
 
 #pragma mark - Text Field Delegate
@@ -103,46 +135,12 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"FinishSegue"]) {
+    [self fillDictionary];
 
-        //Create a dictionary with the information from the text fields
-        [self.application setObject:self.first.text forKey:@"First Name"];
-        [self.application setObject:self.last.text forKey:@"Last Name"];
-        [self.application setObject:self.email.text forKey:@"Email Address"];
-        [self.application setObject:self.phone.text forKey:@"Phone Number"];
-        [self.application setObject:self.address.text forKey:@"Residential Address"];
-        [self.application setObject:self.suiteApt.text forKey:@"Suite/Apartment"];
-        [self.application setObject:self.zip.text forKey:@"Zip Code"];
-        [self.application setObject:self.ssn.text forKey:@"SSN"];
-        [self.application setObject:self.dba.text forKey:@"DBA"];
+    if ([segue.identifier isEqualToString:@"FinishSegue"]) {
+        [self.application setObject:@"individual" forKey:@"Application Type"];
         
         NSLog(@"self: %@", self);
-        
-        //Create JSON using self.application
-        NSError *error;
-        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self.application
-                                                           options:0
-                                                             error:&error];
-            
-        NSString *postLength = [NSString stringWithFormat:@"%d", [jsonData length]];
-        
-        //NSLog(@"jsonData: %@", jsonData);
-
-        //Make the JSON request
-        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-        
-        //URL for individual POST
-        [request setURL:[NSURL URLWithString:@"http://141.212.105.78:8080/app.php/individual/"]];
-        [request setHTTPMethod:@"POST"];
-        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-        [request setValue:@"application/x-www-form-urlencoded;charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
-        [request setHTTPBody:jsonData];
-        
-        //Create and recieve the response from the server
-        NSURLResponse *response;
-        NSData *POSTReply = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
-        NSString *theReply = [[NSString alloc] initWithBytes:[POSTReply bytes] length:[POSTReply length] encoding: NSASCIIStringEncoding];
-        NSLog(@"Reply: %@", theReply);
 
                 
         FinishPage * finishPage = segue.destinationViewController;
@@ -154,6 +152,18 @@
         currentPopoverSegue = (UIStoryboardPopoverSegue *)segue;
         pvc = [segue destinationViewController];
         [pvc setDelegate:self];
+    }
+    
+    //To business 1 segue
+    if([[segue identifier] isEqualToString:@"IndivToBus1Segue"]){
+        FirstBusPage * firstBusPage = segue.destinationViewController;
+        firstBusPage.application = self.application;
+    }
+    
+    //To business 2 segue
+    if([[segue identifier] isEqualToString:@"IndivToBus2Segue"]){
+        SecBusPage * secondBusPage = segue.destinationViewController;
+        secondBusPage.application = self.application;
     }
 }
 
@@ -192,6 +202,24 @@
     NSLog(@"%@",dateString);
     
     [birth setTitle:dateString forState:UIControlStateNormal];
+}
+
+-(void)fillDictionary{
+    [self.application setObject:self.first.text forKey:@"First Name"];
+    [self.application setObject:self.last.text forKey:@"Last Name"];
+    [self.application setObject:self.email.text forKey:@"Email Address"];
+    [self.application setObject:self.phone.text forKey:@"Phone Number"];
+    [self.application setObject:self.address.text forKey:@"Residential Address"];
+    [self.application setObject:self.suiteApt.text forKey:@"Suite/Apartment"];
+    [self.application setObject:self.zip.text forKey:@"Zip Code"];
+    [self.application setObject:self.ssn.text forKey:@"SSN"];
+    [self.application setObject:self.dba.text forKey:@"DBA"];
+
+
+    
+    NSLog(@"self: %@", self);
+    
+    
 }
 
 

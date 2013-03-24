@@ -35,4 +35,7 @@
 @property (strong, nonatomic) UIStoryboardPopoverSegue *currentPopoverSegue;
 @property (strong, nonatomic) BirthdayViewController *pvc;
 
+//Indiv Segue
+- (IBAction)fromBus1ToIndiv:(id)sender;
+
 @end

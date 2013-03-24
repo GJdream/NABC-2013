@@ -27,8 +27,33 @@
 
 - (void)viewDidLoad
 {
+    NSNull * nullObj = [NSNull null];
+    
     [super viewDidLoad];
 	self.application = [[NSMutableDictionary alloc] init];
+    
+    [self.application setObject:nullObj forKey:@"First Name"];
+    [self.application setObject:nullObj forKey:@"Last Name"];
+    [self.application setObject:nullObj forKey:@"Email Address"];
+    [self.application setObject:nullObj forKey:@"Phone Number"];
+    [self.application setObject:nullObj forKey:@"Residential Address"];
+    [self.application setObject:nullObj forKey:@"Suite/Apartment"];
+    [self.application setObject:nullObj forKey:@"City"];
+    [self.application setObject:nullObj forKey:@"State"];
+    [self.application setObject:nullObj forKey:@"Zip Code"];
+    [self.application setObject:nullObj forKey:@"SSN"];
+    [self.application setObject:nullObj forKey:@"DBA"];
+    [self.application setObject:nullObj forKey:@"Business Type"];
+    [self.application setObject:nullObj forKey:@"Business Description"];
+    [self.application setObject:nullObj forKey:@"Corporation Name"];
+    [self.application setObject:nullObj forKey:@"Federal Tax ID"];
+    [self.application setObject:nullObj forKey:@"Business Address"];
+    [self.application setObject:nullObj forKey:@"Business Suite/Apartment"];
+    [self.application setObject:nullObj forKey:@"Business Zip Code"];
+    [self.application setObject:nullObj forKey:@"Highest Sales Amount"];
+    [self.application setObject:nullObj forKey:@"Total Monthly CC Sales"];
+    [self.application setObject:nullObj forKey:@"Been In Business For"];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,6 +69,7 @@
         [self.application setObject:@"individual" forKey:@"Application Type"];
         FirstIndivPage * indivPage = segue.destinationViewController;
         indivPage.application = self.application;
+        indivPage->fromWhichBusPage = 1;
     }
     else if ([segue.identifier isEqualToString:@"FirstBusinessSegue"])
     {

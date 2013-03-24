@@ -7,6 +7,7 @@
 //
 
 #import "TypePickerViewController.h"
+#import "FinishPage.h"
 
 @interface SecBusPage : UIViewController <TypePickerViewControllerDelegate, UIPopoverControllerDelegate, UITextFieldDelegate>
 {
@@ -18,6 +19,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *dba;
 @property (strong, nonatomic) IBOutlet UITextField *fedTaxId;
 @property (strong, nonatomic) IBOutlet UIButton *term;
+- (IBAction)create:(id)sender;
+- (IBAction)bus2ToIndiv:(id)sender;
 
 - (IBAction)weAreA:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *typeButton;

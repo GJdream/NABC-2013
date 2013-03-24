@@ -29,11 +29,27 @@
 {
     [super viewDidLoad];
     typeArray = [[NSMutableArray alloc] init];
-    [typeArray addObject:@"Sole Proprietor"];
-    [typeArray addObject:@"Corporation"];
-    [typeArray addObject:@"Partnership"];
-    [typeArray addObject:@"Non-Profit"];
-    [typeArray addObject:@"LLC"];
+    [typeArray addObject:@"Art Dealer and Gallery"];
+    [typeArray addObject:@"Automotive Parts"];
+    [typeArray addObject:@"Bakery"];
+    [typeArray addObject:@"Barber/Beauty Salon"];
+    [typeArray addObject:@"Books/Articles/Magazines"];
+    [typeArray addObject:@"Catering"];
+    [typeArray addObject:@"Charitable Organizations"];
+    [typeArray addObject:@"Child Care Services"];
+    [typeArray addObject:@"Cleaning Services"];
+    [typeArray addObject:@"Clothing and Accessories"];
+    [typeArray addObject:@"Dry Cleaning Services"];
+    [typeArray addObject:@"Electrical Contractor"];
+    [typeArray addObject:@"Florist"];
+    [typeArray addObject:@"Heating and Cooling Services"];
+    [typeArray addObject:@"Landscaping Services"];
+    [typeArray addObject:@"Person to Person Sales"];
+    [typeArray addObject:@"Photography"];
+    [typeArray addObject:@"Retail Store"];
+    [typeArray addObject:@"Restaurant"];
+    [typeArray addObject:@"Taxi and Limousine Services"];
+    [typeArray addObject:@"Other"];
 }
 
 - (void)didReceiveMemoryWarning

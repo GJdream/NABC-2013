@@ -9,6 +9,8 @@
 // awesome Comment
 
 #import <UIKit/UIKit.h>
+#import "FirstIndivPage.h"
+#import "FirstPage.h"
 
 @interface FinishPage : UIViewController
 {
@@ -20,6 +22,8 @@
 - (IBAction)radioButtonOneClicked:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *radioButtonTwo;
 - (IBAction)radioButtonTwoClicked:(id)sender;
+
+- (IBAction)create:(id)sender;
 
 
 @end
