@@ -65,6 +65,11 @@
         self.ssn.text = [self.application objectForKey:@"SSN"];
     if([self.application objectForKey:@"DBA"] != nullObj)
         self.dba.text = [self.application objectForKey:@"DBA"];
+    
+    //Set textbox image correctly
+    if([[self.application objectForKey:@"Terms Accepted"] isEqualToString:@"False"]){
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -85,6 +90,12 @@
         [self performSegueWithIdentifier:@"IndivToBus2Segue" sender:nil];
     }
 
+}
+
+- (IBAction)termsButon:(id)sender {
+    if([[self.application objectForKey:@"Terms Accepted"] isEqualToString:@"False"]){
+        
+    }
 }
 
 #pragma mark - Text Field Delegate
@@ -218,8 +229,10 @@
 
     
     NSLog(@"self: %@", self);
-    
-    
+}
+
+-(void)toggleCheck{
+    //        [self.termsButton setImage:[UIImage imageNamed:@"checkboxUnselected.png"] forState:UIControlStateNormal];
 }
 
 
