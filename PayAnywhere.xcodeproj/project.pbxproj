@@ -24,6 +24,7 @@
 		14B47A8616F1129B00197699 /* Application.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B47A8516F1129B00197699 /* Application.m */; };
 		14B6741A16FA63380064F755 /* checkboxSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B6741816FA63380064F755 /* checkboxSelected.png */; };
 		14B6741B16FA63380064F755 /* checkboxUnselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B6741916FA63380064F755 /* checkboxUnselected.png */; };
+		14E66B5117020FD100D1FE66 /* FunctionsClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E66B5017020FD100D1FE66 /* FunctionsClass.m */; };
 		14ECA6A516F1412C009EEEF1 /* IndivButtonSelected2.png in Resources */ = {isa = PBXBuildFile; fileRef = 14ECA6A116F1412C009EEEF1 /* IndivButtonSelected2.png */; };
 		14ECA6A616F1412C009EEEF1 /* IndivButtonUnselected2.png in Resources */ = {isa = PBXBuildFile; fileRef = 14ECA6A216F1412C009EEEF1 /* IndivButtonUnselected2.png */; };
 		14ECA6A916F14509009EEEF1 /* BusinessButtonSelected2.png in Resources */ = {isa = PBXBuildFile; fileRef = 14ECA6A716F14509009EEEF1 /* BusinessButtonSelected2.png */; };
@@ -31,8 +32,6 @@
 		BA148A4D16F5123900DA78B7 /* birthdayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA148A4C16F5123900DA78B7 /* birthdayViewController.m */; };
 		BA5DB68616F67A8600305C04 /* radio_checked.png in Resources */ = {isa = PBXBuildFile; fileRef = BA5DB68416F67A8600305C04 /* radio_checked.png */; };
 		BA5DB68716F67A8600305C04 /* radio_uncheck.png in Resources */ = {isa = PBXBuildFile; fileRef = BA5DB68516F67A8600305C04 /* radio_uncheck.png */; };
-		BA5DB68A16FA48AE00305C04 /* TypePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5DB68916FA48AE00305C04 /* TypePickerViewController.m */; };
-		BA5DB68D16FA6B7A00305C04 /* AnotherTypePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5DB68C16FA6B7A00305C04 /* AnotherTypePickerViewController.m */; };
 		BABA2F3116F653AC001570EE /* birthdayViewControllerIndiv.m in Sources */ = {isa = PBXBuildFile; fileRef = BABA2F3016F653AC001570EE /* birthdayViewControllerIndiv.m */; };
 		EDE01D3516DED199001743AF /* TradeShowAgentHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE01D3416DED199001743AF /* TradeShowAgentHomeViewController.m */; };
 		EDE65E3516FA530C00E06273 /* AuthenticationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE65E3416FA530C00E06273 /* AuthenticationVC.m */; };
@@ -75,6 +74,8 @@
 		14B47A8516F1129B00197699 /* Application.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Application.m; path = Classes/Application.m; sourceTree = "<group>"; };
 		14B6741816FA63380064F755 /* checkboxSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkboxSelected.png; path = ../checkboxSelected.png; sourceTree = "<group>"; };
 		14B6741916FA63380064F755 /* checkboxUnselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkboxUnselected.png; path = ../checkboxUnselected.png; sourceTree = "<group>"; };
+		14E66B4F17020FD100D1FE66 /* FunctionsClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FunctionsClass.h; path = Classes/FunctionsClass.h; sourceTree = "<group>"; };
+		14E66B5017020FD100D1FE66 /* FunctionsClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FunctionsClass.m; path = Classes/FunctionsClass.m; sourceTree = "<group>"; };
 		14ECA6A116F1412C009EEEF1 /* IndivButtonSelected2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IndivButtonSelected2.png; path = ../IndivButtonSelected2.png; sourceTree = "<group>"; };
 		14ECA6A216F1412C009EEEF1 /* IndivButtonUnselected2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IndivButtonUnselected2.png; path = ../IndivButtonUnselected2.png; sourceTree = "<group>"; };
 		14ECA6A716F14509009EEEF1 /* BusinessButtonSelected2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BusinessButtonSelected2.png; path = "../../Buttons-Pictures/BusinessButtonSelected2.png"; sourceTree = "<group>"; };
@@ -171,6 +172,8 @@
 				14B47A8216F1128100197699 /* Agent.m */,
 				14B47A8416F1129B00197699 /* Application.h */,
 				14B47A8516F1129B00197699 /* Application.m */,
+				14E66B4F17020FD100D1FE66 /* FunctionsClass.h */,
+				14E66B5017020FD100D1FE66 /* FunctionsClass.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				BA148A4D16F5123900DA78B7 /* birthdayViewController.m in Sources */,
 				BABA2F3116F653AC001570EE /* birthdayViewControllerIndiv.m in Sources */,
 				EDE65E3516FA530C00E06273 /* AuthenticationVC.m in Sources */,
+				14E66B5117020FD100D1FE66 /* FunctionsClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

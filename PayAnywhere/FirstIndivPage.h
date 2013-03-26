@@ -15,6 +15,7 @@
 {
     @public
     NSInteger fromWhichBusPage;
+    NSInteger termsAccepted;
 }
 
 @property (strong, nonatomic) NSMutableDictionary * application;
