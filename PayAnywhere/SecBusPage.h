@@ -6,13 +6,28 @@
 //  Copyright (c) 2013 NAB. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "TypePickerViewController.h"
+#import "FinishPage.h"
 
-@interface SecBusPage : UIViewController
+@interface SecBusPage : UIViewController <TypePickerViewControllerDelegate, UIPopoverControllerDelegate, UITextFieldDelegate>
 {
-    NSMutableDictionary * application;
 }
 
+@property (strong, nonatomic) NSMutableDictionary * application;
+
+@property (strong, nonatomic) IBOutlet UITextField *corpName;
+@property (strong, nonatomic) IBOutlet UITextField *dba;
+@property (strong, nonatomic) IBOutlet UITextField *fedTaxId;
+@property (strong, nonatomic) IBOutlet UIButton *term;
+- (IBAction)create:(id)sender;
+- (IBAction)bus2ToIndiv:(id)sender;
+
 - (IBAction)weAreA:(id)sender;
-    
+@property (strong, nonatomic) IBOutlet UIButton *typeButton;
+
+@property (strong, nonatomic) UIPopoverController *typePopoverController;
+@property (strong, nonatomic) NSString *type;
+@property (strong, nonatomic) UIStoryboardPopoverSegue *currentPopoverSeague;
+@property (strong, nonatomic) TypePickerViewController *pvc;
+
 @end
