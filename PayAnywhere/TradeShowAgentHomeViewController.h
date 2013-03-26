@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TradeShowAgentHomeViewController : UITableViewController
+@interface TradeShowAgentHomeViewController : UITableViewController<UISplitViewControllerDelegate>
 
 @end

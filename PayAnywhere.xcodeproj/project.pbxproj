@@ -35,6 +35,7 @@
 		BA5DB68D16FA6B7A00305C04 /* AnotherTypePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5DB68C16FA6B7A00305C04 /* AnotherTypePickerViewController.m */; };
 		BABA2F3116F653AC001570EE /* birthdayViewControllerIndiv.m in Sources */ = {isa = PBXBuildFile; fileRef = BABA2F3016F653AC001570EE /* birthdayViewControllerIndiv.m */; };
 		EDE01D3516DED199001743AF /* TradeShowAgentHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE01D3416DED199001743AF /* TradeShowAgentHomeViewController.m */; };
+		EDE65E3516FA530C00E06273 /* AuthenticationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE65E3416FA530C00E06273 /* AuthenticationVC.m */; };
 		EDFE06FC16CC2CE200EED6D6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDFE06FB16CC2CE200EED6D6 /* UIKit.framework */; };
 		EDFE06FE16CC2CE200EED6D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDFE06FD16CC2CE200EED6D6 /* Foundation.framework */; };
 		EDFE070016CC2CE200EED6D6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDFE06FF16CC2CE200EED6D6 /* CoreGraphics.framework */; };
@@ -90,6 +91,8 @@
 		BABA2F3016F653AC001570EE /* birthdayViewControllerIndiv.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = birthdayViewControllerIndiv.m; sourceTree = "<group>"; };
 		EDE01D3316DED199001743AF /* TradeShowAgentHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TradeShowAgentHomeViewController.h; sourceTree = "<group>"; };
 		EDE01D3416DED199001743AF /* TradeShowAgentHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TradeShowAgentHomeViewController.m; sourceTree = "<group>"; };
+		EDE65E3316FA530C00E06273 /* AuthenticationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationVC.h; sourceTree = "<group>"; };
+		EDE65E3416FA530C00E06273 /* AuthenticationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationVC.m; sourceTree = "<group>"; };
 		EDFE06F816CC2CE200EED6D6 /* PayAnywhere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PayAnywhere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDFE06FB16CC2CE200EED6D6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EDFE06FD16CC2CE200EED6D6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -204,6 +207,8 @@
 				EDFE072516CC2D7900EED6D6 /* FirstPage.m */,
 				EDFE072616CC2D7900EED6D6 /* SecBusPage.h */,
 				EDFE072716CC2D7900EED6D6 /* SecBusPage.m */,
+				EDE65E3316FA530C00E06273 /* AuthenticationVC.h */,
+				EDE65E3416FA530C00E06273 /* AuthenticationVC.m */,
 			);
 			name = "Main View Controllers";
 			sourceTree = "<group>";
@@ -364,8 +369,7 @@
 				14B47A8616F1129B00197699 /* Application.m in Sources */,
 				BA148A4D16F5123900DA78B7 /* birthdayViewController.m in Sources */,
 				BABA2F3116F653AC001570EE /* birthdayViewControllerIndiv.m in Sources */,
-				BA5DB68A16FA48AE00305C04 /* TypePickerViewController.m in Sources */,
-				BA5DB68D16FA6B7A00305C04 /* AnotherTypePickerViewController.m in Sources */,
+				EDE65E3516FA530C00E06273 /* AuthenticationVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
