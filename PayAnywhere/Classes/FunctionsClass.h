@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface FunctionsClass : NSObject
-
+-(void)toggleCheckbox:(UIButton*) box boolInt:(NSNumber*)shouldBeChecked;
 @end

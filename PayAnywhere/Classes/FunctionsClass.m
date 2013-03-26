@@ -10,7 +10,7 @@
 
 @implementation FunctionsClass
 
--(void)toggleCheckbox:(UIButton*) box boolInt:(NSInteger)shouldBeChecked{
+-(void)toggleCheckbox:(UIButton*) box boolInt:(NSNumber*)shouldBeChecked{
     if(shouldBeChecked){
             [box setImage:[UIImage imageNamed:@"checkboxSelected.png"] forState:UIControlStateNormal];
     }

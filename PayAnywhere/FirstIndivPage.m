@@ -67,8 +67,14 @@
         self.dba.text = [self.application objectForKey:@"DBA"];
     
     //Set textbox image correctly
-    if([[self.application objectForKey:@"Terms Accepted"] isEqualToString:@"False"]){
-        
+    NSNumber * trmsAcc = [NSNumber numberWithBool:FALSE];
+    trmsAcc = [self.application valueForKey:@"Terms Accepted"];
+    
+    if(trmsAcc){
+            [self.checkBox setImage:[UIImage imageNamed:@"checkboxSelected.png"] forState:UIControlStateNormal];
+    }
+    else{
+            [self.checkBox setImage:[UIImage imageNamed:@"checkboxUnselected.png"] forState:UIControlStateNormal];
     }
 }
 
@@ -90,6 +96,10 @@
         [self performSegueWithIdentifier:@"IndivToBus2Segue" sender:nil];
     }
 
+}
+
+- (IBAction)toggleBox:(id)sender {
+    [self toggleCheck];
 }
 
 - (IBAction)termsButon:(id)sender {
@@ -232,7 +242,19 @@
 }
 
 -(void)toggleCheck{
-    //        [self.termsButton setImage:[UIImage imageNamed:@"checkboxUnselected.png"] forState:UIControlStateNormal];
+    NSNumber * tru = [NSNumber numberWithBool:TRUE];
+
+    
+    if([self.application valueForKey:@"Terms Accepted"]){
+        [self.application setValue:FALSE forKey:@"Terms Accepted"];
+    }
+    else{
+        [self.application setValue:tru forKey:@"Terms Accepted"];
+    }
+        FunctionsClass * funcClass = [[FunctionsClass alloc] init];
+    [funcClass toggleCheckbox:self.checkBox boolInt:[self.application valueForKey:@"Terms Accepted"]];
+    
+    NSLog(@"Terms accepted: %@", [self.application objectForKey:@"Terms Accepted"]);
 }
 
 

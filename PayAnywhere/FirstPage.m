@@ -28,6 +28,7 @@
 - (void)viewDidLoad
 {
     NSNull * nullObj = [NSNull null];
+    NSNumber * termsAccepted = [NSNumber numberWithBool:FALSE];
     
     [super viewDidLoad];
 	self.application = [[NSMutableDictionary alloc] init];
@@ -53,7 +54,7 @@
     [self.application setObject:nullObj forKey:@"Highest Sales Amount"];
     [self.application setObject:nullObj forKey:@"Total Monthly CC Sales"];
     [self.application setObject:nullObj forKey:@"Been In Business For"];
-    [self.application setObject:@"False" forKey:@"Terms Accepted"];
+    [self.application setValue:termsAccepted forKey:@"Terms Accepted"];
 
 }
 
@@ -71,14 +72,14 @@
         FirstIndivPage * indivPage = segue.destinationViewController;
         indivPage.application = self.application;
         indivPage->fromWhichBusPage = 1;
-        indivPage->termsAccepted = 0;
+//        indivPage->termsAccepted = 0;
     }
     else if ([segue.identifier isEqualToString:@"FirstBusinessSegue"])
     {
         [self.application setObject:@"business" forKey:@"Application Type"];
         FirstBusPage * busPage = segue.destinationViewController;
         busPage.application = self.application;
-        busPage->termsAccepted = 0;
+//        busPage->termsAccepted = 0;
     }
   
 }
