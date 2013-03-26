@@ -54,6 +54,7 @@
   
 }
 
+
 - (IBAction)business:(id)sender {
     [self performSegueWithIdentifier:@"FirstIndividualSegue" sender:nil];
 }
@@ -61,6 +62,30 @@
 - (IBAction)individual:(id)sender {
     [self performSegueWithIdentifier:@"FirstBusinessSegue" sender:nil];
 
+}
+
+
+- (IBAction)settings:(id)sender {
+    
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+
+    AuthenticationVC * authentication = (AuthenticationVC *)[sb instantiateViewControllerWithIdentifier:@"AuthenticationVC"];
+    
+    self.popover = [[UIPopoverController alloc]
+                                     initWithContentViewController:authentication];
+    self.popover.delegate = self;
+    
+    authentication.popover = self.popover;
+    authentication.delegate = self;
+    
+    [self.popover presentPopoverFromBarButtonItem:sender
+                                   permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+}
+
+-(void)authenticated
+{
+    [self.popover dismissPopoverAnimated:YES];
+    [self.navigationController.splitViewController performSegueWithIdentifier:@"AgentDetailSegue" sender:nil];
 }
 
 
