@@ -32,6 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSNull * nullObj = [NSNull null];
     
     self.corpName.delegate = self;
     self.dba.delegate = self;
@@ -39,6 +40,25 @@
  
     NSLog(@"Application: %@", self.application);
 	// Do any additional setup after loading the view.
+    
+    //Fill text fields if possible
+    if([self.application objectForKey:@"Corporation Name"] != nullObj)
+        self.corpName.text = [self.application objectForKey:@"Corporation Name"];
+    if([self.application objectForKey:@"DBA"] != nullObj)
+        self.dba.text = [self.application objectForKey:@"DBA"];
+    if([self.application objectForKey:@"Federal Tax ID"] != nullObj)
+        self.fedTaxId.text = [self.application objectForKey:@"Federal Tax ID"];
+    
+    //Set textbox image correctly
+    NSNumber * trmsAcc = [NSNumber numberWithBool:FALSE];
+    trmsAcc = [self.application valueForKey:@"Terms Accepted"];
+    
+    if(trmsAcc){
+        [self.checkBox setImage:[UIImage imageNamed:@"checkboxSelected.png"] forState:UIControlStateNormal];
+    }
+    else{
+        [self.checkBox setImage:[UIImage imageNamed:@"checkboxUnselected.png"] forState:UIControlStateNormal];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -85,6 +105,18 @@
     return YES;
 }
 
+- (IBAction)create:(id)sender {
+        [self performSegueWithIdentifier:@"FinishSegue" sender:nil];
+}
+
+- (IBAction)bus2ToIndiv:(id)sender {
+    [self performSegueWithIdentifier:@"Bus2ToIndivSegue" sender:nil];
+}
+
+- (IBAction)toggleBox:(id)sender {
+        [self toggleCheck];
+}
+
 - (IBAction)weAreA:(id)sender {
     
 }
@@ -109,10 +141,53 @@
         pvc = [segue destinationViewController];
         [pvc setDelegate:self];
     }
+    
+    if ([segue.identifier isEqualToString:@"FinishSegue"]) {
+        [self.application setObject:@"business" forKey:@"Application Type"];
+        
+        NSLog(@"self: %@", self);
+        
+        FinishPage * finishPage = segue.destinationViewController;
+        finishPage.application = self.application;
+    }
+    
+    else if ([[segue identifier] isEqualToString:@"Bus2ToIndivSegue"]){
+        [self fillBusinessDictionary];
+        NSLog(@"application dictionary: %@", self.application);
+        FirstIndivPage * firstIndivPage = segue.destinationViewController;
+        firstIndivPage.application = self.application;
+        firstIndivPage->fromWhichBusPage = 2;
+    }
+    
 }
 
 - (void)dismissPop:(NSString *)type {
     [typeButton setTitle:type forState:UIControlStateNormal];
     //[[currentPopoverSeague popoverController] dismissPopoverAnimated: YES];
+}
+
+-(void)fillBusinessDictionary{
+    [self.application setObject:self.corpName.text forKey:@"Corporation Name"];
+    [self.application setObject:self.dba.text forKey:@"DBA"];
+    [self.application setObject:self.fedTaxId.text forKey:@"Federal Tax ID"];
+}
+
+
+
+
+-(void)toggleCheck{
+    NSNumber * tru = [NSNumber numberWithBool:TRUE];
+    
+    
+    if([self.application valueForKey:@"Terms Accepted"]){
+        [self.application setValue:FALSE forKey:@"Terms Accepted"];
+    }
+    else{
+        [self.application setValue:tru forKey:@"Terms Accepted"];
+    }
+    FunctionsClass * funcClass = [[FunctionsClass alloc] init];
+    [funcClass toggleCheckbox:self.checkBox boolInt:[self.application valueForKey:@"Terms Accepted"]];
+    
+    NSLog(@"Terms accepted: %@", [self.application objectForKey:@"Terms Accepted"]);
 }
 @end

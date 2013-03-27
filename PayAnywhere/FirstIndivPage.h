@@ -7,14 +7,18 @@
 //
 
 #import "FinishPage.h"
+#import "FirstBusPage.h"
+#import "SecBusPage.h"
 #import "birthdayViewControllerIndiv.h"
 
 @interface FirstIndivPage : UIViewController<UITextFieldDelegate, BirthdayViewControllerIndivDelegate, UIPopoverControllerDelegate>
 {
+    @public
+    NSInteger fromWhichBusPage;
+    NSInteger termsAccepted;
 }
 
 @property (strong, nonatomic) NSMutableDictionary * application;
-
 
 @property (strong, nonatomic) IBOutlet UITextField *first;
 @property (strong, nonatomic) IBOutlet UITextField *last;
@@ -27,8 +31,12 @@
 @property (strong, nonatomic) IBOutlet UITextField *ssn;
 @property (strong, nonatomic) IBOutlet UITextField *dba;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *term;
+@property (strong, nonatomic) IBOutlet UIButton *checkBox;
+
 
 - (IBAction)create:(id)sender;
+- (IBAction)businessSegue:(id)sender;
+- (IBAction)toggleBox:(id)sender;
 
 //birth pop
 @property (strong, nonatomic) UIPopoverController * birthdayPopoverController;

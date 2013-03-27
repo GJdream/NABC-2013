@@ -27,8 +27,35 @@
 
 - (void)viewDidLoad
 {
+    NSNull * nullObj = [NSNull null];
+    NSNumber * termsAccepted = [NSNumber numberWithBool:FALSE];
+    
     [super viewDidLoad];
 	self.application = [[NSMutableDictionary alloc] init];
+    
+    [self.application setObject:nullObj forKey:@"First Name"];
+    [self.application setObject:nullObj forKey:@"Last Name"];
+    [self.application setObject:nullObj forKey:@"Email Address"];
+    [self.application setObject:nullObj forKey:@"Phone Number"];
+    [self.application setObject:nullObj forKey:@"Residential Address"];
+    [self.application setObject:nullObj forKey:@"Suite/Apartment"];
+    [self.application setObject:nullObj forKey:@"City"];
+    [self.application setObject:nullObj forKey:@"State"];
+    [self.application setObject:nullObj forKey:@"Zip Code"];
+    [self.application setObject:nullObj forKey:@"SSN"];
+    [self.application setObject:nullObj forKey:@"DBA"];
+    [self.application setObject:nullObj forKey:@"Business Type"];
+    [self.application setObject:nullObj forKey:@"Business Description"];
+    [self.application setObject:nullObj forKey:@"Corporation Name"];
+    [self.application setObject:nullObj forKey:@"Federal Tax ID"];
+    [self.application setObject:nullObj forKey:@"Business Address"];
+    [self.application setObject:nullObj forKey:@"Business Suite/Apartment"];
+    [self.application setObject:nullObj forKey:@"Business Zip Code"];
+    [self.application setObject:nullObj forKey:@"Highest Sales Amount"];
+    [self.application setObject:nullObj forKey:@"Total Monthly CC Sales"];
+    [self.application setObject:nullObj forKey:@"Been In Business For"];
+    [self.application setValue:termsAccepted forKey:@"Terms Accepted"];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,15 +71,19 @@
         [self.application setObject:@"individual" forKey:@"Application Type"];
         FirstIndivPage * indivPage = segue.destinationViewController;
         indivPage.application = self.application;
+        indivPage->fromWhichBusPage = 1;
+//        indivPage->termsAccepted = 0;
     }
     else if ([segue.identifier isEqualToString:@"FirstBusinessSegue"])
     {
         [self.application setObject:@"business" forKey:@"Application Type"];
         FirstBusPage * busPage = segue.destinationViewController;
         busPage.application = self.application;
+//        busPage->termsAccepted = 0;
     }
   
 }
+
 
 - (IBAction)business:(id)sender {
     [self performSegueWithIdentifier:@"FirstIndividualSegue" sender:nil];
@@ -61,6 +92,30 @@
 - (IBAction)individual:(id)sender {
     [self performSegueWithIdentifier:@"FirstBusinessSegue" sender:nil];
 
+}
+
+
+- (IBAction)settings:(id)sender {
+    
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+
+    AuthenticationVC * authentication = (AuthenticationVC *)[sb instantiateViewControllerWithIdentifier:@"AuthenticationVC"];
+    
+    self.popover = [[UIPopoverController alloc]
+                                     initWithContentViewController:authentication];
+    self.popover.delegate = self;
+    
+    authentication.popover = self.popover;
+    authentication.delegate = self;
+    
+    [self.popover presentPopoverFromBarButtonItem:sender
+                                   permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+}
+
+-(void)authenticated
+{
+    [self.popover dismissPopoverAnimated:YES];
+    [self.navigationController.splitViewController performSegueWithIdentifier:@"AgentDetailSegue" sender:nil];
 }
 
 
