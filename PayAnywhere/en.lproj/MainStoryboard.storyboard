@@ -453,9 +453,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="businessSegue:" destination="uvt-9w-sfQ" eventType="touchUpInside" id="1jv-ZI-X9R"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kjb-v8-rhL">
                                 <constraints>
@@ -588,8 +585,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="suiteApt" destination="8q6-81-aCe" id="Ey1-CI-dNP"/>
                         <outlet property="zip" destination="p4J-et-xkt" id="x4L-rL-4CY"/>
                         <segue destination="Wgt-Ge-yuk" kind="push" identifier="FinishSegue" id="01R-D6-mqr"/>
-                        <segue destination="xwO-6K-79D" kind="push" identifier="IndivToBus1Segue" id="5qG-Io-GEw"/>
-                        <segue destination="NXa-2u-1Im" kind="push" identifier="IndivToBus2Segue" id="jwI-xk-n8O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kh4-nU-sge" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -983,9 +978,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="bus2ToIndiv:" destination="NXa-2u-1Im" eventType="touchUpInside" id="Rpm-VF-pJI"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jlj-u0-ig6">
                                 <constraints>
@@ -1081,7 +1073,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="monthlySalesButton" destination="DXI-6P-g75" id="cJO-bp-vIp"/>
                         <outlet property="typeButton" destination="leO-uj-rY1" id="uZh-cQ-RKm"/>
                         <segue destination="Wgt-Ge-yuk" kind="push" identifier="FinishSegue" id="RdO-v0-smf"/>
-                        <segue destination="uvt-9w-sfQ" kind="push" identifier="Bus2ToIndivSegue" id="WS2-Ky-oHN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kuq-9a-QaY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1317,9 +1308,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="fromBus1ToIndiv:" destination="xwO-6K-79D" eventType="touchUpInside" id="PlP-fT-o2X"/>
-                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="First Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEY-hV-Kdd">
                                 <constraints>
@@ -1580,7 +1568,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="ssn" destination="bXJ-qV-uS7" id="6Ic-OG-Hvl"/>
                         <outlet property="suiteApt" destination="ui9-fi-dIv" id="gHx-Rk-I7t"/>
                         <outlet property="zip" destination="Trd-2X-hea" id="DlH-2L-6FB"/>
-                        <segue destination="uvt-9w-sfQ" kind="push" identifier="Bus1ToIndivSegue" id="Ajz-Cb-Xap"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8C6-en-Ebw" userLabel="First Responder" sceneMemberID="firstResponder"/>
