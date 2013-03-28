@@ -453,9 +453,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="businessSegue:" destination="uvt-9w-sfQ" eventType="touchUpInside" id="1jv-ZI-X9R"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kjb-v8-rhL">
                                 <constraints>
@@ -588,8 +585,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="suiteApt" destination="8q6-81-aCe" id="Ey1-CI-dNP"/>
                         <outlet property="zip" destination="p4J-et-xkt" id="x4L-rL-4CY"/>
                         <segue destination="Wgt-Ge-yuk" kind="push" identifier="FinishSegue" id="01R-D6-mqr"/>
-                        <segue destination="xwO-6K-79D" kind="push" identifier="IndivToBus1Segue" id="5qG-Io-GEw"/>
-                        <segue destination="NXa-2u-1Im" kind="push" identifier="IndivToBus2Segue" id="jwI-xk-n8O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kh4-nU-sge" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -983,9 +978,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="bus2ToIndiv:" destination="NXa-2u-1Im" eventType="touchUpInside" id="Rpm-VF-pJI"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jlj-u0-ig6">
                                 <constraints>
@@ -1081,7 +1073,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="monthlySalesButton" destination="DXI-6P-g75" id="cJO-bp-vIp"/>
                         <outlet property="typeButton" destination="leO-uj-rY1" id="uZh-cQ-RKm"/>
                         <segue destination="Wgt-Ge-yuk" kind="push" identifier="FinishSegue" id="RdO-v0-smf"/>
-                        <segue destination="uvt-9w-sfQ" kind="push" identifier="Bus2ToIndivSegue" id="WS2-Ky-oHN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kuq-9a-QaY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1317,9 +1308,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="fromBus1ToIndiv:" destination="xwO-6K-79D" eventType="touchUpInside" id="PlP-fT-o2X"/>
-                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="First Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEY-hV-Kdd">
                                 <constraints>
@@ -1580,7 +1568,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="ssn" destination="bXJ-qV-uS7" id="6Ic-OG-Hvl"/>
                         <outlet property="suiteApt" destination="ui9-fi-dIv" id="gHx-Rk-I7t"/>
                         <outlet property="zip" destination="Trd-2X-hea" id="DlH-2L-6FB"/>
-                        <segue destination="uvt-9w-sfQ" kind="push" identifier="Bus1ToIndivSegue" id="Ajz-Cb-Xap"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8C6-en-Ebw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1744,16 +1731,152 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="checkboxUnselected.png" width="58" height="59"/>
         <image name="radio_uncheck.png" width="30" height="30"/>
     </resources>
+    <classes>
+        <class className="AnotherTypePickerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AnotherTypePickerViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="typePicker" candidateClass="UIPickerView"/>
+            </relationships>
+        </class>
+        <class className="AuthenticationVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AuthenticationVC.h"/>
+            <relationships>
+                <relationship kind="action" name="authenticate:"/>
+                <relationship kind="outlet" name="passcode" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="textLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="BirthdayViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BirthdayViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="goBack:"/>
+                <relationship kind="outlet" name="birthdayPicker" candidateClass="UIDatePicker"/>
+            </relationships>
+        </class>
+        <class className="BirthdayViewControllerIndiv" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BirthdayViewControllerIndiv.h"/>
+            <relationships>
+                <relationship kind="action" name="goBack:"/>
+                <relationship kind="outlet" name="birthdayPicker" candidateClass="UIDatePicker"/>
+            </relationships>
+        </class>
+        <class className="BusTimeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BusTimeViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="timePicker" candidateClass="UIPickerView"/>
+            </relationships>
+        </class>
+        <class className="FinishPage" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FinishPage.h"/>
+            <relationships>
+                <relationship kind="action" name="create:"/>
+                <relationship kind="action" name="radioButtonOneClicked:"/>
+                <relationship kind="action" name="radioButtonTwoClicked:"/>
+                <relationship kind="outlet" name="radioButtonOne" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="radioButtonTwo" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="FirstBusPage" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstBusPage.h"/>
+            <relationships>
+                <relationship kind="action" name="fromBus1ToIndiv:"/>
+                <relationship kind="action" name="toggleBusFields:"/>
+                <relationship kind="outlet" name="address" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="birthdayButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="businessAddress" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="businessSuiteApt" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="businessZip" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="email" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="first" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="last" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="phone" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="sameAsBusAddress" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="ssn" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="suiteApt" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="zip" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="FirstIndivPage" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstIndivPage.h"/>
+            <relationships>
+                <relationship kind="action" name="businessSegue:"/>
+                <relationship kind="action" name="create:"/>
+                <relationship kind="action" name="termsButon:"/>
+                <relationship kind="action" name="toggleBox:"/>
+                <relationship kind="action" name="togglePopover:"/>
+                <relationship kind="outlet" name="address" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="birth" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="checkBox" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="dba" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="email" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="first" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="last" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="phone" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="ssn" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="suiteApt" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="term" candidateClass="NSLayoutConstraint"/>
+                <relationship kind="outlet" name="zip" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="FirstPage" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstPage.h"/>
+            <relationships>
+                <relationship kind="action" name="business:"/>
+                <relationship kind="action" name="individual:"/>
+                <relationship kind="action" name="settings:"/>
+            </relationships>
+        </class>
+        <class className="HighestSalesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HighestSalesViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="salesPicker" candidateClass="UIPickerView"/>
+            </relationships>
+        </class>
+        <class className="MonthlySalesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MonthlySalesViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="salesPicker" candidateClass="UIPickerView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="SecBusPage" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SecBusPage.h"/>
+            <relationships>
+                <relationship kind="action" name="bus2ToIndiv:"/>
+                <relationship kind="action" name="create:"/>
+                <relationship kind="action" name="toggleBox:"/>
+                <relationship kind="action" name="weAreA:"/>
+                <relationship kind="outlet" name="anotherTypeButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="busTimeButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="checkBox" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="corpName" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="dba" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="fedTaxId" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="higestSalesButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="monthlySalesButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="term" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="typeButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="TradeShowAgentHomeViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TradeShowAgentHomeViewController.h"/>
+        </class>
+        <class className="TypePickerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TypePickerViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="typePicker" candidateClass="UIPickerView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="01R-D6-mqr"/>
         <segue reference="IG5-b9-jw7"/>
-        <segue reference="Iqd-Nv-uz2"/>
-        <segue reference="BU4-jI-7tp"/>
-        <segue reference="WS2-Ky-oHN"/>
-        <segue reference="RdO-v0-smf"/>
     </inferredMetricsTieBreakers>
 </document>
