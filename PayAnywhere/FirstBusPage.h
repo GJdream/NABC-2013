@@ -9,7 +9,10 @@
 #import "SecBusPage.h"
 #import "birthdayViewController.h"
 
-@interface FirstBusPage : UIViewController <BirthdayViewControllerDelegate, UIPopoverControllerDelegate>
+@interface FirstBusPage : UIViewController <UITextFieldDelegate, BirthdayViewControllerDelegate, UIPopoverControllerDelegate>{
+    @public
+    NSInteger termsAccepted;
+}
 
 @property (strong, nonatomic) NSMutableDictionary * application;
 

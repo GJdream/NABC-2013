@@ -65,6 +65,17 @@
         self.ssn.text = [self.application objectForKey:@"SSN"];
     if([self.application objectForKey:@"DBA"] != nullObj)
         self.dba.text = [self.application objectForKey:@"DBA"];
+    
+    //Set textbox image correctly
+    NSNumber * trmsAcc = [NSNumber numberWithBool:FALSE];
+    trmsAcc = [self.application valueForKey:@"Terms Accepted"];
+    
+    if(trmsAcc){
+            [self.checkBox setImage:[UIImage imageNamed:@"checkboxSelected.png"] forState:UIControlStateNormal];
+    }
+    else{
+            [self.checkBox setImage:[UIImage imageNamed:@"checkboxUnselected.png"] forState:UIControlStateNormal];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -85,6 +96,16 @@
         [self performSegueWithIdentifier:@"IndivToBus2Segue" sender:nil];
     }
 
+}
+
+- (IBAction)toggleBox:(id)sender {
+    [self toggleCheck];
+}
+
+- (IBAction)termsButon:(id)sender {
+    if([[self.application objectForKey:@"Terms Accepted"] isEqualToString:@"False"]){
+        
+    }
 }
 
 #pragma mark - Text Field Delegate
@@ -218,8 +239,22 @@
 
     
     NSLog(@"self: %@", self);
+}
+
+-(void)toggleCheck{
+    NSNumber * tru = [NSNumber numberWithBool:TRUE];
+
     
+    if([self.application valueForKey:@"Terms Accepted"]){
+        [self.application setValue:FALSE forKey:@"Terms Accepted"];
+    }
+    else{
+        [self.application setValue:tru forKey:@"Terms Accepted"];
+    }
+        FunctionsClass * funcClass = [[FunctionsClass alloc] init];
+    [funcClass toggleCheckbox:self.checkBox boolInt:[self.application valueForKey:@"Terms Accepted"]];
     
+    NSLog(@"Terms accepted: %@", [self.application objectForKey:@"Terms Accepted"]);
 }
 
 

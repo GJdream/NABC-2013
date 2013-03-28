@@ -1,22 +1,22 @@
 //
-//  TypePickerViewController.m
+//  HighestSalesViewController.m
 //  PayAnywhere
 //
-//  Created by WEILI GU on 3/20/13.
+//  Created by WEILI GU on 3/27/13.
 //  Copyright (c) 2013 NAB. All rights reserved.
 //
 
-#import "TypePickerViewController.h"
+#import "HighestSalesViewController.h"
 
-@interface TypePickerViewController ()
+@interface HighestSalesViewController ()
 
 @end
 
-@implementation TypePickerViewController
+@implementation HighestSalesViewController
 
-@synthesize typeArray;
+@synthesize salesArray;
 @synthesize delegate;
-@synthesize typePicker;
+@synthesize salesPicker;
 
 - (void)awakeFromNib
 {
@@ -27,12 +27,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    typeArray = [[NSMutableArray alloc] init];
-    [typeArray addObject:@"Sole Proprietor"];
-    [typeArray addObject:@"Corporation"];
-    [typeArray addObject:@"Partnership"];
-    [typeArray addObject:@"Non-Profit"];
-    [typeArray addObject:@"LLC"];
+	// Do any additional setup after loading the view.
+    salesArray = [[NSMutableArray alloc] init];
+    [salesArray addObject:@"Less than $10"];
+    [salesArray addObject:@"$10-$20"];
+    [salesArray addObject:@"$20-$50"];
+    [salesArray addObject:@"$50-$100"];
+    [salesArray addObject:@"$100-$250"];
+    [salesArray addObject:@"$250-$500"];
+    [salesArray addObject:@"More than $500"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,14 +48,16 @@
     return 1;
 }
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return [typeArray count];
+    return [salesArray count];
 }
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return [self.typeArray objectAtIndex:row];
+    return [self.salesArray objectAtIndex:row];
 }
 
 - (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    [delegate dismissPop:[typeArray objectAtIndex:row]];
+    [delegate dismissPopHighestSales:[salesArray objectAtIndex:row]];
     
 }
+
+
 @end

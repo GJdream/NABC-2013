@@ -1,22 +1,22 @@
 //
-//  TypePickerViewController.m
+//  MonthlySalesViewController.m
 //  PayAnywhere
 //
-//  Created by WEILI GU on 3/20/13.
+//  Created by WEILI GU on 3/27/13.
 //  Copyright (c) 2013 NAB. All rights reserved.
 //
 
-#import "TypePickerViewController.h"
+#import "MonthlySalesViewController.h"
 
-@interface TypePickerViewController ()
+@interface MonthlySalesViewController ()
 
 @end
 
-@implementation TypePickerViewController
+@implementation MonthlySalesViewController
 
-@synthesize typeArray;
+@synthesize salesArray;
 @synthesize delegate;
-@synthesize typePicker;
+@synthesize salesPicker;
 
 - (void)awakeFromNib
 {
@@ -27,12 +27,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    typeArray = [[NSMutableArray alloc] init];
-    [typeArray addObject:@"Sole Proprietor"];
-    [typeArray addObject:@"Corporation"];
-    [typeArray addObject:@"Partnership"];
-    [typeArray addObject:@"Non-Profit"];
-    [typeArray addObject:@"LLC"];
+	// Do any additional setup after loading the view.
+    salesArray = [[NSMutableArray alloc] init];
+    [salesArray addObject:@"< $100"];
+    [salesArray addObject:@"< $500"];
+    [salesArray addObject:@"< $1,000"];
+    [salesArray addObject:@"< $5,000"];
+    [salesArray addObject:@"< $25,000"];
+    [salesArray addObject:@"< $100,000"];
+    [salesArray addObject:@"$100,000+"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,14 +48,15 @@
     return 1;
 }
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return [typeArray count];
+    return [salesArray count];
 }
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return [self.typeArray objectAtIndex:row];
+    return [self.salesArray objectAtIndex:row];
 }
 
 - (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    [delegate dismissPop:[typeArray objectAtIndex:row]];
+    [delegate dismissPopMonthlySales:[salesArray objectAtIndex:row]];
     
 }
+
 @end

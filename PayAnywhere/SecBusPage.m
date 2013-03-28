@@ -15,6 +15,10 @@
 @implementation SecBusPage
 
 @synthesize typeButton;
+@synthesize anotherTypeButton;
+@synthesize monthlySalesButton;
+@synthesize higestSalesButton;
+@synthesize busTimeButton;
 @synthesize currentPopoverSeague;
 @synthesize pvc;
 //@synthesize type;
@@ -48,6 +52,17 @@
         self.dba.text = [self.application objectForKey:@"DBA"];
     if([self.application objectForKey:@"Federal Tax ID"] != nullObj)
         self.fedTaxId.text = [self.application objectForKey:@"Federal Tax ID"];
+    
+    //Set textbox image correctly
+    NSNumber * trmsAcc = [NSNumber numberWithBool:FALSE];
+    trmsAcc = [self.application valueForKey:@"Terms Accepted"];
+    
+    if(trmsAcc){
+        [self.checkBox setImage:[UIImage imageNamed:@"checkboxSelected.png"] forState:UIControlStateNormal];
+    }
+    else{
+        [self.checkBox setImage:[UIImage imageNamed:@"checkboxUnselected.png"] forState:UIControlStateNormal];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -102,6 +117,10 @@
     [self performSegueWithIdentifier:@"Bus2ToIndivSegue" sender:nil];
 }
 
+- (IBAction)toggleBox:(id)sender {
+        [self toggleCheck];
+}
+
 - (IBAction)weAreA:(id)sender {
     
 }
@@ -119,9 +138,62 @@
     self.typePopoverController = nil;
 }
 
+- (void)dismissPop:(NSString *)type {
+    [typeButton setTitle:type forState:UIControlStateNormal];
+    //[[currentPopoverSeague popoverController] dismissPopoverAnimated: YES];
+}
+
+//another type
+
+- (void)anotherTypePickerViewControllerDidFinish:(AnotherTypePickerViewController *)controller
+{
+    [self.typePopoverController dismissPopoverAnimated:YES];
+    self.typePopoverController = nil;
+}
+
+- (void)dismissPopAnotherType:(NSString *)type {
+    [anotherTypeButton setTitle:type forState:UIControlStateNormal];
+}
+
+//monthly sales
+
+- (void)monthlySalesViewControllerDidFinish:(MonthlySalesViewController *)controller
+{
+    [self.typePopoverController dismissPopoverAnimated:YES];
+    self.typePopoverController = nil;
+}
+
+- (void)dismissPopMonthlySales:(NSString *)sales {
+    [monthlySalesButton setTitle:sales forState:UIControlStateNormal];
+}
+
+//highest sales
+
+- (void)highestSalesViewControllerDidFinish:(HighestSalesViewController *)controller
+{
+    [self.typePopoverController dismissPopoverAnimated:YES];
+    self.typePopoverController = nil;
+}
+
+- (void)dismissPopHighestSales:(NSString *)sales {
+    [higestSalesButton setTitle:sales forState:UIControlStateNormal];
+}
+
+//bus time
+
+- (void)busTimeViewControllerDidFinish:(BusTimeViewController *)controller
+{
+    [self.typePopoverController dismissPopoverAnimated:YES];
+    self.typePopoverController = nil;
+}
+
+- (void)dismissPopBusTime:(NSString *)time {
+    [busTimeButton setTitle:time forState:UIControlStateNormal];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"selectedType"]) {
+    if ([[segue identifier] isEqualToString:@"selectedType"] || [[segue identifier] isEqualToString:@"selectAnotherType"] || [[segue identifier] isEqualToString:@"selectMonthlySales"] || [[segue identifier] isEqualToString:@"selectHighestSales"] || [[segue identifier] isEqualToString:@"selectBusTime"]) {
         currentPopoverSeague = (UIStoryboardPopoverSegue *)segue;
         pvc = [segue destinationViewController];
         [pvc setDelegate:self];
@@ -146,14 +218,29 @@
     
 }
 
-- (void)dismissPop:(NSString *)type {
-    [typeButton setTitle:type forState:UIControlStateNormal];
-    //[[currentPopoverSeague popoverController] dismissPopoverAnimated: YES];
-}
 
 -(void)fillBusinessDictionary{
     [self.application setObject:self.corpName.text forKey:@"Corporation Name"];
     [self.application setObject:self.dba.text forKey:@"DBA"];
     [self.application setObject:self.fedTaxId.text forKey:@"Federal Tax ID"];
+}
+
+
+
+
+-(void)toggleCheck{
+    NSNumber * tru = [NSNumber numberWithBool:TRUE];
+    
+    
+    if([self.application valueForKey:@"Terms Accepted"]){
+        [self.application setValue:FALSE forKey:@"Terms Accepted"];
+    }
+    else{
+        [self.application setValue:tru forKey:@"Terms Accepted"];
+    }
+    FunctionsClass * funcClass = [[FunctionsClass alloc] init];
+    [funcClass toggleCheckbox:self.checkBox boolInt:[self.application valueForKey:@"Terms Accepted"]];
+    
+    NSLog(@"Terms accepted: %@", [self.application objectForKey:@"Terms Accepted"]);
 }
 @end
