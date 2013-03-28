@@ -1,22 +1,22 @@
 //
-//  TypePickerViewController.m
+//  BusTimeViewController.m
 //  PayAnywhere
 //
-//  Created by WEILI GU on 3/20/13.
+//  Created by WEILI GU on 3/27/13.
 //  Copyright (c) 2013 NAB. All rights reserved.
 //
 
-#import "TypePickerViewController.h"
+#import "BusTimeViewController.h"
 
-@interface TypePickerViewController ()
+@interface BusTimeViewController ()
 
 @end
 
-@implementation TypePickerViewController
+@implementation BusTimeViewController
 
-@synthesize typeArray;
+@synthesize timeArray;
 @synthesize delegate;
-@synthesize typePicker;
+@synthesize timePicker;
 
 - (void)awakeFromNib
 {
@@ -27,12 +27,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    typeArray = [[NSMutableArray alloc] init];
-    [typeArray addObject:@"Sole Proprietor"];
-    [typeArray addObject:@"Corporation"];
-    [typeArray addObject:@"Partnership"];
-    [typeArray addObject:@"Non-Profit"];
-    [typeArray addObject:@"LLC"];
+	// Do any additional setup after loading the view.
+    timeArray = [[NSMutableArray alloc] init];
+    [timeArray addObject:@"Less than 6 Months"];
+    [timeArray addObject:@"1 Year"];
+    [timeArray addObject:@"2 Years"];
+    [timeArray addObject:@"3 Years"];
+    [timeArray addObject:@"4 Years"];
+    [timeArray addObject:@"5 Years"];
+    [timeArray addObject:@"10 Years"];
+    [timeArray addObject:@"20 Years"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,14 +49,15 @@
     return 1;
 }
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return [typeArray count];
+    return [timeArray count];
 }
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return [self.typeArray objectAtIndex:row];
+    return [self.timeArray objectAtIndex:row];
 }
 
 - (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    [delegate dismissPop:[typeArray objectAtIndex:row]];
+    [delegate dismissPopBusTime:[timeArray objectAtIndex:row]];
     
 }
+
 @end

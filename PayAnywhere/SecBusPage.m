@@ -15,6 +15,10 @@
 @implementation SecBusPage
 
 @synthesize typeButton;
+@synthesize anotherTypeButton;
+@synthesize monthlySalesButton;
+@synthesize higestSalesButton;
+@synthesize busTimeButton;
 @synthesize currentPopoverSeague;
 @synthesize pvc;
 //@synthesize type;
@@ -134,9 +138,62 @@
     self.typePopoverController = nil;
 }
 
+- (void)dismissPop:(NSString *)type {
+    [typeButton setTitle:type forState:UIControlStateNormal];
+    //[[currentPopoverSeague popoverController] dismissPopoverAnimated: YES];
+}
+
+//another type
+
+- (void)anotherTypePickerViewControllerDidFinish:(AnotherTypePickerViewController *)controller
+{
+    [self.typePopoverController dismissPopoverAnimated:YES];
+    self.typePopoverController = nil;
+}
+
+- (void)dismissPopAnotherType:(NSString *)type {
+    [anotherTypeButton setTitle:type forState:UIControlStateNormal];
+}
+
+//monthly sales
+
+- (void)monthlySalesViewControllerDidFinish:(MonthlySalesViewController *)controller
+{
+    [self.typePopoverController dismissPopoverAnimated:YES];
+    self.typePopoverController = nil;
+}
+
+- (void)dismissPopMonthlySales:(NSString *)sales {
+    [monthlySalesButton setTitle:sales forState:UIControlStateNormal];
+}
+
+//highest sales
+
+- (void)highestSalesViewControllerDidFinish:(HighestSalesViewController *)controller
+{
+    [self.typePopoverController dismissPopoverAnimated:YES];
+    self.typePopoverController = nil;
+}
+
+- (void)dismissPopHighestSales:(NSString *)sales {
+    [higestSalesButton setTitle:sales forState:UIControlStateNormal];
+}
+
+//bus time
+
+- (void)busTimeViewControllerDidFinish:(BusTimeViewController *)controller
+{
+    [self.typePopoverController dismissPopoverAnimated:YES];
+    self.typePopoverController = nil;
+}
+
+- (void)dismissPopBusTime:(NSString *)time {
+    [busTimeButton setTitle:time forState:UIControlStateNormal];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"selectedType"]) {
+    if ([[segue identifier] isEqualToString:@"selectedType"] || [[segue identifier] isEqualToString:@"selectAnotherType"] || [[segue identifier] isEqualToString:@"selectMonthlySales"] || [[segue identifier] isEqualToString:@"selectHighestSales"] || [[segue identifier] isEqualToString:@"selectBusTime"]) {
         currentPopoverSeague = (UIStoryboardPopoverSegue *)segue;
         pvc = [segue destinationViewController];
         [pvc setDelegate:self];
@@ -161,10 +218,6 @@
     
 }
 
-- (void)dismissPop:(NSString *)type {
-    [typeButton setTitle:type forState:UIControlStateNormal];
-    //[[currentPopoverSeague popoverController] dismissPopoverAnimated: YES];
-}
 
 -(void)fillBusinessDictionary{
     [self.application setObject:self.corpName.text forKey:@"Corporation Name"];

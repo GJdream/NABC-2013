@@ -7,9 +7,13 @@
 //
 
 #import "TypePickerViewController.h"
+#import "AnotherTypePickerViewController.h"
+#import "MonthlySalesViewController.h"
+#import "HighestSalesViewController.h"
+#import "BusTimeViewController.h"
 #import "FinishPage.h"
 
-@interface SecBusPage : UIViewController <TypePickerViewControllerDelegate, UIPopoverControllerDelegate, UITextFieldDelegate>
+@interface SecBusPage : UIViewController <TypePickerViewControllerDelegate, AnotherTypePickerViewControllerDelegate, MonthlySalesViewControllerDelegate, HighestSalesViewControllerDelegate, BusTimeViewControllerDelegate,UIPopoverControllerDelegate, UITextFieldDelegate>
 {
 }
 
@@ -27,6 +31,10 @@
 
 - (IBAction)weAreA:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *typeButton;
+@property (strong, nonatomic) IBOutlet UIButton *anotherTypeButton;
+@property (strong, nonatomic) IBOutlet UIButton *monthlySalesButton;
+@property (strong, nonatomic) IBOutlet UIButton *higestSalesButton;
+@property (strong, nonatomic) IBOutlet UIButton *busTimeButton;
 
 @property (strong, nonatomic) UIPopoverController *typePopoverController;
 @property (strong, nonatomic) NSString *type;
