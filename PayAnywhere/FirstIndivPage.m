@@ -85,7 +85,56 @@
 }
 
 - (IBAction)create:(id)sender {
+    NSNumber * trmsAcc = [NSNumber numberWithBool:FALSE];
+    trmsAcc = [self.application valueForKey:@"Terms Accepted"];
+    NSString *buttonName = [self.birth titleForState:UIControlStateNormal];
+    NSMutableString * alertMessageMutable;
+    NSString * alertMessage;
+    
+    BOOL first = [self.first.text length];
+    BOOL last = [self.first.text length];
+    BOOL email = [self.email.text length];
+    BOOL phone = [self.phone.text length];
+    BOOL address = [self.address.text length];
+    BOOL zip = [self.zip.text length];
+    BOOL ssn = [self.ssn.text length];
+    NSLog(@"birth title label: %@, %i", buttonName, [buttonName isEqualToString:@"Click to select"]);
+    BOOL birthFilled = !([buttonName isEqualToString:@"Click to select"]);
+    NSLog(@"birthFilled: %i", birthFilled);
+    
+
+    if(!first){
+        [alertMessageMutable appendString:@"First Name\n"];
+            alertMessage = @"hello";
+    }
+    
+//    alertMessage = (NSString *) alertMessageMutable;
+
+    
+    if(self.first.text)
+        NSLog(@"first: %@", self.first.text);
+    
+    [self fillDictionary];
+    
+    NSLog(@"self: %@", self);
+    
+//    if(self.first.text && self.last.text && self.email.text &&
+//       self.phone.text && self.address.text &&
+//       self.zip.text && self.ssn.text && trmsAcc){
+    if(first && last && email && phone && address && zip && ssn && trmsAcc && birthFilled){
     [self performSegueWithIdentifier:@"FinishSegue" sender:nil];
+    }
+    else
+    {
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Required Fields Missing:"
+            message:alertMessage
+            delegate:nil
+            cancelButtonTitle:@"OK"
+            otherButtonTitles:nil];
+        [message show];
+        
+    }
+    
 }
 
 - (IBAction)businessSegue:(id)sender {
@@ -156,6 +205,9 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+//    if(self.zip.text)
+  //      NSLog(@"%@", self.zip.text);
+    
     [self fillDictionary];
 
     if ([segue.identifier isEqualToString:@"FinishSegue"]) {
