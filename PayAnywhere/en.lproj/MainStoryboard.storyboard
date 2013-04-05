@@ -1737,7 +1737,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="01R-D6-mqr"/>
         <segue reference="IG5-b9-jw7"/>
+        <segue reference="RdO-v0-smf"/>
     </inferredMetricsTieBreakers>
 </document>

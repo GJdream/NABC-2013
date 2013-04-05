@@ -85,12 +85,18 @@
 }
 
 - (IBAction)create:(id)sender {
+    //Create variable to track terms accepted
     NSNumber * trmsAcc = [NSNumber numberWithBool:FALSE];
     trmsAcc = [self.application valueForKey:@"Terms Accepted"];
-    NSString *buttonName = [self.birth titleForState:UIControlStateNormal];
-    NSMutableString * alertMessageMutable;
-    NSString * alertMessage;
     
+    //Check if birthday has been set
+    NSString *buttonName = [self.birth titleForState:UIControlStateNormal];
+    NSMutableString * alertMessageMutable = [[NSMutableString alloc] init];
+    NSLog(@"birth title label: %@, %i", buttonName, [buttonName isEqualToString:@"Click to select"]);
+    BOOL birthFilled = !([buttonName isEqualToString:@"Click to select"]);
+    NSLog(@"birthFilled: %i", birthFilled);
+    
+    //Check for contents of all fields
     BOOL first = [self.first.text length];
     BOOL last = [self.first.text length];
     BOOL email = [self.email.text length];
@@ -98,36 +104,54 @@
     BOOL address = [self.address.text length];
     BOOL zip = [self.zip.text length];
     BOOL ssn = [self.ssn.text length];
-    NSLog(@"birth title label: %@, %i", buttonName, [buttonName isEqualToString:@"Click to select"]);
-    BOOL birthFilled = !([buttonName isEqualToString:@"Click to select"]);
-    NSLog(@"birthFilled: %i", birthFilled);
     
 
+    //Create the alert string
     if(!first){
-        [alertMessageMutable appendString:@"First Name\n"];
-            alertMessage = @"hello";
+        [alertMessageMutable appendString:@"First Name, "];
     }
-    
-//    alertMessage = (NSString *) alertMessageMutable;
+    if(!last){
+        [alertMessageMutable appendString:@"Last Name, "];
+    }
+    if(!email){
+        [alertMessageMutable appendString:@"Email, "];
+    }
+    if(!phone){
+        [alertMessageMutable appendString:@"Phone Number, "];
+    }
+    if(!address){
+        [alertMessageMutable appendString:@"Address, "];
+    }
+    if(!zip){
+        [alertMessageMutable appendString:@"Zip Code, "];
+    }
+    if(!ssn){
+        [alertMessageMutable appendString:@"Birthday, "];
+    }
+    if(!birthFilled){
+        [alertMessageMutable appendString:@"Last 4 Digits of SSN, "];
+    }
+    //Remove the comma from the end of the string
+    if([alertMessageMutable length]){
+        NSRange range = NSMakeRange([alertMessageMutable length]-2, 1);
+        [alertMessageMutable deleteCharactersInRange: range];
+    }
+    if(!trmsAcc){
+        [alertMessageMutable appendString:@"\n Terms and Conditions not Accepted"];
+    }
 
-    
-    if(self.first.text)
-        NSLog(@"first: %@", self.first.text);
-    
+    //Fill the dictionary with contents of the text fields
     [self fillDictionary];
     
-    NSLog(@"self: %@", self);
-    
-//    if(self.first.text && self.last.text && self.email.text &&
-//       self.phone.text && self.address.text &&
-//       self.zip.text && self.ssn.text && trmsAcc){
+    //If all the required fields are filled in, do the segue
     if(first && last && email && phone && address && zip && ssn && trmsAcc && birthFilled){
     [self performSegueWithIdentifier:@"FinishSegue" sender:nil];
     }
+    //Otherwise, display the alert view with generated string
     else
     {
         UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Required Fields Missing:"
-            message:alertMessage
+            message:alertMessageMutable
             delegate:nil
             cancelButtonTitle:@"OK"
             otherButtonTitles:nil];

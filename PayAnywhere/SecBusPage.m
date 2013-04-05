@@ -226,7 +226,26 @@
 }
 
 
+/*
 
+-(void)toggleCheck{
+    NSNumber * tru = [NSNumber numberWithBool:TRUE];
+    
+    
+    if([self.application valueForKey:@"Terms Accepted"]){
+        [self.application setValue:FALSE forKey:@"Terms Accepted"];
+        [self.checkBox setImage:[UIImage imageNamed:@"checkboxUnselected.png"] forState:UIControlStateNormal];
+    }
+    else{
+        [self.application setValue:tru forKey:@"Terms Accepted"];
+        [self.checkBox setImage:[UIImage imageNamed:@"checkboxSelected.png"] forState:UIControlStateNormal];        
+    }
+//    FunctionsClass * funcClass = [[FunctionsClass alloc] init];
+//    [funcClass toggleCheckbox:self.checkBox boolInt:[self.application valueForKey:@"Terms Accepted"]];
+    
+    NSLog(@"Terms accepted: %@", [self.application objectForKey:@"Terms Accepted"]);
+}
+*/
 
 -(void)toggleCheck{
     NSNumber * tru = [NSNumber numberWithBool:TRUE];
@@ -243,4 +262,6 @@
     
     NSLog(@"Terms accepted: %@", [self.application objectForKey:@"Terms Accepted"]);
 }
+
+ 
 @end
