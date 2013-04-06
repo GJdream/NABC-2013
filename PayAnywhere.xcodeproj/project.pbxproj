@@ -24,6 +24,7 @@
 		14B47A8616F1129B00197699 /* Application.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B47A8516F1129B00197699 /* Application.m */; };
 		14B6741A16FA63380064F755 /* checkboxSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B6741816FA63380064F755 /* checkboxSelected.png */; };
 		14B6741B16FA63380064F755 /* checkboxUnselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B6741916FA63380064F755 /* checkboxUnselected.png */; };
+		14BFE8131710A784005AFCA3 /* BankPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BFE8121710A784005AFCA3 /* BankPageViewController.m */; };
 		14E66B5117020FD100D1FE66 /* FunctionsClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E66B5017020FD100D1FE66 /* FunctionsClass.m */; };
 		14ECA6A516F1412C009EEEF1 /* IndivButtonSelected2.png in Resources */ = {isa = PBXBuildFile; fileRef = 14ECA6A116F1412C009EEEF1 /* IndivButtonSelected2.png */; };
 		14ECA6A616F1412C009EEEF1 /* IndivButtonUnselected2.png in Resources */ = {isa = PBXBuildFile; fileRef = 14ECA6A216F1412C009EEEF1 /* IndivButtonUnselected2.png */; };
@@ -79,6 +80,8 @@
 		14B47A8516F1129B00197699 /* Application.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Application.m; path = Classes/Application.m; sourceTree = "<group>"; };
 		14B6741816FA63380064F755 /* checkboxSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkboxSelected.png; path = ../checkboxSelected.png; sourceTree = "<group>"; };
 		14B6741916FA63380064F755 /* checkboxUnselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkboxUnselected.png; path = ../checkboxUnselected.png; sourceTree = "<group>"; };
+		14BFE8111710A784005AFCA3 /* BankPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankPageViewController.h; sourceTree = "<group>"; };
+		14BFE8121710A784005AFCA3 /* BankPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankPageViewController.m; sourceTree = "<group>"; };
 		14E66B4F17020FD100D1FE66 /* FunctionsClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FunctionsClass.h; path = Classes/FunctionsClass.h; sourceTree = "<group>"; };
 		14E66B5017020FD100D1FE66 /* FunctionsClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FunctionsClass.m; path = Classes/FunctionsClass.m; sourceTree = "<group>"; };
 		14ECA6A116F1412C009EEEF1 /* IndivButtonSelected2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IndivButtonSelected2.png; path = ../IndivButtonSelected2.png; sourceTree = "<group>"; };
@@ -214,6 +217,8 @@
 			isa = PBXGroup;
 			children = (
 				EDE01D3316DED199001743AF /* TradeShowAgentHomeViewController.h */,
+				14BFE8111710A784005AFCA3 /* BankPageViewController.h */,
+				14BFE8121710A784005AFCA3 /* BankPageViewController.m */,
 				EDE01D3416DED199001743AF /* TradeShowAgentHomeViewController.m */,
 				EDFE072816CC2D7900EED6D6 /* ViewController.h */,
 				EDFE072916CC2D7900EED6D6 /* ViewController.m */,
@@ -396,6 +401,7 @@
 				BAB699FF1703D59600393D36 /* TypePickerViewController.m in Sources */,
 				BAB69A021703DD7500393D36 /* HighestSalesViewController.m in Sources */,
 				BAB69A051703E29C00393D36 /* BusTimeViewController.m in Sources */,
+				14BFE8131710A784005AFCA3 /* BankPageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
