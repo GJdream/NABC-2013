@@ -52,10 +52,12 @@
         self.dba.text = [self.application objectForKey:@"DBA"];
     if([self.application objectForKey:@"Federal Tax ID"] != nullObj)
         self.fedTaxId.text = [self.application objectForKey:@"Federal Tax ID"];
-    
+/*
     //Set textbox image correctly
     NSNumber * trmsAcc = [NSNumber numberWithBool:FALSE];
     trmsAcc = [self.application valueForKey:@"Terms Accepted"];
+    
+    NSLog(@"Terms accepted: %@", trmsAcc);
     
     if(trmsAcc){
         [self.checkBox setImage:[UIImage imageNamed:@"checkboxSelected.png"] forState:UIControlStateNormal];
@@ -63,6 +65,7 @@
     else{
         [self.checkBox setImage:[UIImage imageNamed:@"checkboxUnselected.png"] forState:UIControlStateNormal];
     }
+*/ 
 }
 
 - (void)didReceiveMemoryWarning
@@ -110,7 +113,66 @@
 }
 
 - (IBAction)create:(id)sender {
+    //Check for required fields
+    //Check if terms are accepted
+    NSNumber * trms = [NSNumber numberWithBool:FALSE];
+    trms = [self.application valueForKey:@"Terms Accepted"];
+
+    //Check if dropdowns have been filled
+    NSString *buttonName = [self.typeButton titleForState:UIControlStateNormal];
+    BOOL weAreAFilled = !([buttonName isEqualToString:@"Select Type"]);
+    
+    buttonName = [self.anotherTypeButton titleForState:UIControlStateNormal];
+    BOOL whoIsA = !([buttonName isEqualToString:@"Select Type"]);
+    
+    buttonName = [self.monthlySalesButton titleForState:UIControlStateNormal];
+    BOOL monthlySalesFilled = !([buttonName isEqualToString:@"Select Range"]);
+    
+    buttonName = [self.higestSalesButton titleForState:UIControlStateNormal];
+    BOOL highestSalesFilled = !([buttonName isEqualToString:@"Select Range"]);
+    
+    //Programatically create string
+    
+    
+    if(!(weAreAFilled && trms && whoIsA
+       && monthlySalesFilled && highestSalesFilled)){
+            //Create warning message
+            NSMutableString * alertMessageMutable = [[NSMutableString alloc] init];
+
+        if(!weAreAFilled){
+            [alertMessageMutable appendString:@"We are a, "];
+        }
+        if(!whoIsA){
+            [alertMessageMutable appendString:@"Who is a, "];
+        }
+        if(!monthlySalesFilled){
+            [alertMessageMutable appendString:@"Total Monthly CC sales, "];
+        }
+        if(!highestSalesFilled){
+            [alertMessageMutable appendString:@"Highest Sales Amount, "];
+        }
+        
+        if([alertMessageMutable length]){
+            NSRange range = NSMakeRange([alertMessageMutable length]-2, 1);
+            [alertMessageMutable deleteCharactersInRange:range];
+        }
+        
+        if(!trms){
+            [alertMessageMutable appendString:@"\n Terms and Conditions not Accepted"];
+        }
+        
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Required Fields Missing:"
+                                                          message:alertMessageMutable
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+        [message show];
+        
+        
+    }
+    else{
         [self performSegueWithIdentifier:@"FinishSegue" sender:nil];
+    }
 }
 
 - (IBAction)bus2ToIndiv:(id)sender {
@@ -225,27 +287,6 @@
     [self.application setObject:self.fedTaxId.text forKey:@"Federal Tax ID"];
 }
 
-
-/*
-
--(void)toggleCheck{
-    NSNumber * tru = [NSNumber numberWithBool:TRUE];
-    
-    
-    if([self.application valueForKey:@"Terms Accepted"]){
-        [self.application setValue:FALSE forKey:@"Terms Accepted"];
-        [self.checkBox setImage:[UIImage imageNamed:@"checkboxUnselected.png"] forState:UIControlStateNormal];
-    }
-    else{
-        [self.application setValue:tru forKey:@"Terms Accepted"];
-        [self.checkBox setImage:[UIImage imageNamed:@"checkboxSelected.png"] forState:UIControlStateNormal];        
-    }
-//    FunctionsClass * funcClass = [[FunctionsClass alloc] init];
-//    [funcClass toggleCheckbox:self.checkBox boolInt:[self.application valueForKey:@"Terms Accepted"]];
-    
-    NSLog(@"Terms accepted: %@", [self.application objectForKey:@"Terms Accepted"]);
-}
-*/
 
 -(void)toggleCheck{
     NSNumber * tru = [NSNumber numberWithBool:TRUE];
