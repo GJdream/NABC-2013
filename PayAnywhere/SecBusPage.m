@@ -171,7 +171,7 @@
         
     }
     else{
-        [self performSegueWithIdentifier:@"FinishSegue" sender:nil];
+        [self performSegueWithIdentifier:@"BusToBankSegue" sender:nil];
     }
 }
 
@@ -261,13 +261,16 @@
         [pvc setDelegate:self];
     }
     
-    if ([segue.identifier isEqualToString:@"FinishSegue"]) {
+    if ([segue.identifier isEqualToString:@"BusToBankSegue"]) {
         [self.application setObject:@"business" forKey:@"Application Type"];
         
         NSLog(@"self: %@", self);
         
-        FinishPage * finishPage = segue.destinationViewController;
-        finishPage.application = self.application;
+        BankPageViewController * bankPage = segue.destinationViewController;
+        bankPage.application = self.application;
+        
+        //FinishPage * finishPage = segue.destinationViewController;
+        //finishPage.application = self.application;
     }
     
     else if ([[segue identifier] isEqualToString:@"Bus2ToIndivSegue"]){

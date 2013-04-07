@@ -114,7 +114,7 @@
     
     //If all the required fields are filled in, do the segue
     if(first && last && email && phone && address && zip && ssn && trmsAcc && birthFilled){
-    [self performSegueWithIdentifier:@"FinishSegue" sender:nil];
+    [self performSegueWithIdentifier:@"IndivToBankSegue" sender:nil];
     }
     //Otherwise, display the alert view with generated string
     else
@@ -237,6 +237,12 @@
     
     [self fillDictionary];
 
+    if([segue.identifier isEqualToString:@"IndivToBankSegue"]){
+        BankPageViewController * bankPage = segue.destinationViewController;
+        bankPage.application = self.application;
+        
+    }
+    
     if ([segue.identifier isEqualToString:@"FinishSegue"]) {
         [self.application setObject:@"individual" forKey:@"Application Type"];
         
