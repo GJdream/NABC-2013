@@ -121,6 +121,10 @@
         [self toggleCheck];
 }
 
+- (IBAction)cancel:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:FALSE];
+}
+
 - (IBAction)weAreA:(id)sender {
     
 }

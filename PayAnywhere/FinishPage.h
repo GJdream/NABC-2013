@@ -24,6 +24,7 @@
 - (IBAction)radioButtonTwoClicked:(id)sender;
 
 - (IBAction)create:(id)sender;
+- (IBAction)cancel:(id)sender;
 
 
 @end

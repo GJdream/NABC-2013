@@ -57,7 +57,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FlB-yh-14R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-282" y="-1117"/>
+            <point key="canvasLocation" x="-858" y="-1423"/>
         </scene>
         <!--First Page-->
         <scene sceneID="4">
@@ -133,13 +133,12 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" id="wuo-QK-6sp">
-                        <barButtonItem key="backBarButtonItem" title="Cancel" id="CF5-IJ-7Li"/>
+                        <barButtonItem key="backBarButtonItem" title="Back" id="CF5-IJ-7Li"/>
                         <barButtonItem key="leftBarButtonItem" title="Settings" id="S42-v0-KUo">
                             <connections>
                                 <action selector="settings:" destination="2" id="hjK-qM-Osm"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="P1o-oV-4gs"/>
                     </navigationItem>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
@@ -149,7 +148,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-400" y="-802"/>
+            <point key="canvasLocation" x="-737" y="-805"/>
         </scene>
         <!--Birthday View Controller-->
         <scene sceneID="IrU-iL-igg">
@@ -269,7 +268,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <!--First Indiv Page-->
         <scene sceneID="7W1-8U-6jf">
             <objects>
-                <viewController id="uvt-9w-sfQ" customClass="FirstIndivPage" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="firstIndivPage" id="uvt-9w-sfQ" customClass="FirstIndivPage" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xtt-9E-EHP">
                         <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -567,8 +566,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" id="Rpv-DN-Azo">
-                        <barButtonItem key="backBarButtonItem" title="Cancel" id="5AQ-hy-Nga"/>
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="R7M-0a-IFe"/>
+                        <barButtonItem key="backBarButtonItem" title="Back" id="5AQ-hy-Nga"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="6oU-gf-qaQ">
+                            <connections>
+                                <action selector="Cancel:" destination="uvt-9w-sfQ" id="ic1-yq-obu"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -721,12 +724,17 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <navigationItem key="navigationItem" id="vj1-Cd-BSK"/>
+                    <navigationItem key="navigationItem" id="vj1-Cd-BSK">
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="3Pc-i2-k0o">
+                            <connections>
+                                <action selector="cancel:" destination="Wgt-Ge-yuk" id="3kE-uN-1ZW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="radioButtonOne" destination="rBc-R4-Bpg" id="gld-b4-65o"/>
                         <outlet property="radioButtonTwo" destination="zDP-zw-5oG" id="Cav-8B-fUk"/>
-                        <segue destination="2" kind="push" identifier="FinishToStartSegue" id="I7o-nG-Met"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6YW-Du-1ko" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1059,7 +1067,13 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <navigationItem key="navigationItem" id="o1w-Pz-HJj"/>
+                    <navigationItem key="navigationItem" id="o1w-Pz-HJj">
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="3PQ-h2-g5H">
+                            <connections>
+                                <action selector="cancel:" destination="NXa-2u-1Im" id="TFm-Ea-RVD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
@@ -1577,7 +1591,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <!--View Controller-->
         <scene sceneID="JQj-kb-AdZ">
             <objects>
-                <viewController id="agj-gJ-nkf" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="agentHome" id="agj-gJ-nkf" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Imt-fV-AbM">
                         <rect key="frame" x="0.0" y="20" width="703" height="748"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1684,8 +1698,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <!--Split View Controller-->
         <scene sceneID="Sab-oZ-DYf">
             <objects>
-                <splitViewController id="FLy-Hy-8FR" sceneMemberID="viewController">
+                <splitViewController storyboardIdentifier="splitView" id="FLy-Hy-8FR" customClass="SplitViewController" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Ddm-yw-35X"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <segue destination="VRA-am-FDt" kind="relationship" relationship="masterViewController" id="VFx-rj-uKJ"/>
@@ -1715,7 +1730,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9kG-hw-3WR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1666" y="-838"/>
+            <point key="canvasLocation" x="-2028" y="-792"/>
         </scene>
     </scenes>
     <resources>
@@ -1769,6 +1784,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <class className="FinishPage" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FinishPage.h"/>
             <relationships>
+                <relationship kind="action" name="cancel:"/>
                 <relationship kind="action" name="create:"/>
                 <relationship kind="action" name="radioButtonOneClicked:"/>
                 <relationship kind="action" name="radioButtonTwoClicked:"/>
@@ -1799,11 +1815,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <class className="FirstIndivPage" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstIndivPage.h"/>
             <relationships>
+                <relationship kind="action" name="Cancel:"/>
                 <relationship kind="action" name="businessSegue:"/>
                 <relationship kind="action" name="create:"/>
-                <relationship kind="action" name="termsButon:"/>
                 <relationship kind="action" name="toggleBox:"/>
-                <relationship kind="action" name="togglePopover:"/>
                 <relationship kind="outlet" name="address" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="birth" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="checkBox" candidateClass="UIButton"/>
@@ -1845,6 +1860,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SecBusPage.h"/>
             <relationships>
                 <relationship kind="action" name="bus2ToIndiv:"/>
+                <relationship kind="action" name="cancel:"/>
                 <relationship kind="action" name="create:"/>
                 <relationship kind="action" name="toggleBox:"/>
                 <relationship kind="action" name="weAreA:"/>
@@ -1859,6 +1875,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <relationship kind="outlet" name="term" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="typeButton" candidateClass="UIButton"/>
             </relationships>
+        </class>
+        <class className="SplitViewController" superclassName="UISplitViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SplitViewController.h"/>
         </class>
         <class className="TradeShowAgentHomeViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TradeShowAgentHomeViewController.h"/>
@@ -1876,10 +1895,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="C5C-ug-2y2"/>
-        <segue reference="I7o-nG-Met"/>
-        <segue reference="RdO-v0-smf"/>
-        <segue reference="BU4-jI-7tp"/>
-        <segue reference="Iqd-Nv-uz2"/>
+        <segue reference="01R-D6-mqr"/>
     </inferredMetricsTieBreakers>
 </document>

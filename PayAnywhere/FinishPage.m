@@ -54,6 +54,10 @@
     [self.navigationController popToRootViewControllerAnimated:FALSE];
 }
 
+- (IBAction)cancel:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:FALSE];
+}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     /*

@@ -102,6 +102,10 @@
     [self toggleCheck];
 }
 
+- (IBAction)Cancel:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:FALSE];
+}
+
 - (IBAction)termsButon:(id)sender {
     if([[self.application objectForKey:@"Terms Accepted"] isEqualToString:@"False"]){
         
@@ -256,6 +260,5 @@
     
     NSLog(@"Terms accepted: %@", [self.application objectForKey:@"Terms Accepted"]);
 }
-
 
 @end
