@@ -55,7 +55,51 @@
     [self.application setObject:nullObj forKey:@"Total Monthly CC Sales"];
     [self.application setObject:nullObj forKey:@"Been In Business For"];
     [self.application setValue:termsAccepted forKey:@"Terms Accepted"];
-
+    
+    SignupAnywhereDB * db = [[SignupAnywhereDB alloc] init];
+    [db loadTradeshows];
+    
+    TradeShow * ts = [[TradeShow alloc] init];
+    ts = [db.tradeshows objectForKey:@"TS1"];
+    [ts printApplicants];
+    
+    /*
+    TradeShow * ts1 = [[TradeShow alloc] init];
+    TradeShow * ts2 = [[TradeShow alloc] init];
+    NSMutableDictionary * app1 = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary * app2 = [[NSMutableDictionary alloc] init];
+    
+    ts1.name = @"TS1";
+    ts1.city = @"Chicago";
+    ts1.state =@"Illinois";
+    ts2.name = @"TS2";
+    ts2.city = @"Las Vegas";
+    ts2.state = @"Nevada";
+    
+    [app1 setObject:@"Jorge" forKey:@"First Name"];
+    [app1 setObject:@"Viramontes" forKey:@"Last Name"];
+    [app1 setObject:@"jmontes@umich.edu" forKey:@"Email Address"];
+    [app1 setObject:@"7733161708" forKey:@"Phone Number"];
+    [app1 setObject:ts1 forKey:@"Tradeshow"];
+    
+    [app2 setObject:@"Nathan" forKey:@"First Name"];
+    [app2 setObject:@"Shields" forKey:@"Last Name"];
+    [app2 setObject:@"nshields@umich.edu" forKey:@"Email Address"];
+    [app2 setObject:@"7733734545" forKey:@"Phone Number"];
+    [app2 setObject:ts1 forKey:@"Tradeshow"];
+    
+    [ts1.applications addObject:app1];
+    [ts1 printApplicants];
+    [ts1.applications addObject:app2];
+    [ts1 printApplicants];
+    
+    [db addNewTradeshow:ts1];
+    [db printTradeshows];
+    [db addNewApplication:app1];
+    ts1 = [db.tradeshows objectForKey:@"TS1"];
+    [ts1 printApplicants];
+*/
+    
 }
 
 - (void)didReceiveMemoryWarning

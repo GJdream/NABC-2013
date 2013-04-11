@@ -30,6 +30,8 @@
 {
     [super viewDidLoad];
        NSLog(@"application dictionary: %@", self.application);
+    
+    db = [[SignupAnywhereDB alloc] init];
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,9 +51,31 @@
 }
 
 - (IBAction)create:(id)sender {
-        //[self performSegueWithIdentifier:@"FinishToStartSegue" sender:nil];
-    [self sendJSON];
+    TradeShow * testTradeshow = [[TradeShow alloc] init];
+    testTradeshow.name = @"Test Tradeshow";
+    testTradeshow.city = @"Ann Arbor";
+    testTradeshow.state = @"Michigan";
+    testTradeshow.date = [NSDate date];
+    
+    [db addNewTradeshow:testTradeshow];
+    
+    [self.application setObject:testTradeshow forKey:@"Tradeshow"];
+    
+    [db addNewApplication:self.application];
+    
+    //[self sendJSON];
+    
+    NSLog(@"%@ %@ application was submitted at the %@ in %@, %@",
+          [self.application objectForKey:@"First Name"],
+          [self.application objectForKey:@"Last Name"],
+          testTradeshow.name, testTradeshow.city, testTradeshow.state);
     [self.navigationController popToRootViewControllerAnimated:FALSE];
+    
+    NSLog(@"Test Tradeshow...\n");
+    [testTradeshow printApplicants];
+    
+    NSLog(@"Tradeshow in DB...\n");
+    [[db.tradeshows objectForKey:testTradeshow.name] printApplicants];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

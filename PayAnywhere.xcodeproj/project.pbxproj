@@ -38,6 +38,7 @@
 		BAB69A021703DD7500393D36 /* HighestSalesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB69A011703DD7500393D36 /* HighestSalesViewController.m */; };
 		BAB69A051703E29C00393D36 /* BusTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB69A041703E29C00393D36 /* BusTimeViewController.m */; };
 		BABA2F3116F653AC001570EE /* birthdayViewControllerIndiv.m in Sources */ = {isa = PBXBuildFile; fileRef = BABA2F3016F653AC001570EE /* birthdayViewControllerIndiv.m */; };
+		ED22B7EE1704E91B00ACB03F /* SignupAnywhereDB.m in Sources */ = {isa = PBXBuildFile; fileRef = ED22B7ED1704E91B00ACB03F /* SignupAnywhereDB.m */; };
 		EDE01D3516DED199001743AF /* TradeShowAgentHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE01D3416DED199001743AF /* TradeShowAgentHomeViewController.m */; };
 		EDE65E3516FA530C00E06273 /* AuthenticationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE65E3416FA530C00E06273 /* AuthenticationVC.m */; };
 		EDFE06FC16CC2CE200EED6D6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDFE06FB16CC2CE200EED6D6 /* UIKit.framework */; };
@@ -101,6 +102,8 @@
 		BAB69A041703E29C00393D36 /* BusTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusTimeViewController.m; sourceTree = "<group>"; };
 		BABA2F2F16F653AC001570EE /* birthdayViewControllerIndiv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = birthdayViewControllerIndiv.h; sourceTree = "<group>"; };
 		BABA2F3016F653AC001570EE /* birthdayViewControllerIndiv.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = birthdayViewControllerIndiv.m; sourceTree = "<group>"; };
+		ED22B7EC1704E91B00ACB03F /* SignupAnywhereDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupAnywhereDB.h; sourceTree = "<group>"; };
+		ED22B7ED1704E91B00ACB03F /* SignupAnywhereDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupAnywhereDB.m; sourceTree = "<group>"; };
 		EDE01D3316DED199001743AF /* TradeShowAgentHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TradeShowAgentHomeViewController.h; sourceTree = "<group>"; };
 		EDE01D3416DED199001743AF /* TradeShowAgentHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TradeShowAgentHomeViewController.m; sourceTree = "<group>"; };
 		EDE65E3316FA530C00E06273 /* AuthenticationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationVC.h; sourceTree = "<group>"; };
@@ -185,6 +188,8 @@
 				14B47A8516F1129B00197699 /* Application.m */,
 				14E66B4F17020FD100D1FE66 /* FunctionsClass.h */,
 				14E66B5017020FD100D1FE66 /* FunctionsClass.m */,
+				ED22B7EC1704E91B00ACB03F /* SignupAnywhereDB.h */,
+				ED22B7ED1704E91B00ACB03F /* SignupAnywhereDB.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -396,6 +401,7 @@
 				BAB699FF1703D59600393D36 /* TypePickerViewController.m in Sources */,
 				BAB69A021703DD7500393D36 /* HighestSalesViewController.m in Sources */,
 				BAB69A051703E29C00393D36 /* BusTimeViewController.m in Sources */,
+				ED22B7EE1704E91B00ACB03F /* SignupAnywhereDB.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
