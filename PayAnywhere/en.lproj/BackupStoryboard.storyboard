@@ -587,12 +587,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="ssn" destination="9ms-xK-u0G" id="HZL-A6-MKa"/>
                         <outlet property="suiteApt" destination="8q6-81-aCe" id="Ey1-CI-dNP"/>
                         <outlet property="zip" destination="p4J-et-xkt" id="x4L-rL-4CY"/>
-                        <segue destination="nO2-4c-R9L" kind="push" identifier="IndivToBankSegue" id="9Ql-Oe-skv"/>
+                        <segue destination="Wgt-Ge-yuk" kind="push" identifier="FinishSegue" id="01R-D6-mqr"/>
+                        <segue destination="xwO-6K-79D" kind="push" identifier="IndivToBus1Segue" id="5qG-Io-GEw"/>
+                        <segue destination="NXa-2u-1Im" kind="push" identifier="IndivToBus2Segue" id="jwI-xk-n8O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kh4-nU-sge" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="323" y="-2004"/>
+            <point key="canvasLocation" x="979" y="-1576"/>
         </scene>
         <!--Finish Page-->
         <scene sceneID="Z3T-oh-mV3">
@@ -729,6 +731,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <connections>
                         <outlet property="radioButtonOne" destination="rBc-R4-Bpg" id="gld-b4-65o"/>
                         <outlet property="radioButtonTwo" destination="zDP-zw-5oG" id="Cav-8B-fUk"/>
+                        <segue destination="2" kind="push" identifier="FinishToStartSegue" id="I7o-nG-Met"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6YW-Du-1ko" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1077,7 +1080,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="higestSalesButton" destination="hXS-rB-y6a" id="tWl-b7-GX5"/>
                         <outlet property="monthlySalesButton" destination="DXI-6P-g75" id="cJO-bp-vIp"/>
                         <outlet property="typeButton" destination="leO-uj-rY1" id="uZh-cQ-RKm"/>
-                        <segue destination="nO2-4c-R9L" kind="push" identifier="BusToBankSegue" id="w5e-YZ-U1y"/>
+                        <segue destination="Wgt-Ge-yuk" kind="push" identifier="FinishSegue" id="RdO-v0-smf"/>
+                        <segue destination="uvt-9w-sfQ" kind="push" identifier="Bus2ToIndivSegue" id="WS2-Ky-oHN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kuq-9a-QaY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1239,78 +1243,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o08-BN-G3d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4581" y="-39"/>
-        </scene>
-        <!--Bank Page View Controller-->
-        <scene sceneID="GTc-HP-blj">
-            <objects>
-                <viewController id="nO2-4c-R9L" customClass="BankPageViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="hNe-HV-Eqi">
-                        <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vwr-Xn-YcF">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Next">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="enterInfo:" destination="nO2-4c-R9L" eventType="touchUpInside" id="cyE-Ze-z81"/>
-                                    <segue destination="Wgt-Ge-yuk" kind="push" identifier="BankToFinishSegue" id="ePP-EV-wib"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="grf-HT-Jxs">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="97" id="jPd-ah-YGu"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GRd-p9-spY">
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mya-sc-vdn">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="skipInfo:" destination="nO2-4c-R9L" eventType="touchUpInside" id="DsW-vW-Ur0"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="grf-HT-Jxs" secondAttribute="trailing" constant="279" id="0ok-p6-oGW"/>
-                            <constraint firstItem="Vwr-Xn-YcF" firstAttribute="top" secondItem="hNe-HV-Eqi" secondAttribute="top" constant="274" id="4oj-a9-WwS"/>
-                            <constraint firstItem="GRd-p9-spY" firstAttribute="trailing" secondItem="grf-HT-Jxs" secondAttribute="trailing" type="default" id="GH3-sZ-1A3"/>
-                            <constraint firstItem="GRd-p9-spY" firstAttribute="leading" secondItem="grf-HT-Jxs" secondAttribute="leading" type="default" id="Hcp-nC-OrJ"/>
-                            <constraint firstAttribute="trailing" secondItem="Vwr-Xn-YcF" secondAttribute="trailing" constant="88" id="Jtj-sD-2Zx"/>
-                            <constraint firstAttribute="bottom" secondItem="mya-sc-vdn" secondAttribute="bottom" constant="289" id="W3b-hi-Y4X"/>
-                            <constraint firstItem="grf-HT-Jxs" firstAttribute="top" secondItem="hNe-HV-Eqi" secondAttribute="top" constant="146" id="baD-iZ-Dai"/>
-                            <constraint firstAttribute="trailing" secondItem="mya-sc-vdn" secondAttribute="trailing" constant="117" id="gff-px-9yc"/>
-                            <constraint firstItem="GRd-p9-spY" firstAttribute="top" secondItem="hNe-HV-Eqi" secondAttribute="top" constant="219" id="rv4-Ye-9ob"/>
-                        </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="dWy-Lu-Zuh"/>
-                    <connections>
-                        <outlet property="accountNumField" destination="hNe-HV-Eqi" id="qT7-JU-RaB"/>
-                        <outlet property="accountNumberField" destination="GRd-p9-spY" id="Bhp-l7-mWr"/>
-                        <outlet property="routingNumField" destination="grf-HT-Jxs" id="Aki-Lo-2eh"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LNq-s2-NtP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1573" y="-1382"/>
         </scene>
         <!--First Bus Page-->
         <scene sceneID="s3d-6E-8u6">
@@ -1648,11 +1580,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="ssn" destination="bXJ-qV-uS7" id="6Ic-OG-Hvl"/>
                         <outlet property="suiteApt" destination="ui9-fi-dIv" id="gHx-Rk-I7t"/>
                         <outlet property="zip" destination="Trd-2X-hea" id="DlH-2L-6FB"/>
+                        <segue destination="uvt-9w-sfQ" kind="push" identifier="Bus1ToIndivSegue" id="Ajz-Cb-Xap"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8C6-en-Ebw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1085" y="-242"/>
+            <point key="canvasLocation" x="993" y="-254"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="JQj-kb-AdZ">
@@ -1811,161 +1744,16 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="checkboxUnselected.png" width="58" height="59"/>
         <image name="radio_uncheck.png" width="30" height="30"/>
     </resources>
-    <classes>
-        <class className="AnotherTypePickerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AnotherTypePickerViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="typePicker" candidateClass="UIPickerView"/>
-            </relationships>
-        </class>
-        <class className="AuthenticationVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AuthenticationVC.h"/>
-            <relationships>
-                <relationship kind="action" name="authenticate:"/>
-                <relationship kind="outlet" name="passcode" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="textLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="BankPageViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BankPageViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="enterInfo:"/>
-                <relationship kind="action" name="skipInfo:"/>
-                <relationship kind="outlet" name="accountNumField" candidateClass="UIView"/>
-                <relationship kind="outlet" name="accountNumberField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="routingNumField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="BirthdayViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BirthdayViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="goBack:"/>
-                <relationship kind="outlet" name="birthdayPicker" candidateClass="UIDatePicker"/>
-            </relationships>
-        </class>
-        <class className="BirthdayViewControllerIndiv" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BirthdayViewControllerIndiv.h"/>
-            <relationships>
-                <relationship kind="action" name="goBack:"/>
-                <relationship kind="outlet" name="birthdayPicker" candidateClass="UIDatePicker"/>
-            </relationships>
-        </class>
-        <class className="BusTimeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BusTimeViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="timePicker" candidateClass="UIPickerView"/>
-            </relationships>
-        </class>
-        <class className="FinishPage" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FinishPage.h"/>
-            <relationships>
-                <relationship kind="action" name="create:"/>
-                <relationship kind="action" name="radioButtonOneClicked:"/>
-                <relationship kind="action" name="radioButtonTwoClicked:"/>
-                <relationship kind="outlet" name="radioButtonOne" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="radioButtonTwo" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="FirstBusPage" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstBusPage.h"/>
-            <relationships>
-                <relationship kind="action" name="fromBus1ToIndiv:"/>
-                <relationship kind="action" name="toggleBusFields:"/>
-                <relationship kind="outlet" name="address" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="birthdayButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="businessAddress" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="businessSuiteApt" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="businessZip" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="email" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="first" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="last" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="phone" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="sameAsBusAddress" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="ssn" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="suiteApt" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="zip" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="FirstIndivPage" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstIndivPage.h"/>
-            <relationships>
-                <relationship kind="action" name="businessSegue:"/>
-                <relationship kind="action" name="create:"/>
-                <relationship kind="action" name="termsButon:"/>
-                <relationship kind="action" name="toggleBox:"/>
-                <relationship kind="action" name="togglePopover:"/>
-                <relationship kind="outlet" name="address" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="birth" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="checkBox" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="dba" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="email" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="first" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="last" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="phone" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="ssn" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="suiteApt" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="term" candidateClass="NSLayoutConstraint"/>
-                <relationship kind="outlet" name="zip" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="FirstPage" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstPage.h"/>
-            <relationships>
-                <relationship kind="action" name="business:"/>
-                <relationship kind="action" name="individual:"/>
-                <relationship kind="action" name="settings:"/>
-            </relationships>
-        </class>
-        <class className="HighestSalesViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HighestSalesViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="salesPicker" candidateClass="UIPickerView"/>
-            </relationships>
-        </class>
-        <class className="MonthlySalesViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MonthlySalesViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="salesPicker" candidateClass="UIPickerView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="SecBusPage" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SecBusPage.h"/>
-            <relationships>
-                <relationship kind="action" name="bus2ToIndiv:"/>
-                <relationship kind="action" name="create:"/>
-                <relationship kind="action" name="toggleBox:"/>
-                <relationship kind="action" name="weAreA:"/>
-                <relationship kind="outlet" name="anotherTypeButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="busTimeButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="checkBox" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="corpName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="dba" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="fedTaxId" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="higestSalesButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="monthlySalesButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="term" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="typeButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="TradeShowAgentHomeViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TradeShowAgentHomeViewController.h"/>
-        </class>
-        <class className="TypePickerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TypePickerViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="typePicker" candidateClass="UIPickerView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="w5e-YZ-U1y"/>
+        <segue reference="IG5-b9-jw7"/>
+        <segue reference="Iqd-Nv-uz2"/>
+        <segue reference="BU4-jI-7tp"/>
+        <segue reference="WS2-Ky-oHN"/>
+        <segue reference="RdO-v0-smf"/>
     </inferredMetricsTieBreakers>
 </document>

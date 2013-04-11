@@ -53,7 +53,6 @@
     [self.application setObject:nullObj forKey:@"Highest Sales Amount"];
     [self.application setObject:nullObj forKey:@"Total Monthly CC Sales"];
     [self.application setObject:nullObj forKey:@"Been In Business For"];
-    [self.application setValue:termsAccepted forKey:@"Terms Accepted"];
     
     SignupAnywhereDB * db = [[SignupAnywhereDB alloc] init];
     [db loadTradeshows];
