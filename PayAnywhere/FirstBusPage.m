@@ -166,13 +166,76 @@ bool fieldsOn;
         [pvc setDelegate:self];
     }
     else if([[segue identifier] isEqualToString:@"SecondBusPageSegue"]) {
-       
-        [self fillBus1Dictionary];
-        NSLog(@"application dictionary: %@", self.application);
+        //This code breaks the next page
+    /*
+        //Check if birthday has been set
+        NSString *buttonName = [self.birthdayButton titleForState:UIControlStateNormal];
+        NSMutableString * alertMessageMutable = [[NSMutableString alloc] init];
+        NSLog(@"birth title label: %@, %i", buttonName, [buttonName isEqualToString:@"Click to select"]);
+        BOOL birthFilled = !([buttonName isEqualToString:@"Click to select"]);
+        NSLog(@"birthFilled: %i", birthFilled);
         
+        //Check for contents of all fields
+        BOOL first = [self.first.text length];
+        BOOL last = [self.first.text length];
+        BOOL email = [self.email.text length];
+        BOOL phone = [self.phone.text length];
+        BOOL address = [self.address.text length];
+        BOOL zip = [self.zip.text length];
+        BOOL ssn = [self.ssn.text length];
+
         
-        SecBusPage * secondBusPage = segue.destinationViewController;
-        secondBusPage.application = self.application;
+        if(!first){
+            [alertMessageMutable appendString:@"First Name, "];
+        }
+        if(!last){
+            [alertMessageMutable appendString:@"Last Name, "];
+        }
+        if(!email){
+            [alertMessageMutable appendString:@"Email, "];
+        }
+        if(!phone){
+            [alertMessageMutable appendString:@"Phone Number, "];
+        }
+        if(!address){
+            [alertMessageMutable appendString:@"Address, "];
+        }
+        if(!zip){
+            [alertMessageMutable appendString:@"Zip Code, "];
+        }
+        if(!ssn){
+            [alertMessageMutable appendString:@"Birthday, "];
+        }
+        if(!birthFilled){
+            [alertMessageMutable appendString:@"Last 4 Digits of SSN, "];
+        }
+        //Remove the comma from the end of the string
+        if([alertMessageMutable length]){
+            NSRange range = NSMakeRange([alertMessageMutable length]-2, 1);
+            [alertMessageMutable deleteCharactersInRange: range];
+        }
+        
+        //If the fields are not filled in, display the alert with generated string.
+        if(!(first && last && email && phone && address && zip && ssn && birthFilled)){
+            UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Required Fields Missing:"
+                message:alertMessageMutable
+                delegate:nil
+                cancelButtonTitle:@"OK"
+                otherButtonTitles:nil];
+            [message show];
+
+        }
+
+        //Perform the segue
+        else{
+     */
+            [self fillBus1Dictionary];
+            NSLog(@"application dictionary: %@", self.application);
+        
+            
+            SecBusPage * secondBusPage = segue.destinationViewController;
+            secondBusPage.application = self.application;
+        
     }
     else if ([[segue identifier] isEqualToString:@"Bus1ToIndivSegue"]){
         [self fillBus1Dictionary];

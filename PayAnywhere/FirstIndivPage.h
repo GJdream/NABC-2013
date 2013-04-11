@@ -9,6 +9,7 @@
 #import "FinishPage.h"
 #import "FirstBusPage.h"
 #import "SecBusPage.h"
+#import "BankPageViewController.h"
 #import "birthdayViewControllerIndiv.h"
 
 @interface FirstIndivPage : UIViewController<UITextFieldDelegate, BirthdayViewControllerIndivDelegate, UIPopoverControllerDelegate>

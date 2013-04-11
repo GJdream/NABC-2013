@@ -28,7 +28,6 @@
 - (void)viewDidLoad
 {
     NSNull * nullObj = [NSNull null];
-    NSNumber * termsAccepted = [NSNumber numberWithBool:FALSE];
     
     [super viewDidLoad];
 	self.application = [[NSMutableDictionary alloc] init];
@@ -54,7 +53,9 @@
     [self.application setObject:nullObj forKey:@"Highest Sales Amount"];
     [self.application setObject:nullObj forKey:@"Total Monthly CC Sales"];
     [self.application setObject:nullObj forKey:@"Been In Business For"];
-    [self.application setValue:termsAccepted forKey:@"Terms Accepted"];
+    [self.application setObject:nullObj forKey:@"ACH/Routing Number"];
+    [self.application setObject:nullObj forKey:@"Bank Account Number"];
+    [self.application setValue:FALSE forKey:@"Terms Accepted"];
 
 }
 
