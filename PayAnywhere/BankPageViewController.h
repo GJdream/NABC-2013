@@ -10,7 +10,6 @@
 
 @interface BankPageViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UITextField *routingNumField;
-@property (strong, nonatomic) IBOutlet UIView *accountNumField;
 @property (strong, nonatomic) IBOutlet UITextField *accountNumberField;
 
 @property (strong, nonatomic) NSMutableDictionary * application;

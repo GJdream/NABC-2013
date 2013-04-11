@@ -1303,7 +1303,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </view>
                     <navigationItem key="navigationItem" id="dWy-Lu-Zuh"/>
                     <connections>
-                        <outlet property="accountNumField" destination="hNe-HV-Eqi" id="qT7-JU-RaB"/>
                         <outlet property="accountNumberField" destination="GRd-p9-spY" id="Bhp-l7-mWr"/>
                         <outlet property="routingNumField" destination="grf-HT-Jxs" id="Aki-Lo-2eh"/>
                     </connections>
@@ -1831,7 +1830,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <relationships>
                 <relationship kind="action" name="enterInfo:"/>
                 <relationship kind="action" name="skipInfo:"/>
-                <relationship kind="outlet" name="accountNumField" candidateClass="UIView"/>
                 <relationship kind="outlet" name="accountNumberField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="routingNumField" candidateClass="UITextField"/>
             </relationships>
@@ -1966,8 +1964,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="IG5-b9-jw7"/>
-        <segue reference="dsw-GD-oKR"/>
-        <segue reference="Dvf-ft-J5c"/>
+        <segue reference="w5e-YZ-U1y"/>
     </inferredMetricsTieBreakers>
 </document>
