@@ -1736,23 +1736,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VoE-up-dXl">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="238" id="rAa-yB-cSK"/>
-                                    <constraint firstAttribute="height" constant="58" id="rV3-d1-qm4"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Finish" image="FinishButton.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="create:" destination="Sq9-SG-6Mn" eventType="touchUpInside" id="8Ir-DT-9MB"/>
-                                </connections>
-                            </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLy-ll-6MO">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -1828,7 +1811,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <constraints>
                             <constraint firstItem="TME-jg-goZ" firstAttribute="leading" secondItem="7NM-fD-Kb7" secondAttribute="leading" type="default" id="1FG-Zb-PPv"/>
                             <constraint firstItem="Qel-K9-12W" firstAttribute="top" secondItem="FSm-dw-Ejh" secondAttribute="top" constant="322" id="5UU-Xb-Zpy"/>
-                            <constraint firstItem="VoE-up-dXl" firstAttribute="leading" secondItem="FSm-dw-Ejh" secondAttribute="leading" constant="445" id="6zd-g2-Nhe"/>
                             <constraint firstItem="XlZ-yO-tuI" firstAttribute="baseline" secondItem="t4y-SP-DgD" secondAttribute="baseline" type="default" id="Adg-zE-khK"/>
                             <constraint firstAttribute="trailing" secondItem="7NM-fD-Kb7" secondAttribute="trailing" constant="130" id="C55-zk-s9a"/>
                             <constraint firstAttribute="bottom" secondItem="t4y-SP-DgD" secondAttribute="bottom" constant="228" id="DET-GU-R2n"/>
@@ -1836,7 +1818,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <constraint firstAttribute="trailing" secondItem="XlZ-yO-tuI" secondAttribute="trailing" constant="301" id="EiD-xx-Lr7"/>
                             <constraint firstItem="Qel-K9-12W" firstAttribute="leading" secondItem="fc9-xn-HVF" secondAttribute="leading" type="default" id="FDA-i0-XPx"/>
                             <constraint firstItem="fc9-xn-HVF" firstAttribute="top" secondItem="FSm-dw-Ejh" secondAttribute="top" constant="277" id="GNH-Xz-H6t"/>
-                            <constraint firstAttribute="bottom" secondItem="VoE-up-dXl" secondAttribute="bottom" constant="121" id="HUN-oO-Xq8"/>
                             <constraint firstItem="Kvb-hV-qUX" firstAttribute="leading" secondItem="FSm-dw-Ejh" secondAttribute="leading" constant="239" id="M6S-3f-Vy4"/>
                             <constraint firstItem="fc9-xn-HVF" firstAttribute="leading" secondItem="FSm-dw-Ejh" secondAttribute="leading" constant="465" id="anO-fv-6oq"/>
                             <constraint firstItem="7NM-fD-Kb7" firstAttribute="trailing" secondItem="TME-jg-goZ" secondAttribute="trailing" type="default" id="emq-gW-ynf"/>
@@ -1882,8 +1863,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="I7o-nG-Met"/>
-        <segue reference="RdO-v0-smf"/>
+        <segue reference="Dvf-ft-J5c"/>
         <segue reference="dsw-GD-oKR"/>
+        <segue reference="I7o-nG-Met"/>
     </inferredMetricsTieBreakers>
 </document>

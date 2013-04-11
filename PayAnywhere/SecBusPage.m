@@ -136,8 +136,8 @@
     
     if(!(weAreAFilled && trms && whoIsA
        && monthlySalesFilled && highestSalesFilled)){
-            //Create warning message
-            NSMutableString * alertMessageMutable = [[NSMutableString alloc] init];
+        //Create warning message
+        NSMutableString * alertMessageMutable = [[NSMutableString alloc] init];
 
         if(!weAreAFilled){
             [alertMessageMutable appendString:@"We are a, "];
@@ -162,10 +162,10 @@
         }
         
         UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Required Fields Missing:"
-                                                          message:alertMessageMutable
-                                                         delegate:nil
-                                                cancelButtonTitle:@"OK"
-                                                otherButtonTitles:nil];
+                    message:alertMessageMutable
+                    delegate:nil
+                    cancelButtonTitle:@"OK"
+                    otherButtonTitles:nil];
         [message show];
         
         
