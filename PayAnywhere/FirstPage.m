@@ -28,7 +28,6 @@
 - (void)viewDidLoad
 {
     NSNull * nullObj = [NSNull null];
-    NSNumber * termsAccepted = [NSNumber numberWithBool:FALSE];
     
     [super viewDidLoad];
 	self.application = [[NSMutableDictionary alloc] init];

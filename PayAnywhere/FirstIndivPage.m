@@ -65,7 +65,7 @@
         self.ssn.text = [self.application objectForKey:@"SSN"];
     if([self.application objectForKey:@"DBA"] != nullObj)
         self.dba.text = [self.application objectForKey:@"DBA"];
-    
+/*
     //Set textbox image correctly
     NSNumber * trmsAcc = [NSNumber numberWithBool:FALSE];
     trmsAcc = [self.application valueForKey:@"Terms Accepted"];
@@ -76,6 +76,7 @@
     else{
             [self.checkBox setImage:[UIImage imageNamed:@"checkboxUnselected.png"] forState:UIControlStateNormal];
     }
+*/ 
 }
 
 - (void)didReceiveMemoryWarning
@@ -85,7 +86,82 @@
 }
 
 - (IBAction)create:(id)sender {
-    [self performSegueWithIdentifier:@"FinishSegue" sender:nil];
+    //Create variable to track terms accepted
+    NSNumber * trmsAcc = [NSNumber numberWithBool:FALSE];
+    trmsAcc = [self.application valueForKey:@"Terms Accepted"];
+    
+    //Check if birthday has been set
+    NSString *buttonName = [self.birth titleForState:UIControlStateNormal];
+    NSMutableString * alertMessageMutable = [[NSMutableString alloc] init];
+    NSLog(@"birth title label: %@, %i", buttonName, [buttonName isEqualToString:@"Click to select"]);
+    BOOL birthFilled = !([buttonName isEqualToString:@"Click to select"]);
+    NSLog(@"birthFilled: %i", birthFilled);
+    
+    //Check for contents of all fields
+    BOOL first = [self.first.text length];
+    BOOL last = [self.last.text length];
+    BOOL email = [self.email.text length];
+    BOOL phone = [self.phone.text length];
+    BOOL address = [self.address.text length];
+    BOOL zip = [self.zip.text length];
+    BOOL ssn = [self.ssn.text length];
+    
+
+    
+
+    //Fill the dictionary with contents of the text fields
+    [self fillDictionary];
+    
+    //If all the required fields are filled in, do the segue
+    if(first && last && email && phone && address && zip && ssn && trmsAcc && birthFilled){
+    [self performSegueWithIdentifier:@"IndivToBankSegue" sender:nil];
+    }
+    //Otherwise, display the alert view with generated string
+    else
+    {
+        //Create the alert string
+        if(!first){
+            [alertMessageMutable appendString:@"First Name, "];
+        }
+        if(!last){
+            [alertMessageMutable appendString:@"Last Name, "];
+        }
+        if(!email){
+            [alertMessageMutable appendString:@"Email, "];
+        }
+        if(!phone){
+            [alertMessageMutable appendString:@"Phone Number, "];
+        }
+        if(!address){
+            [alertMessageMutable appendString:@"Address, "];
+        }
+        if(!zip){
+            [alertMessageMutable appendString:@"Zip Code, "];
+        }
+        if(!ssn){
+            [alertMessageMutable appendString:@"Birthday, "];
+        }
+        if(!birthFilled){
+            [alertMessageMutable appendString:@"Last 4 Digits of SSN, "];
+        }
+        //Remove the comma from the end of the string
+        if([alertMessageMutable length]){
+            NSRange range = NSMakeRange([alertMessageMutable length]-2, 1);
+            [alertMessageMutable deleteCharactersInRange: range];
+        }
+        if(!trmsAcc){
+            [alertMessageMutable appendString:@"\n Terms and Conditions not Accepted"];
+        }
+        
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Required Fields Missing:"
+            message:alertMessageMutable
+            delegate:nil
+            cancelButtonTitle:@"OK"
+            otherButtonTitles:nil];
+        [message show];
+        
+    }
+    
 }
 
 - (IBAction)businessSegue:(id)sender {
@@ -156,8 +232,17 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+//    if(self.zip.text)
+  //      NSLog(@"%@", self.zip.text);
+    
     [self fillDictionary];
 
+    if([segue.identifier isEqualToString:@"IndivToBankSegue"]){
+        BankPageViewController * bankPage = segue.destinationViewController;
+        bankPage.application = self.application;
+        
+    }
+    
     if ([segue.identifier isEqualToString:@"FinishSegue"]) {
         [self.application setObject:@"individual" forKey:@"Application Type"];
         

@@ -12,6 +12,7 @@
 #import "HighestSalesViewController.h"
 #import "BusTimeViewController.h"
 #import "FinishPage.h"
+#import "BankPageViewController.h"
 
 @interface SecBusPage : UIViewController <TypePickerViewControllerDelegate, AnotherTypePickerViewControllerDelegate, MonthlySalesViewControllerDelegate, HighestSalesViewControllerDelegate, BusTimeViewControllerDelegate,UIPopoverControllerDelegate, UITextFieldDelegate>
 {
