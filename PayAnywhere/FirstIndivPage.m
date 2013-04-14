@@ -20,7 +20,7 @@
 @implementation FirstIndivPage
 
 static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
-static const CGFloat MINIMUM_SCROLL_FRACTION = 0.2;
+static const CGFloat MINIMUM_SCROLL_FRACTION = 0.4;
 static const CGFloat MAXIMUM_SCROLL_FRACTION = 0.8;
 static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 264;
 static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
@@ -147,10 +147,10 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
             [alertMessageMutable appendString:@"Zip Code, "];
         }
         if(!ssn){
-            [alertMessageMutable appendString:@"Birthday, "];
+            [alertMessageMutable appendString:@"Last 4 Digits of SSN "];
         }
         if(!birthFilled){
-            [alertMessageMutable appendString:@"Last 4 Digits of SSN, "];
+            [alertMessageMutable appendString:@"Birthday "];
         }
         //Remove the comma from the end of the string
         if([alertMessageMutable length]){
@@ -331,7 +331,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 
 
     
-    NSLog(@"self: %@", self);
+//    NSLog(@"self: %@", self);
 }
 
 -(void)toggleCheck{
@@ -357,14 +357,26 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     CGRect viewRect =
     [self.view.window convertRect:self.view.bounds fromView:self.view];
     
-    CGFloat midline = textFieldRect.origin.y + 0.5 * textFieldRect.size.height;
+    CGFloat midline = textFieldRect.origin.x + 0.5 * textFieldRect.size.width;
     CGFloat numerator =
-    midline - viewRect.origin.y
-    - MINIMUM_SCROLL_FRACTION * viewRect.size.height;
+    midline - viewRect.origin.x
+    - MINIMUM_SCROLL_FRACTION * viewRect.size.width;
     CGFloat denominator =
     (MAXIMUM_SCROLL_FRACTION - MINIMUM_SCROLL_FRACTION)
-    * viewRect.size.height;
+    * viewRect.size.width;
     CGFloat heightFraction = numerator / denominator;
+//    heightFraction = 1 - heightFraction;
+    NSLog(@"heightFraction: %f", heightFraction);
+    
+    /*Working stats:
+     <0 = 0, >1 = 1,
+     static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
+     static const CGFloat MINIMUM_SCROLL_FRACTION = 0.4;
+     static const CGFloat MAXIMUM_SCROLL_FRACTION = 0.8;
+     static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 264;
+     static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
+     no height = 1-height
+     */
     
     if (heightFraction < 0.0)
     {
@@ -374,6 +386,9 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     {
         heightFraction = 1.0;
     }
+    
+    NSLog(@"heightFraction: %f", heightFraction);
+
     
     UIInterfaceOrientation orientation =
     [[UIApplication sharedApplication] statusBarOrientation];
@@ -386,6 +401,9 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     {
         animatedDistance = floor(LANDSCAPE_KEYBOARD_HEIGHT * heightFraction);
     }
+    
+    NSLog(@"distance: %f", animatedDistance);
+
     
     CGRect viewFrame = self.view.frame;
     viewFrame.origin.y -= animatedDistance;

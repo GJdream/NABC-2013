@@ -1249,8 +1249,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vwr-Xn-YcF">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="57" id="rRW-2x-uSH"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Next">
+                                <state key="normal" title="Enter">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1262,20 +1265,23 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <segue destination="Wgt-Ge-yuk" kind="push" identifier="BankToFinishSegue" id="ePP-EV-wib"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="grf-HT-Jxs">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="XXXXXXXX" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="grf-HT-Jxs">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="XXXXXXXXX" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GRd-p9-spY">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="97" id="jPd-ah-YGu"/>
+                                    <constraint firstAttribute="width" constant="120" id="4rs-Ft-fWB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GRd-p9-spY">
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mya-sc-vdn">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="73" id="MDr-j8-gnA"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Skip">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1286,18 +1292,63 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <action selector="skipInfo:" destination="nO2-4c-R9L" eventType="touchUpInside" id="DsW-vW-Ur0"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Where Should We Send Your Money?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7jI-m8-qaz">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="643" id="DuG-8u-ySi"/>
+                                    <constraint firstAttribute="height" constant="161" id="KOV-AI-mVY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H5F-hd-CV8">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="424" id="HDz-Rw-fNv"/>
+                                    <constraint firstAttribute="height" constant="69" id="tqi-E1-Ab7"/>
+                                </constraints>
+                                <string key="text">PayAnywehre will deposit your funds within 2 business days of transactions processed.  Enter your routing or ACH number and bank account number below.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="ACH/Routing Number:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5c-ro-Zor">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="137" id="5Nl-Ox-D5C"/>
+                                    <constraint firstAttribute="height" constant="21" id="JzY-4w-ZkY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Account Number:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s30-gO-7Oh">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="137" id="182-Od-L0D"/>
+                                    <constraint firstAttribute="height" constant="21" id="aly-wh-n2i"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="grf-HT-Jxs" secondAttribute="trailing" constant="279" id="0ok-p6-oGW"/>
-                            <constraint firstItem="Vwr-Xn-YcF" firstAttribute="top" secondItem="hNe-HV-Eqi" secondAttribute="top" constant="274" id="4oj-a9-WwS"/>
-                            <constraint firstItem="GRd-p9-spY" firstAttribute="trailing" secondItem="grf-HT-Jxs" secondAttribute="trailing" type="default" id="GH3-sZ-1A3"/>
-                            <constraint firstItem="GRd-p9-spY" firstAttribute="leading" secondItem="grf-HT-Jxs" secondAttribute="leading" type="default" id="Hcp-nC-OrJ"/>
-                            <constraint firstAttribute="trailing" secondItem="Vwr-Xn-YcF" secondAttribute="trailing" constant="88" id="Jtj-sD-2Zx"/>
-                            <constraint firstAttribute="bottom" secondItem="mya-sc-vdn" secondAttribute="bottom" constant="289" id="W3b-hi-Y4X"/>
-                            <constraint firstItem="grf-HT-Jxs" firstAttribute="top" secondItem="hNe-HV-Eqi" secondAttribute="top" constant="146" id="baD-iZ-Dai"/>
-                            <constraint firstAttribute="trailing" secondItem="mya-sc-vdn" secondAttribute="trailing" constant="117" id="gff-px-9yc"/>
-                            <constraint firstItem="GRd-p9-spY" firstAttribute="top" secondItem="hNe-HV-Eqi" secondAttribute="top" constant="219" id="rv4-Ye-9ob"/>
+                            <constraint firstItem="o5c-ro-Zor" firstAttribute="trailing" secondItem="7jI-m8-qaz" secondAttribute="trailing" type="default" id="GHy-uo-Rf8"/>
+                            <constraint firstItem="grf-HT-Jxs" firstAttribute="trailing" secondItem="GRd-p9-spY" secondAttribute="trailing" type="default" id="Gm0-XF-8YK"/>
+                            <constraint firstItem="grf-HT-Jxs" firstAttribute="centerY" secondItem="hNe-HV-Eqi" secondAttribute="centerY" type="default" id="HMl-Cn-8P9"/>
+                            <constraint firstItem="mya-sc-vdn" firstAttribute="leading" secondItem="H5F-hd-CV8" secondAttribute="leading" type="default" id="KFr-MW-Jyo"/>
+                            <constraint firstItem="grf-HT-Jxs" firstAttribute="leading" secondItem="GRd-p9-spY" secondAttribute="leading" type="default" id="NBP-He-5bi"/>
+                            <constraint firstAttribute="bottom" secondItem="Vwr-Xn-YcF" secondAttribute="bottom" constant="106" id="Sz4-g0-eUv"/>
+                            <constraint firstItem="7jI-m8-qaz" firstAttribute="leading" secondItem="hNe-HV-Eqi" secondAttribute="leading" constant="85" id="Tbn-JB-7QM"/>
+                            <constraint firstItem="Vwr-Xn-YcF" firstAttribute="leading" secondItem="hNe-HV-Eqi" secondAttribute="leading" constant="372" id="WkF-6k-VYL"/>
+                            <constraint firstAttribute="trailing" secondItem="H5F-hd-CV8" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="axq-jb-95x"/>
+                            <constraint firstItem="o5c-ro-Zor" firstAttribute="top" secondItem="hNe-HV-Eqi" secondAttribute="top" constant="280" id="gJA-ii-caX"/>
+                            <constraint firstItem="s30-gO-7Oh" firstAttribute="top" secondItem="hNe-HV-Eqi" secondAttribute="top" constant="343" id="jkH-Ep-CeX"/>
+                            <constraint firstAttribute="trailing" secondItem="s30-gO-7Oh" secondAttribute="trailing" constant="295" id="l8P-zU-YYk"/>
+                            <constraint firstItem="7jI-m8-qaz" firstAttribute="top" secondItem="hNe-HV-Eqi" secondAttribute="top" constant="42" id="lW1-4J-QpB"/>
+                            <constraint firstItem="H5F-hd-CV8" firstAttribute="top" secondItem="hNe-HV-Eqi" secondAttribute="top" constant="175" id="mu7-UW-X1M"/>
+                            <constraint firstAttribute="trailing" secondItem="GRd-p9-spY" secondAttribute="trailing" constant="132" id="oUk-A8-OLG"/>
+                            <constraint firstItem="Vwr-Xn-YcF" firstAttribute="baseline" secondItem="mya-sc-vdn" secondAttribute="baseline" type="default" id="vYM-o2-fTz"/>
+                            <constraint firstItem="GRd-p9-spY" firstAttribute="top" secondItem="hNe-HV-Eqi" secondAttribute="top" constant="276" id="wRW-EV-lDW"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
