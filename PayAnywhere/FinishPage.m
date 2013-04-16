@@ -111,16 +111,21 @@
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     
     //URL for individual POST
-    [request setURL:[NSURL URLWithString:@"http://141.212.105.78:8080/app.php/individual/"]];
+    if ([[self.application objectForKey:@"Application Type"] isEqual: @"individual"]) {
+        [request setURL:[NSURL URLWithString:@"http://141.212.105.78:8080/app.php/individual/"]];
+    } else {
+        [request setURL:[NSURL URLWithString:@"http://141.212.105.78:8080/app.php/business/"]];
+    }
     [request setHTTPMethod:@"POST"];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [request setValue:@"application/x-www-form-urlencoded;charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
     [request setHTTPBody:jsonData];
     
     //Create and recieve the response from the server
-    NSURLResponse *response;
+    NSHTTPURLResponse *response = nil;
+   // NSError *error = nil;
     NSData *POSTReply = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
-    NSString *theReply = [[NSString alloc] initWithBytes:[POSTReply bytes] length:[POSTReply length] encoding: NSASCIIStringEncoding];
+    NSString *theReply = [[NSString alloc] initWithBytes:[POSTReply bytes] length:[POSTReply length] encoding: NSASCIIStringEncoding] ;
     NSLog(@"Reply: %@", theReply);
     
 }

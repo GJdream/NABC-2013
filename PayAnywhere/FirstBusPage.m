@@ -252,7 +252,7 @@ bool fieldsOn;
                                                           dateStyle:NSDateFormatterLongStyle
                                                           timeStyle:NSDateFormatterNoStyle];
     NSLog(@"%@",dateString);
-    
+    [self.application setObject:dateString forKey:@"Birthday"];
     [birthdayButton setTitle:dateString forState:UIControlStateNormal];
 }
 

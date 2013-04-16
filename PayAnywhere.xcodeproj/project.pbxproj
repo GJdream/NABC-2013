@@ -406,7 +406,7 @@
 				BAB699FF1703D59600393D36 /* TypePickerViewController.m in Sources */,
 				BAB69A021703DD7500393D36 /* HighestSalesViewController.m in Sources */,
 				BAB69A051703E29C00393D36 /* BusTimeViewController.m in Sources */,
-				BA11634E1704FA8800C3B163 /* SplitViewController.m in Sources */,
+				14BFE8131710A784005AFCA3 /* BankPageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

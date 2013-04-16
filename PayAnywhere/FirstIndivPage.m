@@ -310,7 +310,7 @@
                                                           dateStyle:NSDateFormatterLongStyle
                                                           timeStyle:NSDateFormatterNoStyle];
     NSLog(@"%@",dateString);
-    
+    [self.application setObject:dateString forKey:@"Birthday"];
     [birth setTitle:dateString forState:UIControlStateNormal];
 }
 
@@ -324,8 +324,6 @@
     [self.application setObject:self.zip.text forKey:@"Zip Code"];
     [self.application setObject:self.ssn.text forKey:@"SSN"];
     [self.application setObject:self.dba.text forKey:@"DBA"];
-
-
     
     NSLog(@"self: %@", self);
 }

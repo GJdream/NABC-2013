@@ -205,6 +205,7 @@
 }
 
 - (void)dismissPop:(NSString *)type {
+    [self.application setObject:type forKey:@"Business Type"];
     [typeButton setTitle:type forState:UIControlStateNormal];
     //[[currentPopoverSeague popoverController] dismissPopoverAnimated: YES];
 }
@@ -218,6 +219,7 @@
 }
 
 - (void)dismissPopAnotherType:(NSString *)type {
+    [self.application setObject:type forKey:@"Business Area"];
     [anotherTypeButton setTitle:type forState:UIControlStateNormal];
 }
 
@@ -230,6 +232,7 @@
 }
 
 - (void)dismissPopMonthlySales:(NSString *)sales {
+    [self.application setObject:sales forKey:@"Monthly Sales"];
     [monthlySalesButton setTitle:sales forState:UIControlStateNormal];
 }
 
@@ -242,6 +245,7 @@
 }
 
 - (void)dismissPopHighestSales:(NSString *)sales {
+    [self.application setObject:sales forKey:@"Higest Sales"];
     [higestSalesButton setTitle:sales forState:UIControlStateNormal];
 }
 
@@ -254,6 +258,7 @@
 }
 
 - (void)dismissPopBusTime:(NSString *)time {
+    [self.application setObject:time forKey:@"Been in Business"];
     [busTimeButton setTitle:time forState:UIControlStateNormal];
 }
 
