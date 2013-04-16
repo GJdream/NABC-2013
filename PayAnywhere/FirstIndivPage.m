@@ -9,13 +9,21 @@
 #import "FirstIndivPage.h"
 
 
-@interface FirstIndivPage ()
+@interface FirstIndivPage (){
+    CGFloat animatedDistance;
+}
 
 @end
 
 
 
 @implementation FirstIndivPage
+
+static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
+static const CGFloat MINIMUM_SCROLL_FRACTION = 0.4;
+static const CGFloat MAXIMUM_SCROLL_FRACTION = 0.8;
+static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 264;
+static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -139,10 +147,10 @@
             [alertMessageMutable appendString:@"Zip Code, "];
         }
         if(!ssn){
-            [alertMessageMutable appendString:@"Birthday, "];
+            [alertMessageMutable appendString:@"Last 4 Digits of SSN "];
         }
         if(!birthFilled){
-            [alertMessageMutable appendString:@"Last 4 Digits of SSN, "];
+            [alertMessageMutable appendString:@"Birthday "];
         }
         //Remove the comma from the end of the string
         if([alertMessageMutable length]){
@@ -325,7 +333,7 @@
     [self.application setObject:self.ssn.text forKey:@"SSN"];
     [self.application setObject:self.dba.text forKey:@"DBA"];
     
-    NSLog(@"self: %@", self);
+//    NSLog(@"self: %@", self);
 }
 
 -(void)toggleCheck{

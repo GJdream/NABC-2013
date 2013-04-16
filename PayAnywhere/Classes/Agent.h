@@ -8,13 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Agent : NSObject {
+@interface Agent : NSObject <NSCoding> {
 }
     @property(strong, nonatomic) NSString *first;
     @property(strong, nonatomic) NSString *last;
     @property(strong, nonatomic) NSString *idnum;
     @property(strong, nonatomic) NSString *pin;
-    @property(nonatomic) NSInteger *numPplRegisted;
-    @property(nonatomic) Boolean *logged;
+
+    //NSSTRING just for encoding and decoding purposes...
+    @property(nonatomic) NSString *peopleRegistered;
+    //NSSTRING just for encoding and decoding purposes...
+
+    @property(nonatomic) NSString * loggedIn;
 
 @end

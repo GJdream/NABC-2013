@@ -12,19 +12,22 @@
 #import "FirstIndivPage.h"
 #import "FirstPage.h"
 
+#import "Application.h"
+#import "TradeShow.h"
+#import "SignupAnywhereDB.h"
+
 @interface FinishPage : UIViewController
 {
+    SignupAnywhereDB * db;
 }
 
-@property(strong, nonatomic) NSMutableDictionary * application;
-
+@property (strong, nonatomic) NSMutableDictionary * application;
 @property (strong, nonatomic) IBOutlet UIButton *radioButtonOne;
-- (IBAction)radioButtonOneClicked:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *radioButtonTwo;
-- (IBAction)radioButtonTwoClicked:(id)sender;
 
+- (IBAction)radioButtonOneClicked:(id)sender;
+- (IBAction)radioButtonTwoClicked:(id)sender;
 - (IBAction)create:(id)sender;
 - (IBAction)cancel:(id)sender;
-
 
 @end

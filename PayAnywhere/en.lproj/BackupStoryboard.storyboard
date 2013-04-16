@@ -57,7 +57,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FlB-yh-14R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-858" y="-1423"/>
+            <point key="canvasLocation" x="-282" y="-1117"/>
         </scene>
         <!--First Page-->
         <scene sceneID="4">
@@ -133,12 +133,13 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" id="wuo-QK-6sp">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="CF5-IJ-7Li"/>
+                        <barButtonItem key="backBarButtonItem" title="Cancel" id="CF5-IJ-7Li"/>
                         <barButtonItem key="leftBarButtonItem" title="Settings" id="S42-v0-KUo">
                             <connections>
                                 <action selector="settings:" destination="2" id="hjK-qM-Osm"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="P1o-oV-4gs"/>
                     </navigationItem>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
@@ -148,7 +149,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-737" y="-805"/>
+            <point key="canvasLocation" x="-400" y="-802"/>
         </scene>
         <!--Birthday View Controller-->
         <scene sceneID="IrU-iL-igg">
@@ -268,7 +269,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <!--First Indiv Page-->
         <scene sceneID="7W1-8U-6jf">
             <objects>
-                <viewController storyboardIdentifier="firstIndivPage" id="uvt-9w-sfQ" customClass="FirstIndivPage" sceneMemberID="viewController">
+                <viewController id="uvt-9w-sfQ" customClass="FirstIndivPage" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xtt-9E-EHP">
                         <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -569,12 +570,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" id="Rpv-DN-Azo">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="5AQ-hy-Nga"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="6oU-gf-qaQ">
-                            <connections>
-                                <action selector="Cancel:" destination="uvt-9w-sfQ" id="ic1-yq-obu"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="backBarButtonItem" title="Cancel" id="5AQ-hy-Nga"/>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="R7M-0a-IFe"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -590,12 +587,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="ssn" destination="9ms-xK-u0G" id="HZL-A6-MKa"/>
                         <outlet property="suiteApt" destination="8q6-81-aCe" id="Ey1-CI-dNP"/>
                         <outlet property="zip" destination="p4J-et-xkt" id="x4L-rL-4CY"/>
-                        <segue destination="nO2-4c-R9L" kind="push" identifier="IndivToBankSegue" id="9Ql-Oe-skv"/>
+                        <segue destination="Wgt-Ge-yuk" kind="push" identifier="FinishSegue" id="01R-D6-mqr"/>
+                        <segue destination="xwO-6K-79D" kind="push" identifier="IndivToBus1Segue" id="5qG-Io-GEw"/>
+                        <segue destination="NXa-2u-1Im" kind="push" identifier="IndivToBus2Segue" id="jwI-xk-n8O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kh4-nU-sge" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="323" y="-2004"/>
+            <point key="canvasLocation" x="979" y="-1576"/>
         </scene>
         <!--Finish Page-->
         <scene sceneID="Z3T-oh-mV3">
@@ -727,17 +726,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <navigationItem key="navigationItem" id="vj1-Cd-BSK">
-                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="3Pc-i2-k0o">
-                            <connections>
-                                <action selector="cancel:" destination="Wgt-Ge-yuk" id="3kE-uN-1ZW"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="vj1-Cd-BSK"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="radioButtonOne" destination="rBc-R4-Bpg" id="gld-b4-65o"/>
                         <outlet property="radioButtonTwo" destination="zDP-zw-5oG" id="Cav-8B-fUk"/>
+                        <segue destination="2" kind="push" identifier="FinishToStartSegue" id="I7o-nG-Met"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6YW-Du-1ko" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1073,13 +1067,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <navigationItem key="navigationItem" id="o1w-Pz-HJj">
-                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="3PQ-h2-g5H">
-                            <connections>
-                                <action selector="cancel:" destination="NXa-2u-1Im" id="TFm-Ea-RVD"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="o1w-Pz-HJj"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
@@ -1092,7 +1080,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="higestSalesButton" destination="hXS-rB-y6a" id="tWl-b7-GX5"/>
                         <outlet property="monthlySalesButton" destination="DXI-6P-g75" id="cJO-bp-vIp"/>
                         <outlet property="typeButton" destination="leO-uj-rY1" id="uZh-cQ-RKm"/>
-                        <segue destination="nO2-4c-R9L" kind="push" identifier="BusToBankSegue" id="w5e-YZ-U1y"/>
+                        <segue destination="Wgt-Ge-yuk" kind="push" identifier="FinishSegue" id="RdO-v0-smf"/>
+                        <segue destination="uvt-9w-sfQ" kind="push" identifier="Bus2ToIndivSegue" id="WS2-Ky-oHN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kuq-9a-QaY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1254,128 +1243,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o08-BN-G3d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4581" y="-39"/>
-        </scene>
-        <!--Bank Page View Controller-->
-        <scene sceneID="GTc-HP-blj">
-            <objects>
-                <viewController id="nO2-4c-R9L" customClass="BankPageViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="hNe-HV-Eqi">
-                        <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vwr-Xn-YcF">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="57" id="rRW-2x-uSH"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Enter">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="enterInfo:" destination="nO2-4c-R9L" eventType="touchUpInside" id="cyE-Ze-z81"/>
-                                    <segue destination="Wgt-Ge-yuk" kind="push" identifier="BankToFinishSegue" id="ePP-EV-wib"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="XXXXXXXX" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="grf-HT-Jxs">
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="XXXXXXXXX" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GRd-p9-spY">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="4rs-Ft-fWB"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mya-sc-vdn">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="73" id="MDr-j8-gnA"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Skip">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="skipInfo:" destination="nO2-4c-R9L" eventType="touchUpInside" id="DsW-vW-Ur0"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Where Should We Send Your Money?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7jI-m8-qaz">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="643" id="DuG-8u-ySi"/>
-                                    <constraint firstAttribute="height" constant="161" id="KOV-AI-mVY"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H5F-hd-CV8">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="424" id="HDz-Rw-fNv"/>
-                                    <constraint firstAttribute="height" constant="69" id="tqi-E1-Ab7"/>
-                                </constraints>
-                                <string key="text">PayAnywehre will deposit your funds within 2 business days of transactions processed.  Enter your routing or ACH number and bank account number below.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="ACH/Routing Number:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5c-ro-Zor">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="137" id="5Nl-Ox-D5C"/>
-                                    <constraint firstAttribute="height" constant="21" id="JzY-4w-ZkY"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Account Number:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s30-gO-7Oh">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="137" id="182-Od-L0D"/>
-                                    <constraint firstAttribute="height" constant="21" id="aly-wh-n2i"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="o5c-ro-Zor" firstAttribute="trailing" secondItem="7jI-m8-qaz" secondAttribute="trailing" type="default" id="GHy-uo-Rf8"/>
-                            <constraint firstItem="grf-HT-Jxs" firstAttribute="trailing" secondItem="GRd-p9-spY" secondAttribute="trailing" type="default" id="Gm0-XF-8YK"/>
-                            <constraint firstItem="grf-HT-Jxs" firstAttribute="centerY" secondItem="hNe-HV-Eqi" secondAttribute="centerY" type="default" id="HMl-Cn-8P9"/>
-                            <constraint firstItem="mya-sc-vdn" firstAttribute="leading" secondItem="H5F-hd-CV8" secondAttribute="leading" type="default" id="KFr-MW-Jyo"/>
-                            <constraint firstItem="grf-HT-Jxs" firstAttribute="leading" secondItem="GRd-p9-spY" secondAttribute="leading" type="default" id="NBP-He-5bi"/>
-                            <constraint firstAttribute="bottom" secondItem="Vwr-Xn-YcF" secondAttribute="bottom" constant="106" id="Sz4-g0-eUv"/>
-                            <constraint firstItem="7jI-m8-qaz" firstAttribute="leading" secondItem="hNe-HV-Eqi" secondAttribute="leading" constant="85" id="Tbn-JB-7QM"/>
-                            <constraint firstItem="Vwr-Xn-YcF" firstAttribute="leading" secondItem="hNe-HV-Eqi" secondAttribute="leading" constant="372" id="WkF-6k-VYL"/>
-                            <constraint firstAttribute="trailing" secondItem="H5F-hd-CV8" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="axq-jb-95x"/>
-                            <constraint firstItem="o5c-ro-Zor" firstAttribute="top" secondItem="hNe-HV-Eqi" secondAttribute="top" constant="280" id="gJA-ii-caX"/>
-                            <constraint firstItem="s30-gO-7Oh" firstAttribute="top" secondItem="hNe-HV-Eqi" secondAttribute="top" constant="343" id="jkH-Ep-CeX"/>
-                            <constraint firstAttribute="trailing" secondItem="s30-gO-7Oh" secondAttribute="trailing" constant="295" id="l8P-zU-YYk"/>
-                            <constraint firstItem="7jI-m8-qaz" firstAttribute="top" secondItem="hNe-HV-Eqi" secondAttribute="top" constant="42" id="lW1-4J-QpB"/>
-                            <constraint firstItem="H5F-hd-CV8" firstAttribute="top" secondItem="hNe-HV-Eqi" secondAttribute="top" constant="175" id="mu7-UW-X1M"/>
-                            <constraint firstAttribute="trailing" secondItem="GRd-p9-spY" secondAttribute="trailing" constant="132" id="oUk-A8-OLG"/>
-                            <constraint firstItem="Vwr-Xn-YcF" firstAttribute="baseline" secondItem="mya-sc-vdn" secondAttribute="baseline" type="default" id="vYM-o2-fTz"/>
-                            <constraint firstItem="GRd-p9-spY" firstAttribute="top" secondItem="hNe-HV-Eqi" secondAttribute="top" constant="276" id="wRW-EV-lDW"/>
-                        </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="dWy-Lu-Zuh"/>
-                    <connections>
-                        <outlet property="accountNumberField" destination="GRd-p9-spY" id="Bhp-l7-mWr"/>
-                        <outlet property="routingNumField" destination="grf-HT-Jxs" id="Aki-Lo-2eh"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LNq-s2-NtP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1573" y="-1382"/>
         </scene>
         <!--First Bus Page-->
         <scene sceneID="s3d-6E-8u6">
@@ -1713,11 +1580,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="ssn" destination="bXJ-qV-uS7" id="6Ic-OG-Hvl"/>
                         <outlet property="suiteApt" destination="ui9-fi-dIv" id="gHx-Rk-I7t"/>
                         <outlet property="zip" destination="Trd-2X-hea" id="DlH-2L-6FB"/>
+                        <segue destination="uvt-9w-sfQ" kind="push" identifier="Bus1ToIndivSegue" id="Ajz-Cb-Xap"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8C6-en-Ebw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1085" y="-242"/>
+            <point key="canvasLocation" x="993" y="-254"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="JQj-kb-AdZ">
@@ -1831,7 +1699,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <objects>
                 <splitViewController id="FLy-Hy-8FR" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="Ddm-yw-35X"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <segue destination="VRA-am-FDt" kind="relationship" relationship="masterViewController" id="VFx-rj-uKJ"/>
@@ -1861,7 +1728,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9kG-hw-3WR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2028" y="-792"/>
+            <point key="canvasLocation" x="-1666" y="-838"/>
         </scene>
     </scenes>
     <resources>
@@ -1877,155 +1744,16 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="checkboxUnselected.png" width="58" height="59"/>
         <image name="radio_uncheck.png" width="30" height="30"/>
     </resources>
-    <classes>
-        <class className="AnotherTypePickerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AnotherTypePickerViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="typePicker" candidateClass="UIPickerView"/>
-            </relationships>
-        </class>
-        <class className="AuthenticationVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AuthenticationVC.h"/>
-            <relationships>
-                <relationship kind="action" name="authenticate:"/>
-                <relationship kind="outlet" name="passcode" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="textLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="BirthdayViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BirthdayViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="goBack:"/>
-                <relationship kind="outlet" name="birthdayPicker" candidateClass="UIDatePicker"/>
-            </relationships>
-        </class>
-        <class className="BirthdayViewControllerIndiv" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BirthdayViewControllerIndiv.h"/>
-            <relationships>
-                <relationship kind="action" name="goBack:"/>
-                <relationship kind="outlet" name="birthdayPicker" candidateClass="UIDatePicker"/>
-            </relationships>
-        </class>
-        <class className="BusTimeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BusTimeViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="timePicker" candidateClass="UIPickerView"/>
-            </relationships>
-        </class>
-        <class className="FinishPage" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FinishPage.h"/>
-            <relationships>
-                <relationship kind="action" name="cancel:"/>
-                <relationship kind="action" name="create:"/>
-                <relationship kind="action" name="radioButtonOneClicked:"/>
-                <relationship kind="action" name="radioButtonTwoClicked:"/>
-                <relationship kind="outlet" name="radioButtonOne" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="radioButtonTwo" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="FirstBusPage" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstBusPage.h"/>
-            <relationships>
-                <relationship kind="action" name="fromBus1ToIndiv:"/>
-                <relationship kind="action" name="toggleBusFields:"/>
-                <relationship kind="outlet" name="address" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="birthdayButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="businessAddress" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="businessSuiteApt" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="businessZip" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="email" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="first" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="last" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="phone" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="sameAsBusAddress" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="ssn" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="suiteApt" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="zip" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="FirstIndivPage" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstIndivPage.h"/>
-            <relationships>
-                <relationship kind="action" name="Cancel:"/>
-                <relationship kind="action" name="businessSegue:"/>
-                <relationship kind="action" name="create:"/>
-                <relationship kind="action" name="toggleBox:"/>
-                <relationship kind="outlet" name="address" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="birth" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="checkBox" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="dba" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="email" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="first" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="last" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="phone" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="ssn" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="suiteApt" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="term" candidateClass="NSLayoutConstraint"/>
-                <relationship kind="outlet" name="zip" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="FirstPage" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstPage.h"/>
-            <relationships>
-                <relationship kind="action" name="business:"/>
-                <relationship kind="action" name="individual:"/>
-                <relationship kind="action" name="settings:"/>
-            </relationships>
-        </class>
-        <class className="HighestSalesViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HighestSalesViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="salesPicker" candidateClass="UIPickerView"/>
-            </relationships>
-        </class>
-        <class className="MonthlySalesViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MonthlySalesViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="salesPicker" candidateClass="UIPickerView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="SecBusPage" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SecBusPage.h"/>
-            <relationships>
-                <relationship kind="action" name="bus2ToIndiv:"/>
-                <relationship kind="action" name="cancel:"/>
-                <relationship kind="action" name="create:"/>
-                <relationship kind="action" name="toggleBox:"/>
-                <relationship kind="action" name="weAreA:"/>
-                <relationship kind="outlet" name="anotherTypeButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="busTimeButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="checkBox" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="corpName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="dba" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="fedTaxId" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="higestSalesButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="monthlySalesButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="term" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="typeButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="SplitViewController" superclassName="UISplitViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SplitViewController.h"/>
-        </class>
-        <class className="TradeShowAgentHomeViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TradeShowAgentHomeViewController.h"/>
-        </class>
-        <class className="TypePickerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TypePickerViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="typePicker" candidateClass="UIPickerView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="w5e-YZ-U1y"/>
+        <segue reference="IG5-b9-jw7"/>
+        <segue reference="Iqd-Nv-uz2"/>
+        <segue reference="BU4-jI-7tp"/>
+        <segue reference="WS2-Ky-oHN"/>
+        <segue reference="RdO-v0-smf"/>
     </inferredMetricsTieBreakers>
 </document>

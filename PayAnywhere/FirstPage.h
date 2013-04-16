@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "AuthenticationVC.h"
 
+#import "SignupAnywhereDB.h"
+#import "TradeShow.h"
+
 @interface FirstPage : UIViewController<UIPopoverControllerDelegate, AuthenticationDelegate>
 {
     BOOL authenticationSuccess;
