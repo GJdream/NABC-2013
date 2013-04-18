@@ -10,4 +10,6 @@
 
 @interface TradeShowAgentHomeViewController : UITableViewController<UISplitViewControllerDelegate>
 
+@property BOOL tradeShowMode;
+
 @end

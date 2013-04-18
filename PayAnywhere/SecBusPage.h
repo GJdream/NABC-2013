@@ -30,6 +30,8 @@
 - (IBAction)create:(id)sender;
 - (IBAction)bus2ToIndiv:(id)sender;
 - (IBAction)toggleBox:(id)sender;
+- (IBAction)cancel:(id)sender;
+
 
 - (IBAction)weAreA:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *typeButton;

@@ -191,6 +191,10 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
         [self toggleCheck];
 }
 
+- (IBAction)cancel:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:FALSE];
+}
+
 - (IBAction)weAreA:(id)sender {
     
 }
@@ -209,6 +213,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 }
 
 - (void)dismissPop:(NSString *)type {
+    [self.application setObject:type forKey:@"Business Type"];
     [typeButton setTitle:type forState:UIControlStateNormal];
     //[[currentPopoverSeague popoverController] dismissPopoverAnimated: YES];
 }
@@ -222,6 +227,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 }
 
 - (void)dismissPopAnotherType:(NSString *)type {
+    [self.application setObject:type forKey:@"Business Area"];
     [anotherTypeButton setTitle:type forState:UIControlStateNormal];
 }
 
@@ -234,6 +240,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 }
 
 - (void)dismissPopMonthlySales:(NSString *)sales {
+    [self.application setObject:sales forKey:@"Monthly Sales"];
     [monthlySalesButton setTitle:sales forState:UIControlStateNormal];
 }
 
@@ -246,6 +253,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 }
 
 - (void)dismissPopHighestSales:(NSString *)sales {
+    [self.application setObject:sales forKey:@"Higest Sales"];
     [higestSalesButton setTitle:sales forState:UIControlStateNormal];
 }
 
@@ -258,6 +266,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 }
 
 - (void)dismissPopBusTime:(NSString *)time {
+    [self.application setObject:time forKey:@"Been in Business"];
     [busTimeButton setTitle:time forState:UIControlStateNormal];
 }
 

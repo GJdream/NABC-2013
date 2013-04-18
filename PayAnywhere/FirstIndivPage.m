@@ -186,6 +186,10 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     [self toggleCheck];
 }
 
+- (IBAction)Cancel:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:FALSE];
+}
+
 - (IBAction)termsButon:(id)sender {
     if([[self.application objectForKey:@"Terms Accepted"] isEqualToString:@"False"]){
         
@@ -314,7 +318,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
                                                           dateStyle:NSDateFormatterLongStyle
                                                           timeStyle:NSDateFormatterNoStyle];
     NSLog(@"%@",dateString);
-    
+    [self.application setObject:dateString forKey:@"Birthday"];
     [birth setTitle:dateString forState:UIControlStateNormal];
 }
 
@@ -328,8 +332,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     [self.application setObject:self.zip.text forKey:@"Zip Code"];
     [self.application setObject:self.ssn.text forKey:@"SSN"];
     [self.application setObject:self.dba.text forKey:@"DBA"];
-
-
     
 //    NSLog(@"self: %@", self);
 }

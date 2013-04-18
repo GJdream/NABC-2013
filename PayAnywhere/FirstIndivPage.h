@@ -38,6 +38,7 @@
 - (IBAction)create:(id)sender;
 - (IBAction)businessSegue:(id)sender;
 - (IBAction)toggleBox:(id)sender;
+- (IBAction)Cancel:(id)sender;
 
 //birth pop
 @property (strong, nonatomic) UIPopoverController * birthdayPopoverController;

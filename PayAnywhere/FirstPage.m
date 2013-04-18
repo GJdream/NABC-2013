@@ -16,6 +16,9 @@
 
 @implementation FirstPage
 
+@synthesize popover;
+//@synthesize delegate;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -158,6 +161,22 @@
 {
     [self.popover dismissPopoverAnimated:YES];
     [self.navigationController.splitViewController performSegueWithIdentifier:@"AgentDetailSegue" sender:nil];
+}
+
+- (void) authenticationVCDidFinish:(AuthenticationVC *)controller
+{
+    [self.popover dismissPopoverAnimated:YES];
+    self.popover = nil;
+}
+
+- (void)dismissPopAuthentication
+{
+    //[delegate dismissFirstPage];
+    //TradeShowAgentHomeViewController * master = [[self.splitViewController viewControllers] objectAtIndex:0];
+    
+    //master.tradeShowMode = NO;
+    //[self.application setObject:type forKey:@"Business Area"];
+    //[anotherTypeButton setTitle:type forState:UIControlStateNormal];
 }
 
 
