@@ -147,10 +147,10 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
             [alertMessageMutable appendString:@"Zip Code, "];
         }
         if(!ssn){
-            [alertMessageMutable appendString:@"Last 4 Digits of SSN "];
+            [alertMessageMutable appendString:@"Last 4 Digits of SSN, "];
         }
         if(!birthFilled){
-            [alertMessageMutable appendString:@"Birthday "];
+            [alertMessageMutable appendString:@"Birthday, "];
         }
         //Remove the comma from the end of the string
         if([alertMessageMutable length]){
@@ -366,7 +366,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     * viewRect.size.width;
     CGFloat heightFraction = numerator / denominator;
 //    heightFraction = 1 - heightFraction;
-    NSLog(@"heightFraction: %f", heightFraction);
+//    NSLog(@"heightFraction: %f", heightFraction);
     
     /*Working stats:
      <0 = 0, >1 = 1,
@@ -387,7 +387,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
         heightFraction = 1.0;
     }
     
-    NSLog(@"heightFraction: %f", heightFraction);
+//    NSLog(@"heightFraction: %f", heightFraction);
 
     
     UIInterfaceOrientation orientation =
@@ -402,7 +402,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
         animatedDistance = floor(LANDSCAPE_KEYBOARD_HEIGHT * heightFraction);
     }
     
-    NSLog(@"distance: %f", animatedDistance);
+//    NSLog(@"distance: %f", animatedDistance);
 
     
     CGRect viewFrame = self.view.frame;

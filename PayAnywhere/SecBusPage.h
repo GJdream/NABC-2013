@@ -16,6 +16,7 @@
 
 @interface SecBusPage : UIViewController <TypePickerViewControllerDelegate, AnotherTypePickerViewControllerDelegate, MonthlySalesViewControllerDelegate, HighestSalesViewControllerDelegate, BusTimeViewControllerDelegate,UIPopoverControllerDelegate, UITextFieldDelegate>
 {
+
 }
 
 @property (strong, nonatomic) NSMutableDictionary * application;

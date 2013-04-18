@@ -8,11 +8,19 @@
 
 #import "FinishPage.h"
 
-@interface FinishPage ()
+@interface FinishPage (){
+    CGFloat animatedDistance;
+}
 
 @end
 
 @implementation FinishPage
+
+static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
+static const CGFloat MINIMUM_SCROLL_FRACTION = 0.4;
+static const CGFloat MAXIMUM_SCROLL_FRACTION = 0.8;
+static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 264;
+static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 
 @synthesize radioButtonOne;
 @synthesize radioButtonTwo;
@@ -28,8 +36,29 @@
 
 - (void)viewDidLoad
 {
+    UIColor * grayedFieldColor = [UIColor colorWithRed:0.792 green:0.792 blue:0.7912 alpha:.5];
+    
+    
     [super viewDidLoad];
        NSLog(@"application dictionary: %@", self.application);
+    if([[self.application valueForKey:@"Application Type"] isEqualToString:@"individual"]){
+    self.addressField.text = [self.application valueForKey:@"Residential Address"];
+    self.zipField.text = [self.application valueForKey:@"Zip Code"];
+    self.suiteAptField.text = [self.application valueForKey:@"Suite/Apartment"];
+    }
+    
+    else{
+        self.addressField.text = [self.application valueForKey:@"Business Address"];
+        self.zipField.text = [self.application valueForKey:@"Business Zip Code"];
+        self.suiteAptField.text = [self.application valueForKey:@"Business Suite/Apartment"];
+    }
+    
+    [self.addressField setEnabled:NO];
+    self.addressField.backgroundColor = grayedFieldColor;
+    [self.zipField setEnabled:NO];
+    self.zipField.backgroundColor = grayedFieldColor;
+    [self.suiteAptField setEnabled:NO];
+    self.suiteAptField.backgroundColor = grayedFieldColor;
     
     db = [[SignupAnywhereDB alloc] init];
 }
@@ -38,6 +67,34 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    if (textField.tag == 1) {
+        [self.addressField becomeFirstResponder];
+    }
+    else if(textField.tag == 2){
+        [self.suiteAptField becomeFirstResponder];
+    }
+    else if (textField.tag == 4){
+        [self.zipField becomeFirstResponder];
+    }
+    return YES;
+}
+
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    textField.backgroundColor = [UIColor colorWithRed:220.0f/255.0f green:220.0f/255.0f blue:220.0f/255.0f alpha:1.0f];
+    
+    return YES;
+}
+
+-(BOOL)textFieldShouldEndEditing:(UITextField *)textField{
+    textField.backgroundColor = [UIColor whiteColor];
+    return YES;
+}
+
+- (BOOL)textFieldShouldClear:(UITextField *)textField{
+    return YES;
 }
 
 - (IBAction)radioButtonOneClicked:(id)sender {
@@ -76,6 +133,15 @@
     
     NSLog(@"Tradeshow in DB...\n");
     [[db.tradeshows objectForKey:testTradeshow.name] printApplicants];
+}
+
+- (IBAction)changeAddress:(id)sender {
+    [self.addressField setEnabled:YES];
+    self.addressField.backgroundColor = [UIColor whiteColor];
+    [self.zipField setEnabled:YES];
+    self.zipField.backgroundColor = [UIColor whiteColor];
+    [self.suiteAptField setEnabled:YES];
+    self.suiteAptField.backgroundColor = [UIColor whiteColor];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -171,5 +237,88 @@
  */
     
 }
+
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    CGRect textFieldRect =
+    [self.view.window convertRect:textField.bounds fromView:textField];
+    CGRect viewRect =
+    [self.view.window convertRect:self.view.bounds fromView:self.view];
+    
+    CGFloat midline = textFieldRect.origin.x + 0.5 * textFieldRect.size.width;
+    CGFloat numerator =
+    midline - viewRect.origin.x
+    - MINIMUM_SCROLL_FRACTION * viewRect.size.width;
+    CGFloat denominator =
+    (MAXIMUM_SCROLL_FRACTION - MINIMUM_SCROLL_FRACTION)
+    * viewRect.size.width;
+    CGFloat heightFraction = numerator / denominator;
+    //    heightFraction = 1 - heightFraction;
+    //    NSLog(@"heightFraction: %f", heightFraction);
+    
+    /*Working stats:
+     <0 = 0, >1 = 1,
+     static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
+     static const CGFloat MINIMUM_SCROLL_FRACTION = 0.4;
+     static const CGFloat MAXIMUM_SCROLL_FRACTION = 0.8;
+     static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 264;
+     static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
+     no height = 1-height
+     */
+    
+    if (heightFraction < 0.0)
+    {
+        heightFraction = 0.0;
+    }
+    else if (heightFraction > 1.0)
+    {
+        heightFraction = 1.0;
+    }
+    
+        NSLog(@"heightFraction: %f", heightFraction);
+    
+    
+    UIInterfaceOrientation orientation =
+    [[UIApplication sharedApplication] statusBarOrientation];
+    if (orientation == UIInterfaceOrientationPortrait ||
+        orientation == UIInterfaceOrientationPortraitUpsideDown)
+    {
+        animatedDistance = floor(PORTRAIT_KEYBOARD_HEIGHT * heightFraction);
+    }
+    else
+    {
+        animatedDistance = floor(LANDSCAPE_KEYBOARD_HEIGHT * heightFraction);
+    }
+    
+        NSLog(@"distance: %f", animatedDistance);
+    
+    
+    CGRect viewFrame = self.view.frame;
+    viewFrame.origin.y -= animatedDistance;
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:KEYBOARD_ANIMATION_DURATION];
+    
+    [self.view setFrame:viewFrame];
+    
+    [UIView commitAnimations];
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    CGRect viewFrame = self.view.frame;
+    viewFrame.origin.y += animatedDistance;
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:KEYBOARD_ANIMATION_DURATION];
+    
+    [self.view setFrame:viewFrame];
+    
+    [UIView commitAnimations];
+}
+
 @end
 

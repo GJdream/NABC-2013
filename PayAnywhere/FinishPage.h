@@ -16,7 +16,7 @@
 #import "TradeShow.h"
 #import "SignupAnywhereDB.h"
 
-@interface FinishPage : UIViewController
+@interface FinishPage : UIViewController<UITextFieldDelegate>
 {
     SignupAnywhereDB * db;
 }
@@ -24,9 +24,13 @@
 @property (strong, nonatomic) NSMutableDictionary * application;
 @property (strong, nonatomic) IBOutlet UIButton *radioButtonOne;
 @property (strong, nonatomic) IBOutlet UIButton *radioButtonTwo;
+@property (strong, nonatomic) IBOutlet UITextField *addressField;
+@property (strong, nonatomic) IBOutlet UITextField *suiteAptField;
+@property (strong, nonatomic) IBOutlet UITextField *zipField;
 
 - (IBAction)radioButtonOneClicked:(id)sender;
 - (IBAction)radioButtonTwoClicked:(id)sender;
 - (IBAction)create:(id)sender;
+- (IBAction)changeAddress:(id)sender;
 
 @end

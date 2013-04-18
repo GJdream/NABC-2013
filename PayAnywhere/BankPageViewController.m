@@ -37,10 +37,39 @@
 }
 
 - (IBAction)enterInfo:(id)sender {
-    [self.application setValue:self.accountNumberField.text forKey:@"Bank Account Number"];
-    [self.application setValue:self.routingNumField.text forKey:@"ACH/Routing Number"];
+    BOOL accountNum = [self.accountNumberField.text length];
+    BOOL routingNum = [self.routingNumField.text length];
+    NSMutableString * alertMessageMutable = [[NSMutableString alloc] init];
+
     
-    [self performSegueWithIdentifier:@"BankToFinishSegue" sender:nil];
+
+    if(accountNum && routingNum){
+        [self.application setValue:self.accountNumberField.text forKey:@"Bank Account Number"];
+        [self.application setValue:self.routingNumField.text forKey:@"ACH/Routing Number"];
+    
+        [self performSegueWithIdentifier:@"BankToFinishSegue" sender:nil];
+    }
+    
+    else{
+        if(!accountNum){
+            [alertMessageMutable appendString:@"Routing Number, "];
+        }
+        if (!routingNum) {
+            [alertMessageMutable appendString:@"Account Number, "];
+        }
+        if([alertMessageMutable length]){
+            NSRange range = NSMakeRange([alertMessageMutable length]-2, 1);
+            [alertMessageMutable deleteCharactersInRange: range];
+        }
+        
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Required Fields Missing:"
+                                                          message:alertMessageMutable
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+        [message show];
+
+    }
 }
 
 - (IBAction)skipInfo:(id)sender {
@@ -52,7 +81,7 @@
 //SEGUES
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-        
+    NSLog(@"performing bankToFinsh\n");
     if ([segue.identifier isEqualToString:@"BankToFinishSegue"]) {
         
         FinishPage * finPage = segue.destinationViewController;
