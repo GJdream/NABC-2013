@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FirstIndivPage.h"
 
 @interface SplitViewController : UISplitViewController
+//<FirstPageViewControllerDelegate>
 
 @end

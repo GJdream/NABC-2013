@@ -11,6 +11,8 @@
 
 @implementation AuthenticationVC
 
+@synthesize delegate;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -44,9 +46,8 @@
     }
     else
     {
-        if (self.delegate != nil && [self.delegate respondsToSelector:@selector(authenticated)])
-        {
-        }
+        //[delegate dismissPopAuthentication];
+        [delegate authenticationVCDidFinish:self];
     }
 }
 

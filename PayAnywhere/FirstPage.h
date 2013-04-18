@@ -11,11 +11,23 @@
 
 #import "SignupAnywhereDB.h"
 #import "TradeShow.h"
+#import "TradeShowAgentHomeViewController.h"
+/*
+@class FirstPageViewController;
 
+@protocol FirstPageViewControllerDelegate <NSObject>
+
+- (void) firstPageViewControllerDidFinish: (FirstPageViewController *)controller;
+- (void) dismissFirstPage;
+
+@end
+*/
 @interface FirstPage : UIViewController<UIPopoverControllerDelegate, AuthenticationDelegate>
 {
     BOOL authenticationSuccess;
 }
+
+//@property (weak, nonatomic) id <FirstPageViewControllerDelegate> delegate;
 
 @property(strong, nonatomic) NSMutableDictionary * application;
 @property(strong, nonatomic) UIPopoverController * popover;

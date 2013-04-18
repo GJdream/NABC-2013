@@ -1892,6 +1892,15 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <relationship kind="outlet" name="textLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
+        <class className="BankPageViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BankPageViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="enterInfo:"/>
+                <relationship kind="action" name="skipInfo:"/>
+                <relationship kind="outlet" name="accountNumberField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="routingNumField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
         <class className="BirthdayViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BirthdayViewController.h"/>
             <relationships>
@@ -1949,7 +1958,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <relationship kind="action" name="Cancel:"/>
                 <relationship kind="action" name="businessSegue:"/>
                 <relationship kind="action" name="create:"/>
+                <relationship kind="action" name="termsButon:"/>
                 <relationship kind="action" name="toggleBox:"/>
+                <relationship kind="action" name="togglePopover:"/>
                 <relationship kind="outlet" name="address" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="birth" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="checkBox" candidateClass="UIButton"/>
@@ -2006,9 +2017,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <relationship kind="outlet" name="term" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="typeButton" candidateClass="UIButton"/>
             </relationships>
-        </class>
-        <class className="SplitViewController" superclassName="UISplitViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SplitViewController.h"/>
         </class>
         <class className="TradeShowAgentHomeViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TradeShowAgentHomeViewController.h"/>

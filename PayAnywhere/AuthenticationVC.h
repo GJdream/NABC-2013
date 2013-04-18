@@ -13,6 +13,8 @@
 
 @required
 -(void)authenticated;
+- (void) authenticationVCDidFinish: (AuthenticationVC *) controller;
+- (void) dismissPopAuthentication;
 
 @end
 
