@@ -752,10 +752,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <constraint firstItem="N0N-EK-i3i" firstAttribute="trailing" secondItem="i2C-up-bVF" secondAttribute="trailing" type="default" id="Eef-xm-Tdx"/>
                             <constraint firstItem="kbK-bI-N5X" firstAttribute="top" secondItem="rBc-R4-Bpg" secondAttribute="top" type="default" id="FhZ-hG-dyo"/>
                             <constraint firstItem="AVG-pi-qPp" firstAttribute="top" secondItem="Tjm-ob-hSU" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Mdb-lF-DKU"/>
-                            <constraint firstItem="H8V-XC-VA6" firstAttribute="top" secondItem="Tjm-ob-hSU" secondAttribute="top" type="default" id="Pml-or-4z6"/>
                             <constraint firstItem="kbK-bI-N5X" firstAttribute="top" secondItem="qiE-VB-YYp" secondAttribute="top" constant="170" id="R4M-QG-s6r"/>
                             <constraint firstItem="zDP-zw-5oG" firstAttribute="centerY" secondItem="z9v-gn-bTu" secondAttribute="centerY" type="default" id="SCa-Q5-vkg"/>
-                            <constraint firstItem="N0N-EK-i3i" firstAttribute="centerY" secondItem="H8V-XC-VA6" secondAttribute="centerY" type="default" id="Tbf-PY-x9F"/>
                             <constraint firstItem="zDP-zw-5oG" firstAttribute="top" secondItem="qiE-VB-YYp" secondAttribute="top" constant="252" id="Xug-ml-2qy"/>
                             <constraint firstItem="Vh3-KS-ye7" firstAttribute="leading" secondItem="qiE-VB-YYp" secondAttribute="leading" constant="500" id="aM2-vN-Vta"/>
                             <constraint firstItem="OD9-rM-KBL" firstAttribute="leading" secondItem="qiE-VB-YYp" secondAttribute="leading" constant="239" id="aiI-Em-r2q"/>
@@ -767,7 +765,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <constraint firstAttribute="trailing" secondItem="H8V-XC-VA6" secondAttribute="trailing" constant="68" id="iTd-xe-YlZ"/>
                             <constraint firstItem="AVG-pi-qPp" firstAttribute="leading" secondItem="Tjm-ob-hSU" secondAttribute="leading" type="default" id="kfi-Yy-IGo"/>
                             <constraint firstItem="sqz-zh-dEq" firstAttribute="leading" secondItem="qiE-VB-YYp" secondAttribute="leading" constant="445" id="m5p-km-86A"/>
+                            <constraint firstItem="N0N-EK-i3i" firstAttribute="centerY" secondItem="Tjm-ob-hSU" secondAttribute="centerY" type="default" id="sCI-CG-UfC"/>
                             <constraint firstAttribute="bottom" secondItem="i2C-up-bVF" secondAttribute="bottom" constant="314" id="sQg-DZ-cnk"/>
+                            <constraint firstItem="Tjm-ob-hSU" firstAttribute="centerY" secondItem="H8V-XC-VA6" secondAttribute="centerY" type="default" id="uPt-E2-17Z"/>
                             <constraint firstAttribute="bottom" secondItem="sqz-zh-dEq" secondAttribute="bottom" constant="121" id="vXp-6m-GmE"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
