@@ -2012,9 +2012,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <relationship kind="action" name="Cancel:"/>
                 <relationship kind="action" name="businessSegue:"/>
                 <relationship kind="action" name="create:"/>
-                <relationship kind="action" name="termsButon:"/>
                 <relationship kind="action" name="toggleBox:"/>
-                <relationship kind="action" name="togglePopover:"/>
                 <relationship kind="outlet" name="address" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="birth" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="checkBox" candidateClass="UIButton"/>
