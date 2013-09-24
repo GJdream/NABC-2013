@@ -41,13 +41,15 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     
     [super viewDidLoad];
        NSLog(@"application dictionary: %@", self.application);
-    if([[self.application valueForKey:@"Application Type"] isEqualToString:@"individual"]){
-    self.addressField.text = [self.application valueForKey:@"Residential Address"];
-    self.zipField.text = [self.application valueForKey:@"Zip Code"];
-    self.suiteAptField.text = [self.application valueForKey:@"Suite/Apartment"];
+    if([[self.application valueForKey:@"Application Type"] isEqualToString:@"individual"])
+    {
+        self.addressField.text = [self.application valueForKey:@"Residential Address"];
+        self.zipField.text = [self.application valueForKey:@"Zip Code"];
+        self.suiteAptField.text = [self.application valueForKey:@"Suite/Apartment"];
     }
     
-    else{
+    else
+    {
         self.addressField.text = [self.application valueForKey:@"Business Address"];
         self.zipField.text = [self.application valueForKey:@"Business Zip Code"];
         self.suiteAptField.text = [self.application valueForKey:@"Business Suite/Apartment"];
@@ -114,19 +116,21 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     testTradeshow.state = @"Michigan";
     testTradeshow.date = [NSDate date];
     
+    
+    [self sendJSON];
+    
     [db addNewTradeshow:testTradeshow];
     
     [self.application setObject:testTradeshow forKey:@"Tradeshow"];
     
     [db addNewApplication:self.application];
     
-    //[self sendJSON];
-    
     NSLog(@"%@ %@ application was submitted at the %@ in %@, %@",
           [self.application objectForKey:@"First Name"],
           [self.application objectForKey:@"Last Name"],
           testTradeshow.name, testTradeshow.city, testTradeshow.state);
-    [self.navigationController popToRootViewControllerAnimated:FALSE];
+    
+    [self.navigationController popToRootViewControllerAnimated:YES];
     
     NSLog(@"Test Tradeshow...\n");
     [testTradeshow printApplicants];
@@ -185,6 +189,10 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     
     //Create JSON using self.application
     NSError *error;
+    BOOL isTurnableToJSON = [NSJSONSerialization
+                             isValidJSONObject: self.application];
+    NSLog(@"Appliation can be an object: %c", isTurnableToJSON);
+    
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self.application
                                                        options:0
                                                          error:&error];
