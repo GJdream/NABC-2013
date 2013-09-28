@@ -23,12 +23,6 @@
     return self;
 }
 
--(void)addNewAgent:(Agent *)agent
-{
-    [_agents setObject:agent forKey:agent.idnum];
-    [self saveAgents];
-}
-
 -(void)addNewTradeshow:(TradeShow *)tradeshow
 {
     [_tradeshows setObject:tradeshow forKey:tradeshow.name];
@@ -108,12 +102,5 @@
     }
 }
 
--(void)printAgents
-{
-    for (Agent * agent in self.agents)
-    {
-        NSLog(@"Agent Name: %@ %@\n ID: %@\n", agent.first, agent.last, agent.idnum);
-    }
-}
 
 @end

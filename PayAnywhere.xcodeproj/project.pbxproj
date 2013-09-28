@@ -20,7 +20,6 @@
 		140798FA16F007BE009AF305 /* IndivSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 140798F816F007BE009AF305 /* IndivSelected.png */; };
 		147721B616F249300015677E /* FinishButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 147721B516F249300015677E /* FinishButton.png */; };
 		14B47A7F16F111ED00197699 /* TradeShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B47A7E16F111ED00197699 /* TradeShow.m */; };
-		14B47A8316F1128100197699 /* Agent.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B47A8216F1128100197699 /* Agent.m */; };
 		14B47A8616F1129B00197699 /* Application.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B47A8516F1129B00197699 /* Application.m */; };
 		14B6741A16FA63380064F755 /* checkboxSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B6741816FA63380064F755 /* checkboxSelected.png */; };
 		14B6741B16FA63380064F755 /* checkboxUnselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B6741916FA63380064F755 /* checkboxUnselected.png */; };
@@ -30,7 +29,13 @@
 		14ECA6A616F1412C009EEEF1 /* IndivButtonUnselected2.png in Resources */ = {isa = PBXBuildFile; fileRef = 14ECA6A216F1412C009EEEF1 /* IndivButtonUnselected2.png */; };
 		14ECA6A916F14509009EEEF1 /* BusinessButtonSelected2.png in Resources */ = {isa = PBXBuildFile; fileRef = 14ECA6A716F14509009EEEF1 /* BusinessButtonSelected2.png */; };
 		14ECA6AA16F14509009EEEF1 /* BusinessButtonUnselected2.png in Resources */ = {isa = PBXBuildFile; fileRef = 14ECA6A816F14509009EEEF1 /* BusinessButtonUnselected2.png */; };
-		BA11634E1704FA8800C3B163 /* SplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA11634D1704FA8800C3B163 /* SplitViewController.m */; };
+		B26428CF17F7738B00E0A0E8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B26428CE17F7738B00E0A0E8 /* CoreData.framework */; };
+		B287E28717F1EAFC0001C929 /* PayAnywhereModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B287E28517F1EAFC0001C929 /* PayAnywhereModel.xcdatamodeld */; };
+		B287E28B17F1F7B90001C929 /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = B287E28A17F1F7B90001C929 /* Database.m */; };
+		B287E29717F210E90001C929 /* Form.m in Sources */ = {isa = PBXBuildFile; fileRef = B287E29617F210E90001C929 /* Form.m */; };
+		B287E29A17F210E90001C929 /* Agent.m in Sources */ = {isa = PBXBuildFile; fileRef = B287E29917F210E90001C929 /* Agent.m */; };
+		B287E29D17F210E90001C929 /* MarketSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B287E29C17F210E90001C929 /* MarketSource.m */; };
+		B287E2A017F213BA0001C929 /* Form+ApplicationDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = B287E29F17F213BA0001C929 /* Form+ApplicationDictionary.m */; };
 		BA148A4D16F5123900DA78B7 /* birthdayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA148A4C16F5123900DA78B7 /* birthdayViewController.m */; };
 		BA5DB68616F67A8600305C04 /* radio_checked.png in Resources */ = {isa = PBXBuildFile; fileRef = BA5DB68416F67A8600305C04 /* radio_checked.png */; };
 		BA5DB68716F67A8600305C04 /* radio_uncheck.png in Resources */ = {isa = PBXBuildFile; fileRef = BA5DB68516F67A8600305C04 /* radio_uncheck.png */; };
@@ -77,8 +82,6 @@
 		147721B516F249300015677E /* FinishButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FinishButton.png; path = ../FinishButton.png; sourceTree = "<group>"; };
 		14B47A7D16F111ED00197699 /* TradeShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TradeShow.h; path = Classes/TradeShow.h; sourceTree = "<group>"; };
 		14B47A7E16F111ED00197699 /* TradeShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TradeShow.m; path = Classes/TradeShow.m; sourceTree = "<group>"; };
-		14B47A8116F1128100197699 /* Agent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Agent.h; path = Classes/Agent.h; sourceTree = "<group>"; };
-		14B47A8216F1128100197699 /* Agent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Agent.m; path = Classes/Agent.m; sourceTree = "<group>"; };
 		14B47A8416F1129B00197699 /* Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Application.h; path = Classes/Application.h; sourceTree = "<group>"; };
 		14B47A8516F1129B00197699 /* Application.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Application.m; path = Classes/Application.m; sourceTree = "<group>"; };
 		14B6741816FA63380064F755 /* checkboxSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkboxSelected.png; path = ../checkboxSelected.png; sourceTree = "<group>"; };
@@ -91,6 +94,18 @@
 		14ECA6A216F1412C009EEEF1 /* IndivButtonUnselected2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IndivButtonUnselected2.png; path = ../IndivButtonUnselected2.png; sourceTree = "<group>"; };
 		14ECA6A716F14509009EEEF1 /* BusinessButtonSelected2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BusinessButtonSelected2.png; path = "../../Buttons-Pictures/BusinessButtonSelected2.png"; sourceTree = "<group>"; };
 		14ECA6A816F14509009EEEF1 /* BusinessButtonUnselected2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BusinessButtonUnselected2.png; path = "../../Buttons-Pictures/BusinessButtonUnselected2.png"; sourceTree = "<group>"; };
+		B26428CE17F7738B00E0A0E8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		B287E28617F1EAFC0001C929 /* PayAnywhereModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PayAnywhereModel.xcdatamodel; sourceTree = "<group>"; };
+		B287E28917F1F7B90001C929 /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
+		B287E28A17F1F7B90001C929 /* Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Database.m; sourceTree = "<group>"; };
+		B287E29517F210E90001C929 /* Form.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Form.h; sourceTree = "<group>"; };
+		B287E29617F210E90001C929 /* Form.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Form.m; sourceTree = "<group>"; };
+		B287E29817F210E90001C929 /* Agent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Agent.h; sourceTree = "<group>"; };
+		B287E29917F210E90001C929 /* Agent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Agent.m; sourceTree = "<group>"; };
+		B287E29B17F210E90001C929 /* MarketSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketSource.h; sourceTree = "<group>"; };
+		B287E29C17F210E90001C929 /* MarketSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarketSource.m; sourceTree = "<group>"; };
+		B287E29E17F213BA0001C929 /* Form+ApplicationDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Form+ApplicationDictionary.h"; sourceTree = "<group>"; };
+		B287E29F17F213BA0001C929 /* Form+ApplicationDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Form+ApplicationDictionary.m"; sourceTree = "<group>"; };
 		BA11634C1704FA8800C3B163 /* SplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitViewController.h; sourceTree = "<group>"; };
 		BA11634D1704FA8800C3B163 /* SplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplitViewController.m; sourceTree = "<group>"; };
 		BA148A4B16F5123900DA78B7 /* birthdayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = birthdayViewController.h; sourceTree = "<group>"; };
@@ -149,6 +164,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B26428CF17F7738B00E0A0E8 /* CoreData.framework in Frameworks */,
 				EDFE06FC16CC2CE200EED6D6 /* UIKit.framework in Frameworks */,
 				EDFE06FE16CC2CE200EED6D6 /* Foundation.framework in Frameworks */,
 				EDFE070016CC2CE200EED6D6 /* CoreGraphics.framework in Frameworks */,
@@ -190,8 +206,6 @@
 			children = (
 				14B47A7D16F111ED00197699 /* TradeShow.h */,
 				14B47A7E16F111ED00197699 /* TradeShow.m */,
-				14B47A8116F1128100197699 /* Agent.h */,
-				14B47A8216F1128100197699 /* Agent.m */,
 				14B47A8416F1129B00197699 /* Application.h */,
 				14B47A8516F1129B00197699 /* Application.m */,
 				14E66B4F17020FD100D1FE66 /* FunctionsClass.h */,
@@ -200,6 +214,24 @@
 				ED22B7ED1704E91B00ACB03F /* SignupAnywhereDB.m */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		B287E28817F1F7450001C929 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B287E28517F1EAFC0001C929 /* PayAnywhereModel.xcdatamodeld */,
+				B287E29B17F210E90001C929 /* MarketSource.h */,
+				B287E29C17F210E90001C929 /* MarketSource.m */,
+				B287E29817F210E90001C929 /* Agent.h */,
+				B287E29917F210E90001C929 /* Agent.m */,
+				B287E29517F210E90001C929 /* Form.h */,
+				B287E29617F210E90001C929 /* Form.m */,
+				B287E28917F1F7B90001C929 /* Database.h */,
+				B287E28A17F1F7B90001C929 /* Database.m */,
+				B287E29E17F213BA0001C929 /* Form+ApplicationDictionary.h */,
+				B287E29F17F213BA0001C929 /* Form+ApplicationDictionary.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		BABA2F3216F65905001570EE /* Pickers */ = {
@@ -271,6 +303,7 @@
 		EDFE06FA16CC2CE200EED6D6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B26428CE17F7738B00E0A0E8 /* CoreData.framework */,
 				EDFE06FB16CC2CE200EED6D6 /* UIKit.framework */,
 				EDFE06FD16CC2CE200EED6D6 /* Foundation.framework */,
 				EDFE06FF16CC2CE200EED6D6 /* CoreGraphics.framework */,
@@ -281,6 +314,7 @@
 		EDFE070116CC2CE200EED6D6 /* PayAnywhere */ = {
 			isa = PBXGroup;
 			children = (
+				B287E28817F1F7450001C929 /* Model */,
 				BABA2F3316F6593D001570EE /* Main View Controllers */,
 				BABA2F3216F65905001570EE /* Pickers */,
 				14B47A8016F1125200197699 /* Classes */,
@@ -404,7 +438,6 @@
 				EDFE072F16CC2D7900EED6D6 /* ViewController.m in Sources */,
 				EDE01D3516DED199001743AF /* TradeShowAgentHomeViewController.m in Sources */,
 				14B47A7F16F111ED00197699 /* TradeShow.m in Sources */,
-				14B47A8316F1128100197699 /* Agent.m in Sources */,
 				14B47A8616F1129B00197699 /* Application.m in Sources */,
 				BA148A4D16F5123900DA78B7 /* birthdayViewController.m in Sources */,
 				BABA2F3116F653AC001570EE /* birthdayViewControllerIndiv.m in Sources */,
@@ -417,6 +450,12 @@
 				BAB69A051703E29C00393D36 /* BusTimeViewController.m in Sources */,
 				14BFE8131710A784005AFCA3 /* BankPageViewController.m in Sources */,
 				ED22B7EE1704E91B00ACB03F /* SignupAnywhereDB.m in Sources */,
+				B287E28717F1EAFC0001C929 /* PayAnywhereModel.xcdatamodeld in Sources */,
+				B287E28B17F1F7B90001C929 /* Database.m in Sources */,
+				B287E29717F210E90001C929 /* Form.m in Sources */,
+				B287E29A17F210E90001C929 /* Agent.m in Sources */,
+				B287E29D17F210E90001C929 /* MarketSource.m in Sources */,
+				B287E2A017F213BA0001C929 /* Form+ApplicationDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,6 +591,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B287E28517F1EAFC0001C929 /* PayAnywhereModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B287E28617F1EAFC0001C929 /* PayAnywhereModel.xcdatamodel */,
+			);
+			currentVersion = B287E28617F1EAFC0001C929 /* PayAnywhereModel.xcdatamodel */;
+			path = PayAnywhereModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EDFE06F016CC2CE200EED6D6 /* Project object */;
 }

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Agent" representedClassName="Agent" syncable="YES">
+        <attribute name="aid" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pin" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="forms" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Form" inverseName="whoFilled" inverseEntity="Form" syncable="YES"/>
+    </entity>
+    <entity name="Form" representedClassName="Form" syncable="YES">
+        <attribute name="aid" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="appBusAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="appBusCCSales" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="appBusDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="appBusHighestSales" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="appBusName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="appBusSuiteApt" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="appBusType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="appBusYears" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="appBusZipCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="appCity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="appDBA" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="appEmail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="appFedTaxID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="appFirstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="appIsIndividual" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="appLastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="appPhoneNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="appSSN" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="appState" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="appSuiteApt" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="appZipCode" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="fid" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="msid" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="whereFilled" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="MarketSource" inverseName="forms" inverseEntity="MarketSource" syncable="YES"/>
+        <relationship name="whoFilled" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Agent" inverseName="forms" inverseEntity="Agent" syncable="YES"/>
+    </entity>
+    <entity name="MarketSource" representedClassName="MarketSource" syncable="YES">
+        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="msid" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="forms" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Form" inverseName="whereFilled" inverseEntity="Form" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Form" positionX="160" positionY="192" width="128" height="433"/>
+        <element name="Agent" positionX="-99" positionY="206" width="128" height="118"/>
+        <element name="MarketSource" positionX="405" positionY="189" width="128" height="133"/>
+    </elements>
+</model>
