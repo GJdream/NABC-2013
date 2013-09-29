@@ -30,16 +30,7 @@
 {
     [super viewDidLoad];
     
-    NSLog(@"application dictionary: %@", self.application);
-    
-    self.last.delegate = self;
-    self.email.delegate = self;
-    self.phone.delegate = self;
-    self.address.delegate = self;
-    self.suiteApt.delegate = self;
-    self.zip.delegate = self;
-    self.ssn.delegate = self;
-    self.dba.delegate = self;
+    // WE NEED NEW DATA STORAGE!!!
     
     
 	// Do any additional setup after loading the view.
@@ -104,49 +95,9 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"FinishSegue"]) {
+        
+    /////////  WE NEED TO FIGURE OUT A NEW WAY OF SENDING DATA!!!!!
 
-        //Create a dictionary with the information from the text fields
-        [self.application setObject:self.first.text forKey:@"First Name"];
-        [self.application setObject:self.last.text forKey:@"Last Name"];
-        [self.application setObject:self.email.text forKey:@"Email Address"];
-        [self.application setObject:self.phone.text forKey:@"Phone Number"];
-        [self.application setObject:self.address.text forKey:@"Residential Address"];
-        [self.application setObject:self.suiteApt.text forKey:@"Suite/Apartment"];
-        [self.application setObject:self.zip.text forKey:@"Zip Code"];
-        [self.application setObject:self.ssn.text forKey:@"SSN"];
-        [self.application setObject:self.dba.text forKey:@"DBA"];
-        
-        NSLog(@"self: %@", self);
-        
-        //Create JSON using self.application
-        NSError *error;
-        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self.application
-                                                           options:0
-                                                             error:&error];
-            
-        NSString *postLength = [NSString stringWithFormat:@"%d", [jsonData length]];
-        
-        //NSLog(@"jsonData: %@", jsonData);
-
-        //Make the JSON request
-        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-        
-        //URL for individual POST
-        [request setURL:[NSURL URLWithString:@"http://141.212.105.78:8080/app.php/individual/"]];
-        [request setHTTPMethod:@"POST"];
-        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-        [request setValue:@"application/x-www-form-urlencoded;charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
-        [request setHTTPBody:jsonData];
-        
-        //Create and recieve the response from the server
-        NSURLResponse *response;
-        NSData *POSTReply = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
-        NSString *theReply = [[NSString alloc] initWithBytes:[POSTReply bytes] length:[POSTReply length] encoding: NSASCIIStringEncoding];
-        NSLog(@"Reply: %@", theReply);
-
-                
-        FinishPage * finishPage = segue.destinationViewController;
-        finishPage.application = self.application;
     }
     
     //birth pop seague

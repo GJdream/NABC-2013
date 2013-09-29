@@ -77,17 +77,6 @@
 {
     [super viewDidLoad];
     
-    NSLog(@"application dictionary: %@", self.application);
-    
-    self.last.delegate = self;
-    self.email.delegate = self;
-    self.phone.delegate = self;
-    self.address.delegate = self;
-    self.suiteApt.delegate = self;
-    self.zip.delegate = self;
-    self.ssn.delegate = self;
-    
-    
 	// Do any additional setup after loading the view.
 }
 

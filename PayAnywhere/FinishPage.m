@@ -47,4 +47,7 @@
     [radioButtonTwo setImage:[UIImage imageNamed:@"radio_checked.png"] forState:UIControlStateNormal];
     [radioButtonOne setImage:[UIImage imageNamed:@"radio_uncheck.png"] forState:UIControlStateNormal];
 }
+- (IBAction)finish:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
 @end
