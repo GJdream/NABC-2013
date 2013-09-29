@@ -64,8 +64,34 @@
     else if([title isEqualToString:@"OK"])
     {
         if (![[[alertView textFieldAtIndex:0] text] isEqualToString:@"1234"]) {
-            [self.tabBarController setSelectedIndex:0];
+            UIAlertView* wrongCode = [[UIAlertView alloc] init];
+            [wrongCode setDelegate:self];
+            [wrongCode setTitle:@"Wrong Passcode!"];
+            [wrongCode setMessage:@" "];
+            [wrongCode addButtonWithTitle:@"Cancel"];
+            [wrongCode addButtonWithTitle:@"Try Again"];
+            
+            CGAffineTransform moveUp = CGAffineTransformMakeTranslation(0.0, 0.0);
+            [wrongCode setTransform: moveUp];
+            [wrongCode show];
         }
+    }
+    else if([title isEqualToString:@"Try Again"])
+    {
+        UIAlertView* dialog = [[UIAlertView alloc] init];
+        [dialog setDelegate:self];
+        [dialog setTitle:@"Enter Passcode"];
+        [dialog setMessage:@" "];
+        [dialog addButtonWithTitle:@"Cancel"];
+        [dialog addButtonWithTitle:@"OK"];
+        dialog.tag = 5;
+        
+        dialog.alertViewStyle = UIAlertViewStylePlainTextInput;
+        [dialog textFieldAtIndex:0].keyboardType = UIKeyboardTypeNumberPad;
+        
+        CGAffineTransform moveUp = CGAffineTransformMakeTranslation(0.0, 0.0);
+        [dialog setTransform: moveUp];
+        [dialog show];
     }
 }
 
