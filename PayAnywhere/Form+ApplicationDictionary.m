@@ -8,12 +8,12 @@
 
 #import "Form+ApplicationDictionary.h"
 
-@implementation Form (ApplicationDictionary)
+@implementation IndividualForm (ApplicationDictionary)
 
-+ (Form *)formWithApplicationDictionary:(NSDictionary *)dict inManagedObjectContext:(NSManagedObjectContext *)context
++ (IndividualForm *)formWithApplicationDictionary:(NSDictionary *)dict inManagedObjectContext:(NSManagedObjectContext *)context
 {
     //Check to see if form for this data already exists
-    Form *form = nil;
+    IndividualForm *form = nil;
     
     
     

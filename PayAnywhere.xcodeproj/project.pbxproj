@@ -32,10 +32,11 @@
 		B26428CF17F7738B00E0A0E8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B26428CE17F7738B00E0A0E8 /* CoreData.framework */; };
 		B287E28717F1EAFC0001C929 /* PayAnywhereModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B287E28517F1EAFC0001C929 /* PayAnywhereModel.xcdatamodeld */; };
 		B287E28B17F1F7B90001C929 /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = B287E28A17F1F7B90001C929 /* Database.m */; };
-		B287E29717F210E90001C929 /* Form.m in Sources */ = {isa = PBXBuildFile; fileRef = B287E29617F210E90001C929 /* Form.m */; };
 		B287E29A17F210E90001C929 /* Agent.m in Sources */ = {isa = PBXBuildFile; fileRef = B287E29917F210E90001C929 /* Agent.m */; };
 		B287E29D17F210E90001C929 /* MarketSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B287E29C17F210E90001C929 /* MarketSource.m */; };
 		B287E2A017F213BA0001C929 /* Form+ApplicationDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = B287E29F17F213BA0001C929 /* Form+ApplicationDictionary.m */; };
+		B2D6AD5D17FB31F000D23361 /* BusinessForm.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D6AD5C17FB31F000D23361 /* BusinessForm.m */; };
+		B2D6AD6017FB31F000D23361 /* IndividualForm.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D6AD5F17FB31F000D23361 /* IndividualForm.m */; };
 		BA148A4D16F5123900DA78B7 /* birthdayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA148A4C16F5123900DA78B7 /* birthdayViewController.m */; };
 		BA5DB68616F67A8600305C04 /* radio_checked.png in Resources */ = {isa = PBXBuildFile; fileRef = BA5DB68416F67A8600305C04 /* radio_checked.png */; };
 		BA5DB68716F67A8600305C04 /* radio_uncheck.png in Resources */ = {isa = PBXBuildFile; fileRef = BA5DB68516F67A8600305C04 /* radio_uncheck.png */; };
@@ -98,14 +99,16 @@
 		B287E28617F1EAFC0001C929 /* PayAnywhereModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PayAnywhereModel.xcdatamodel; sourceTree = "<group>"; };
 		B287E28917F1F7B90001C929 /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
 		B287E28A17F1F7B90001C929 /* Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Database.m; sourceTree = "<group>"; };
-		B287E29517F210E90001C929 /* Form.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Form.h; sourceTree = "<group>"; };
-		B287E29617F210E90001C929 /* Form.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Form.m; sourceTree = "<group>"; };
 		B287E29817F210E90001C929 /* Agent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Agent.h; sourceTree = "<group>"; };
 		B287E29917F210E90001C929 /* Agent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Agent.m; sourceTree = "<group>"; };
 		B287E29B17F210E90001C929 /* MarketSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketSource.h; sourceTree = "<group>"; };
 		B287E29C17F210E90001C929 /* MarketSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarketSource.m; sourceTree = "<group>"; };
 		B287E29E17F213BA0001C929 /* Form+ApplicationDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Form+ApplicationDictionary.h"; sourceTree = "<group>"; };
 		B287E29F17F213BA0001C929 /* Form+ApplicationDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Form+ApplicationDictionary.m"; sourceTree = "<group>"; };
+		B2D6AD5B17FB31F000D23361 /* BusinessForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessForm.h; sourceTree = "<group>"; };
+		B2D6AD5C17FB31F000D23361 /* BusinessForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessForm.m; sourceTree = "<group>"; };
+		B2D6AD5E17FB31F000D23361 /* IndividualForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndividualForm.h; sourceTree = "<group>"; };
+		B2D6AD5F17FB31F000D23361 /* IndividualForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndividualForm.m; sourceTree = "<group>"; };
 		BA11634C1704FA8800C3B163 /* SplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitViewController.h; sourceTree = "<group>"; };
 		BA11634D1704FA8800C3B163 /* SplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplitViewController.m; sourceTree = "<group>"; };
 		BA148A4B16F5123900DA78B7 /* birthdayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = birthdayViewController.h; sourceTree = "<group>"; };
@@ -220,12 +223,14 @@
 			isa = PBXGroup;
 			children = (
 				B287E28517F1EAFC0001C929 /* PayAnywhereModel.xcdatamodeld */,
+				B2D6AD5E17FB31F000D23361 /* IndividualForm.h */,
+				B2D6AD5F17FB31F000D23361 /* IndividualForm.m */,
+				B2D6AD5B17FB31F000D23361 /* BusinessForm.h */,
+				B2D6AD5C17FB31F000D23361 /* BusinessForm.m */,
 				B287E29B17F210E90001C929 /* MarketSource.h */,
 				B287E29C17F210E90001C929 /* MarketSource.m */,
 				B287E29817F210E90001C929 /* Agent.h */,
 				B287E29917F210E90001C929 /* Agent.m */,
-				B287E29517F210E90001C929 /* Form.h */,
-				B287E29617F210E90001C929 /* Form.m */,
 				B287E28917F1F7B90001C929 /* Database.h */,
 				B287E28A17F1F7B90001C929 /* Database.m */,
 				B287E29E17F213BA0001C929 /* Form+ApplicationDictionary.h */,
@@ -431,6 +436,7 @@
 				EDFE070816CC2CE200EED6D6 /* main.m in Sources */,
 				EDFE070C16CC2CE200EED6D6 /* AppDelegate.m in Sources */,
 				EDFE072A16CC2D7900EED6D6 /* FinishPage.m in Sources */,
+				B2D6AD6017FB31F000D23361 /* IndividualForm.m in Sources */,
 				EDFE072B16CC2D7900EED6D6 /* FirstBusPage.m in Sources */,
 				EDFE072C16CC2D7900EED6D6 /* FirstIndivPage.m in Sources */,
 				EDFE072D16CC2D7900EED6D6 /* FirstPage.m in Sources */,
@@ -444,6 +450,7 @@
 				EDE65E3516FA530C00E06273 /* AuthenticationVC.m in Sources */,
 				14E66B5117020FD100D1FE66 /* FunctionsClass.m in Sources */,
 				BAB699F91703BB8100393D36 /* AnotherTypePickerViewController.m in Sources */,
+				B2D6AD5D17FB31F000D23361 /* BusinessForm.m in Sources */,
 				BAB699FC1703D38600393D36 /* MonthlySalesViewController.m in Sources */,
 				BAB699FF1703D59600393D36 /* TypePickerViewController.m in Sources */,
 				BAB69A021703DD7500393D36 /* HighestSalesViewController.m in Sources */,
@@ -452,7 +459,6 @@
 				ED22B7EE1704E91B00ACB03F /* SignupAnywhereDB.m in Sources */,
 				B287E28717F1EAFC0001C929 /* PayAnywhereModel.xcdatamodeld in Sources */,
 				B287E28B17F1F7B90001C929 /* Database.m in Sources */,
-				B287E29717F210E90001C929 /* Form.m in Sources */,
 				B287E29A17F210E90001C929 /* Agent.m in Sources */,
 				B287E29D17F210E90001C929 /* MarketSource.m in Sources */,
 				B287E2A017F213BA0001C929 /* Form+ApplicationDictionary.m in Sources */,

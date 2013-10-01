@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Form;
+@class IndividualForm;
 
 @interface Agent : NSManagedObject
 
@@ -22,8 +22,8 @@
 
 @interface Agent (CoreDataGeneratedAccessors)
 
-- (void)addFormsObject:(Form *)value;
-- (void)removeFormsObject:(Form *)value;
+- (void)addFormsObject:(IndividualForm *)value;
+- (void)removeFormsObject:(IndividualForm *)value;
 - (void)addForms:(NSSet *)values;
 - (void)removeForms:(NSSet *)values;
 
