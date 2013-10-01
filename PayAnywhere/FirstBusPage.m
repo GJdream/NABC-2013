@@ -182,6 +182,7 @@ bool fieldsOn;
         SecBusPage * secondBusPage;
         secondBusPage.application = self.application;
             [self.navigationController pushViewController:secondBusPage animated:YES];
+    
     }
     
 }
