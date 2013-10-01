@@ -19,6 +19,7 @@
 		140798F916F007BE009AF305 /* BusinessSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 140798F716F007BE009AF305 /* BusinessSelected.png */; };
 		140798FA16F007BE009AF305 /* IndivSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 140798F816F007BE009AF305 /* IndivSelected.png */; };
 		147721B616F249300015677E /* FinishButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 147721B516F249300015677E /* FinishButton.png */; };
+		1479B7F117F774EE009D1AC9 /* BankPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1479B7F017F774EE009D1AC9 /* BankPageViewController.m */; };
 		14B47A7F16F111ED00197699 /* TradeShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B47A7E16F111ED00197699 /* TradeShow.m */; };
 		14B47A8316F1128100197699 /* Agent.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B47A8216F1128100197699 /* Agent.m */; };
 		14B47A8616F1129B00197699 /* Application.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B47A8516F1129B00197699 /* Application.m */; };
@@ -71,6 +72,8 @@
 		140798F716F007BE009AF305 /* BusinessSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BusinessSelected.png; sourceTree = "<group>"; };
 		140798F816F007BE009AF305 /* IndivSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IndivSelected.png; sourceTree = "<group>"; };
 		147721B516F249300015677E /* FinishButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FinishButton.png; path = ../FinishButton.png; sourceTree = "<group>"; };
+		1479B7EF17F774EE009D1AC9 /* BankPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankPageViewController.h; sourceTree = "<group>"; };
+		1479B7F017F774EE009D1AC9 /* BankPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankPageViewController.m; sourceTree = "<group>"; };
 		14B47A7D16F111ED00197699 /* TradeShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TradeShow.h; path = Classes/TradeShow.h; sourceTree = "<group>"; };
 		14B47A7E16F111ED00197699 /* TradeShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TradeShow.m; path = Classes/TradeShow.m; sourceTree = "<group>"; };
 		14B47A8116F1128100197699 /* Agent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Agent.h; path = Classes/Agent.h; sourceTree = "<group>"; };
@@ -213,6 +216,8 @@
 		BABA2F3316F6593D001570EE /* Main View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1479B7EF17F774EE009D1AC9 /* BankPageViewController.h */,
+				1479B7F017F774EE009D1AC9 /* BankPageViewController.m */,
 				EDE01D3316DED199001743AF /* TradeShowAgentHomeViewController.h */,
 				EDE01D3416DED199001743AF /* TradeShowAgentHomeViewController.m */,
 				EDFE072816CC2D7900EED6D6 /* ViewController.h */,
@@ -396,6 +401,7 @@
 				BAB699FF1703D59600393D36 /* TypePickerViewController.m in Sources */,
 				BAB69A021703DD7500393D36 /* HighestSalesViewController.m in Sources */,
 				BAB69A051703E29C00393D36 /* BusTimeViewController.m in Sources */,
+				1479B7F117F774EE009D1AC9 /* BankPageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

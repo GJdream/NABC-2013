@@ -40,5 +40,6 @@
 
 //Indiv Segue
 - (IBAction)fromBus1ToIndiv:(id)sender;
+- (IBAction)nextPage:(id)sender;
 
 @end

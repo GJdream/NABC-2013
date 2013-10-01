@@ -8,13 +8,21 @@
 
 #import "FirstBusPage.h"
 
-@interface FirstBusPage ()
+@interface FirstBusPage (){
+    CGFloat animatedDistance;
+}
 
 @end
 
 
 
 @implementation FirstBusPage
+
+static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
+static const CGFloat MINIMUM_SCROLL_FRACTION = 0.4;
+static const CGFloat MAXIMUM_SCROLL_FRACTION = 0.8;
+static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 264;
+static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 
 bool fieldsOn;
 
@@ -165,21 +173,15 @@ bool fieldsOn;
         pvc = [segue destinationViewController];
         [pvc setDelegate:self];
     }
-    else if([[segue identifier] isEqualToString:@"SecondBusPageSegue"]) {
-       
+    
+    //Perform the segue
+    else if([[segue identifier] isEqualToString:@"Bus1To2Segue"]){
         [self fillBus1Dictionary];
         NSLog(@"application dictionary: %@", self.application);
         
-        
-        SecBusPage * secondBusPage = segue.destinationViewController;
+        SecBusPage * secondBusPage;
         secondBusPage.application = self.application;
-    }
-    else if ([[segue identifier] isEqualToString:@"Bus1ToIndivSegue"]){
-        [self fillBus1Dictionary];
-        NSLog(@"application dictionary: %@", self.application);
-        FirstIndivPage * firstIndivPage = segue.destinationViewController;
-        firstIndivPage.application = self.application;
-        firstIndivPage->fromWhichBusPage = 1;
+            [self.navigationController pushViewController:secondBusPage animated:YES];
     }
     
 }
@@ -230,6 +232,77 @@ bool fieldsOn;
     [self performSegueWithIdentifier:@"Bus1ToIndivSegue" sender:nil];
 }
 
+- (IBAction)nextPage:(id)sender {
+    //Check if birthday has been set
+    NSString *buttonName = [self.birthdayButton titleForState:UIControlStateNormal];
+    NSMutableString * alertMessageMutable = [[NSMutableString alloc] init];
+    NSLog(@"birth title label: %@, %i", buttonName, [buttonName isEqualToString:@"Click to select"]);
+    BOOL birthFilled = !([buttonName isEqualToString:@"Click to select"]);
+    NSLog(@"birthFilled: %i", birthFilled);
+    
+    //Check for contents of all fields
+    BOOL first = [self.first.text length];
+    BOOL last = [self.last.text length];
+    BOOL email = [self.email.text length];
+    BOOL phone = [self.phone.text length];
+    BOOL address = [self.address.text length];
+    BOOL zip = [self.zip.text length];
+    BOOL ssn = [self.ssn.text length];
+    
+    
+    if(!first){
+        [alertMessageMutable appendString:@"First Name, "];
+    }
+    if(!last){
+        [alertMessageMutable appendString:@"Last Name, "];
+    }
+    if(!email){
+        [alertMessageMutable appendString:@"Email, "];
+    }
+    if(!phone){
+        [alertMessageMutable appendString:@"Phone Number, "];
+    }
+    if(!address){
+        [alertMessageMutable appendString:@"Address, "];
+    }
+    if(!zip){
+        [alertMessageMutable appendString:@"Zip Code, "];
+    }
+    if(!birthFilled){
+        [alertMessageMutable appendString:@"Birthday, "];
+    }
+    if(!ssn){
+        [alertMessageMutable appendString:@"Last 4 Digits of SSN, "];
+    }
+    //Remove the comma from the end of the string
+    if([alertMessageMutable length]){
+        NSRange range = NSMakeRange([alertMessageMutable length]-2, 1);
+        [alertMessageMutable deleteCharactersInRange: range];
+    }
+    
+    //If the fields are not filled in, display the alert with generated string.
+    if(!(first && last && email && phone && address && zip && ssn && birthFilled)){
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Required Fields Missing:"
+                                                          message:alertMessageMutable
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+        [message show];
+        
+    }
+    
+    
+    //Perform the segue
+    else{
+        [self fillBus1Dictionary];
+        NSLog(@"application dictionary: %@", self.application);
+        
+        SecBusPage * secondBusPage;
+        secondBusPage.application = self.application;
+        [self performSegueWithIdentifier:@"Bus1To2Segue" sender:nil];
+    }
+}
+
 //Fill Dictionary
 - (void)fillBus1Dictionary{
     
@@ -245,5 +318,70 @@ bool fieldsOn;
     [self.application setObject:self.businessSuiteApt.text forKey:@"Business Suite/Apartment"];
     [self.application setObject:self.businessZip.text forKey:@"Business Zip Code"];
     
+}
+
+
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    CGRect textFieldRect =
+    [self.view.window convertRect:textField.bounds fromView:textField];
+    CGRect viewRect =
+    [self.view.window convertRect:self.view.bounds fromView:self.view];
+    
+    CGFloat midline = textFieldRect.origin.x + 0.5 * textFieldRect.size.width;
+    CGFloat numerator =
+    midline - viewRect.origin.x
+    - MINIMUM_SCROLL_FRACTION * viewRect.size.width;
+    CGFloat denominator =
+    (MAXIMUM_SCROLL_FRACTION - MINIMUM_SCROLL_FRACTION)
+    * viewRect.size.width;
+    CGFloat heightFraction = numerator / denominator;
+    
+    if (heightFraction < 0.0)
+    {
+        heightFraction = 0.0;
+    }
+    else if (heightFraction > 1.0)
+    {
+        heightFraction = 1.0;
+    }
+    
+    UIInterfaceOrientation orientation =
+    [[UIApplication sharedApplication] statusBarOrientation];
+    if (orientation == UIInterfaceOrientationPortrait ||
+        orientation == UIInterfaceOrientationPortraitUpsideDown)
+    {
+        animatedDistance = floor(PORTRAIT_KEYBOARD_HEIGHT * heightFraction);
+    }
+    else
+    {
+        animatedDistance = floor(LANDSCAPE_KEYBOARD_HEIGHT * heightFraction);
+    }
+    
+    CGRect viewFrame = self.view.frame;
+    viewFrame.origin.y -= animatedDistance;
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:KEYBOARD_ANIMATION_DURATION];
+    
+    [self.view setFrame:viewFrame];
+    
+    [UIView commitAnimations];
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    CGRect viewFrame = self.view.frame;
+    viewFrame.origin.y += animatedDistance;
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:KEYBOARD_ANIMATION_DURATION];
+    
+    [self.view setFrame:viewFrame];
+    
+    [UIView commitAnimations];
 }
 @end

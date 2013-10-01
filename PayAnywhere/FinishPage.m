@@ -29,7 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-       NSLog(@"application dictionary: %@", self.application);
+       NSLog(@"Finish page application dictionary: %@", self.application);
 }
 
 - (void)didReceiveMemoryWarning

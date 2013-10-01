@@ -9,13 +9,20 @@
 #import "FirstIndivPage.h"
 
 
-@interface FirstIndivPage ()
+@interface FirstIndivPage (){
+    CGFloat animatedDistance;
+}
 
 @end
 
 
 
 @implementation FirstIndivPage
+static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
+static const CGFloat MINIMUM_SCROLL_FRACTION = 0.4;
+static const CGFloat MAXIMUM_SCROLL_FRACTION = 0.8;
+static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 264;
+static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -85,7 +92,81 @@
 }
 
 - (IBAction)create:(id)sender {
-    [self performSegueWithIdentifier:@"FinishSegue" sender:nil];
+    //Create variable to track terms accepted
+    NSNumber * trmsAcc = [NSNumber numberWithBool:FALSE];
+    trmsAcc = [self.application valueForKey:@"Terms Accepted"];
+    
+    //Check if birthday has been set
+    NSString *buttonName = [self.birth titleForState:UIControlStateNormal];
+    NSMutableString * alertMessageMutable = [[NSMutableString alloc] init];
+    NSLog(@"birth title label: %@, %i", buttonName, [buttonName isEqualToString:@"Click to select"]);
+    BOOL birthFilled = !([buttonName isEqualToString:@"Click to select"]);
+    NSLog(@"birthFilled: %i", birthFilled);
+    
+    //Check for contents of all fields
+    BOOL first = [self.first.text length];
+    BOOL last = [self.last.text length];
+    BOOL email = [self.email.text length];
+    BOOL phone = [self.phone.text length];
+    BOOL address = [self.address.text length];
+    BOOL zip = [self.zip.text length];
+    BOOL ssn = [self.ssn.text length];
+    
+    
+    
+    
+    //Fill the dictionary with contents of the text fields
+    [self fillDictionary];
+    
+    //If all the required fields are filled in, do the segue
+    if(first && last && email && phone && address && zip && ssn && trmsAcc && birthFilled){
+        [self performSegueWithIdentifier:@"IndivToBankSegue" sender:nil];
+    }
+    //Otherwise, display the alert view with generated string
+    else
+    {
+        //Create the alert string
+        if(!first){
+            [alertMessageMutable appendString:@"First Name, "];
+        }
+        if(!last){
+            [alertMessageMutable appendString:@"Last Name, "];
+        }
+        if(!email){
+            [alertMessageMutable appendString:@"Email, "];
+        }
+        if(!phone){
+            [alertMessageMutable appendString:@"Phone Number, "];
+        }
+        if(!address){
+            [alertMessageMutable appendString:@"Address, "];
+        }
+        if(!zip){
+            [alertMessageMutable appendString:@"Zip Code, "];
+        }
+        if(!ssn){
+            [alertMessageMutable appendString:@"Last 4 Digits of SSN, "];
+        }
+        if(!birthFilled){
+            [alertMessageMutable appendString:@"Birthday, "];
+        }
+        //Remove the comma from the end of the string
+        if([alertMessageMutable length]){
+            NSRange range = NSMakeRange([alertMessageMutable length]-2, 1);
+            [alertMessageMutable deleteCharactersInRange: range];
+        }
+        if(!trmsAcc){
+            [alertMessageMutable appendString:@"\n Terms and Conditions not Accepted"];
+        }
+        
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Required Fields Missing:"
+                                                          message:alertMessageMutable
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+        [message show];
+        
+    }
 }
 
 - (IBAction)businessSegue:(id)sender {
@@ -158,14 +239,16 @@
 {
     [self fillDictionary];
 
-    if ([segue.identifier isEqualToString:@"FinishSegue"]) {
+    if ([segue.identifier isEqualToString:@"IndivToBankSegue"]) {
         [self.application setObject:@"individual" forKey:@"Application Type"];
         
         NSLog(@"self: %@", self);
 
-                
-        FinishPage * finishPage = segue.destinationViewController;
-        finishPage.application = self.application;
+        BankPageViewController * bankPage = segue.destinationViewController;
+        bankPage.application = self.application;
+        
+//        FinishPage * finishPage = segue.destinationViewController;
+//        finishPage.application = self.application;
     }
     
     //birth pop seague
@@ -173,18 +256,6 @@
         currentPopoverSegue = (UIStoryboardPopoverSegue *)segue;
         pvc = [segue destinationViewController];
         [pvc setDelegate:self];
-    }
-    
-    //To business 1 segue
-    if([[segue identifier] isEqualToString:@"IndivToBus1Segue"]){
-        FirstBusPage * firstBusPage = segue.destinationViewController;
-        firstBusPage.application = self.application;
-    }
-    
-    //To business 2 segue
-    if([[segue identifier] isEqualToString:@"IndivToBus2Segue"]){
-        SecBusPage * secondBusPage = segue.destinationViewController;
-        secondBusPage.application = self.application;
     }
 }
 
@@ -235,8 +306,6 @@
     [self.application setObject:self.zip.text forKey:@"Zip Code"];
     [self.application setObject:self.ssn.text forKey:@"SSN"];
     [self.application setObject:self.dba.text forKey:@"DBA"];
-
-
     
     NSLog(@"self: %@", self);
 }
@@ -255,6 +324,87 @@
     [funcClass toggleCheckbox:self.checkBox boolInt:[self.application valueForKey:@"Terms Accepted"]];
     
     NSLog(@"Terms accepted: %@", [self.application objectForKey:@"Terms Accepted"]);
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    CGRect textFieldRect =
+    [self.view.window convertRect:textField.bounds fromView:textField];
+    CGRect viewRect =
+    [self.view.window convertRect:self.view.bounds fromView:self.view];
+    
+    CGFloat midline = textFieldRect.origin.x + 0.5 * textFieldRect.size.width;
+    CGFloat numerator =
+    midline - viewRect.origin.x
+    - MINIMUM_SCROLL_FRACTION * viewRect.size.width;
+    CGFloat denominator =
+    (MAXIMUM_SCROLL_FRACTION - MINIMUM_SCROLL_FRACTION)
+    * viewRect.size.width;
+    CGFloat heightFraction = numerator / denominator;
+    //    heightFraction = 1 - heightFraction;
+    //    NSLog(@"heightFraction: %f", heightFraction);
+    
+    /*Working stats:
+     <0 = 0, >1 = 1,
+     static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
+     static const CGFloat MINIMUM_SCROLL_FRACTION = 0.4;
+     static const CGFloat MAXIMUM_SCROLL_FRACTION = 0.8;
+     static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 264;
+     static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
+     no height = 1-height
+     */
+    
+    if (heightFraction < 0.0)
+    {
+        heightFraction = 0.0;
+    }
+    else if (heightFraction > 1.0)
+    {
+        heightFraction = 1.0;
+    }
+    
+    //    NSLog(@"heightFraction: %f", heightFraction);
+    
+    
+    UIInterfaceOrientation orientation =
+    [[UIApplication sharedApplication] statusBarOrientation];
+    if (orientation == UIInterfaceOrientationPortrait ||
+        orientation == UIInterfaceOrientationPortraitUpsideDown)
+    {
+        animatedDistance = floor(PORTRAIT_KEYBOARD_HEIGHT * heightFraction);
+    }
+    else
+    {
+        animatedDistance = floor(LANDSCAPE_KEYBOARD_HEIGHT * heightFraction);
+    }
+    
+    //    NSLog(@"distance: %f", animatedDistance);
+    
+    
+    CGRect viewFrame = self.view.frame;
+    viewFrame.origin.y -= animatedDistance;
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:KEYBOARD_ANIMATION_DURATION];
+    
+    [self.view setFrame:viewFrame];
+    
+    [UIView commitAnimations];
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    CGRect viewFrame = self.view.frame;
+    viewFrame.origin.y += animatedDistance;
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:KEYBOARD_ANIMATION_DURATION];
+    
+    [self.view setFrame:viewFrame];
+    
+    [UIView commitAnimations];
 }
 
 
