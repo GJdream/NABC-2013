@@ -13,7 +13,6 @@
 #import "FirstPage.h"
 
 #import "Application.h"
-#import "TradeShow.h"
 #import "SignupAnywhereDB.h"
 
 @interface FinishPage : UIViewController<UITextFieldDelegate>

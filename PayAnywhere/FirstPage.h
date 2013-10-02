@@ -7,11 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AuthenticationVC.h"
 
 #import "SignupAnywhereDB.h"
-#import "TradeShow.h"
-#import "TradeShowAgentHomeViewController.h"
 /*
 @class FirstPageViewController;
 
