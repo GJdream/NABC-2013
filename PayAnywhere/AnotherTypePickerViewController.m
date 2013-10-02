@@ -2,10 +2,9 @@
 //  AnotherTypePickerViewController.m
 //  PayAnywhere
 //
-//  Created by WEILI GU on 3/20/13.
+//  Created by WEILI GU on 3/27/13.
 //  Copyright (c) 2013 NAB. All rights reserved.
 //
-
 
 #import "AnotherTypePickerViewController.h"
 
@@ -27,13 +26,29 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+	// Do any additional setup after loading the view.
     typeArray = [[NSMutableArray alloc] init];
-    [typeArray addObject:@"Sole Proprietor"];
-    [typeArray addObject:@"Corporation"];
-    [typeArray addObject:@"Partnership"];
-    [typeArray addObject:@"Non-Profit"];
-    [typeArray addObject:@"LLC"];
+    [typeArray addObject:@"Art Dealer and Gallery"];
+    [typeArray addObject:@"Automotive Parts"];
+    [typeArray addObject:@"Bakery"];
+    [typeArray addObject:@"Barber/Beauty Salon"];
+    [typeArray addObject:@"Books/Articles/Magazined"];
+    [typeArray addObject:@"Catering"];
+    [typeArray addObject:@"Charitable Organizations"];
+    [typeArray addObject:@"Child Care Services"];
+    [typeArray addObject:@"Cleaning Services"];
+    [typeArray addObject:@"Clothing and Accessories"];
+    [typeArray addObject:@"Dry Cleaning Services"];
+    [typeArray addObject:@"Electrical Contractor"];
+    [typeArray addObject:@"Florist"];
+    [typeArray addObject:@"Heating and Cooling Services"];
+    [typeArray addObject:@"Landscaping Services"];
+    [typeArray addObject:@"Person to Person Sale"];
+    [typeArray addObject:@"Photography"];
+    [typeArray addObject:@"Retail Store"];
+    [typeArray addObject:@"Restaurant"];
+    [typeArray addObject:@"Taix and Limousine Services"];
+    [typeArray addObject:@"Other"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,7 +68,8 @@
 }
 
 - (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    [delegate dismissPop:[typeArray objectAtIndex:row]];
+    [delegate dismissPopAnotherType:[typeArray objectAtIndex:row]];
     
 }
+
 @end
