@@ -7,12 +7,20 @@
 //
 
 #import "SecBusPage.h"
+#import "BankPageViewController.h"
 
-@interface SecBusPage ()
+@interface SecBusPage (){
+    CGFloat animatedDistance;
+}
 
 @end
 
 @implementation SecBusPage
+static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
+static const CGFloat MINIMUM_SCROLL_FRACTION = 0.4;
+static const CGFloat MAXIMUM_SCROLL_FRACTION = 0.8;
+static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 264;
+static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 
 @synthesize typeButton;
 @synthesize anotherTypeButton;
@@ -52,17 +60,6 @@
         self.dba.text = [self.application objectForKey:@"DBA"];
     if([self.application objectForKey:@"Federal Tax ID"] != nullObj)
         self.fedTaxId.text = [self.application objectForKey:@"Federal Tax ID"];
-    
-    //Set textbox image correctly
-    NSNumber * trmsAcc = [NSNumber numberWithBool:FALSE];
-    trmsAcc = [self.application valueForKey:@"Terms Accepted"];
-    
-    if(trmsAcc){
-        [self.checkBox setImage:[UIImage imageNamed:@"checkboxSelected.png"] forState:UIControlStateNormal];
-    }
-    else{
-        [self.checkBox setImage:[UIImage imageNamed:@"checkboxUnselected.png"] forState:UIControlStateNormal];
-    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -242,5 +239,68 @@
     [funcClass toggleCheckbox:self.checkBox boolInt:[self.application valueForKey:@"Terms Accepted"]];
     
     NSLog(@"Terms accepted: %@", [self.application objectForKey:@"Terms Accepted"]);
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    CGRect textFieldRect =
+    [self.view.window convertRect:textField.bounds fromView:textField];
+    CGRect viewRect =
+    [self.view.window convertRect:self.view.bounds fromView:self.view];
+    
+    CGFloat midline = textFieldRect.origin.x + 0.5 * textFieldRect.size.width;
+    CGFloat numerator =
+    midline - viewRect.origin.x
+    - MINIMUM_SCROLL_FRACTION * viewRect.size.width;
+    CGFloat denominator =
+    (MAXIMUM_SCROLL_FRACTION - MINIMUM_SCROLL_FRACTION)
+    * viewRect.size.width;
+    CGFloat heightFraction = numerator / denominator;
+    
+    if (heightFraction < 0.0)
+    {
+        heightFraction = 0.0;
+    }
+    else if (heightFraction > 1.0)
+    {
+        heightFraction = 1.0;
+    }
+    
+    UIInterfaceOrientation orientation =
+    [[UIApplication sharedApplication] statusBarOrientation];
+    if (orientation == UIInterfaceOrientationPortrait ||
+        orientation == UIInterfaceOrientationPortraitUpsideDown)
+    {
+        animatedDistance = floor(PORTRAIT_KEYBOARD_HEIGHT * heightFraction);
+    }
+    else
+    {
+        animatedDistance = floor(LANDSCAPE_KEYBOARD_HEIGHT * heightFraction);
+    }
+    
+    CGRect viewFrame = self.view.frame;
+    viewFrame.origin.y -= animatedDistance;
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:KEYBOARD_ANIMATION_DURATION];
+    
+    [self.view setFrame:viewFrame];
+    
+    [UIView commitAnimations];
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    CGRect viewFrame = self.view.frame;
+    viewFrame.origin.y += animatedDistance;
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:KEYBOARD_ANIMATION_DURATION];
+    
+    [self.view setFrame:viewFrame];
+    
+    [UIView commitAnimations];
 }
 @end

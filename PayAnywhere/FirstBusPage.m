@@ -177,11 +177,10 @@ bool fieldsOn;
     //Perform the segue
     else if([[segue identifier] isEqualToString:@"Bus1To2Segue"]){
         [self fillBus1Dictionary];
-        NSLog(@"application dictionary: %@", self.application);
-        
+        NSLog(@"Bus page 1 application dictionary: %@", self.application);
         SecBusPage * secondBusPage;
         secondBusPage.application = self.application;
-            [self.navigationController pushViewController:secondBusPage animated:YES];
+        [self.navigationController pushViewController:secondBusPage animated:YES];
     
     }
     
@@ -289,17 +288,10 @@ bool fieldsOn;
                                                 cancelButtonTitle:@"OK"
                                                 otherButtonTitles:nil];
         [message show];
-        
     }
-    
     
     //Perform the segue
     else{
-        [self fillBus1Dictionary];
-        NSLog(@"application dictionary: %@", self.application);
-        
-        SecBusPage * secondBusPage;
-        secondBusPage.application = self.application;
         [self performSegueWithIdentifier:@"Bus1To2Segue" sender:nil];
     }
 }
