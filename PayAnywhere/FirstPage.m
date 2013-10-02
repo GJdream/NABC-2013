@@ -16,7 +16,7 @@
 
 @implementation FirstPage
 
-@synthesize popover;
+//@synthesize popover;
 //@synthesize delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -139,7 +139,7 @@
 
 }
 
-
+/*
 - (IBAction)settings:(id)sender {
     
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
@@ -168,7 +168,7 @@
     [self.popover dismissPopoverAnimated:YES];
     self.popover = nil;
 }
-
+*/
 - (void)dismissPopAuthentication
 {
     //[delegate dismissFirstPage];

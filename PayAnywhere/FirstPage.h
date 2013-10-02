@@ -8,31 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-#import "SignupAnywhereDB.h"
-/*
-@class FirstPageViewController;
-
-@protocol FirstPageViewControllerDelegate <NSObject>
-
-- (void) firstPageViewControllerDidFinish: (FirstPageViewController *)controller;
-- (void) dismissFirstPage;
-
-@end
-*/
-@interface FirstPage : UIViewController<UIPopoverControllerDelegate, AuthenticationDelegate>
+@interface FirstPage : UIViewController
 {
-    BOOL authenticationSuccess;
+    //Hope you got this nathan
 }
 
-//@property (weak, nonatomic) id <FirstPageViewControllerDelegate> delegate;
-
 @property(strong, nonatomic) NSMutableDictionary * application;
-@property(strong, nonatomic) UIPopoverController * popover;
-
-
 - (IBAction)business:(id)sender;
 
 - (IBAction)individual:(id)sender;
 
-- (IBAction)settings:(id)sender;
 @end

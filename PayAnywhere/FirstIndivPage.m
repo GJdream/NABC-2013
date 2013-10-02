@@ -39,9 +39,8 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     NSNull * nullObj = [NSNull null];
     [super viewDidLoad];
     
-<<<<<<< HEAD
     // WE NEED NEW DATA STORAGE!!!
-=======
+/*
     NSLog(@"application dictionary: %@", self.application);
     
     self.last.delegate = self;
@@ -53,7 +52,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     self.zip.delegate = self;
     self.ssn.delegate = self;
     self.dba.delegate = self;
->>>>>>> 5537b90ad345db1d2c46773990cdf9df4540c3b8
+
     
     
 	// Do any additional setup after loading the view.
@@ -77,6 +76,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
         self.ssn.text = [self.application objectForKey:@"SSN"];
     if([self.application objectForKey:@"DBA"] != nullObj)
         self.dba.text = [self.application objectForKey:@"DBA"];
+ */
 /*
     //Set textbox image correctly
     NSNumber * trmsAcc = [NSNumber numberWithBool:FALSE];

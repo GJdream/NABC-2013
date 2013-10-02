@@ -37,6 +37,7 @@
 		B287E29D17F210E90001C929 /* MarketSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B287E29C17F210E90001C929 /* MarketSource.m */; };
 		B287E2A017F213BA0001C929 /* Form+ApplicationDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = B287E29F17F213BA0001C929 /* Form+ApplicationDictionary.m */; };
 		BA148A4D16F5123900DA78B7 /* birthdayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA148A4C16F5123900DA78B7 /* birthdayViewController.m */; };
+		BA31255D17FCC121005BFB3A /* TradeShow.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31255C17FCC121005BFB3A /* TradeShow.m */; };
 		BA5DB68616F67A8600305C04 /* radio_checked.png in Resources */ = {isa = PBXBuildFile; fileRef = BA5DB68416F67A8600305C04 /* radio_checked.png */; };
 		BA5DB68716F67A8600305C04 /* radio_uncheck.png in Resources */ = {isa = PBXBuildFile; fileRef = BA5DB68516F67A8600305C04 /* radio_uncheck.png */; };
 		BAB699F91703BB8100393D36 /* AnotherTypePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB699F81703BB8100393D36 /* AnotherTypePickerViewController.m */; };
@@ -46,7 +47,6 @@
 		BAB69A051703E29C00393D36 /* BusTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB69A041703E29C00393D36 /* BusTimeViewController.m */; };
 		BABA2F3116F653AC001570EE /* birthdayViewControllerIndiv.m in Sources */ = {isa = PBXBuildFile; fileRef = BABA2F3016F653AC001570EE /* birthdayViewControllerIndiv.m */; };
 		ED22B7EE1704E91B00ACB03F /* SignupAnywhereDB.m in Sources */ = {isa = PBXBuildFile; fileRef = ED22B7ED1704E91B00ACB03F /* SignupAnywhereDB.m */; };
-		EDE01D3516DED199001743AF /* TradeShowAgentHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE01D3416DED199001743AF /* TradeShowAgentHomeViewController.m */; };
 		EDFE06FC16CC2CE200EED6D6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDFE06FB16CC2CE200EED6D6 /* UIKit.framework */; };
 		EDFE06FE16CC2CE200EED6D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDFE06FD16CC2CE200EED6D6 /* Foundation.framework */; };
 		EDFE070016CC2CE200EED6D6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDFE06FF16CC2CE200EED6D6 /* CoreGraphics.framework */; };
@@ -103,6 +103,8 @@
 		B287E29F17F213BA0001C929 /* Form+ApplicationDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Form+ApplicationDictionary.m"; sourceTree = "<group>"; };
 		BA148A4B16F5123900DA78B7 /* birthdayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = birthdayViewController.h; sourceTree = "<group>"; };
 		BA148A4C16F5123900DA78B7 /* birthdayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = birthdayViewController.m; sourceTree = "<group>"; };
+		BA31255B17FCC121005BFB3A /* TradeShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TradeShow.h; path = Classes/TradeShow.h; sourceTree = "<group>"; };
+		BA31255C17FCC121005BFB3A /* TradeShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TradeShow.m; path = Classes/TradeShow.m; sourceTree = "<group>"; };
 		BA5DB68416F67A8600305C04 /* radio_checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radio_checked.png; sourceTree = "<group>"; };
 		BA5DB68516F67A8600305C04 /* radio_uncheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radio_uncheck.png; sourceTree = "<group>"; };
 		BAB699F71703BB8100393D36 /* AnotherTypePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnotherTypePickerViewController.h; sourceTree = "<group>"; };
@@ -119,7 +121,6 @@
 		BABA2F3016F653AC001570EE /* birthdayViewControllerIndiv.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = birthdayViewControllerIndiv.m; sourceTree = "<group>"; };
 		ED22B7EC1704E91B00ACB03F /* SignupAnywhereDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupAnywhereDB.h; sourceTree = "<group>"; };
 		ED22B7ED1704E91B00ACB03F /* SignupAnywhereDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupAnywhereDB.m; sourceTree = "<group>"; };
-		EDE01D3416DED199001743AF /* TradeShowAgentHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TradeShowAgentHomeViewController.m; sourceTree = "<group>"; };
 		EDFE06F816CC2CE200EED6D6 /* PayAnywhere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PayAnywhere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDFE06FB16CC2CE200EED6D6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EDFE06FD16CC2CE200EED6D6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -191,6 +192,8 @@
 		14B47A8016F1125200197699 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				BA31255B17FCC121005BFB3A /* TradeShow.h */,
+				BA31255C17FCC121005BFB3A /* TradeShow.m */,
 				14B47A8416F1129B00197699 /* Application.h */,
 				14B47A8516F1129B00197699 /* Application.m */,
 				14E66B4F17020FD100D1FE66 /* FunctionsClass.h */,
@@ -404,13 +407,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDFE070816CC2CE200EED6D6 /* main.m in Sources */,
+				BA31255D17FCC121005BFB3A /* TradeShow.m in Sources */,
 				EDFE070C16CC2CE200EED6D6 /* AppDelegate.m in Sources */,
 				EDFE072A16CC2D7900EED6D6 /* FinishPage.m in Sources */,
 				EDFE072B16CC2D7900EED6D6 /* FirstBusPage.m in Sources */,
 				EDFE072C16CC2D7900EED6D6 /* FirstIndivPage.m in Sources */,
 				EDFE072D16CC2D7900EED6D6 /* FirstPage.m in Sources */,
 				EDFE072E16CC2D7900EED6D6 /* SecBusPage.m in Sources */,
-				EDE01D3516DED199001743AF /* TradeShowAgentHomeViewController.m in Sources */,
 				14B47A7F16F111ED00197699 /* (null) in Sources */,
 				14B47A8616F1129B00197699 /* Application.m in Sources */,
 				BA148A4D16F5123900DA78B7 /* birthdayViewController.m in Sources */,

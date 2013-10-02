@@ -31,5 +31,6 @@
 - (IBAction)radioButtonTwoClicked:(id)sender;
 - (IBAction)create:(id)sender;
 - (IBAction)changeAddress:(id)sender;
+- (IBAction)finish:(id)sender;
 
 @end

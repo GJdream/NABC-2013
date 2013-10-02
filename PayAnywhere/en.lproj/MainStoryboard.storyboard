@@ -620,7 +620,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Finish" image="FinishButton.png"/>
                                 <connections>
-                                    <action selector="finish:" destination="Wgt-Ge-yuk" eventType="touchUpInside" id="A6a-AX-oWJ"/>
+                                    <action selector="finish:" destination="Wgt-Ge-yuk" eventType="touchUpInside" id="3Sx-Es-Rlg"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1379,12 +1379,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
     <resources>
         <image name="CardReader.PNG" width="212" height="170"/>
         <image name="CreateAccountButton.png" width="587" height="132"/>
-        <image name="CreateAccountButton.png" width="587" height="132"/>
         <image name="FinishButton.png" width="587" height="132"/>
         <image name="PAandLogo.png" width="520" height="98"/>
-        <image name="PAandLogo.png" width="520" height="98"/>
-        <image name="PAandLogo.png" width="520" height="98"/>
-        <image name="radio_uncheck.png" width="30" height="30"/>
         <image name="radio_uncheck.png" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -1393,6 +1389,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="01R-D6-mqr"/>
+        <segue reference="2hf-LC-4Ah"/>
     </inferredMetricsTieBreakers>
 </document>

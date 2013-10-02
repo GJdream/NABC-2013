@@ -148,6 +148,10 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     self.suiteAptField.backgroundColor = [UIColor whiteColor];
 }
 
+- (IBAction)finish:(id)sender {
+    
+}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     /*
