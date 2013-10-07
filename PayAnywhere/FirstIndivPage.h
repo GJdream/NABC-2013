@@ -7,8 +7,6 @@
 //
 
 #import "FinishPage.h"
-#import "FirstBusPage.h"
-#import "SecBusPage.h"
 #import "BankPageViewController.h"
 #import "birthdayViewControllerIndiv.h"
 
@@ -33,11 +31,10 @@
 @property (strong, nonatomic) IBOutlet UITextField *dba;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *term;
 @property (strong, nonatomic) IBOutlet UIButton *checkBox;
+@property (strong, nonatomic) IBOutlet UISwitch *termsAcceptedSwitch;
 
 
 - (IBAction)create:(id)sender;
-- (IBAction)businessSegue:(id)sender;
-- (IBAction)toggleBox:(id)sender;
 - (IBAction)Cancel:(id)sender;
 
 //birth pop
