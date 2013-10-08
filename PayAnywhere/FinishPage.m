@@ -149,7 +149,8 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 }
 
 - (IBAction)finish:(id)sender {
-    
+    [self sendJSON];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -195,7 +196,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     NSError *error;
     BOOL isTurnableToJSON = [NSJSONSerialization
                              isValidJSONObject: self.application];
-    NSLog(@"Appliation can be an object: %c", isTurnableToJSON);
+    NSLog(@"Appliation can be an object: %hhd", isTurnableToJSON);
     
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self.application
                                                        options:0
