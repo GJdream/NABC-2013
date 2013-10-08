@@ -13,7 +13,6 @@
 #import "FirstPage.h"
 
 #import "Application.h"
-#import "TradeShow.h"
 #import "SignupAnywhereDB.h"
 
 @interface FinishPage : UIViewController<UITextFieldDelegate>
@@ -32,5 +31,6 @@
 - (IBAction)radioButtonTwoClicked:(id)sender;
 - (IBAction)create:(id)sender;
 - (IBAction)changeAddress:(id)sender;
+- (IBAction)finish:(id)sender;
 
 @end

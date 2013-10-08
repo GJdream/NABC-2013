@@ -36,9 +36,22 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 
 - (void)viewDidLoad
 {
-    NSNull * nullObj = [NSNull null];
     [super viewDidLoad];
     
+    self.application = [[NSMutableDictionary alloc]init];
+    
+    self.last.delegate = self;
+    self.first.delegate = self;
+    self.email.delegate = self;
+    self.phone.delegate = self;
+    self.address.delegate = self;
+    self.suiteApt.delegate = self;
+    self.zip.delegate = self;
+    self.ssn.delegate = self;
+    self.dba.delegate = self;
+    
+    // WE NEED NEW DATA STORAGE!!!
+/*
     NSLog(@"application dictionary: %@", self.application);
     
     self.last.delegate = self;
@@ -50,6 +63,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     self.zip.delegate = self;
     self.ssn.delegate = self;
     self.dba.delegate = self;
+
     
     
 	// Do any additional setup after loading the view.
@@ -73,6 +87,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
         self.ssn.text = [self.application objectForKey:@"SSN"];
     if([self.application objectForKey:@"DBA"] != nullObj)
         self.dba.text = [self.application objectForKey:@"DBA"];
+ */
 /*
     //Set textbox image correctly
     NSNumber * trmsAcc = [NSNumber numberWithBool:FALSE];
@@ -95,15 +110,12 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 
 - (IBAction)create:(id)sender {
     //Create variable to track terms accepted
-    NSNumber * trmsAcc = [NSNumber numberWithBool:FALSE];
-    trmsAcc = [self.application valueForKey:@"Terms Accepted"];
+    BOOL trmsAcc = [self.termsAcceptedSwitch isOn];
     
     //Check if birthday has been set
     NSString *buttonName = [self.birth titleForState:UIControlStateNormal];
     NSMutableString * alertMessageMutable = [[NSMutableString alloc] init];
-    NSLog(@"birth title label: %@, %i", buttonName, [buttonName isEqualToString:@"Click to select"]);
     BOOL birthFilled = !([buttonName isEqualToString:@"Click to select"]);
-    NSLog(@"birthFilled: %i", birthFilled);
     
     //Check for contents of all fields
     BOOL first = [self.first.text length];
@@ -172,20 +184,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     
 }
 
-- (IBAction)businessSegue:(id)sender {
-    if(fromWhichBusPage == 1){
-        [self performSegueWithIdentifier:@"IndivToBus1Segue" sender:nil];
-    }
-    else if (fromWhichBusPage == 2){
-        [self performSegueWithIdentifier:@"IndivToBus2Segue" sender:nil];
-    }
-
-}
-
-- (IBAction)toggleBox:(id)sender {
-    [self toggleCheck];
-}
-
 - (IBAction)Cancel:(id)sender {
     [self.navigationController popToRootViewControllerAnimated:FALSE];
 }
@@ -244,9 +242,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-//    if(self.zip.text)
-  //      NSLog(@"%@", self.zip.text);
-    
     [self fillDictionary];
 
     if([segue.identifier isEqualToString:@"IndivToBankSegue"]){
@@ -257,9 +252,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     
     if ([segue.identifier isEqualToString:@"FinishSegue"]) {
         [self.application setObject:@"individual" forKey:@"Application Type"];
-        
-        NSLog(@"self: %@", self);
-
                 
         FinishPage * finishPage = segue.destinationViewController;
         finishPage.application = self.application;
@@ -273,6 +265,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     }
     
     //To business 1 segue
+ /*
     if([[segue identifier] isEqualToString:@"IndivToBus1Segue"]){
         FirstBusPage * firstBusPage = segue.destinationViewController;
         firstBusPage.application = self.application;
@@ -283,6 +276,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
         SecBusPage * secondBusPage = segue.destinationViewController;
         secondBusPage.application = self.application;
     }
+ */
 }
 
 // birth pop
@@ -333,23 +327,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     [self.application setObject:self.ssn.text forKey:@"SSN"];
     [self.application setObject:self.dba.text forKey:@"DBA"];
     
-//    NSLog(@"self: %@", self);
-}
-
--(void)toggleCheck{
-    NSNumber * tru = [NSNumber numberWithBool:TRUE];
-
-    
-    if([self.application valueForKey:@"Terms Accepted"]){
-        [self.application setValue:FALSE forKey:@"Terms Accepted"];
-    }
-    else{
-        [self.application setValue:tru forKey:@"Terms Accepted"];
-    }
-        FunctionsClass * funcClass = [[FunctionsClass alloc] init];
-    [funcClass toggleCheckbox:self.checkBox boolInt:[self.application valueForKey:@"Terms Accepted"]];
-    
-    NSLog(@"Terms accepted: %@", [self.application objectForKey:@"Terms Accepted"]);
+    NSLog(@"self: %@", self.application);
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
@@ -389,9 +367,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
         heightFraction = 1.0;
     }
     
-//    NSLog(@"heightFraction: %f", heightFraction);
-
-    
     UIInterfaceOrientation orientation =
     [[UIApplication sharedApplication] statusBarOrientation];
     if (orientation == UIInterfaceOrientationPortrait ||
@@ -403,9 +378,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     {
         animatedDistance = floor(LANDSCAPE_KEYBOARD_HEIGHT * heightFraction);
     }
-    
-//    NSLog(@"distance: %f", animatedDistance);
-
     
     CGRect viewFrame = self.view.frame;
     viewFrame.origin.y -= animatedDistance;

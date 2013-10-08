@@ -13,6 +13,7 @@
 #import "BusTimeViewController.h"
 #import "FinishPage.h"
 #import "BankPageViewController.h"
+#import "FirstBusPage.h"
 
 @interface SecBusPage : UIViewController <TypePickerViewControllerDelegate, AnotherTypePickerViewControllerDelegate, MonthlySalesViewControllerDelegate, HighestSalesViewControllerDelegate, BusTimeViewControllerDelegate,UIPopoverControllerDelegate, UITextFieldDelegate>
 {
@@ -22,14 +23,12 @@
 @property (strong, nonatomic) NSMutableDictionary * application;
 
 @property (strong, nonatomic) IBOutlet UITextField *corpName;
-@property (strong, nonatomic) IBOutlet UITextField *dba;
 @property (strong, nonatomic) IBOutlet UITextField *fedTaxId;
 @property (strong, nonatomic) IBOutlet UIButton *term;
 @property (strong, nonatomic) IBOutlet UIButton *checkBox;
+@property (strong, nonatomic) IBOutlet UISwitch *termsAcceptedSwitch;
 
 - (IBAction)create:(id)sender;
-- (IBAction)bus2ToIndiv:(id)sender;
-- (IBAction)toggleBox:(id)sender;
 - (IBAction)cancel:(id)sender;
 
 

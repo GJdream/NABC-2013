@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "Agent.h"
-#import "TradeShow.h"
 #import "Application.h"
 
 @interface SignupAnywhereDB : NSObject

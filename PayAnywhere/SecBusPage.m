@@ -44,36 +44,22 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSNull * nullObj = [NSNull null];
     
     self.corpName.delegate = self;
-    self.dba.delegate = self;
     self.fedTaxId.delegate = self;
  
-    NSLog(@"Application: %@", self.application);
+    NSLog(@"Second bus page Application: %@", self.application);
 	// Do any additional setup after loading the view.
     
     //Fill text fields if possible
+/*
     if([self.application objectForKey:@"Corporation Name"] != nullObj)
         self.corpName.text = [self.application objectForKey:@"Corporation Name"];
     if([self.application objectForKey:@"DBA"] != nullObj)
         self.dba.text = [self.application objectForKey:@"DBA"];
     if([self.application objectForKey:@"Federal Tax ID"] != nullObj)
         self.fedTaxId.text = [self.application objectForKey:@"Federal Tax ID"];
-/*
-    //Set textbox image correctly
-    NSNumber * trmsAcc = [NSNumber numberWithBool:FALSE];
-    trmsAcc = [self.application valueForKey:@"Terms Accepted"];
-    
-    NSLog(@"Terms accepted: %@", trmsAcc);
-    
-    if(trmsAcc){
-        [self.checkBox setImage:[UIImage imageNamed:@"checkboxSelected.png"] forState:UIControlStateNormal];
-    }
-    else{
-        [self.checkBox setImage:[UIImage imageNamed:@"checkboxUnselected.png"] forState:UIControlStateNormal];
-    }
-*/ 
+*/
 }
 
 - (void)didReceiveMemoryWarning
@@ -88,13 +74,10 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     if (textField.tag == 1) {
         [self.corpName becomeFirstResponder];
     }
-    else if(textField.tag == 2){
-        [self.dba becomeFirstResponder];
-    }
-    else if (textField.tag == 4){
+    else if (textField.tag == 2){
         [self.fedTaxId becomeFirstResponder];
     }
-    else if (textField.tag == 5){
+    else if (textField.tag == 3){
         [self.term becomeFirstResponder];
     }
     else{
@@ -123,14 +106,14 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 - (IBAction)create:(id)sender {
     //Check for required fields
     //Check if terms are accepted
-    NSNumber * trms = [NSNumber numberWithBool:FALSE];
-    trms = [self.application valueForKey:@"Terms Accepted"];
+    BOOL trms = [self.termsAcceptedSwitch isOn];
 
     //Check if dropdowns have been filled
     NSString *buttonName = [self.typeButton titleForState:UIControlStateNormal];
     BOOL weAreAFilled = !([buttonName isEqualToString:@"Select Type"]);
     
     buttonName = [self.anotherTypeButton titleForState:UIControlStateNormal];
+    NSLog(@"whoIsA button name: %@", buttonName);
     BOOL whoIsA = !([buttonName isEqualToString:@"Select Type"]);
     
     buttonName = [self.monthlySalesButton titleForState:UIControlStateNormal];
@@ -181,14 +164,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     else{
         [self performSegueWithIdentifier:@"BusToBankSegue" sender:nil];
     }
-}
-
-- (IBAction)bus2ToIndiv:(id)sender {
-    [self performSegueWithIdentifier:@"Bus2ToIndivSegue" sender:nil];
-}
-
-- (IBAction)toggleBox:(id)sender {
-        [self toggleCheck];
 }
 
 - (IBAction)cancel:(id)sender {
@@ -281,21 +256,11 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     if ([segue.identifier isEqualToString:@"BusToBankSegue"]) {
         [self.application setObject:@"business" forKey:@"Application Type"];
         
-        NSLog(@"self: %@", self);
+        NSLog(@"self: %@", self.application);
         
         BankPageViewController * bankPage = segue.destinationViewController;
         bankPage.application = self.application;
         
-        //FinishPage * finishPage = segue.destinationViewController;
-        //finishPage.application = self.application;
-    }
-    
-    else if ([[segue identifier] isEqualToString:@"Bus2ToIndivSegue"]){
-        [self fillBusinessDictionary];
-        NSLog(@"application dictionary: %@", self.application);
-        FirstIndivPage * firstIndivPage = segue.destinationViewController;
-        firstIndivPage.application = self.application;
-        firstIndivPage->fromWhichBusPage = 2;
     }
     
 }
@@ -303,7 +268,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 
 -(void)fillBusinessDictionary{
     [self.application setObject:self.corpName.text forKey:@"Corporation Name"];
-    [self.application setObject:self.dba.text forKey:@"DBA"];
     [self.application setObject:self.fedTaxId.text forKey:@"Federal Tax ID"];
 }
 

@@ -19,7 +19,7 @@
 		140798F916F007BE009AF305 /* BusinessSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 140798F716F007BE009AF305 /* BusinessSelected.png */; };
 		140798FA16F007BE009AF305 /* IndivSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 140798F816F007BE009AF305 /* IndivSelected.png */; };
 		147721B616F249300015677E /* FinishButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 147721B516F249300015677E /* FinishButton.png */; };
-		14B47A7F16F111ED00197699 /* TradeShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B47A7E16F111ED00197699 /* TradeShow.m */; };
+		14B47A7F16F111ED00197699 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		14B47A8616F1129B00197699 /* Application.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B47A8516F1129B00197699 /* Application.m */; };
 		14B6741A16FA63380064F755 /* checkboxSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B6741816FA63380064F755 /* checkboxSelected.png */; };
 		14B6741B16FA63380064F755 /* checkboxUnselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B6741916FA63380064F755 /* checkboxUnselected.png */; };
@@ -38,6 +38,7 @@
 		B2D6AD5D17FB31F000D23361 /* BusinessForm.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D6AD5C17FB31F000D23361 /* BusinessForm.m */; };
 		B2D6AD6017FB31F000D23361 /* IndividualForm.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D6AD5F17FB31F000D23361 /* IndividualForm.m */; };
 		BA148A4D16F5123900DA78B7 /* birthdayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA148A4C16F5123900DA78B7 /* birthdayViewController.m */; };
+		BA31255D17FCC121005BFB3A /* TradeShow.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31255C17FCC121005BFB3A /* TradeShow.m */; };
 		BA5DB68616F67A8600305C04 /* radio_checked.png in Resources */ = {isa = PBXBuildFile; fileRef = BA5DB68416F67A8600305C04 /* radio_checked.png */; };
 		BA5DB68716F67A8600305C04 /* radio_uncheck.png in Resources */ = {isa = PBXBuildFile; fileRef = BA5DB68516F67A8600305C04 /* radio_uncheck.png */; };
 		BAB699F91703BB8100393D36 /* AnotherTypePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB699F81703BB8100393D36 /* AnotherTypePickerViewController.m */; };
@@ -47,9 +48,6 @@
 		BAB69A051703E29C00393D36 /* BusTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB69A041703E29C00393D36 /* BusTimeViewController.m */; };
 		BABA2F3116F653AC001570EE /* birthdayViewControllerIndiv.m in Sources */ = {isa = PBXBuildFile; fileRef = BABA2F3016F653AC001570EE /* birthdayViewControllerIndiv.m */; };
 		ED22B7EE1704E91B00ACB03F /* SignupAnywhereDB.m in Sources */ = {isa = PBXBuildFile; fileRef = ED22B7ED1704E91B00ACB03F /* SignupAnywhereDB.m */; };
-		ED3B255A17175EB90051D46E /* BackupStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED3B255817175EB90051D46E /* BackupStoryboard.storyboard */; };
-		EDE01D3516DED199001743AF /* TradeShowAgentHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE01D3416DED199001743AF /* TradeShowAgentHomeViewController.m */; };
-		EDE65E3516FA530C00E06273 /* AuthenticationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE65E3416FA530C00E06273 /* AuthenticationVC.m */; };
 		EDFE06FC16CC2CE200EED6D6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDFE06FB16CC2CE200EED6D6 /* UIKit.framework */; };
 		EDFE06FE16CC2CE200EED6D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDFE06FD16CC2CE200EED6D6 /* Foundation.framework */; };
 		EDFE070016CC2CE200EED6D6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDFE06FF16CC2CE200EED6D6 /* CoreGraphics.framework */; };
@@ -64,7 +62,6 @@
 		EDFE072C16CC2D7900EED6D6 /* FirstIndivPage.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFE072316CC2D7900EED6D6 /* FirstIndivPage.m */; };
 		EDFE072D16CC2D7900EED6D6 /* FirstPage.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFE072516CC2D7900EED6D6 /* FirstPage.m */; };
 		EDFE072E16CC2D7900EED6D6 /* SecBusPage.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFE072716CC2D7900EED6D6 /* SecBusPage.m */; };
-		EDFE072F16CC2D7900EED6D6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFE072916CC2D7900EED6D6 /* ViewController.m */; };
 		EDFE073216CC2DB400EED6D6 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDFE073016CC2DB400EED6D6 /* MainStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -81,8 +78,6 @@
 		140798F716F007BE009AF305 /* BusinessSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BusinessSelected.png; sourceTree = "<group>"; };
 		140798F816F007BE009AF305 /* IndivSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IndivSelected.png; sourceTree = "<group>"; };
 		147721B516F249300015677E /* FinishButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FinishButton.png; path = ../FinishButton.png; sourceTree = "<group>"; };
-		14B47A7D16F111ED00197699 /* TradeShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TradeShow.h; path = Classes/TradeShow.h; sourceTree = "<group>"; };
-		14B47A7E16F111ED00197699 /* TradeShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TradeShow.m; path = Classes/TradeShow.m; sourceTree = "<group>"; };
 		14B47A8416F1129B00197699 /* Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Application.h; path = Classes/Application.h; sourceTree = "<group>"; };
 		14B47A8516F1129B00197699 /* Application.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Application.m; path = Classes/Application.m; sourceTree = "<group>"; };
 		14B6741816FA63380064F755 /* checkboxSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkboxSelected.png; path = ../checkboxSelected.png; sourceTree = "<group>"; };
@@ -113,6 +108,8 @@
 		BA11634D1704FA8800C3B163 /* SplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplitViewController.m; sourceTree = "<group>"; };
 		BA148A4B16F5123900DA78B7 /* birthdayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = birthdayViewController.h; sourceTree = "<group>"; };
 		BA148A4C16F5123900DA78B7 /* birthdayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = birthdayViewController.m; sourceTree = "<group>"; };
+		BA31255B17FCC121005BFB3A /* TradeShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TradeShow.h; path = Classes/TradeShow.h; sourceTree = "<group>"; };
+		BA31255C17FCC121005BFB3A /* TradeShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TradeShow.m; path = Classes/TradeShow.m; sourceTree = "<group>"; };
 		BA5DB68416F67A8600305C04 /* radio_checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radio_checked.png; sourceTree = "<group>"; };
 		BA5DB68516F67A8600305C04 /* radio_uncheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radio_uncheck.png; sourceTree = "<group>"; };
 		BAB699F71703BB8100393D36 /* AnotherTypePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnotherTypePickerViewController.h; sourceTree = "<group>"; };
@@ -129,11 +126,6 @@
 		BABA2F3016F653AC001570EE /* birthdayViewControllerIndiv.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = birthdayViewControllerIndiv.m; sourceTree = "<group>"; };
 		ED22B7EC1704E91B00ACB03F /* SignupAnywhereDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupAnywhereDB.h; sourceTree = "<group>"; };
 		ED22B7ED1704E91B00ACB03F /* SignupAnywhereDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupAnywhereDB.m; sourceTree = "<group>"; };
-		ED3B255917175EB90051D46E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = PayAnywhere/en.lproj/BackupStoryboard.storyboard; sourceTree = "<group>"; };
-		EDE01D3316DED199001743AF /* TradeShowAgentHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TradeShowAgentHomeViewController.h; sourceTree = "<group>"; };
-		EDE01D3416DED199001743AF /* TradeShowAgentHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TradeShowAgentHomeViewController.m; sourceTree = "<group>"; };
-		EDE65E3316FA530C00E06273 /* AuthenticationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationVC.h; sourceTree = "<group>"; };
-		EDE65E3416FA530C00E06273 /* AuthenticationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationVC.m; sourceTree = "<group>"; };
 		EDFE06F816CC2CE200EED6D6 /* PayAnywhere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PayAnywhere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDFE06FB16CC2CE200EED6D6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EDFE06FD16CC2CE200EED6D6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -157,8 +149,6 @@
 		EDFE072516CC2D7900EED6D6 /* FirstPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstPage.m; sourceTree = "<group>"; };
 		EDFE072616CC2D7900EED6D6 /* SecBusPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecBusPage.h; sourceTree = "<group>"; };
 		EDFE072716CC2D7900EED6D6 /* SecBusPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecBusPage.m; sourceTree = "<group>"; };
-		EDFE072816CC2D7900EED6D6 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		EDFE072916CC2D7900EED6D6 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		EDFE073116CC2DB400EED6D6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -207,8 +197,8 @@
 		14B47A8016F1125200197699 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				14B47A7D16F111ED00197699 /* TradeShow.h */,
-				14B47A7E16F111ED00197699 /* TradeShow.m */,
+				BA31255B17FCC121005BFB3A /* TradeShow.h */,
+				BA31255C17FCC121005BFB3A /* TradeShow.m */,
 				14B47A8416F1129B00197699 /* Application.h */,
 				14B47A8516F1129B00197699 /* Application.m */,
 				14E66B4F17020FD100D1FE66 /* FunctionsClass.h */,
@@ -263,14 +253,8 @@
 		BABA2F3316F6593D001570EE /* Main View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BA11634C1704FA8800C3B163 /* SplitViewController.h */,
-				BA11634D1704FA8800C3B163 /* SplitViewController.m */,
-				EDE01D3316DED199001743AF /* TradeShowAgentHomeViewController.h */,
 				14BFE8111710A784005AFCA3 /* BankPageViewController.h */,
 				14BFE8121710A784005AFCA3 /* BankPageViewController.m */,
-				EDE01D3416DED199001743AF /* TradeShowAgentHomeViewController.m */,
-				EDFE072816CC2D7900EED6D6 /* ViewController.h */,
-				EDFE072916CC2D7900EED6D6 /* ViewController.m */,
 				EDFE071E16CC2D7900EED6D6 /* FinishPage.h */,
 				EDFE071F16CC2D7900EED6D6 /* FinishPage.m */,
 				EDFE072016CC2D7900EED6D6 /* FirstBusPage.h */,
@@ -281,8 +265,6 @@
 				EDFE072516CC2D7900EED6D6 /* FirstPage.m */,
 				EDFE072616CC2D7900EED6D6 /* SecBusPage.h */,
 				EDFE072716CC2D7900EED6D6 /* SecBusPage.m */,
-				EDE65E3316FA530C00E06273 /* AuthenticationVC.h */,
-				EDE65E3416FA530C00E06273 /* AuthenticationVC.m */,
 			);
 			name = "Main View Controllers";
 			sourceTree = "<group>";
@@ -290,7 +272,6 @@
 		EDFE06EF16CC2CE200EED6D6 = {
 			isa = PBXGroup;
 			children = (
-				ED3B255817175EB90051D46E /* BackupStoryboard.storyboard */,
 				EDFE070116CC2CE200EED6D6 /* PayAnywhere */,
 				EDFE06FA16CC2CE200EED6D6 /* Frameworks */,
 				EDFE06F916CC2CE200EED6D6 /* Products */,
@@ -422,7 +403,6 @@
 				BA5DB68716F67A8600305C04 /* radio_uncheck.png in Resources */,
 				14B6741A16FA63380064F755 /* checkboxSelected.png in Resources */,
 				14B6741B16FA63380064F755 /* checkboxUnselected.png in Resources */,
-				ED3B255A17175EB90051D46E /* BackupStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +414,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDFE070816CC2CE200EED6D6 /* main.m in Sources */,
+				BA31255D17FCC121005BFB3A /* TradeShow.m in Sources */,
 				EDFE070C16CC2CE200EED6D6 /* AppDelegate.m in Sources */,
 				EDFE072A16CC2D7900EED6D6 /* FinishPage.m in Sources */,
 				B2D6AD6017FB31F000D23361 /* IndividualForm.m in Sources */,
@@ -441,13 +422,10 @@
 				EDFE072C16CC2D7900EED6D6 /* FirstIndivPage.m in Sources */,
 				EDFE072D16CC2D7900EED6D6 /* FirstPage.m in Sources */,
 				EDFE072E16CC2D7900EED6D6 /* SecBusPage.m in Sources */,
-				EDFE072F16CC2D7900EED6D6 /* ViewController.m in Sources */,
-				EDE01D3516DED199001743AF /* TradeShowAgentHomeViewController.m in Sources */,
-				14B47A7F16F111ED00197699 /* TradeShow.m in Sources */,
+				14B47A7F16F111ED00197699 /* (null) in Sources */,
 				14B47A8616F1129B00197699 /* Application.m in Sources */,
 				BA148A4D16F5123900DA78B7 /* birthdayViewController.m in Sources */,
 				BABA2F3116F653AC001570EE /* birthdayViewControllerIndiv.m in Sources */,
-				EDE65E3516FA530C00E06273 /* AuthenticationVC.m in Sources */,
 				14E66B5117020FD100D1FE66 /* FunctionsClass.m in Sources */,
 				BAB699F91703BB8100393D36 /* AnotherTypePickerViewController.m in Sources */,
 				B2D6AD5D17FB31F000D23361 /* BusinessForm.m in Sources */,
@@ -468,14 +446,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		ED3B255817175EB90051D46E /* BackupStoryboard.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				ED3B255917175EB90051D46E /* en */,
-			);
-			name = BackupStoryboard.storyboard;
-			sourceTree = "<group>";
-		};
 		EDFE070416CC2CE200EED6D6 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
