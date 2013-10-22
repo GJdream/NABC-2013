@@ -50,16 +50,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
  
     NSLog(@"Second bus page Application: %@", self.application);
 	// Do any additional setup after loading the view.
-    
-    //Fill text fields if possible
-/*
-    if([self.application objectForKey:@"Corporation Name"] != nullObj)
-        self.corpName.text = [self.application objectForKey:@"Corporation Name"];
-    if([self.application objectForKey:@"DBA"] != nullObj)
-        self.dba.text = [self.application objectForKey:@"DBA"];
-    if([self.application objectForKey:@"Federal Tax ID"] != nullObj)
-        self.fedTaxId.text = [self.application objectForKey:@"Federal Tax ID"];
-*/
 }
 
 - (void)didReceiveMemoryWarning
@@ -120,7 +110,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     BOOL monthlySalesFilled = !([buttonName isEqualToString:@"Select Range"]);
     
     buttonName = [self.higestSalesButton titleForState:UIControlStateNormal];
-    BOOL highestSalesFilled = !([buttonName isEqualToString:@"Select Range"]);
+    BOOL highestSalesFilled = !([buttonName isEqualToString:@"Select Amount"]);
     
     //Programatically create string
     
@@ -190,7 +180,8 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 - (void)dismissPop:(NSString *)type {
     [self.application setObject:type forKey:@"Business Type"];
     [typeButton setTitle:type forState:UIControlStateNormal];
-    //[[currentPopoverSeague popoverController] dismissPopoverAnimated: YES];
+    NSLog((@"type dismissed"));
+
 }
 
 //another type
@@ -217,6 +208,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 - (void)dismissPopMonthlySales:(NSString *)sales {
     [self.application setObject:sales forKey:@"Monthly Sales"];
     [monthlySalesButton setTitle:sales forState:UIControlStateNormal];
+    NSLog((@"monthlySales dismissed: %@", sales));
 }
 
 //highest sales
