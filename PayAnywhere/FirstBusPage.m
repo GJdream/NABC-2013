@@ -82,6 +82,7 @@ bool fieldsOn;
 @synthesize birthday;
 @synthesize sameAsBusAddress;
 
+
 //comment
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -295,6 +296,11 @@ bool fieldsOn;
     BOOL zip = [self.zip.text length];
     BOOL ssn = [self.ssn.text length];
     
+    BOOL busAddrIsSame = [self.busAddressSwitch isOn];
+    BOOL busAddr = [self.businessAddress.text length];
+    BOOL busSuiteApt = [self.businessSuiteApt.text length];
+    BOOL busZip = [self.businessZip.text length];
+    
     
     if(!first){
         [alertMessageMutable appendString:@"First Name, "];
@@ -319,6 +325,14 @@ bool fieldsOn;
     }
     if(!ssn){
         [alertMessageMutable appendString:@"Last 4 Digits of SSN, "];
+    }
+    if(!busAddrIsSame){
+        if(!busAddr){
+            [alertMessageMutable appendString:@"Business Address, "];
+        }
+        if(!busZip){
+            [alertMessageMutable appendString:@"Business Zip, "];
+        }
     }
     //Remove the comma from the end of the string
     if([alertMessageMutable length]){
@@ -389,9 +403,17 @@ bool fieldsOn;
     [self.application setObject:self.suiteApt.text forKey:@"Suite/Apartment"];
     [self.application setObject:self.zip.text forKey:@"Zip Code"];
     [self.application setObject:self.ssn.text forKey:@"SSN"];
-    [self.application setObject:self.businessAddress.text forKey:@"Business Address"];
-    [self.application setObject:self.businessSuiteApt.text forKey:@"Business Suite/Apartment"];
-    [self.application setObject:self.businessZip.text forKey:@"Business Zip Code"];
+    
+    if([self.busAddressSwitch isOn]){
+        [self.application setObject:self.address.text forKey:@"Business Address"];
+        [self.application setObject:self.suiteApt.text forKey:@"Business Suite/Apartment"];
+        [self.application setObject:self.zip.text forKey:@"Business Zip Code"];
+    }
+    else{
+        [self.application setObject:self.businessAddress.text   forKey:@"Business Address"];
+        [self.application setObject:self.businessSuiteApt.text forKey:@"Business Suite/Apartment"];
+        [self.application setObject:self.businessZip.text forKey:@"Business Zip Code"];
+    }
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField

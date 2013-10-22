@@ -34,6 +34,7 @@
 - (IBAction)nextPage:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UIButton *birthdayButton;
+@property (strong, nonatomic) IBOutlet UISwitch *busAddressSwitch;
 
 @property (strong, nonatomic) UIPopoverController * birthdayPopoverController;
 @property (strong, nonatomic) NSDate *birthday;
