@@ -9,6 +9,7 @@
 #import "Database.h"
 #import "Agent.h"
 #import "IndividualForm.h"
+#import "BusinessForm.h"
 #import "Form+ApplicationDictionary.h"
 #import "MarketSource.h"
 
@@ -61,11 +62,13 @@ NSPersistentStoreCoordinator *coordinator;
     return self;
 }
 
-+ (void)sharedDB
++ (id)sharedDB
 {
     if (sharedDB == nil) {
         sharedDB = [[Database alloc] init];
     }
+ 
+    return sharedDB;
 }
 
 /*
@@ -77,11 +80,13 @@ NSPersistentStoreCoordinator *coordinator;
     }
 }*/
 
-- (void)insertIndividualFormWithInfo:(NSDictionary *)info
+- (id)insertIndividualFormWithInfo:(NSDictionary *)info
+                            andAgent:(Agent *)agent
+                     andMarketSource:(MarketSource *)marketSource
 {
     
-    IndividualForm *form = [NSEntityDescription insertNewObjectForEntityForName:@"Form" inManagedObjectContext:context];
-    form.aid = [info objectForKey:@"aid"];
+    IndividualForm *form = [NSEntityDescription insertNewObjectForEntityForName:@"IndividualForm" inManagedObjectContext:context];
+    
     form.dba = [info objectForKey:@"dba"];
     form.email = [info objectForKey:@"email"];
     form.firstName = [info objectForKey:@"firstName"];
@@ -91,28 +96,69 @@ NSPersistentStoreCoordinator *coordinator;
     form.suiteApt = [info objectForKey:@"suiteApt"];
     form.zipCode = [info objectForKey:@"zipCode"];
     form.fid = [info objectForKey:@"fid"];
-    form.msid = [info objectForKey:@"msid"];
     form.dob = [info objectForKey:@"dob"];
     form.address = [info objectForKey:@"address"];
     
     //Get object pointers given ids from info dictionary
-    //form.whereFilled = ;
-    //form.whoFilled = ;
-    /*
+    form.aid = agent.aid;
+    form.msid = marketSource.msid;
+    form.whereFilled = marketSource;
+    form.whoFilled = agent;
+    
     NSError *error;
     if (![context save:&error])
         NSLog(@"Error saving: %@", [error localizedDescription]);
     else
         NSLog(@"Success Saving");
-     */
-}
-
-- (void)insertBusinessFormWithInfo:(NSDictionary *)info
-{
     
+    return form;
 }
 
-- (void)insertAgentWithInfo:(NSDictionary *)info
+- (id)insertBusinessFormWithInfo:(NSDictionary *)info
+                        andAgent:(Agent *)agent
+                 andMarketSource:(MarketSource *)marketSource
+{
+    BusinessForm *form = [NSEntityDescription
+                          insertNewObjectForEntityForName:@"BusinessForm"
+                          inManagedObjectContext:context];
+    
+    form.firstName = [info objectForKey:@"firstName"];
+    form.lastName = [info objectForKey:@"lastName"];
+    form.email = [info objectForKey:@"email"];
+    form.phoneNumber = [info objectForKey:@"phoneNumber"];
+    form.address = [info objectForKey:@"address"];
+    form.suiteApt = [info objectForKey:@"suiteApt"];
+    form.zipCode = [info objectForKey:@"zipCode"];
+    form.ssn = [info objectForKey:@"ssn"];
+    form.dob = [info objectForKey:@"dob"];
+    form.dba = [info objectForKey:@"dba"];
+    form.businessAddress = [info objectForKey:@"businessAddress"];
+    form.businessSuiteApt = [info objectForKey:@"businessSuiteApt"];
+    form.businessZipCode = [info objectForKey:@"businessZipCode"];
+    form.fedTaxID = [info objectForKey:@"fedTaxID"];
+    form.type = [info objectForKey:@"type"];
+    form.yearsInBusiness = [info objectForKey:@"yearsInBusiness"];
+    form.businessDescription = [info objectForKey:@"businessDescription"];
+    form.highestSales = [info objectForKey:@"highestSales"];
+    form.ccSales = [info objectForKey:@"ccSales"];
+    form.corporationName = [info objectForKey:@"corporationName"];
+    
+    //Get object pointers given ids from info dictionary
+    form.aid = agent.aid;
+    form.msid = marketSource.msid;
+    form.whereFilled = marketSource;
+    form.whoFilled = agent;
+    
+    NSError *error;
+    if (![context save:&error])
+        NSLog(@"Error saving: %@", [error localizedDescription]);
+    else
+        NSLog(@"Success Saving");
+    
+    return form;
+}
+
+- (id)insertAgentWithInfo:(NSDictionary *)info
 {
     Agent *agent = [NSEntityDescription insertNewObjectForEntityForName:@"Agent" inManagedObjectContext:context];
     agent.aid = [info objectForKey:@"aid"];
@@ -125,9 +171,11 @@ NSPersistentStoreCoordinator *coordinator;
         NSLog(@"Error saving: %@", [error localizedDescription]);
     else
         NSLog(@"Success Saving");
+    
+    return agent;
 }
 
-- (void)insertMarketSourceWithInfo:(NSDictionary *)info
+- (id)insertMarketSourceWithInfo:(NSDictionary *)info
 {
     MarketSource *ms = [NSEntityDescription insertNewObjectForEntityForName:@"MarketSource" inManagedObjectContext:context];
     ms.msid = [info objectForKey:@"msid"];
@@ -141,6 +189,22 @@ NSPersistentStoreCoordinator *coordinator;
         NSLog(@"Error saving: %@", [error localizedDescription]);
     else
         NSLog(@"Success Saving");
+    
+    return ms;
+}
+
+- (NSArray *)allIndividualForms
+{
+    NSArray *individualForms = [[NSArray alloc] init];
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:@"IndividualForm" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSError *error;
+   
+    individualForms = [context executeFetchRequest:fetchRequest error:&error];
+    return individualForms;
 }
 
 - (void)saveContext

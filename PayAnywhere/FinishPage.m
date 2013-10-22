@@ -149,8 +149,34 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 }
 
 - (IBAction)finish:(id)sender {
+    
+    NSArray *individualForms = [[Database sharedDB] allIndividualForms];
+    NSLog(@"INDIVIDUAL FORMS IN DB before insert: \n%@\n", individualForms);
+    
+    /**/
+    NSMutableDictionary *testMarketSource = [[NSMutableDictionary alloc] init];
+    [testMarketSource setObject:@"Chicago" forKey:@"city"];
+    [testMarketSource setObject:@"IL" forKey:@"state"];
+    [testMarketSource setObject:@"Test Trade Show" forKey:@"name"];
+    [testMarketSource setObject:[NSDate date] forKey:@"date"];
+    [testMarketSource setObject:[NSNumber numberWithInt:100] forKey:@"msid"];
+    
+    NSMutableDictionary *testAgent = [[NSMutableDictionary alloc] init];
+    [testAgent setObject:[NSNumber numberWithInt:100] forKey:@"aid"];
+    [testAgent setObject:[NSNumber numberWithInt:1234] forKey:@"pin"];
+    [testAgent setObject:@"Joe" forKey:@"firstName"];
+    [testAgent setObject:@"Agent" forKey:@"lastName"];
+    
+    MarketSource *marketSource = [[Database sharedDB] insertMarketSourceWithInfo:testMarketSource];
+    Agent *agent = [[Database sharedDB] insertAgentWithInfo:testAgent];
+    /**/
+    
+    [[Database sharedDB] insertIndividualFormWithInfo:self.application andAgent:agent andMarketSource:marketSource];
     [self sendJSON];
     [self.navigationController popToRootViewControllerAnimated:YES];
+    
+    individualForms = [[Database sharedDB] allIndividualForms];
+    NSLog(@"INDIVIDUAL FORMS IN DB after insert: \n%@\n", individualForms);
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

@@ -189,7 +189,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 }
 
 - (IBAction)termsButon:(id)sender {
-    if([[self.application objectForKey:@"Terms Accepted"] isEqualToString:@"False"]){
+    if([[self.application objectForKey:@"termsAccepted"] isEqualToString:@"False"]){
         
     }
 }
@@ -312,20 +312,20 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
                                                           dateStyle:NSDateFormatterLongStyle
                                                           timeStyle:NSDateFormatterNoStyle];
     NSLog(@"%@",dateString);
-    [self.application setObject:dateString forKey:@"Birthday"];
+    [self.application setObject:dateString forKey:@"dob"];
     [birth setTitle:dateString forState:UIControlStateNormal];
 }
 
 -(void)fillDictionary{
-    [self.application setObject:self.first.text forKey:@"First Name"];
-    [self.application setObject:self.last.text forKey:@"Last Name"];
-    [self.application setObject:self.email.text forKey:@"Email Address"];
-    [self.application setObject:self.phone.text forKey:@"Phone Number"];
-    [self.application setObject:self.address.text forKey:@"Residential Address"];
-    [self.application setObject:self.suiteApt.text forKey:@"Suite/Apartment"];
-    [self.application setObject:self.zip.text forKey:@"Zip Code"];
-    [self.application setObject:self.ssn.text forKey:@"SSN"];
-    [self.application setObject:self.dba.text forKey:@"DBA"];
+    [self.application setObject:self.first.text forKey:@"firstName"];
+    [self.application setObject:self.last.text forKey:@"lastName"];
+    [self.application setObject:self.email.text forKey:@"email"];
+    [self.application setObject:self.phone.text forKey:@"phoneNumber"];
+    [self.application setObject:self.address.text forKey:@"address"];
+    [self.application setObject:self.suiteApt.text forKey:@"suiteApt"];
+    [self.application setObject:self.zip.text forKey:@"zipCode"];
+    [self.application setObject:self.ssn.text forKey:@"ssn"];
+    [self.application setObject:self.dba.text forKey:@"dba"];
     
     NSLog(@"self: %@", self.application);
 }

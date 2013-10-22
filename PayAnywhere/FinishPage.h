@@ -15,6 +15,8 @@
 #import "Application.h"
 #import "SignupAnywhereDB.h"
 
+#import "Database.h"
+
 @interface FinishPage : UIViewController<UITextFieldDelegate>
 {
     SignupAnywhereDB * db;

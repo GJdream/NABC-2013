@@ -35,6 +35,7 @@
 		B287E29A17F210E90001C929 /* Agent.m in Sources */ = {isa = PBXBuildFile; fileRef = B287E29917F210E90001C929 /* Agent.m */; };
 		B287E29D17F210E90001C929 /* MarketSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B287E29C17F210E90001C929 /* MarketSource.m */; };
 		B287E2A017F213BA0001C929 /* Form+ApplicationDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = B287E29F17F213BA0001C929 /* Form+ApplicationDictionary.m */; };
+		B29C7A03180B23A80091456D /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29C7A02180B23A80091456D /* SettingsViewController.m */; };
 		B2D6AD5D17FB31F000D23361 /* BusinessForm.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D6AD5C17FB31F000D23361 /* BusinessForm.m */; };
 		B2D6AD6017FB31F000D23361 /* IndividualForm.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D6AD5F17FB31F000D23361 /* IndividualForm.m */; };
 		BA148A4D16F5123900DA78B7 /* birthdayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA148A4C16F5123900DA78B7 /* birthdayViewController.m */; };
@@ -100,12 +101,12 @@
 		B287E29C17F210E90001C929 /* MarketSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarketSource.m; sourceTree = "<group>"; };
 		B287E29E17F213BA0001C929 /* Form+ApplicationDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Form+ApplicationDictionary.h"; sourceTree = "<group>"; };
 		B287E29F17F213BA0001C929 /* Form+ApplicationDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Form+ApplicationDictionary.m"; sourceTree = "<group>"; };
+		B29C7A01180B23A80091456D /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		B29C7A02180B23A80091456D /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		B2D6AD5B17FB31F000D23361 /* BusinessForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessForm.h; sourceTree = "<group>"; };
 		B2D6AD5C17FB31F000D23361 /* BusinessForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessForm.m; sourceTree = "<group>"; };
 		B2D6AD5E17FB31F000D23361 /* IndividualForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndividualForm.h; sourceTree = "<group>"; };
 		B2D6AD5F17FB31F000D23361 /* IndividualForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndividualForm.m; sourceTree = "<group>"; };
-		BA11634C1704FA8800C3B163 /* SplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitViewController.h; sourceTree = "<group>"; };
-		BA11634D1704FA8800C3B163 /* SplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplitViewController.m; sourceTree = "<group>"; };
 		BA148A4B16F5123900DA78B7 /* birthdayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = birthdayViewController.h; sourceTree = "<group>"; };
 		BA148A4C16F5123900DA78B7 /* birthdayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = birthdayViewController.m; sourceTree = "<group>"; };
 		BA31255B17FCC121005BFB3A /* TradeShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TradeShow.h; path = Classes/TradeShow.h; sourceTree = "<group>"; };
@@ -229,6 +230,15 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		B29C7A00180B235F0091456D /* Admin View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B29C7A01180B23A80091456D /* SettingsViewController.h */,
+				B29C7A02180B23A80091456D /* SettingsViewController.m */,
+			);
+			name = "Admin View Controllers";
+			sourceTree = "<group>";
+		};
 		BABA2F3216F65905001570EE /* Pickers */ = {
 			isa = PBXGroup;
 			children = (
@@ -300,6 +310,7 @@
 		EDFE070116CC2CE200EED6D6 /* PayAnywhere */ = {
 			isa = PBXGroup;
 			children = (
+				B29C7A00180B235F0091456D /* Admin View Controllers */,
 				B287E28817F1F7450001C929 /* Model */,
 				BABA2F3316F6593D001570EE /* Main View Controllers */,
 				BABA2F3216F65905001570EE /* Pickers */,
@@ -440,6 +451,7 @@
 				B287E29A17F210E90001C929 /* Agent.m in Sources */,
 				B287E29D17F210E90001C929 /* MarketSource.m in Sources */,
 				B287E2A017F213BA0001C929 /* Form+ApplicationDictionary.m in Sources */,
+				B29C7A03180B23A80091456D /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

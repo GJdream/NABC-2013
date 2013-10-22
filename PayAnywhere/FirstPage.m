@@ -35,17 +35,17 @@
     [super viewDidLoad];
 	self.application = [[NSMutableDictionary alloc] init];
     
-    [self.application setObject:nullObj forKey:@"First Name"];
-    [self.application setObject:nullObj forKey:@"Last Name"];
-    [self.application setObject:nullObj forKey:@"Email Address"];
-    [self.application setObject:nullObj forKey:@"Phone Number"];
-    [self.application setObject:nullObj forKey:@"Residential Address"];
-    [self.application setObject:nullObj forKey:@"Suite/Apartment"];
-    [self.application setObject:nullObj forKey:@"City"];
-    [self.application setObject:nullObj forKey:@"State"];
-    [self.application setObject:nullObj forKey:@"Zip Code"];
-    [self.application setObject:nullObj forKey:@"SSN"];
-    [self.application setObject:nullObj forKey:@"DBA"];
+    [self.application setObject:nullObj forKey:@"firstName"];
+    [self.application setObject:nullObj forKey:@"lastName"];
+    [self.application setObject:nullObj forKey:@"email"];
+    [self.application setObject:nullObj forKey:@"phoneNumber"];
+    [self.application setObject:nullObj forKey:@"address"];
+    [self.application setObject:nullObj forKey:@"suiteApt"];
+    [self.application setObject:nullObj forKey:@"city"];
+    [self.application setObject:nullObj forKey:@"state"];
+    [self.application setObject:nullObj forKey:@"zipCode"];
+    [self.application setObject:nullObj forKey:@"ssn"];
+    [self.application setObject:nullObj forKey:@"dba"];
     [self.application setObject:nullObj forKey:@"Business Type"];
     [self.application setObject:nullObj forKey:@"Business Description"];
     [self.application setObject:nullObj forKey:@"Corporation Name"];

@@ -46,8 +46,8 @@
     
 
     if(accountNum && routingNum){
-        [self.application setValue:self.accountNumberField.text forKey:@"Bank Account Number"];
-        [self.application setValue:self.routingNumField.text forKey:@"ACH/Routing Number"];
+        [self.application setValue:self.accountNumberField.text forKey:@"accountNumber"];
+        [self.application setValue:self.routingNumField.text forKey:@"routingNumber"];
     
         [self performSegueWithIdentifier:@"BankToFinishSegue" sender:nil];
     }
