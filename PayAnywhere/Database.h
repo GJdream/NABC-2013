@@ -8,8 +8,20 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "Agent.h"
+#import "MarketSource.h"
 
 @interface Database : NSObject
 
++ (id)sharedDB;
+- (id)insertIndividualFormWithInfo:(NSDictionary *)info
+                            andAgent:(Agent *)agent
+                     andMarketSource:(MarketSource *)marketSource;
+
+//- (id)insertBusinessFormWithInfo:(NSDictionary *)info;
+- (id)insertAgentWithInfo:(NSDictionary *)info;
+- (id)insertMarketSourceWithInfo:(NSDictionary *)info;
+
+- (NSArray *)allIndividualForms;
 
 @end

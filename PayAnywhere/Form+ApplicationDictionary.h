@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 NAB. All rights reserved.
 //
 
-#import "Form.h"
+#import "IndividualForm.h"
 
-@interface Form (ApplicationDictionary)
+@interface IndividualForm (ApplicationDictionary)
 
 @end

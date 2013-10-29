@@ -7,7 +7,7 @@
 //
 
 #import "Agent.h"
-#import "Form.h"
+#import "IndividualForm.h"
 
 
 @implementation Agent

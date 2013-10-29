@@ -39,10 +39,13 @@
 		B26428CF17F7738B00E0A0E8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B26428CE17F7738B00E0A0E8 /* CoreData.framework */; };
 		B287E28717F1EAFC0001C929 /* PayAnywhereModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B287E28517F1EAFC0001C929 /* PayAnywhereModel.xcdatamodeld */; };
 		B287E28B17F1F7B90001C929 /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = B287E28A17F1F7B90001C929 /* Database.m */; };
-		B287E29717F210E90001C929 /* Form.m in Sources */ = {isa = PBXBuildFile; fileRef = B287E29617F210E90001C929 /* Form.m */; };
 		B287E29A17F210E90001C929 /* Agent.m in Sources */ = {isa = PBXBuildFile; fileRef = B287E29917F210E90001C929 /* Agent.m */; };
 		B287E29D17F210E90001C929 /* MarketSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B287E29C17F210E90001C929 /* MarketSource.m */; };
 		B287E2A017F213BA0001C929 /* Form+ApplicationDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = B287E29F17F213BA0001C929 /* Form+ApplicationDictionary.m */; };
+		B29C7A03180B23A80091456D /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29C7A02180B23A80091456D /* SettingsViewController.m */; };
+		B2D6AD5D17FB31F000D23361 /* BusinessForm.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D6AD5C17FB31F000D23361 /* BusinessForm.m */; };
+		B2D6AD6017FB31F000D23361 /* IndividualForm.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D6AD5F17FB31F000D23361 /* IndividualForm.m */; };
+		BA148A4D16F5123900DA78B7 /* birthdayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA148A4C16F5123900DA78B7 /* birthdayViewController.m */; };
 		BA31255D17FCC121005BFB3A /* TradeShow.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31255C17FCC121005BFB3A /* TradeShow.m */; };
 		BA5DB68616F67A8600305C04 /* radio_checked.png in Resources */ = {isa = PBXBuildFile; fileRef = BA5DB68416F67A8600305C04 /* radio_checked.png */; };
 		BA5DB68716F67A8600305C04 /* radio_uncheck.png in Resources */ = {isa = PBXBuildFile; fileRef = BA5DB68516F67A8600305C04 /* radio_uncheck.png */; };
@@ -107,14 +110,20 @@
 		B287E28617F1EAFC0001C929 /* PayAnywhereModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PayAnywhereModel.xcdatamodel; sourceTree = "<group>"; };
 		B287E28917F1F7B90001C929 /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
 		B287E28A17F1F7B90001C929 /* Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Database.m; sourceTree = "<group>"; };
-		B287E29517F210E90001C929 /* Form.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Form.h; sourceTree = "<group>"; };
-		B287E29617F210E90001C929 /* Form.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Form.m; sourceTree = "<group>"; };
 		B287E29817F210E90001C929 /* Agent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Agent.h; sourceTree = "<group>"; };
 		B287E29917F210E90001C929 /* Agent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Agent.m; sourceTree = "<group>"; };
 		B287E29B17F210E90001C929 /* MarketSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketSource.h; sourceTree = "<group>"; };
 		B287E29C17F210E90001C929 /* MarketSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarketSource.m; sourceTree = "<group>"; };
 		B287E29E17F213BA0001C929 /* Form+ApplicationDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Form+ApplicationDictionary.h"; sourceTree = "<group>"; };
 		B287E29F17F213BA0001C929 /* Form+ApplicationDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Form+ApplicationDictionary.m"; sourceTree = "<group>"; };
+		B29C7A01180B23A80091456D /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		B29C7A02180B23A80091456D /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		B2D6AD5B17FB31F000D23361 /* BusinessForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessForm.h; sourceTree = "<group>"; };
+		B2D6AD5C17FB31F000D23361 /* BusinessForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessForm.m; sourceTree = "<group>"; };
+		B2D6AD5E17FB31F000D23361 /* IndividualForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndividualForm.h; sourceTree = "<group>"; };
+		B2D6AD5F17FB31F000D23361 /* IndividualForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndividualForm.m; sourceTree = "<group>"; };
+		BA148A4B16F5123900DA78B7 /* birthdayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = birthdayViewController.h; sourceTree = "<group>"; };
+		BA148A4C16F5123900DA78B7 /* birthdayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = birthdayViewController.m; sourceTree = "<group>"; };
 		BA31255B17FCC121005BFB3A /* TradeShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TradeShow.h; path = Classes/TradeShow.h; sourceTree = "<group>"; };
 		BA31255C17FCC121005BFB3A /* TradeShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TradeShow.m; path = Classes/TradeShow.m; sourceTree = "<group>"; };
 		BA5DB68416F67A8600305C04 /* radio_checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radio_checked.png; sourceTree = "<group>"; };
@@ -208,18 +217,29 @@
 			isa = PBXGroup;
 			children = (
 				B287E28517F1EAFC0001C929 /* PayAnywhereModel.xcdatamodeld */,
+				B2D6AD5E17FB31F000D23361 /* IndividualForm.h */,
+				B2D6AD5F17FB31F000D23361 /* IndividualForm.m */,
+				B2D6AD5B17FB31F000D23361 /* BusinessForm.h */,
+				B2D6AD5C17FB31F000D23361 /* BusinessForm.m */,
 				B287E29B17F210E90001C929 /* MarketSource.h */,
 				B287E29C17F210E90001C929 /* MarketSource.m */,
 				B287E29817F210E90001C929 /* Agent.h */,
 				B287E29917F210E90001C929 /* Agent.m */,
-				B287E29517F210E90001C929 /* Form.h */,
-				B287E29617F210E90001C929 /* Form.m */,
 				B287E28917F1F7B90001C929 /* Database.h */,
 				B287E28A17F1F7B90001C929 /* Database.m */,
 				B287E29E17F213BA0001C929 /* Form+ApplicationDictionary.h */,
 				B287E29F17F213BA0001C929 /* Form+ApplicationDictionary.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		B29C7A00180B235F0091456D /* Admin View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B29C7A01180B23A80091456D /* SettingsViewController.h */,
+				B29C7A02180B23A80091456D /* SettingsViewController.m */,
+			);
+			name = "Admin View Controllers";
 			sourceTree = "<group>";
 		};
 		BABA2F3216F65905001570EE /* Pickers */ = {
@@ -293,6 +313,7 @@
 		EDFE070116CC2CE200EED6D6 /* PayAnywhere */ = {
 			isa = PBXGroup;
 			children = (
+				B29C7A00180B235F0091456D /* Admin View Controllers */,
 				B287E28817F1F7450001C929 /* Model */,
 				BABA2F3316F6593D001570EE /* Main View Controllers */,
 				BABA2F3216F65905001570EE /* Pickers */,
@@ -412,6 +433,7 @@
 				BA31255D17FCC121005BFB3A /* TradeShow.m in Sources */,
 				EDFE070C16CC2CE200EED6D6 /* AppDelegate.m in Sources */,
 				EDFE072A16CC2D7900EED6D6 /* FinishPage.m in Sources */,
+				B2D6AD6017FB31F000D23361 /* IndividualForm.m in Sources */,
 				EDFE072B16CC2D7900EED6D6 /* FirstBusPage.m in Sources */,
 				EDFE072C16CC2D7900EED6D6 /* FirstIndivPage.m in Sources */,
 				EDFE072D16CC2D7900EED6D6 /* FirstPage.m in Sources */,
@@ -421,17 +443,22 @@
 				142E571E1812FC6800B0AE0E /* HighestSalesViewController.m in Sources */,
 				14B47A8616F1129B00197699 /* Application.m in Sources */,
 				14E66B5117020FD100D1FE66 /* FunctionsClass.m in Sources */,
+				BAB699F91703BB8100393D36 /* AnotherTypePickerViewController.m in Sources */,
+				B2D6AD5D17FB31F000D23361 /* BusinessForm.m in Sources */,
+				BAB699FC1703D38600393D36 /* MonthlySalesViewController.m in Sources */,
+				BAB699FF1703D59600393D36 /* TypePickerViewController.m in Sources */,
+				BAB69A021703DD7500393D36 /* HighestSalesViewController.m in Sources */,
+				BAB69A051703E29C00393D36 /* BusTimeViewController.m in Sources */,
 				14BFE8131710A784005AFCA3 /* BankPageViewController.m in Sources */,
 				142E57271812FCCD00B0AE0E /* birthdayViewControllerIndiv.m in Sources */,
 				142E571C1812FC6800B0AE0E /* AnotherTypePickerViewController.m in Sources */,
 				ED22B7EE1704E91B00ACB03F /* SignupAnywhereDB.m in Sources */,
 				B287E28717F1EAFC0001C929 /* PayAnywhereModel.xcdatamodeld in Sources */,
 				B287E28B17F1F7B90001C929 /* Database.m in Sources */,
-				B287E29717F210E90001C929 /* Form.m in Sources */,
-				142E57201812FC6800B0AE0E /* TypePickerViewController.m in Sources */,
 				B287E29A17F210E90001C929 /* Agent.m in Sources */,
 				B287E29D17F210E90001C929 /* MarketSource.m in Sources */,
 				B287E2A017F213BA0001C929 /* Form+ApplicationDictionary.m in Sources */,
+				B29C7A03180B23A80091456D /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
