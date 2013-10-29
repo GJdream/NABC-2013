@@ -1600,6 +1600,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="CardReader.PNG" width="212" height="170"/>
         <image name="FinishButton.png" width="587" height="132"/>
         <image name="PAandLogo.png" width="520" height="98"/>
+        <image name="PAandLogo.png" width="520" height="98"/>
+        <image name="PAandLogo.png" width="520" height="98"/>
+        <image name="radio_uncheck.png" width="30" height="30"/>
         <image name="radio_uncheck.png" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
