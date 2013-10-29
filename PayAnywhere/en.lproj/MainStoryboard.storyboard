@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="DNg-UI-dgR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="DNg-UI-dgR">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
@@ -678,7 +678,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="ar1-aw-0Xz" kind="popover" identifier="selectedType" popoverAnchorView="leO-uj-rY1" id="ISS-E7-CP7">
+                                    <segue destination="6OJ-oH-vel" kind="popover" popoverAnchorView="leO-uj-rY1" id="Q0E-XL-OfZ">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
                                 </connections>
@@ -938,7 +938,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="TypePicker" destination="5Gz-bB-1XU" id="Eut-vf-H5W"/>
                         <outlet property="typePicker" destination="5Gz-bB-1XU" id="q4A-6x-Z96"/>
                     </connections>
                 </viewController>
@@ -1595,14 +1594,48 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="2145" y="-706"/>
         </scene>
+        <!--Type Picker View Controller-->
+        <scene sceneID="YXy-O8-bHb">
+            <objects>
+                <viewController id="6OJ-oH-vel" customClass="TypePickerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zrX-Mc-HNI"/>
+                        <viewControllerLayoutGuide type="bottom" id="pfH-04-y6n"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="t5h-u3-erb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="768"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qJB-RV-1hC">
+                                <rect key="frame" x="0.0" y="552" width="320" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="6OJ-oH-vel" id="7C0-FV-vZ2"/>
+                                    <outlet property="delegate" destination="6OJ-oH-vel" id="F5q-Qv-H96"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qJB-RV-1hC" firstAttribute="leading" secondItem="t5h-u3-erb" secondAttribute="leading" id="tti-RU-OvZ"/>
+                            <constraint firstItem="qJB-RV-1hC" firstAttribute="bottom" secondItem="t5h-u3-erb" secondAttribute="bottom" id="xjj-Td-1Yb"/>
+                        </constraints>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="typePicker" destination="qJB-RV-1hC" id="tQw-zq-Ppc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uVO-6d-cRL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1503" y="-1232"/>
+        </scene>
     </scenes>
     <resources>
         <image name="CardReader.PNG" width="212" height="170"/>
         <image name="FinishButton.png" width="587" height="132"/>
         <image name="PAandLogo.png" width="520" height="98"/>
-        <image name="PAandLogo.png" width="520" height="98"/>
-        <image name="PAandLogo.png" width="520" height="98"/>
-        <image name="radio_uncheck.png" width="30" height="30"/>
         <image name="radio_uncheck.png" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
