@@ -290,7 +290,23 @@ bool fieldsOn;
     //Check for contents of all fields
     BOOL first = [self.first.text length];
     BOOL last = [self.last.text length];
-    BOOL email = [self.email.text length];
+    BOOL email;
+    
+    NSString *emailExp = [NSString stringWithFormat:@"@"];
+    NSRegularExpression *emailRegex = [NSRegularExpression regularExpressionWithPattern:emailExp
+                                                                                options:NSRegularExpressionCaseInsensitive
+                                                                                  error:nil];
+    NSUInteger emailMatch = [emailRegex numberOfMatchesInString:self.email.text
+                                                        options:0
+                                                          range:NSMakeRange(0, [self.email.text length])];
+    if (emailMatch == 1) {
+        email = TRUE;
+    }
+    else{
+        email = FALSE;
+    }
+    
+    
     BOOL phone = [self.phone.text length];
     NSString *phoneExp = [NSString stringWithFormat:@"^[0-9]{3}-[0-9]{3}-[0-9]{4}$"];
     NSRegularExpression *phoneRegex = [NSRegularExpression regularExpressionWithPattern:phoneExp

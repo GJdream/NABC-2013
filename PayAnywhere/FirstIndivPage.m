@@ -184,7 +184,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
         ssn = FALSE;
     }
     
-
     //Fill the dictionary with contents of the text fields
     [self fillDictionary];
     
@@ -230,10 +229,10 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
         }
         
         UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Required Fields Missing:"
-            message:alertMessageMutable
-            delegate:nil
-            cancelButtonTitle:@"OK"
-            otherButtonTitles:nil];
+                                                          message:alertMessageMutable
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
         [message show];
         
     }
