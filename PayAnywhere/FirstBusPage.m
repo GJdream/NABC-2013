@@ -290,15 +290,73 @@ bool fieldsOn;
     //Check for contents of all fields
     BOOL first = [self.first.text length];
     BOOL last = [self.last.text length];
-    BOOL email = [self.email.text length];
+    BOOL email;
+    
+    NSString *emailExp = [NSString stringWithFormat:@"@"];
+    NSRegularExpression *emailRegex = [NSRegularExpression regularExpressionWithPattern:emailExp
+                                                                                options:NSRegularExpressionCaseInsensitive
+                                                                                  error:nil];
+    NSUInteger emailMatch = [emailRegex numberOfMatchesInString:self.email.text
+                                                        options:0
+                                                          range:NSMakeRange(0, [self.email.text length])];
+    if (emailMatch == 1) {
+        email = TRUE;
+    }
+    else{
+        email = FALSE;
+    }
+    
+    
     BOOL phone = [self.phone.text length];
+    NSString *phoneExp = [NSString stringWithFormat:@"^[0-9]{3}-[0-9]{3}-[0-9]{4}$"];
+    NSRegularExpression *phoneRegex = [NSRegularExpression regularExpressionWithPattern:phoneExp
+                                                                                options:NSRegularExpressionCaseInsensitive
+                                                                                  error:nil];
+    NSUInteger phoneMatch = [phoneRegex numberOfMatchesInString:self.phone.text
+                                                        options:0
+                                                          range:NSMakeRange(0, [self.phone.text length])];
+    NSLog(@"phoneMatch: %i", phoneMatch);
+    if (phoneMatch == 1 && [self.phone.text length] == 12) {
+        phone = TRUE;
+    }
+    else{
+        phone = FALSE;
+    }
+    
+    
+    
     BOOL address = [self.address.text length];
-    BOOL zip = [self.zip.text length];
-    BOOL ssn = [self.ssn.text length];
+    BOOL zip;
+    BOOL ssn;
+    NSString *zipExp = [NSString stringWithFormat:@"^[0-9]{5}$"];
+    NSRegularExpression *zipRegex = [NSRegularExpression regularExpressionWithPattern:zipExp
+                                                                              options:NSRegularExpressionCaseInsensitive
+                                                                                error:nil];
+    NSUInteger zipMatch = [zipRegex numberOfMatchesInString:self.zip.text
+                                                    options:0
+                                                      range:NSMakeRange(0, [self.zip.text length])];
+    if (zipMatch == 1 && [self.zip.text length] == 5) {
+        zip = TRUE;
+    }
+    else{
+        zip = FALSE;
+    }
+    NSString *ssnExp = [NSString stringWithFormat:@"^[0-9]{4}$"];
+    NSRegularExpression *ssnRegex = [NSRegularExpression regularExpressionWithPattern:ssnExp
+                                                                              options:NSRegularExpressionCaseInsensitive
+                                                                                error:nil];
+    NSUInteger ssnMatch = [ssnRegex numberOfMatchesInString:self.ssn.text
+                                                    options:0
+                                                      range:NSMakeRange(0, [self.ssn.text length])];
+    if (ssnMatch == 1 && [self.ssn.text length] == 4) {
+        ssn = TRUE;
+    }
+    else{
+        ssn = FALSE;
+    }
     
     BOOL busAddrIsSame = [self.busAddressSwitch isOn];
     BOOL busAddr = [self.businessAddress.text length];
-    BOOL busSuiteApt = [self.businessSuiteApt.text length];
     BOOL busZip = [self.businessZip.text length];
     
     
@@ -341,23 +399,21 @@ bool fieldsOn;
     }
     
     //If the fields are not filled in, display the alert with generated string.
-    if(!(first && last && email && phone && address && zip && ssn && birthFilled)){
-        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Required Fields Missing:"
-                                                          message:alertMessageMutable
-                                                         delegate:nil
-                                                cancelButtonTitle:@"OK"
-                                                otherButtonTitles:nil];
-        [message show];
+    if((first && last && email && phone && address && zip && ssn && birthFilled) || FALSE){
+        [self performSegueWithIdentifier:@"Bus1To2Segue" sender:nil];
+        
         
     }
     
     
     //Perform the segue
     else{
-        [self performSegueWithIdentifier:@"Bus1To2Segue" sender:nil];
-        
-        
-        //            [self.navigationController pushViewController:secondBusPage animated:YES];
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Required Fields Missing:"
+                                                          message:alertMessageMutable
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+        [message show];
         
     }
     
