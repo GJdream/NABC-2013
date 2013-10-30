@@ -216,13 +216,11 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 }
 
 -(void)sendJSON{
-    NSLog(@"self: %@", self);
-    
     //Create JSON using self.application
     NSError *error;
     BOOL isTurnableToJSON = [NSJSONSerialization
                              isValidJSONObject: self.application];
-    NSLog(@"Appliation can be an object: %hhd", isTurnableToJSON);
+    NSLog(@"Appliation is valid JSON: %hhd", isTurnableToJSON);
     
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self.application
                                                        options:0
@@ -230,12 +228,12 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     
     NSString *postLength = [NSString stringWithFormat:@"%d", [jsonData length]];
     
-//    NSLog(@"jsonData: %@", jsonData);
-    
     //Create URL request
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
 
+    // Fix this so it uses macros and appends the "/individual"
     [request setURL:[NSURL URLWithString:@"http://141.212.105.78:8080/app.php/individual/"]];
+    
     [request setHTTPMethod:@"POST"];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [request setValue:@"application/x-www-form-urlencoded;charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
@@ -247,9 +245,9 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
                                        queue:[NSOperationQueue mainQueue]
                            completionHandler:
      ^(NSURLResponse *response, NSData *data, NSError *error){
-//         NSData *POSTReply = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
-//         NSString *theReply = [[NSString alloc] initWithBytes:[POSTReply bytes] length:[POSTReply length] encoding: NSASCIIStringEncoding];
-         NSLog(@"Request completed");
+         NSData *POSTReply = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+         NSString *theReply = [[NSString alloc] initWithBytes:[POSTReply bytes] length:[POSTReply length] encoding: NSASCIIStringEncoding];
+         NSLog(@"Request completed\n Reply: %@", theReply);
 
      }];
 /*
