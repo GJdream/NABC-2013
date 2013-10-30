@@ -678,7 +678,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="6OJ-oH-vel" kind="popover" popoverAnchorView="leO-uj-rY1" id="Q0E-XL-OfZ">
+                                    <segue destination="3oF-82-xW6" kind="popover" popoverAnchorView="leO-uj-rY1" id="LTX-vR-Lvq">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
                                 </connections>
@@ -703,11 +703,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="wif-j0-gA3" kind="popover" popoverAnchorView="9g8-c3-QLn" id="Ulp-zQ-KTc">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
-                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Corporation Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VtL-EP-1ou">
                                 <rect key="frame" x="69" y="344" width="160" height="28"/>
@@ -893,94 +888,19 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="anotherTypeButton" destination="9g8-c3-QLn" id="YpX-ux-3IG"/>
                         <outlet property="busTimeButton" destination="ZAF-Ky-Bmz" id="4Sk-xa-rk2"/>
                         <outlet property="corpName" destination="9ba-bT-MJT" id="yug-AZ-QeT"/>
                         <outlet property="fedTaxId" destination="Yaa-Cr-Q78" id="MXi-iH-CBE"/>
                         <outlet property="higestSalesButton" destination="hXS-rB-y6a" id="HdY-Ku-nHT"/>
                         <outlet property="monthlySalesButton" destination="DXI-6P-g75" id="Yfk-59-4tl"/>
                         <outlet property="termsAcceptedSwitch" destination="Vvs-Su-LLl" id="WaN-Sk-VVo"/>
-                        <outlet property="typeButton" destination="leO-uj-rY1" id="uZh-cQ-RKm"/>
+                        <outlet property="typeButton" destination="leO-uj-rY1" id="7mB-1F-keP"/>
                         <segue destination="Un7-3J-Jl4" kind="push" identifier="BusToBankSegue" id="gxy-QG-x0N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kuq-9a-QaY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="997" y="-946"/>
-        </scene>
-        <!--Type Picker View Controller-->
-        <scene sceneID="N7Q-wG-qHJ">
-            <objects>
-                <viewController id="ar1-aw-0Xz" customClass="TypePickerViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hat-Gd-t9t"/>
-                        <viewControllerLayoutGuide type="bottom" id="sjY-Cf-RHE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="dog-ey-YjM" customClass="Anot">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="768"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Gz-bB-1XU">
-                                <rect key="frame" x="0.0" y="552" width="320" height="216"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="ar1-aw-0Xz" id="i2q-KK-AoU"/>
-                                    <outlet property="delegate" destination="ar1-aw-0Xz" id="28k-0K-v3l"/>
-                                </connections>
-                            </pickerView>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="5Gz-bB-1XU" firstAttribute="leading" secondItem="dog-ey-YjM" secondAttribute="leading" id="SsK-Pn-fP3"/>
-                            <constraint firstItem="5Gz-bB-1XU" firstAttribute="bottom" secondItem="dog-ey-YjM" secondAttribute="bottom" id="WIm-j5-KNS"/>
-                        </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    </view>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <connections>
-                        <outlet property="typePicker" destination="5Gz-bB-1XU" id="q4A-6x-Z96"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6sm-4L-vHf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2138" y="-1582"/>
-        </scene>
-        <!--Another Type Picker View Controller-->
-        <scene sceneID="DLU-XL-7di">
-            <objects>
-                <viewController id="wif-j0-gA3" customClass="AnotherTypePickerViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="1u7-aZ-pBA"/>
-                        <viewControllerLayoutGuide type="bottom" id="kBP-lY-nfJ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="9JP-6N-eNl">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="768"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ATz-fq-U2J">
-                                <rect key="frame" x="0.0" y="552" width="320" height="216"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="wif-j0-gA3" id="Tg4-Al-aIb"/>
-                                    <outlet property="delegate" destination="wif-j0-gA3" id="Jvt-Sd-S0U"/>
-                                </connections>
-                            </pickerView>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="ATz-fq-U2J" firstAttribute="bottom" secondItem="9JP-6N-eNl" secondAttribute="bottom" id="b4L-DW-cLX"/>
-                            <constraint firstItem="ATz-fq-U2J" firstAttribute="leading" secondItem="9JP-6N-eNl" secondAttribute="leading" id="eaG-82-wwc"/>
-                        </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    </view>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <connections>
-                        <outlet property="typePicker" destination="ATz-fq-U2J" id="s1o-6d-98k"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oTS-Jd-AdP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2539" y="-1258"/>
         </scene>
         <!--First Bus Page-->
         <scene sceneID="s3d-6E-8u6">
@@ -1592,44 +1512,44 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fJJ-Yi-qOL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2145" y="-706"/>
+            <point key="canvasLocation" x="2181" y="-766"/>
         </scene>
         <!--Type Picker View Controller-->
-        <scene sceneID="YXy-O8-bHb">
+        <scene sceneID="vmM-Zd-1XS">
             <objects>
-                <viewController id="6OJ-oH-vel" customClass="TypePickerViewController" sceneMemberID="viewController">
+                <viewController id="3oF-82-xW6" customClass="TypePickerViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="zrX-Mc-HNI"/>
-                        <viewControllerLayoutGuide type="bottom" id="pfH-04-y6n"/>
+                        <viewControllerLayoutGuide type="top" id="4Us-Og-nvd"/>
+                        <viewControllerLayoutGuide type="bottom" id="GDD-PE-lUF"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="t5h-u3-erb">
+                    <view key="view" contentMode="scaleToFill" id="nEM-je-KB6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qJB-RV-1hC">
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KFJ-Pm-mXT">
                                 <rect key="frame" x="0.0" y="552" width="320" height="216"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="6OJ-oH-vel" id="7C0-FV-vZ2"/>
-                                    <outlet property="delegate" destination="6OJ-oH-vel" id="F5q-Qv-H96"/>
+                                    <outlet property="dataSource" destination="3oF-82-xW6" id="QXh-AJ-etq"/>
+                                    <outlet property="delegate" destination="3oF-82-xW6" id="VQI-68-UG1"/>
                                 </connections>
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="qJB-RV-1hC" firstAttribute="leading" secondItem="t5h-u3-erb" secondAttribute="leading" id="tti-RU-OvZ"/>
-                            <constraint firstItem="qJB-RV-1hC" firstAttribute="bottom" secondItem="t5h-u3-erb" secondAttribute="bottom" id="xjj-Td-1Yb"/>
+                            <constraint firstItem="KFJ-Pm-mXT" firstAttribute="leading" secondItem="nEM-je-KB6" secondAttribute="leading" id="aUw-VX-0Ks"/>
+                            <constraint firstItem="KFJ-Pm-mXT" firstAttribute="bottom" secondItem="nEM-je-KB6" secondAttribute="bottom" id="vcd-Jn-0Vj"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="typePicker" destination="qJB-RV-1hC" id="tQw-zq-Ppc"/>
+                        <outlet property="typePicker" destination="KFJ-Pm-mXT" id="e2m-Qo-5ya"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uVO-6d-cRL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W6L-sq-vHg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1503" y="-1232"/>
+            <point key="canvasLocation" x="1569" y="-1388"/>
         </scene>
     </scenes>
     <resources>

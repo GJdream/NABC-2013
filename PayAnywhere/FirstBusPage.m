@@ -341,7 +341,6 @@ bool fieldsOn;
     
     BOOL busAddrIsSame = [self.busAddressSwitch isOn];
     BOOL busAddr = [self.businessAddress.text length];
-    BOOL busSuiteApt = [self.businessSuiteApt.text length];
     BOOL busZip = [self.businessZip.text length];
     
     
