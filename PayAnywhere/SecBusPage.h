@@ -32,7 +32,6 @@
 - (IBAction)cancel:(id)sender;
 
 
-- (IBAction)weAreA:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *typeButton;
 @property (strong, nonatomic) IBOutlet UIButton *anotherTypeButton;
 @property (strong, nonatomic) IBOutlet UIButton *monthlySalesButton;

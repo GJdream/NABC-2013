@@ -237,8 +237,8 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 
     [request setURL:[NSURL URLWithString:@"http://141.212.105.78:8080/app.php/individual/"]];
     [request setHTTPMethod:@"POST"];
-    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    [request setValue:@"application/x-www-form-urlencoded;charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
+    //[request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/jason;charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
     [request setHTTPBody:jsonData];
     
     //Create response
