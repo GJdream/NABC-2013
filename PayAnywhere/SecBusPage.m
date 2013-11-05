@@ -29,7 +29,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 @synthesize busTimeButton;
 @synthesize currentPopoverSeague;
 @synthesize pvc;
-//@synthesize type;
+@synthesize type;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -103,7 +103,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     BOOL weAreAFilled = !([buttonName isEqualToString:@"Select Type"]);
     
     buttonName = [self.anotherTypeButton titleForState:UIControlStateNormal];
-    NSLog(@"whoIsA button name: %@", buttonName);
     BOOL whoIsA = !([buttonName isEqualToString:@"Select Type"]);
     
     buttonName = [self.monthlySalesButton titleForState:UIControlStateNormal];
@@ -172,11 +171,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     self.typePopoverController = nil;
 }
 
-- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
-{
-    self.typePopoverController = nil;
-}
-
 - (void)dismissPop:(NSString *)type {
     [self.application setObject:type forKey:@"Business Type"];
     [typeButton setTitle:type forState:UIControlStateNormal];
@@ -208,7 +202,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 - (void)dismissPopMonthlySales:(NSString *)sales {
     [self.application setObject:sales forKey:@"Monthly Sales"];
     [monthlySalesButton setTitle:sales forState:UIControlStateNormal];
-    NSLog((@"monthlySales dismissed: %@", sales));
+    NSLog(@"monthlySales dismissed: %@", sales);
 }
 
 //highest sales
@@ -242,6 +236,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     if ([[segue identifier] isEqualToString:@"selectedType"] || [[segue identifier] isEqualToString:@"selectAnotherType"] || [[segue identifier] isEqualToString:@"selectMonthlySales"] || [[segue identifier] isEqualToString:@"selectHighestSales"] || [[segue identifier] isEqualToString:@"selectBusTime"]) {
         currentPopoverSeague = (UIStoryboardPopoverSegue *)segue;
         pvc = [segue destinationViewController];
+         NSLog(@"setDelegate: %@", self);
         [pvc setDelegate:self];
     }
     
