@@ -41,18 +41,18 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     
     [super viewDidLoad];
        NSLog(@"application dictionary: %@", self.application);
-    if([[self.application valueForKey:@"Application Type"] isEqualToString:@"individual"])
+    if([[self.application valueForKey:@"applicationType"] isEqualToString:@"individual"])
     {
-        self.addressField.text = [self.application valueForKey:@"Residential Address"];
-        self.zipField.text = [self.application valueForKey:@"Zip Code"];
-        self.suiteAptField.text = [self.application valueForKey:@"Suite/Apartment"];
+        self.addressField.text = [self.application valueForKey:@"address"];
+        self.zipField.text = [self.application valueForKey:@"zipCode"];
+        self.suiteAptField.text = [self.application valueForKey:@"suiteApt"];
     }
     
     else
     {
-        self.addressField.text = [self.application valueForKey:@"Business Address"];
-        self.zipField.text = [self.application valueForKey:@"Business Zip Code"];
-        self.suiteAptField.text = [self.application valueForKey:@"Business Suite/Apartment"];
+        self.addressField.text = [self.application valueForKey:@"businessAddress"];
+        self.zipField.text = [self.application valueForKey:@"businessZipCode"];
+        self.suiteAptField.text = [self.application valueForKey:@"businessSuiteApt"];
     }
     
     [self.addressField setEnabled:NO];
@@ -153,6 +153,12 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     NSArray *individualForms = [[Database sharedDB] allIndividualForms];
     NSLog(@"INDIVIDUAL FORMS IN DB before insert: \n%@\n", individualForms);
     
+    if([self.application objectForKey:@"zipCode"])
+        self.zipField.text = [self.application objectForKey:@"zipCode"];
+    if([self.application objectForKey:@"address"])
+        self.addressField.text = [self.application objectForKey:@"address"];
+    if([self.application objectForKey:@"suiteApt"])
+        self.suiteAptField.text = [self.application objectForKey:@"suiteApt"];
     /**/
     NSMutableDictionary *testMarketSource = [[NSMutableDictionary alloc] init];
     [testMarketSource setObject:@"Chicago" forKey:@"city"];
@@ -226,7 +232,11 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
                                                        options:0
                                                          error:&error];
     
-    NSString *postLength = [NSString stringWithFormat:@"%d", [jsonData length]];
+    [self.application removeAllObjects];
+    
+    
+    
+//    NSString *postLength = [NSString stringWithFormat:@"%d", [jsonData length]];
     
     //Create URL request
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];

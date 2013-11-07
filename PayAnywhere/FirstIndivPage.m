@@ -34,9 +34,9 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     return self;
 }
 
-- (void)viewDidLoad
+-(void)viewDidAppear:(BOOL)animated
 {
-    [super viewDidLoad];
+    [super viewDidAppear:animated];
     
     self.application = [[NSMutableDictionary alloc]init];
     
@@ -51,43 +51,44 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     self.dba.delegate = self;
     
     // WE NEED NEW DATA STORAGE!!!
-/*
-    NSLog(@"application dictionary: %@", self.application);
     
-    self.last.delegate = self;
-    self.first.delegate = self;
-    self.email.delegate = self;
-    self.phone.delegate = self;
-    self.address.delegate = self;
-    self.suiteApt.delegate = self;
-    self.zip.delegate = self;
-    self.ssn.delegate = self;
-    self.dba.delegate = self;
-
-    
+    NSLog(@"Indiv on load application dictionary: %@", self.application);
     
 	// Do any additional setup after loading the view.
     
     //Fill text fields if possible
-    if([self.application objectForKey:@"Last Name"] != nullObj)
-        self.last.text = [self.application objectForKey:@"Last Name"];
-    if([self.application objectForKey:@"First Name"] != nullObj)
-        self.first.text = [self.application objectForKey:@"First Name"];
-    if([self.application objectForKey:@"Email Address"] != nullObj)
-        self.email.text = [self.application objectForKey:@"Email Address"];
-    if([self.application objectForKey:@"Phone Number"] != nullObj)
-        self.phone.text = [self.application objectForKey:@"Phone Number"];
-    if([self.application objectForKey:@"Residential Address"] != nullObj)
-        self.address.text = [self.application objectForKey:@"Residential Address"];
-    if([self.application objectForKey:@"Suite/Apartment"] != nullObj)
-        self.suiteApt.text = [self.application objectForKey:@"Suite/Apartment"];
-    if([self.application objectForKey:@"Zip Code"] != nullObj)
-        self.zip.text = [self.application objectForKey:@"Zip Code"];
-    if([self.application objectForKey:@"SSN"] != nullObj)
-        self.ssn.text = [self.application objectForKey:@"SSN"];
-    if([self.application objectForKey:@"DBA"] != nullObj)
-        self.dba.text = [self.application objectForKey:@"DBA"];
- */
+    if([self.application objectForKey:@"lastName"])
+        self.last.text = [self.application objectForKey:@"lastName"];
+    if([self.application objectForKey:@"firstName"])
+        self.first.text = [self.application objectForKey:@"firstName"];
+    if([self.application objectForKey:@"email"])
+        self.email.text = [self.application objectForKey:@"email"];
+    if([self.application objectForKey:@"phoneNumber"])
+        self.phone.text = [self.application objectForKey:@"phoneNumber"];
+    if([self.application objectForKey:@"address"])
+        self.address.text = [self.application objectForKey:@"address"];
+    if([self.application objectForKey:@"suiteApt"])
+        self.suiteApt.text = [self.application objectForKey:@"suiteApt"];
+    if([self.application objectForKey:@"zipCode"])
+        self.zip.text = [self.application objectForKey:@"zipCode"];
+    if([self.application objectForKey:@"ssn"])
+        self.ssn.text = [self.application objectForKey:@"ssn"];
+    if([self.application objectForKey:@"dba"])
+        self.dba.text = [self.application objectForKey:@"dba"];
+
+    
+}
+
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
+    NSLog(@"Tab clicked");
+    [self fillDictionary];
+    
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
 /*
     //Set textbox image correctly
     NSNumber * trmsAcc = [NSNumber numberWithBool:FALSE];
@@ -303,14 +304,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     if([segue.identifier isEqualToString:@"IndivToBankSegue"]){
         BankPageViewController * bankPage = segue.destinationViewController;
         bankPage.application = self.application;
-        
-    }
-    
-    if ([segue.identifier isEqualToString:@"FinishSegue"]) {
-        [self.application setObject:@"individual" forKey:@"Application Type"];
-                
-        FinishPage * finishPage = segue.destinationViewController;
-        finishPage.application = self.application;
+        [self.application setObject:@"individual" forKey:@"applicationType"];
     }
     
     //birth pop seague
