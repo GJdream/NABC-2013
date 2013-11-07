@@ -207,6 +207,19 @@ NSPersistentStoreCoordinator *coordinator;
     return individualForms;
 }
 
+- (NSArray *)allAgents
+{
+    NSArray *agentsArray = [[NSArray alloc] init];
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Agent" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSError *error;
+    
+    agentsArray = [context executeFetchRequest:fetchRequest error:&error];
+    return agentsArray;
+}
+
 - (void)saveContext
 {
     NSError *error = nil;

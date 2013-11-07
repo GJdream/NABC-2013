@@ -11,6 +11,7 @@
 #import "Agent.h"
 #import "MarketSource.h"
 
+
 @interface Database : NSObject
 
 + (id)sharedDB;
@@ -23,5 +24,5 @@
 - (id)insertMarketSourceWithInfo:(NSDictionary *)info;
 
 - (NSArray *)allIndividualForms;
-
+- (NSArray *)allAgents;
 @end
