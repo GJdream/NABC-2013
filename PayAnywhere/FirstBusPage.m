@@ -109,6 +109,9 @@ bool fieldsOn;
     self.ssn.delegate = self;
     self.dba.delegate = self;
     
+    self.tabBarController.delegate = self;
+    
+    
     // WE NEED NEW DATA STORAGE!!!
     
     NSLog(@"Business on appear application dictionary: %@", self.application);
@@ -116,37 +119,46 @@ bool fieldsOn;
 	// Do any additional setup after loading the view.
     
     //Fill text fields if possible
-    if([self.application objectForKey:@"lastName"])
+//    if([self.application objectForKey:@"lastName"])
         self.last.text = [self.application objectForKey:@"lastName"];
-    if([self.application objectForKey:@"firstName"])
+//    if([self.application objectForKey:@"firstName"])
         self.first.text = [self.application objectForKey:@"firstName"];
-    if([self.application objectForKey:@"email"])
+//    if([self.application objectForKey:@"email"])
         self.email.text = [self.application objectForKey:@"email"];
-    if([self.application objectForKey:@"phoneNumber"])
+//    if([self.application objectForKey:@"phoneNumber"])
         self.phone.text = [self.application objectForKey:@"phoneNumber"];
-    if([self.application objectForKey:@"address"])
+//    if([self.application objectForKey:@"address"])
         self.address.text = [self.application objectForKey:@"address"];
-    if([self.application objectForKey:@"suiteApt"])
+//    if([self.application objectForKey:@"suiteApt"])
         self.suiteApt.text = [self.application objectForKey:@"suiteApt"];
-    if([self.application objectForKey:@"zipCode"])
+//    if([self.application objectForKey:@"zipCode"])
         self.zip.text = [self.application objectForKey:@"zipCode"];
-    if([self.application objectForKey:@"ssn"])
+//    if([self.application objectForKey:@"ssn"])
         self.ssn.text = [self.application objectForKey:@"ssn"];
-    if([self.application objectForKey:@"dba"])
+//    if([self.application objectForKey:@"dba"])
         self.dba.text = [self.application objectForKey:@"dba"];
     
     
     //Business1 only fields
-    if([self.application objectForKey:@"businessAddress"])
+//    if([self.application objectForKey:@"businessAddress"])
         self.businessAddress.text = [self.application objectForKey:@"businessAddress"];
-    if([self.application objectForKey:@"businessSuiteApartment"])
+//    if([self.application objectForKey:@"businessSuiteApartment"])
         self.businessSuiteApt.text = [self.application objectForKey:@"businessSuiteApartment"];
-    if([self.application objectForKey:@"businessZipCode"])
+//    if([self.application objectForKey:@"businessZipCode"])
         self.businessZip.text = [self.application objectForKey:@"businessZipCode"];
     
     [self toggleTextFields];
 
 }
+
+-(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+    [self fillBus1Dictionary];
+    NSLog(@"%@", [viewController class]);    
+    
+    
+}
+
 
 - (void)viewDidLoad
 {    

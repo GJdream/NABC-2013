@@ -38,6 +38,8 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 {
     [super viewDidAppear:animated];
     
+    
+    
     self.application = [[NSMutableDictionary alloc]init];
     
     self.last.delegate = self;
@@ -50,37 +52,37 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     self.ssn.delegate = self;
     self.dba.delegate = self;
     
-    // WE NEED NEW DATA STORAGE!!!
+    self.tabBarController.delegate = self;
     
     NSLog(@"Indiv on load application dictionary: %@", self.application);
     
 	// Do any additional setup after loading the view.
     
     //Fill text fields if possible
-    if([self.application objectForKey:@"lastName"])
+//    if([self.application objectForKey:@"lastName"])
         self.last.text = [self.application objectForKey:@"lastName"];
-    if([self.application objectForKey:@"firstName"])
+//    if([self.application objectForKey:@"firstName"])
         self.first.text = [self.application objectForKey:@"firstName"];
-    if([self.application objectForKey:@"email"])
+//    if([self.application objectForKey:@"email"])
         self.email.text = [self.application objectForKey:@"email"];
-    if([self.application objectForKey:@"phoneNumber"])
+//    if([self.application objectForKey:@"phoneNumber"])
         self.phone.text = [self.application objectForKey:@"phoneNumber"];
-    if([self.application objectForKey:@"address"])
+//    if([self.application objectForKey:@"address"])
         self.address.text = [self.application objectForKey:@"address"];
-    if([self.application objectForKey:@"suiteApt"])
+//    if([self.application objectForKey:@"suiteApt"])
         self.suiteApt.text = [self.application objectForKey:@"suiteApt"];
-    if([self.application objectForKey:@"zipCode"])
+//    if([self.application objectForKey:@"zipCode"])
         self.zip.text = [self.application objectForKey:@"zipCode"];
-    if([self.application objectForKey:@"ssn"])
+//    if([self.application objectForKey:@"ssn"])
         self.ssn.text = [self.application objectForKey:@"ssn"];
-    if([self.application objectForKey:@"dba"])
+//if([self.application objectForKey:@"dba"])
         self.dba.text = [self.application objectForKey:@"dba"];
 
     
 }
 
-- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
-    NSLog(@"Tab clicked");
+-(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
     [self fillDictionary];
     
 }

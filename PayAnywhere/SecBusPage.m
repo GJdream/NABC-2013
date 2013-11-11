@@ -41,6 +41,19 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     return self;
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    self.corpName.delegate = self;
+    self.fedTaxId.delegate = self;
+    self.tabBarController.delegate = self;
+    
+    self.corpName.text = [self.application objectForKey:@"corpName"];
+    self.fedTaxId.text = [self.application objectForKey:@"fedTaxId"];
+
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -56,6 +69,11 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+    [self fillBusinessDictionary];
 }
 
 #pragma mark - Text Field Delegate
@@ -242,6 +260,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     
     if ([segue.identifier isEqualToString:@"BusToBankSegue"]) {
         [self.application setObject:@"business" forKey:@"applicationType"];
+        [self fillBusinessDictionary];
         
         NSLog(@"self: %@", self.application);
         

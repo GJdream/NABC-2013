@@ -9,7 +9,8 @@
 #import "SecBusPage.h"
 #import "birthdayViewController.h"
 
-@interface FirstBusPage : UIViewController <UITextFieldDelegate, BirthdayViewControllerDelegate, UIPopoverControllerDelegate>{
+@interface FirstBusPage : UIViewController <UITextFieldDelegate, BirthdayViewControllerDelegate, UIPopoverControllerDelegate,
+    UITabBarControllerDelegate, UITabBarDelegate>{
     @public
     NSInteger termsAccepted;
 }
