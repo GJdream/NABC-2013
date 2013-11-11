@@ -76,11 +76,18 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 0)
-        ;
+        [self performSegueWithIdentifier:@"FormsSegue" sender:nil];
     else if (indexPath.row == 1)
-        ;
+        [self performSegueWithIdentifier:@"MarketSourceSegue" sender:nil];
     else if (indexPath.row == 2)
-        ;
+    {
+        UIStoryboard *storyboard = self.storyboard;
+        UIViewController *detailViewController = [storyboard instantiateViewControllerWithIdentifier:@"AgentNavigationController"];
+        
+        UIViewController *navigationViewController = [self.splitViewController.viewControllers objectAtIndex:0];
+        NSArray *viewControllers = [[NSArray alloc] initWithObjects:navigationViewController, detailViewController, nil];
+        self.splitViewController.viewControllers = viewControllers;
+    }
 }
 
 /*

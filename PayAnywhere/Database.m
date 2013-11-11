@@ -214,6 +214,7 @@ NSPersistentStoreCoordinator *coordinator;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Agent" inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
+    [fetchRequest setReturnsObjectsAsFaults:NO];
     NSError *error;
     
     agentsArray = [context executeFetchRequest:fetchRequest error:&error];
