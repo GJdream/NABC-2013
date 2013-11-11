@@ -29,6 +29,7 @@
 		14B47A8616F1129B00197699 /* Application.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B47A8516F1129B00197699 /* Application.m */; };
 		14B6741A16FA63380064F755 /* checkboxSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B6741816FA63380064F755 /* checkboxSelected.png */; };
 		14B6741B16FA63380064F755 /* checkboxUnselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B6741916FA63380064F755 /* checkboxUnselected.png */; };
+		14BB7A8C183135C400DD91CA /* FirstTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BB7A8B183135C400DD91CA /* FirstTypeViewController.m */; };
 		14BFE8131710A784005AFCA3 /* BankPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BFE8121710A784005AFCA3 /* BankPageViewController.m */; };
 		14E66B5117020FD100D1FE66 /* FunctionsClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E66B5017020FD100D1FE66 /* FunctionsClass.m */; };
 		14ECA6A516F1412C009EEEF1 /* IndivButtonSelected2.png in Resources */ = {isa = PBXBuildFile; fileRef = 14ECA6A116F1412C009EEEF1 /* IndivButtonSelected2.png */; };
@@ -100,6 +101,8 @@
 		14B47A8516F1129B00197699 /* Application.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Application.m; path = Classes/Application.m; sourceTree = "<group>"; };
 		14B6741816FA63380064F755 /* checkboxSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkboxSelected.png; path = ../checkboxSelected.png; sourceTree = "<group>"; };
 		14B6741916FA63380064F755 /* checkboxUnselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkboxUnselected.png; path = ../checkboxUnselected.png; sourceTree = "<group>"; };
+		14BB7A8A183135C400DD91CA /* FirstTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstTypeViewController.h; sourceTree = "<group>"; };
+		14BB7A8B183135C400DD91CA /* FirstTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstTypeViewController.m; sourceTree = "<group>"; };
 		14BFE8111710A784005AFCA3 /* BankPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankPageViewController.h; sourceTree = "<group>"; };
 		14BFE8121710A784005AFCA3 /* BankPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankPageViewController.m; sourceTree = "<group>"; };
 		14E66B4F17020FD100D1FE66 /* FunctionsClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FunctionsClass.h; path = Classes/FunctionsClass.h; sourceTree = "<group>"; };
@@ -275,6 +278,8 @@
 				142E57191812FC6800B0AE0E /* MonthlySalesViewController.m */,
 				142E571A1812FC6800B0AE0E /* TypePickerViewController.h */,
 				142E571B1812FC6800B0AE0E /* TypePickerViewController.m */,
+				14BB7A8A183135C400DD91CA /* FirstTypeViewController.h */,
+				14BB7A8B183135C400DD91CA /* FirstTypeViewController.m */,
 			);
 			name = Pickers;
 			sourceTree = "<group>";
@@ -472,6 +477,7 @@
 				B287E29A17F210E90001C929 /* Agent.m in Sources */,
 				B287E29D17F210E90001C929 /* MarketSource.m in Sources */,
 				B287E2A017F213BA0001C929 /* Form+ApplicationDictionary.m in Sources */,
+				14BB7A8C183135C400DD91CA /* FirstTypeViewController.m in Sources */,
 				B28E583118294A6E002419F9 /* AddAgentViewController.m in Sources */,
 				B29C7A03180B23A80091456D /* SettingsViewController.m in Sources */,
 			);

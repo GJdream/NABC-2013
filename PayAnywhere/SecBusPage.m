@@ -29,7 +29,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 @synthesize busTimeButton;
 @synthesize currentPopoverSeague;
 @synthesize pvc;
-@synthesize type;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -177,19 +176,16 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     [self.navigationController popToRootViewControllerAnimated:FALSE];
 }
 
-- (IBAction)weAreA:(id)sender {
-    
-}
-
 //type
 
-- (void)typePickerViewControllerDidFinish:(TypePickerViewController *)controller
+- (void)typePickerViewControllerDidFinish:(FirstTypeViewController *)controller
 {
     [self.typePopoverController dismissPopoverAnimated:YES];
+    NSLog(@"First type view controller finished");
     self.typePopoverController = nil;
 }
 
-- (void)dismissPop:(NSString *)type {
+- (void)dismissPopTypePicker:(NSString *)type {
     [self.application setObject:type forKey:@"Business Type"];
     [typeButton setTitle:type forState:UIControlStateNormal];
     NSLog((@"type dismissed"));
@@ -214,6 +210,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 - (void)monthlySalesViewControllerDidFinish:(MonthlySalesViewController *)controller
 {
     [self.typePopoverController dismissPopoverAnimated:YES];
+    NSLog(@"Monthly Sales view controller finished");
     self.typePopoverController = nil;
 }
 
