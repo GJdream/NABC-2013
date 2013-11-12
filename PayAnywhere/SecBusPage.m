@@ -35,7 +35,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        
     }
     return self;
 }
@@ -43,6 +42,16 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.application = [[defaults objectForKey:@"formDictionary"]mutableCopy];
+    
+    if([[self.application valueForKey:@"termsAccepted"]  isEqual: @"1"]){
+        NSLog(@"hi");
+        [self.termsAcceptedSwitch setOn:TRUE];
+    }
+    else{
+        [self.termsAcceptedSwitch setOn:FALSE];
+    }
     
     self.corpName.delegate = self;
     self.fedTaxId.delegate = self;
@@ -50,18 +59,13 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     
     self.corpName.text = [self.application objectForKey:@"corpName"];
     self.fedTaxId.text = [self.application objectForKey:@"fedTaxId"];
-
+    
+    NSLog(@"Second bus page Application: %@", self.application);
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.corpName.delegate = self;
-    self.fedTaxId.delegate = self;
- 
-    NSLog(@"Second bus page Application: %@", self.application);
-	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
@@ -90,7 +94,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     else{
         [textField resignFirstResponder];
     }
-    
     return YES;
 }
 
@@ -129,8 +132,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     BOOL highestSalesFilled = !([buttonName isEqualToString:@"Select Amount"]);
     
     //Programatically create string
-    
-    
     if(!(weAreAFilled && trms && whoIsA
        && monthlySalesFilled && highestSalesFilled)){
         //Create warning message
@@ -164,8 +165,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
                     cancelButtonTitle:@"OK"
                     otherButtonTitles:nil];
         [message show];
-        
-        
     }
     else{
         [self performSegueWithIdentifier:@"BusToBankSegue" sender:nil];
@@ -177,7 +176,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 }
 
 //type
-
 - (void)typePickerViewControllerDidFinish:(FirstTypeViewController *)controller
 {
     [self.typePopoverController dismissPopoverAnimated:YES];
@@ -193,7 +191,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 }
 
 //another type
-
 - (void)anotherTypePickerViewControllerDidFinish:(AnotherTypePickerViewController *)controller
 {
     [self.typePopoverController dismissPopoverAnimated:YES];
@@ -206,7 +203,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 }
 
 //monthly sales
-
 - (void)monthlySalesViewControllerDidFinish:(MonthlySalesViewController *)controller
 {
     [self.typePopoverController dismissPopoverAnimated:YES];
@@ -221,7 +217,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 }
 
 //highest sales
-
 - (void)highestSalesViewControllerDidFinish:(HighestSalesViewController *)controller
 {
     [self.typePopoverController dismissPopoverAnimated:YES];
@@ -234,7 +229,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 }
 
 //bus time
-
 - (void)busTimeViewControllerDidFinish:(BusTimeViewController *)controller
 {
     [self.typePopoverController dismissPopoverAnimated:YES];
@@ -254,44 +248,56 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
          NSLog(@"setDelegate: %@", self);
         [pvc setDelegate:self];
     }
+    else{
+        [self fillBusinessDictionary];
+    }
     
     if ([segue.identifier isEqualToString:@"BusToBankSegue"]) {
         [self.application setObject:@"business" forKey:@"applicationType"];
-        [self fillBusinessDictionary];
-        
         NSLog(@"self: %@", self.application);
         
-        BankPageViewController * bankPage = segue.destinationViewController;
-        bankPage.application = self.application;
-        
+//        BankPageViewController * bankPage = segue.destinationViewController;
+//        bankPage.application = self.application;
     }
-    
 }
 
 
 -(void)fillBusinessDictionary{
-    [self.application setObject:self.corpName.text forKey:@"Corporation Name"];
-    [self.application setObject:self.fedTaxId.text forKey:@"Federal Tax ID"];
-}
-
-
--(void)toggleCheck{
-    NSNumber * tru = [NSNumber numberWithBool:TRUE];
-    
-    
-    if([self.application valueForKey:@"Terms Accepted"]){
-        [self.application setValue:FALSE forKey:@"Terms Accepted"];
+    BOOL trmsAcc = [self.termsAcceptedSwitch isOn];
+    if(trmsAcc){
+        [self.application setValue:@"1" forKey:@"termsAccepted"];
     }
     else{
-        [self.application setValue:tru forKey:@"Terms Accepted"];
+        [self.application setValue:@"0" forKey:@"termsAccepted"];
     }
-    FunctionsClass * funcClass = [[FunctionsClass alloc] init];
-    [funcClass toggleCheckbox:self.checkBox boolInt:[self.application valueForKey:@"Terms Accepted"]];
     
-    NSLog(@"Terms accepted: %@", [self.application objectForKey:@"Terms Accepted"]);
+    [self.application setObject:self.corpName.text forKey:@"corpName"];
+    [self.application setObject:self.fedTaxId.text forKey:@"fedTaxID"];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:self.application forKey:@"formDictionary"];
+    [defaults synchronize];
 }
 
+-(void)toggleCheck{
+//    NSNumber * tru = [NSNumber numberWithBool:TRUE];
+    if([self.application valueForKey:@"termsAccepted"]){
+        [self.application setValue:@"0" forKey:@"termsAccepted"];
+        NSLog(@"Setting to 0");
+//        [self.termsAcceptedSwitch setOn:FALSE];
+    }
+    else{
+        [self.application setValue:@"1" forKey:@"termsAccepted"];
+        NSLog(@"Setting to 0");
+//        [self.termsAcceptedSwitch setOn:TRUE];
 
+    }
+//    FunctionsClass * funcClass = [[FunctionsClass alloc] init];
+//    [funcClass toggleCheckbox:self.checkBox boolInt:[self.application valueForKey:@"termsAccepted"]];
+    
+    NSLog(@"Terms accepted: %@", [self.application objectForKey:@"termsAccepted"]);
+}
+
+//View Scrolling code
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     CGRect textFieldRect =
@@ -307,19 +313,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     (MAXIMUM_SCROLL_FRACTION - MINIMUM_SCROLL_FRACTION)
     * viewRect.size.width;
     CGFloat heightFraction = numerator / denominator;
-    //    heightFraction = 1 - heightFraction;
-    //    NSLog(@"heightFraction: %f", heightFraction);
-    
-    /*Working stats:
-     <0 = 0, >1 = 1,
-     static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
-     static const CGFloat MINIMUM_SCROLL_FRACTION = 0.4;
-     static const CGFloat MAXIMUM_SCROLL_FRACTION = 0.8;
-     static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 264;
-     static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
-     no height = 1-height
-     */
-    
+
     if (heightFraction < 0.0)
     {
         heightFraction = 0.0;
@@ -328,9 +322,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     {
         heightFraction = 1.0;
     }
-    
-    //    NSLog(@"heightFraction: %f", heightFraction);
-    
     
     UIInterfaceOrientation orientation =
     [[UIApplication sharedApplication] statusBarOrientation];
@@ -343,9 +334,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     {
         animatedDistance = floor(LANDSCAPE_KEYBOARD_HEIGHT * heightFraction);
     }
-    
-    //    NSLog(@"distance: %f", animatedDistance);
-    
     
     CGRect viewFrame = self.view.frame;
     viewFrame.origin.y -= animatedDistance;

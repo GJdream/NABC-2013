@@ -29,7 +29,12 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     NSLog(@"Bank page application: %@", self.application);
+}
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.application = [[defaults objectForKey:@"formDictionary"]mutableCopy];
 }
 
 - (void)didReceiveMemoryWarning
@@ -42,8 +47,6 @@
     BOOL accountNum = [self.accountNumberField.text length];
     BOOL routingNum = [self.routingNumField.text length];
     NSMutableString * alertMessageMutable = [[NSMutableString alloc] init];
-
-    
 
     if(accountNum && routingNum){
         [self.application setValue:self.accountNumberField.text forKey:@"accountNumber"];
@@ -79,19 +82,17 @@
         [self performSegueWithIdentifier:@"BankToFinishSegue" sender:nil];
 }
 
-
 //SEGUES
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     NSLog(@"performing bankToFinsh\n");
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:self.application forKey:@"formDictionary"];
+    [defaults synchronize];
     if ([segue.identifier isEqualToString:@"BankToFinishSegue"]) {
-        
-        FinishPage * finPage = segue.destinationViewController;
-        finPage.application = self.application;
+//        FinishPage * finPage = segue.destinationViewController;
+//        finPage.application = self.application;
     }
-    
-    
-    
 }
 
 @end
