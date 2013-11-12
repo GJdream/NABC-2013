@@ -207,6 +207,20 @@ NSPersistentStoreCoordinator *coordinator;
     return individualForms;
 }
 
+- (NSArray *)allBusinessForms
+{
+    NSArray *businessForms = [[NSArray alloc] init];
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:@"BusinessForm" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSError *error;
+    
+    businessForms = [context executeFetchRequest:fetchRequest error:&error];
+    return businessForms;
+}
+
 - (NSArray *)allAgents
 {
     NSArray *agentsArray = [[NSArray alloc] init];
@@ -219,6 +233,20 @@ NSPersistentStoreCoordinator *coordinator;
     
     agentsArray = [context executeFetchRequest:fetchRequest error:&error];
     return agentsArray;
+}
+
+- (NSArray *)allMarketSources
+{
+    NSArray *marketSourcesArray = [[NSArray alloc] init];
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"MarketSource" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    [fetchRequest setReturnsObjectsAsFaults:NO];
+    NSError *error;
+    
+    marketSourcesArray = [context executeFetchRequest:fetchRequest error:&error];
+    return marketSourcesArray;
 }
 
 - (void)saveContext
