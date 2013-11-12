@@ -45,7 +45,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -54,31 +54,48 @@
     if (section == 0)
         return 3;
     else
-        return 0;
+        return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    if (indexPath.row == 0)
-        cell.textLabel.text = @"View All Forms";
-    else if (indexPath.row == 1)
-        cell.textLabel.text = @"View All Trade Shows";
-    else if (indexPath.row == 2)
-        cell.textLabel.text = @"View All Agents";
-    // Configure the cell...
-    
-    return cell;
+    if (indexPath.section == 0)
+    {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+
+        if (indexPath.row == 0)
+            cell.textLabel.text = @"View All Forms";
+        else if (indexPath.row == 1)
+            cell.textLabel.text = @"View All Trade Shows";
+        else if (indexPath.row == 2)
+            cell.textLabel.text = @"View All Agents";
+        
+        return cell;
+    }
+    else if (indexPath.section == 1)
+    {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TradeshowModeCell" forIndexPath:indexPath];
+        
+        return cell;
+    }
+    else
+    {
+        return nil;
+    }
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 0)
-        [self performSegueWithIdentifier:@"FormsSegue" sender:nil];
+    {
+        // [self performSegueWithIdentifier:@"FormsSegue" sender:nil];
+
+    }
     else if (indexPath.row == 1)
-        [self performSegueWithIdentifier:@"MarketSourceSegue" sender:nil];
+    {
+        //[self performSegueWithIdentifier:@"MarketSourceSegue" sender:nil];
+    }
     else if (indexPath.row == 2)
     {
         UIStoryboard *storyboard = self.storyboard;
