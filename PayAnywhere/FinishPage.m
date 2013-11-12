@@ -36,11 +36,23 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 
 - (void)viewDidLoad
 {
+
+}
+
+- (void) viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [radioButtonOne sendActionsForControlEvents:UIControlEventTouchUpInside];
+    
+    self.addressField.delegate = self;
+    self.zipField.delegate = self;
+    self.suiteAptField.delegate = self;
+        
     UIColor * grayedFieldColor = [UIColor colorWithRed:0.792 green:0.792 blue:0.7912 alpha:.5];
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.application = [[defaults objectForKey:@"formDictionary"]mutableCopy];
     
-    [super viewDidLoad];
-       NSLog(@"application dictionary: %@", self.application);
+    NSLog(@"application dictionary: %@", self.application);
     if([[self.application valueForKey:@"applicationType"] isEqualToString:@"individual"])
     {
         self.addressField.text = [self.application valueForKey:@"address"];
@@ -63,6 +75,8 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     self.suiteAptField.backgroundColor = grayedFieldColor;
     
     db = [[SignupAnywhereDB alloc] init];
+
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -179,6 +193,10 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     
     [[Database sharedDB] insertIndividualFormWithInfo:self.application andAgent:agent andMarketSource:marketSource];
     [self sendJSON];
+    NSMutableDictionary * emptyDict = [NSMutableDictionary dictionary];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:emptyDict forKey:@"formDictionary"];
+    [defaults synchronize];
     [self.navigationController popToRootViewControllerAnimated:YES];
     
     individualForms = [[Database sharedDB] allIndividualForms];
@@ -293,6 +311,13 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
  
  */
     
+}
+
+-(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:self.application forKey:@"formDictionary"];
+    [defaults synchronize];
 }
 
 

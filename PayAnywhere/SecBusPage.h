@@ -8,6 +8,7 @@
 
 #import "TypePickerViewController.h"
 #import "AnotherTypePickerViewController.h"
+#import "FirstTypeViewController.h"
 #import "MonthlySalesViewController.h"
 #import "HighestSalesViewController.h"
 #import "BusTimeViewController.h"
@@ -15,7 +16,7 @@
 #import "BankPageViewController.h"
 #import "FirstBusPage.h"
 
-@interface SecBusPage : UIViewController <TypePickerViewControllerDelegate, AnotherTypePickerViewControllerDelegate, MonthlySalesViewControllerDelegate, HighestSalesViewControllerDelegate, BusTimeViewControllerDelegate,UIPopoverControllerDelegate, UITextFieldDelegate>
+@interface SecBusPage : UIViewController <FirstTypeViewControllerDelegate, AnotherTypePickerViewControllerDelegate, MonthlySalesViewControllerDelegate, HighestSalesViewControllerDelegate, BusTimeViewControllerDelegate,UIPopoverControllerDelegate, UITextFieldDelegate, UITabBarControllerDelegate, UITabBarDelegate>
 {
 
 }
@@ -39,7 +40,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *busTimeButton;
 
 @property (strong, nonatomic) UIPopoverController *typePopoverController;
-@property (strong, nonatomic) NSString *type;
 @property (strong, nonatomic) UIStoryboardPopoverSegue *currentPopoverSeague;
 @property (strong, nonatomic) TypePickerViewController *pvc;
 

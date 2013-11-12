@@ -33,7 +33,7 @@
     NSNull * nullObj = [NSNull null];
     
     [super viewDidLoad];
-	self.application = [[NSMutableDictionary alloc] init];
+	self.application = [NSMutableDictionary dictionary];
     
     [self.application setObject:nullObj forKey:@"firstName"];
     [self.application setObject:nullObj forKey:@"lastName"];

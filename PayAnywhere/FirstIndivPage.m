@@ -7,6 +7,8 @@
 //
 
 #import "FirstIndivPage.h"
+#import "FirstBusPage.h"
+#import "AgentViewController.h"
 
 
 @interface FirstIndivPage (){
@@ -14,8 +16,6 @@
 }
 
 @end
-
-
 
 @implementation FirstIndivPage
 
@@ -37,8 +37,8 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
-    self.application = [[NSMutableDictionary alloc]init];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.application = [[defaults objectForKey:@"formDictionary"]mutableCopy];
     
     self.last.delegate = self;
     self.first.delegate = self;
@@ -50,57 +50,47 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     self.ssn.delegate = self;
     self.dba.delegate = self;
     
-    // WE NEED NEW DATA STORAGE!!!
+    self.tabBarController.delegate = self;
     
     NSLog(@"Indiv on load application dictionary: %@", self.application);
     
 	// Do any additional setup after loading the view.
     
     //Fill text fields if possible
-    if([self.application objectForKey:@"lastName"])
-        self.last.text = [self.application objectForKey:@"lastName"];
-    if([self.application objectForKey:@"firstName"])
-        self.first.text = [self.application objectForKey:@"firstName"];
-    if([self.application objectForKey:@"email"])
-        self.email.text = [self.application objectForKey:@"email"];
-    if([self.application objectForKey:@"phoneNumber"])
-        self.phone.text = [self.application objectForKey:@"phoneNumber"];
-    if([self.application objectForKey:@"address"])
-        self.address.text = [self.application objectForKey:@"address"];
-    if([self.application objectForKey:@"suiteApt"])
-        self.suiteApt.text = [self.application objectForKey:@"suiteApt"];
-    if([self.application objectForKey:@"zipCode"])
-        self.zip.text = [self.application objectForKey:@"zipCode"];
-    if([self.application objectForKey:@"ssn"])
-        self.ssn.text = [self.application objectForKey:@"ssn"];
-    if([self.application objectForKey:@"dba"])
-        self.dba.text = [self.application objectForKey:@"dba"];
-
+    self.last.text = [self.application objectForKey:@"lastName"];
+    self.first.text = [self.application objectForKey:@"firstName"];
+    self.email.text = [self.application objectForKey:@"email"];
+    self.phone.text = [self.application objectForKey:@"phoneNumber"];
+    self.address.text = [self.application objectForKey:@"address"];
+    self.suiteApt.text = [self.application objectForKey:@"suiteApt"];
+    self.zip.text = [self.application objectForKey:@"zipCode"];
+    self.ssn.text = [self.application objectForKey:@"ssn"];
+    self.dba.text = [self.application objectForKey:@"dba"];
     
+//    [self.application setValue:@"1" forKey:@"termsAccepted"];
+    
+    if([[self.application valueForKey:@"termsAccepted"]  isEqual: @"1"]){
+        NSLog(@"hi");
+        [self.termsAcceptedSwitch setOn:TRUE];
+    }
+    else{
+        [self.termsAcceptedSwitch setOn:FALSE];
+    }
 }
 
-- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
-    NSLog(@"Tab clicked");
+
+
+-(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
     [self fillDictionary];
-    
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    [defaults setObject:self.application forKey:@"formDictionary"];
+//    [defaults synchronize];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-/*
-    //Set textbox image correctly
-    NSNumber * trmsAcc = [NSNumber numberWithBool:FALSE];
-    trmsAcc = [self.application valueForKey:@"Terms Accepted"];
-    
-    if(trmsAcc){
-            [self.checkBox setImage:[UIImage imageNamed:@"checkboxSelected.png"] forState:UIControlStateNormal];
-    }
-    else{
-            [self.checkBox setImage:[UIImage imageNamed:@"checkboxUnselected.png"] forState:UIControlStateNormal];
-    }
-*/ 
 }
 
 - (void)didReceiveMemoryWarning
@@ -112,6 +102,13 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 - (IBAction)create:(id)sender {
     //Create variable to track terms accepted
     BOOL trmsAcc = [self.termsAcceptedSwitch isOn];
+//    NSNumber * tru = [NSNumber numberWithBool:TRUE];
+    if(trmsAcc){
+        [self.application setValue:@"1" forKey:@"termsAccepted"];
+    }
+    else{
+        [self.application setValue:@"0" forKey:@"termsAccepted"];
+    }
     
     //Check if birthday has been set
     NSString *buttonName = [self.birth titleForState:UIControlStateNormal];
@@ -153,8 +150,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
         phone = FALSE;
     }
     
-    
-    
     BOOL address = [self.address.text length];
     BOOL zip;
     BOOL ssn;
@@ -184,7 +179,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     else{
         ssn = FALSE;
     }
-    
     
     //Fill the dictionary with contents of the text fields
     [self fillDictionary];
@@ -236,9 +230,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
                                                 cancelButtonTitle:@"OK"
                                                 otherButtonTitles:nil];
         [message show];
-        
     }
-    
 }
 
 - (IBAction)Cancel:(id)sender {
@@ -299,12 +291,13 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    [self fillDictionary];
+//    [self fillDictionary];
 
     if([segue.identifier isEqualToString:@"IndivToBankSegue"]){
-        BankPageViewController * bankPage = segue.destinationViewController;
-        bankPage.application = self.application;
-        [self.application setObject:@"individual" forKey:@"applicationType"];
+        [self fillDictionary];
+//        BankPageViewController * bankPage = segue.destinationViewController;
+//        bankPage.application = self.application;
+//        [self.application setObject:@"individual" forKey:@"applicationType"];
     }
     
     //birth pop seague
@@ -353,6 +346,13 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 }
 
 -(void)fillDictionary{
+    BOOL trmsAcc = [self.termsAcceptedSwitch isOn];
+    if(trmsAcc){
+        [self.application setValue:@"1" forKey:@"termsAccepted"];
+    }
+    else{
+        [self.application setValue:@"0" forKey:@"termsAccepted"];
+    }
     [self.application setObject:self.first.text forKey:@"firstName"];
     [self.application setObject:self.last.text forKey:@"lastName"];
     [self.application setObject:self.email.text forKey:@"email"];
@@ -362,10 +362,16 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     [self.application setObject:self.zip.text forKey:@"zipCode"];
     [self.application setObject:self.ssn.text forKey:@"ssn"];
     [self.application setObject:self.dba.text forKey:@"dba"];
+//    NSLog(@"self: %@", self.application);
+    [self.application setObject:@"individual" forKey:@"applicationType"];
+
     
-    NSLog(@"self: %@", self.application);
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:self.application forKey:@"formDictionary"];
+    [defaults synchronize];
 }
 
+//View scrolling code
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     CGRect textFieldRect =
@@ -428,12 +434,4 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     
     [UIView commitAnimations];
 }
-/*
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [textField resignFirstResponder];
-    return YES;
-}
-*/
-
 @end

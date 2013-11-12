@@ -10,7 +10,7 @@
 #import "BankPageViewController.h"
 #import "birthdayViewControllerIndiv.h"
 
-@interface FirstIndivPage : UIViewController<UITextFieldDelegate, BirthdayViewControllerIndivDelegate, UIPopoverControllerDelegate>
+@interface FirstIndivPage : UIViewController<UITextFieldDelegate, BirthdayViewControllerIndivDelegate, UIPopoverControllerDelegate, UITabBarDelegate, UITabBarControllerDelegate>
 {
     @public
     NSInteger fromWhichBusPage;

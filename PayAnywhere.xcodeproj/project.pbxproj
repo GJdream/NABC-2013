@@ -29,12 +29,14 @@
 		14B47A8616F1129B00197699 /* Application.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B47A8516F1129B00197699 /* Application.m */; };
 		14B6741A16FA63380064F755 /* checkboxSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B6741816FA63380064F755 /* checkboxSelected.png */; };
 		14B6741B16FA63380064F755 /* checkboxUnselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B6741916FA63380064F755 /* checkboxUnselected.png */; };
+		14BB7A8C183135C400DD91CA /* FirstTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BB7A8B183135C400DD91CA /* FirstTypeViewController.m */; };
 		14BFE8131710A784005AFCA3 /* BankPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BFE8121710A784005AFCA3 /* BankPageViewController.m */; };
 		14E66B5117020FD100D1FE66 /* FunctionsClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E66B5017020FD100D1FE66 /* FunctionsClass.m */; };
 		14ECA6A516F1412C009EEEF1 /* IndivButtonSelected2.png in Resources */ = {isa = PBXBuildFile; fileRef = 14ECA6A116F1412C009EEEF1 /* IndivButtonSelected2.png */; };
 		14ECA6A616F1412C009EEEF1 /* IndivButtonUnselected2.png in Resources */ = {isa = PBXBuildFile; fileRef = 14ECA6A216F1412C009EEEF1 /* IndivButtonUnselected2.png */; };
 		14ECA6A916F14509009EEEF1 /* BusinessButtonSelected2.png in Resources */ = {isa = PBXBuildFile; fileRef = 14ECA6A716F14509009EEEF1 /* BusinessButtonSelected2.png */; };
 		14ECA6AA16F14509009EEEF1 /* BusinessButtonUnselected2.png in Resources */ = {isa = PBXBuildFile; fileRef = 14ECA6A816F14509009EEEF1 /* BusinessButtonUnselected2.png */; };
+		14F3FB1D182C36AD0025F54B /* AddMarketSourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F3FB1C182C36AD0025F54B /* AddMarketSourceViewController.m */; };
 		B26428CF17F7738B00E0A0E8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B26428CE17F7738B00E0A0E8 /* CoreData.framework */; };
 		B287E28717F1EAFC0001C929 /* PayAnywhereModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B287E28517F1EAFC0001C929 /* PayAnywhereModel.xcdatamodeld */; };
 		B287E28B17F1F7B90001C929 /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = B287E28A17F1F7B90001C929 /* Database.m */; };
@@ -99,6 +101,8 @@
 		14B47A8516F1129B00197699 /* Application.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Application.m; path = Classes/Application.m; sourceTree = "<group>"; };
 		14B6741816FA63380064F755 /* checkboxSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkboxSelected.png; path = ../checkboxSelected.png; sourceTree = "<group>"; };
 		14B6741916FA63380064F755 /* checkboxUnselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkboxUnselected.png; path = ../checkboxUnselected.png; sourceTree = "<group>"; };
+		14BB7A8A183135C400DD91CA /* FirstTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstTypeViewController.h; sourceTree = "<group>"; };
+		14BB7A8B183135C400DD91CA /* FirstTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstTypeViewController.m; sourceTree = "<group>"; };
 		14BFE8111710A784005AFCA3 /* BankPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankPageViewController.h; sourceTree = "<group>"; };
 		14BFE8121710A784005AFCA3 /* BankPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankPageViewController.m; sourceTree = "<group>"; };
 		14E66B4F17020FD100D1FE66 /* FunctionsClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FunctionsClass.h; path = Classes/FunctionsClass.h; sourceTree = "<group>"; };
@@ -107,6 +111,8 @@
 		14ECA6A216F1412C009EEEF1 /* IndivButtonUnselected2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IndivButtonUnselected2.png; path = ../IndivButtonUnselected2.png; sourceTree = "<group>"; };
 		14ECA6A716F14509009EEEF1 /* BusinessButtonSelected2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BusinessButtonSelected2.png; path = "../../Buttons-Pictures/BusinessButtonSelected2.png"; sourceTree = "<group>"; };
 		14ECA6A816F14509009EEEF1 /* BusinessButtonUnselected2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BusinessButtonUnselected2.png; path = "../../Buttons-Pictures/BusinessButtonUnselected2.png"; sourceTree = "<group>"; };
+		14F3FB1B182C36AD0025F54B /* AddMarketSourceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMarketSourceViewController.h; sourceTree = "<group>"; };
+		14F3FB1C182C36AD0025F54B /* AddMarketSourceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMarketSourceViewController.m; sourceTree = "<group>"; };
 		B26428CE17F7738B00E0A0E8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B287E28617F1EAFC0001C929 /* PayAnywhereModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PayAnywhereModel.xcdatamodel; sourceTree = "<group>"; };
 		B287E28917F1F7B90001C929 /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
@@ -249,6 +255,8 @@
 				B28E5833182959D5002419F9 /* AgentsTableViewController.m */,
 				B28E583518295C9C002419F9 /* AgentCell.h */,
 				B28E583618295C9C002419F9 /* AgentCell.m */,
+				14F3FB1B182C36AD0025F54B /* AddMarketSourceViewController.h */,
+				14F3FB1C182C36AD0025F54B /* AddMarketSourceViewController.m */,
 			);
 			name = "Admin View Controllers";
 			sourceTree = "<group>";
@@ -270,6 +278,8 @@
 				142E57191812FC6800B0AE0E /* MonthlySalesViewController.m */,
 				142E571A1812FC6800B0AE0E /* TypePickerViewController.h */,
 				142E571B1812FC6800B0AE0E /* TypePickerViewController.m */,
+				14BB7A8A183135C400DD91CA /* FirstTypeViewController.h */,
+				14BB7A8B183135C400DD91CA /* FirstTypeViewController.m */,
 			);
 			name = Pickers;
 			sourceTree = "<group>";
@@ -448,6 +458,7 @@
 				EDFE072A16CC2D7900EED6D6 /* FinishPage.m in Sources */,
 				B2D6AD6017FB31F000D23361 /* IndividualForm.m in Sources */,
 				EDFE072B16CC2D7900EED6D6 /* FirstBusPage.m in Sources */,
+				14F3FB1D182C36AD0025F54B /* AddMarketSourceViewController.m in Sources */,
 				EDFE072C16CC2D7900EED6D6 /* FirstIndivPage.m in Sources */,
 				EDFE072D16CC2D7900EED6D6 /* FirstPage.m in Sources */,
 				EDFE072E16CC2D7900EED6D6 /* SecBusPage.m in Sources */,
@@ -466,6 +477,7 @@
 				B287E29A17F210E90001C929 /* Agent.m in Sources */,
 				B287E29D17F210E90001C929 /* MarketSource.m in Sources */,
 				B287E2A017F213BA0001C929 /* Form+ApplicationDictionary.m in Sources */,
+				14BB7A8C183135C400DD91CA /* FirstTypeViewController.m in Sources */,
 				B28E583118294A6E002419F9 /* AddAgentViewController.m in Sources */,
 				B29C7A03180B23A80091456D /* SettingsViewController.m in Sources */,
 			);
