@@ -186,7 +186,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 }
 
 - (void)dismissPopTypePicker:(NSString *)type {
-    [self.application setObject:type forKey:@"Business Type"];
+    [self.application setObject:type forKey:@"type"];
     [typeButton setTitle:type forState:UIControlStateNormal];
     NSLog((@"type dismissed"));
 
@@ -201,7 +201,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 }
 
 - (void)dismissPopAnotherType:(NSString *)type {
-    [self.application setObject:type forKey:@"Business Area"];
+    [self.application setObject:type forKey:@"businessDescription"];
     [anotherTypeButton setTitle:type forState:UIControlStateNormal];
 }
 
@@ -215,7 +215,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 }
 
 - (void)dismissPopMonthlySales:(NSString *)sales {
-    [self.application setObject:sales forKey:@"Monthly Sales"];
+    [self.application setObject:sales forKey:@"ccSales"];
     [monthlySalesButton setTitle:sales forState:UIControlStateNormal];
     NSLog(@"monthlySales dismissed: %@", sales);
 }
@@ -229,7 +229,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 }
 
 - (void)dismissPopHighestSales:(NSString *)sales {
-    [self.application setObject:sales forKey:@"Higest Sales"];
+    [self.application setObject:sales forKey:@"higestSales"];
     [higestSalesButton setTitle:sales forState:UIControlStateNormal];
 }
 
@@ -242,7 +242,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 }
 
 - (void)dismissPopBusTime:(NSString *)time {
-    [self.application setObject:time forKey:@"Been in Business"];
+    [self.application setObject:time forKey:@"yearsInBusiness"];
     [busTimeButton setTitle:time forState:UIControlStateNormal];
 }
 

@@ -65,6 +65,11 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     db = [[SignupAnywhereDB alloc] init];
 }
 
+- (void) viewDidAppear:(BOOL)animated{
+    
+    
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
