@@ -1,18 +1,22 @@
 //
-//  SettingsViewController.m
+//  MarketSourcesTableViewController.m
 //  PayAnywhere
 //
-//  Created by newuser on 10/13/13.
+//  Created by newuser on 11/12/13.
 //  Copyright (c) 2013 NAB. All rights reserved.
 //
 
-#import "SettingsViewController.h"
+#import "MarketSourcesTableViewController.h"
+#import "MarketSourceCell.h"
+#import "Database.h"
 
-@interface SettingsViewController ()
+@interface MarketSourcesTableViewController ()
 
 @end
 
-@implementation SettingsViewController
+@implementation MarketSourcesTableViewController
+
+NSArray * marketSourcesArray;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -34,81 +38,67 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    marketSourcesArray = [[Database sharedDB] allMarketSources];
+    [self.tableView reloadData];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Table view delegate methods
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0) {
+        return 118;
+    }
+    else {
+        return 44;
+    }
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
     return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
     if (section == 0)
-        return 3;
-    else
+        return [marketSourcesArray count];
+    else if (section == 1)
         return 1;
+    else
+        return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    if (indexPath.section == 0)
-    {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-
-        if (indexPath.row == 0)
-            cell.textLabel.text = @"View All Forms";
-        else if (indexPath.row == 1)
-            cell.textLabel.text = @"View All Trade Shows";
-        else if (indexPath.row == 2)
-            cell.textLabel.text = @"View All Agents";
+    static NSString *CellIdentifier = @"MarketSourceCell";
+    if (indexPath.section == 0) {
+        MarketSourceCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        MarketSource *ms = [marketSourcesArray objectAtIndex:indexPath.row];
         
-        return cell;
-    }
-    else if (indexPath.section == 1)
-    {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TradeshowModeCell" forIndexPath:indexPath];
+        cell.name.text = ms.name;
+        cell.location.text = [NSString stringWithFormat:@"%@, %@", ms.city, ms.state];
+        cell.date.text = [NSString stringWithFormat:@"%@", ms.date];
         
         return cell;
     }
     else
     {
-        return nil;
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewMarketSourceCell" forIndexPath:indexPath];
+        return cell;
     }
-}
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.row == 0)
-    {
-        [self replaceDetailWithView:@"FormsNavigationController"];
-    }
-    else if (indexPath.row == 1)
-    {
-        [self replaceDetailWithView:@"MarketSourceNavigationController"];
-    }
-    else if (indexPath.row == 2)
-    {
-        [self replaceDetailWithView:@"AgentNavigationController"];
-    }
-}
-
--(void)replaceDetailWithView:(NSString *)viewIdentifier
-{
-    UIStoryboard *storyboard = self.storyboard;
-    UIViewController *detailViewController = [storyboard instantiateViewControllerWithIdentifier:viewIdentifier];
-    
-    UIViewController *navigationViewController = [self.splitViewController.viewControllers objectAtIndex:0];
-    NSArray *viewControllers = [[NSArray alloc] initWithObjects:navigationViewController, detailViewController, nil];
-    self.splitViewController.viewControllers = viewControllers;
 }
 
 /*

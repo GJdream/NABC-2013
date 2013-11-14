@@ -30,9 +30,9 @@
 
 - (void)viewDidLoad
 {
-    NSNull * nullObj = [NSNull null];
-    
     [super viewDidLoad];
+    
+    NSNull * nullObj = [NSNull null];
 	self.application = [NSMutableDictionary dictionary];
     
     [self.application setObject:nullObj forKey:@"firstName"];

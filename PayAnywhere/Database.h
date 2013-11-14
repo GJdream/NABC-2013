@@ -24,5 +24,8 @@
 - (id)insertMarketSourceWithInfo:(NSDictionary *)info;
 
 - (NSArray *)allIndividualForms;
+- (NSArray *)allBusinessForms;
 - (NSArray *)allAgents;
+- (NSArray *)allMarketSources;
+
 @end

@@ -34,6 +34,41 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     return self;
 }
 
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    self.application = [[NSMutableDictionary alloc] init];
+    
+    NSString * nullObj = @"";
+    
+    [self.application setObject:nullObj forKey:@"firstName"];
+    [self.application setObject:nullObj forKey:@"lastName"];
+    [self.application setObject:nullObj forKey:@"email"];
+    [self.application setObject:nullObj forKey:@"phoneNumber"];
+    [self.application setObject:nullObj forKey:@"address"];
+    [self.application setObject:nullObj forKey:@"suiteApt"];
+    [self.application setObject:nullObj forKey:@"city"];
+    [self.application setObject:nullObj forKey:@"state"];
+    [self.application setObject:nullObj forKey:@"zipCode"];
+    [self.application setObject:nullObj forKey:@"ssn"];
+    [self.application setObject:nullObj forKey:@"dba"];
+    [self.application setObject:nullObj forKey:@"Business Type"];
+    [self.application setObject:nullObj forKey:@"Business Description"];
+    [self.application setObject:nullObj forKey:@"Corporation Name"];
+    [self.application setObject:nullObj forKey:@"Federal Tax ID"];
+    [self.application setObject:nullObj forKey:@"Business Address"];
+    [self.application setObject:nullObj forKey:@"Business Suite/Apartment"];
+    [self.application setObject:nullObj forKey:@"Business Zip Code"];
+    [self.application setObject:nullObj forKey:@"Highest Sales Amount"];
+    [self.application setObject:nullObj forKey:@"Total Monthly CC Sales"];
+    [self.application setObject:nullObj forKey:@"Been In Business For"];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:self.application forKey:@"formDictionary"];
+    [defaults synchronize];
+}
+
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -86,11 +121,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 //    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 //    [defaults setObject:self.application forKey:@"formDictionary"];
 //    [defaults synchronize];
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
 }
 
 - (void)didReceiveMemoryWarning
