@@ -57,6 +57,11 @@
     [self.application setObject:nullObj forKey:@"Total Monthly CC Sales"];
     [self.application setObject:nullObj forKey:@"Been In Business For"];
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:self.application forKey:@"formDictionary"];
+    NSLog(@"saving app into defaults");
+    [defaults synchronize];
+    
     SignupAnywhereDB * db = [[SignupAnywhereDB alloc] init];
     [db loadTradeshows];
     
