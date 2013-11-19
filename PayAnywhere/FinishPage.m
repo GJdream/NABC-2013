@@ -46,7 +46,9 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     self.addressField.delegate = self;
     self.zipField.delegate = self;
     self.suiteAptField.delegate = self;
-        
+    self.tabBarController.delegate = self;
+
+    
     UIColor * grayedFieldColor = [UIColor colorWithRed:0.792 green:0.792 blue:0.7912 alpha:.5];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -143,8 +145,21 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
           [self.application objectForKey:@"First Name"],
           [self.application objectForKey:@"Last Name"],
           testTradeshow.name, testTradeshow.city, testTradeshow.state);
+  
+    UIViewController * target = [[self.tabBarController viewControllers] objectAtIndex:1];
+    [target.navigationController popToRootViewControllerAnimated: NO];
+    NSString *className = NSStringFromClass([target class]);
+    NSLog(@"First pop to root: %@", className);
+
+    target = [[self.tabBarController viewControllers] objectAtIndex:0];
+    [target.navigationController popToRootViewControllerAnimated: NO];
+    
+    className = NSStringFromClass([target class]);
+    NSLog(@"Second pop to root: %@", className);
     
     [self.navigationController popToRootViewControllerAnimated:YES];
+    
+//    [self.navigationController popToRootViewControllerAnimated:YES];
     
     NSLog(@"Test Tradeshow...\n");
     [testTradeshow printApplicants];
@@ -197,6 +212,13 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:emptyDict forKey:@"formDictionary"];
     [defaults synchronize];
+    
+    for(UIViewController *viewController in self.tabBarController.viewControllers)
+    {
+        if([viewController isKindOfClass:[UINavigationController class]])
+            [(UINavigationController *)viewController popToRootViewControllerAnimated:NO];
+    }
+    
     [self.navigationController popToRootViewControllerAnimated:YES];
     
     individualForms = [[Database sharedDB] allIndividualForms];

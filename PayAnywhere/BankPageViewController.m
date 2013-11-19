@@ -45,8 +45,25 @@
 
 - (IBAction)enterInfo:(id)sender {
     BOOL accountNum = [self.accountNumberField.text length];
-    BOOL routingNum = [self.routingNumField.text length];
+    BOOL routingNum;
     NSMutableString * alertMessageMutable = [[NSMutableString alloc] init];
+    
+    NSString *routingExp = [NSString stringWithFormat:@"^[0-9]{9}$"];
+    NSRegularExpression *routingRegex = [NSRegularExpression regularExpressionWithPattern:routingExp
+                                                                              options:NSRegularExpressionCaseInsensitive
+                                                                                error:nil];
+    NSUInteger routingMatch = [routingRegex numberOfMatchesInString:self.routingNumField.text
+                                                    options:0
+                                                      range:NSMakeRange(0, [self.routingNumField.text length])];
+    
+    if (routingMatch == 1 && [self.routingNumField.text length] == 9) {
+        routingNum = TRUE;
+    }
+    else{
+        routingNum = FALSE;
+    }
+    
+    
 
     if(accountNum && routingNum){
         [self.application setValue:self.accountNumberField.text forKey:@"accountNumber"];
