@@ -95,8 +95,11 @@
 }
 
 - (IBAction)skipInfo:(id)sender {
-    
         [self performSegueWithIdentifier:@"BankToFinishSegue" sender:nil];
+}
+
+- (IBAction)clearForms:(id)sender {
+    [FunctionsClass clearAllForms:self];
 }
 
 //SEGUES

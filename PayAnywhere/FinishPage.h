@@ -34,5 +34,6 @@
 - (IBAction)create:(id)sender;
 - (IBAction)changeAddress:(id)sender;
 - (IBAction)finish:(id)sender;
+- (IBAction)clearForms:(id)sender;
 
 @end

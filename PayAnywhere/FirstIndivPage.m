@@ -9,6 +9,7 @@
 #import "FirstIndivPage.h"
 #import "FirstBusPage.h"
 #import "AgentViewController.h"
+#import "FunctionsClass.h"
 
 
 @interface FirstIndivPage (){
@@ -214,7 +215,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     [self fillDictionary];
     
     //If all the required fields are filled in, do the segue
-    if((first && last && email && phone && address && zip && ssn && trmsAcc && birthFilled) || TRUE){
+    if((first && last && email && phone && address && zip && ssn && trmsAcc && birthFilled) || FALSE){
     [self performSegueWithIdentifier:@"IndivToBankSegue" sender:nil];
     }
     //Otherwise, display the alert view with generated string
@@ -263,15 +264,11 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     }
 }
 
-- (IBAction)Cancel:(id)sender {
-    [self.navigationController popToRootViewControllerAnimated:FALSE];
+- (IBAction)clearForm:(id)sender {
+    [self.birth setTitle:(@"Click to select") forState:UIControlStateNormal];
+    [FunctionsClass clearBaseForm:self];
 }
 
-- (IBAction)termsButon:(id)sender {
-    if([[self.application objectForKey:@"termsAccepted"] isEqualToString:@"False"]){
-        
-    }
-}
 
 #pragma mark - Text Field Delegate
 
@@ -464,4 +461,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     
     [UIView commitAnimations];
 }
+
+
+
 @end

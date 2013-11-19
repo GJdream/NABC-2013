@@ -225,6 +225,10 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     NSLog(@"INDIVIDUAL FORMS IN DB after insert: \n%@\n", individualForms);
 }
 
+- (IBAction)clearForms:(id)sender {
+    [FunctionsClass clearAllForms:self];
+}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     /*
@@ -288,10 +292,12 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     */
     
     // Fix this so it uses macros and appends the "/individual"
+    
+    
     [request setURL:[NSURL URLWithString:@"http://141.212.105.78:8080/symfony/individual/"]];
     
     [request setHTTPMethod:@"POST"];
-    [request setValue:@"application/jason" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request setHTTPBody:jsonData];
     
     //Create response

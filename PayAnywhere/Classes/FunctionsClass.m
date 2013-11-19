@@ -10,17 +10,36 @@
 
 @implementation FunctionsClass
 
--(void)toggleCheckbox:(UIButton*) box boolInt:(NSNumber*)shouldBeChecked{
-    if(shouldBeChecked){
-            [box setImage:[UIImage imageNamed:@"checkboxSelected.png"] forState:UIControlStateNormal];
-    }
-    else{
-            [box setImage:[UIImage imageNamed:@"checkboxUnselected.png"] forState:UIControlStateNormal];
-    }
-        
++(void)clearAllForms:(UIViewController *)controller {
+    NSLog(@"Clear all forms called...");
+    NSMutableDictionary * emptyDict = [NSMutableDictionary dictionary];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:emptyDict forKey:@"formDictionary"];
+    [defaults synchronize];
+    NSLog(@"Dictionary cleared...");
     
+    for(UIViewController *viewController in controller.tabBarController.viewControllers)
+    {
+        if([viewController isKindOfClass:[UINavigationController class]])
+            [(UINavigationController *)viewController popToRootViewControllerAnimated:NO];
+    }
+    
+    [controller.navigationController popToRootViewControllerAnimated:YES];
+    NSLog(@"Views Popped...");
+}
+
++(void)clearBaseForm:(UIViewController *)controller{
+    NSLog(@"Clear all forms called...");
+    NSMutableDictionary * emptyDict = [NSMutableDictionary dictionary];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:emptyDict forKey:@"formDictionary"];
+    [defaults synchronize];
+    NSLog(@"Dictionary cleared...");
+    
+    [controller viewDidAppear:YES];
     
 }
+
 
 @end
 

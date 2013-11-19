@@ -35,7 +35,7 @@
 
 
 - (IBAction)create:(id)sender;
-- (IBAction)Cancel:(id)sender;
+- (IBAction)clearForm:(id)sender;
 
 //birth pop
 @property (strong, nonatomic) UIPopoverController * birthdayPopoverController;

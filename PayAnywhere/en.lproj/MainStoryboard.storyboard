@@ -991,7 +991,19 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" id="Rpv-DN-Azo">
+                        <nil key="title"/>
                         <barButtonItem key="backBarButtonItem" title="Cancel" id="5AQ-hy-Nga"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="TPe-BO-KG1">
+                            <rect key="frame" x="308" y="6" width="409" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="Clear Forms">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="clearForm:" destination="uvt-9w-sfQ" eventType="touchUpInside" id="cDA-Dn-eTO"/>
+                            </connections>
+                        </button>
                         <barButtonItem key="rightBarButtonItem" title="Next" id="4Wf-G9-r0Q">
                             <connections>
                                 <action selector="create:" destination="uvt-9w-sfQ" id="teS-TE-xcG"/>
@@ -1192,7 +1204,20 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <navigationItem key="navigationItem" id="vj1-Cd-BSK"/>
+                    <navigationItem key="navigationItem" id="vj1-Cd-BSK">
+                        <nil key="title"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="moK-L5-fet">
+                            <rect key="frame" x="308" y="6" width="409" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="Clear Forms">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="clearForms:" destination="Wgt-Ge-yuk" eventType="touchUpInside" id="uni-T7-P0i"/>
+                            </connections>
+                        </button>
+                    </navigationItem>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="addressField" destination="rGf-4A-PSC" id="nGB-yb-d5W"/>
@@ -1446,6 +1471,18 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" id="o1w-Pz-HJj">
+                        <nil key="title"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ruh-Ls-0qm">
+                            <rect key="frame" x="308" y="6" width="409" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="Clear Forms">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="clearForms:" destination="NXa-2u-1Im" eventType="touchUpInside" id="aES-mx-iO7"/>
+                            </connections>
+                        </button>
                         <barButtonItem key="rightBarButtonItem" title="Next" id="dzs-Rx-Nhc">
                             <connections>
                                 <action selector="create:" destination="NXa-2u-1Im" id="89e-My-PAe"/>
@@ -1775,6 +1812,18 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" id="2NG-2e-WgV">
+                        <nil key="title"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Z2O-dJ-PGk">
+                            <rect key="frame" x="308" y="6" width="409" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="Clear Forms">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="clearForms:" destination="xwO-6K-79D" eventType="touchUpInside" id="Udf-uW-Wqy"/>
+                            </connections>
+                        </button>
                         <barButtonItem key="rightBarButtonItem" title="Next" id="aza-Jf-4sh">
                             <connections>
                                 <action selector="nextPage:" destination="xwO-6K-79D" id="nuH-dD-KAy"/>
@@ -1959,7 +2008,20 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <navigationItem key="navigationItem" id="jG9-eX-Hy0"/>
+                    <navigationItem key="navigationItem" id="jG9-eX-Hy0">
+                        <nil key="title"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hHo-iy-3QN">
+                            <rect key="frame" x="308" y="6" width="409" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="Clear Forms">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="clearForms:" destination="Un7-3J-Jl4" eventType="touchUpInside" id="zcb-Zv-IkQ"/>
+                            </connections>
+                        </button>
+                    </navigationItem>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="accountNumberField" destination="gtv-0B-y7c" id="7fY-Mm-lZ2"/>

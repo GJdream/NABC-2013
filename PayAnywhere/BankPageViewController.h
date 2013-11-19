@@ -17,4 +17,5 @@
 
 - (IBAction)enterInfo:(id)sender;
 - (IBAction)skipInfo:(id)sender;
+- (IBAction)clearForms:(id)sender;
 @end
