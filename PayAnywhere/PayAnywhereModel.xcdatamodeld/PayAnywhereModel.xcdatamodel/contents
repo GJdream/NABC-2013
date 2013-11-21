@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F37" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="12F45" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Agent" representedClassName="Agent" syncable="YES">
         <attribute name="aid" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
@@ -27,6 +27,7 @@
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="msid" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="receivedByServer" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="ssn" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="suiteApt" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
@@ -46,6 +47,7 @@
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="msid" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="receivedByServer" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="ssn" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="suiteApt" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="zipCode" optional="YES" attributeType="String" syncable="YES"/>
@@ -62,9 +64,9 @@
         <relationship name="individualForms" toMany="YES" deletionRule="Nullify" destinationEntity="IndividualForm" inverseName="whereFilled" inverseEntity="IndividualForm" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Agent" positionX="0" positionY="0" width="128" height="135"/>
-        <element name="BusinessForm" positionX="-587" positionY="21" width="128" height="420"/>
-        <element name="IndividualForm" positionX="-207" positionY="-171" width="128" height="28"/>
-        <element name="MarketSource" positionX="-783" positionY="18" width="128" height="150"/>
+        <element name="Agent" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="BusinessForm" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="IndividualForm" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="MarketSource" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>
