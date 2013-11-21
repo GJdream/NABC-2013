@@ -16,6 +16,7 @@
 #import "SignupAnywhereDB.h"
 
 #import "Database.h"
+#import "Constants.h"
 
 @interface FinishPage : UIViewController<UITextFieldDelegate, UITabBarControllerDelegate, UITabBarDelegate>
 {

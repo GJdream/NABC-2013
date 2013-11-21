@@ -201,6 +201,7 @@ NSPersistentStoreCoordinator *coordinator;
     NSEntityDescription *entity = [NSEntityDescription
                                    entityForName:@"IndividualForm" inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
+    [fetchRequest setReturnsObjectsAsFaults:NO];
     NSError *error;
    
     individualForms = [context executeFetchRequest:fetchRequest error:&error];
@@ -215,6 +216,7 @@ NSPersistentStoreCoordinator *coordinator;
     NSEntityDescription *entity = [NSEntityDescription
                                    entityForName:@"BusinessForm" inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
+    [fetchRequest setReturnsObjectsAsFaults:NO];
     NSError *error;
     
     businessForms = [context executeFetchRequest:fetchRequest error:&error];
