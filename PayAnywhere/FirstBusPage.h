@@ -33,6 +33,7 @@
 
 - (IBAction)toggleBusFields:(id)sender;
 - (IBAction)nextPage:(id)sender;
+- (IBAction)clearForms:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UIButton *birthdayButton;
 @property (strong, nonatomic) IBOutlet UISwitch *busAddressSwitch;

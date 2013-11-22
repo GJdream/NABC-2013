@@ -30,7 +30,7 @@
 @property (strong, nonatomic) IBOutlet UISwitch *termsAcceptedSwitch;
 
 - (IBAction)create:(id)sender;
-- (IBAction)cancel:(id)sender;
+- (IBAction)clearForms:(id)sender;
 
 
 @property (strong, nonatomic) IBOutlet UIButton *typeButton;

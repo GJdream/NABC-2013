@@ -175,6 +175,10 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     [self.navigationController popToRootViewControllerAnimated:FALSE];
 }
 
+- (IBAction)clearForms:(id)sender {
+    [FunctionsClass clearAllForms:self];
+}
+
 //type
 - (void)typePickerViewControllerDidFinish:(FirstTypeViewController *)controller
 {

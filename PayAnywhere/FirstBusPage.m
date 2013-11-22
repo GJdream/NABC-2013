@@ -365,7 +365,7 @@ bool fieldsOn;
     }
     
     //If the fields are not filled in, display the alert with generated string.
-    if((first && last && email && phone && address && zip && ssn && birthFilled) || TRUE){
+    if((first && last && email && phone && address && zip && ssn && birthFilled) || FALSE){
         [self performSegueWithIdentifier:@"Bus1To2Segue" sender:nil];
     }
     
@@ -500,6 +500,11 @@ bool fieldsOn;
     [self.view setFrame:viewFrame];
     
     [UIView commitAnimations];
+}
+
+- (IBAction)clearForms:(id)sender {
+    [self.birthdayButton setTitle:(@"Click to select") forState:UIControlStateNormal];
+    [FunctionsClass clearBaseForm:self];
 }
 
 @end

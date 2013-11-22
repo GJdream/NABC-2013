@@ -16,8 +16,9 @@
 #import "SignupAnywhereDB.h"
 
 #import "Database.h"
+#import "Constants.h"
 
-@interface FinishPage : UIViewController<UITextFieldDelegate>
+@interface FinishPage : UIViewController<UITextFieldDelegate, UITabBarControllerDelegate, UITabBarDelegate>
 {
     SignupAnywhereDB * db;
 }
@@ -34,5 +35,6 @@
 - (IBAction)create:(id)sender;
 - (IBAction)changeAddress:(id)sender;
 - (IBAction)finish:(id)sender;
+- (IBAction)clearForms:(id)sender;
 
 @end

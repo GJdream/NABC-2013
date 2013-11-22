@@ -57,6 +57,11 @@
     [self.application setObject:nullObj forKey:@"Total Monthly CC Sales"];
     [self.application setObject:nullObj forKey:@"Been In Business For"];
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:self.application forKey:@"formDictionary"];
+    NSLog(@"saving app into defaults");
+    [defaults synchronize];
+    
     SignupAnywhereDB * db = [[SignupAnywhereDB alloc] init];
     [db loadTradeshows];
     
@@ -113,7 +118,7 @@
 {
     if ([segue.identifier isEqualToString:@"FirstIndividualSegue"])
     {
-        [self.application setObject:@"individual" forKey:@"Application Type"];
+        [self.application setObject:@"individual" forKey:FORM_TYPE];
         FirstIndivPage * indivPage = segue.destinationViewController;
         indivPage.application = self.application;
         indivPage->fromWhichBusPage = 1;
@@ -121,7 +126,7 @@
     }
     else if ([segue.identifier isEqualToString:@"FirstBusinessSegue"])
     {
-        [self.application setObject:@"business" forKey:@"Application Type"];
+        [self.application setObject:@"business" forKey:FORM_TYPE];
         FirstBusPage * busPage = segue.destinationViewController;
         busPage.application = self.application;
 //        busPage->termsAccepted = 0;

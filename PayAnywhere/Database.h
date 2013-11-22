@@ -19,7 +19,10 @@
                             andAgent:(Agent *)agent
                      andMarketSource:(MarketSource *)marketSource;
 
-//- (id)insertBusinessFormWithInfo:(NSDictionary *)info;
+- (id)insertBusinessFormWithInfo:(NSDictionary *)info
+                        andAgent:(Agent *)agent
+                 andMarketSource:(MarketSource *)marketSource;
+
 - (id)insertAgentWithInfo:(NSDictionary *)info;
 - (id)insertMarketSourceWithInfo:(NSDictionary *)info;
 

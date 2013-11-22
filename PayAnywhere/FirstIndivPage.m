@@ -9,6 +9,7 @@
 #import "FirstIndivPage.h"
 #import "FirstBusPage.h"
 #import "AgentViewController.h"
+#import "FunctionsClass.h"
 
 
 @interface FirstIndivPage (){
@@ -53,16 +54,16 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     [self.application setObject:nullObj forKey:@"zipCode"];
     [self.application setObject:nullObj forKey:@"ssn"];
     [self.application setObject:nullObj forKey:@"dba"];
-    [self.application setObject:nullObj forKey:@"Business Type"];
-    [self.application setObject:nullObj forKey:@"Business Description"];
-    [self.application setObject:nullObj forKey:@"Corporation Name"];
-    [self.application setObject:nullObj forKey:@"Federal Tax ID"];
-    [self.application setObject:nullObj forKey:@"Business Address"];
-    [self.application setObject:nullObj forKey:@"Business Suite/Apartment"];
-    [self.application setObject:nullObj forKey:@"Business Zip Code"];
-    [self.application setObject:nullObj forKey:@"Highest Sales Amount"];
-    [self.application setObject:nullObj forKey:@"Total Monthly CC Sales"];
-    [self.application setObject:nullObj forKey:@"Been In Business For"];
+    [self.application setObject:nullObj forKey:@"type"];
+    [self.application setObject:nullObj forKey:@"businessDescription"];
+    [self.application setObject:nullObj forKey:@"corporationName"];
+    [self.application setObject:nullObj forKey:@"fedTaxID"];
+    [self.application setObject:nullObj forKey:@"businessAddress"];
+    [self.application setObject:nullObj forKey:@"businessSuiteApt"];
+    [self.application setObject:nullObj forKey:@"businessZipCode"];
+    [self.application setObject:nullObj forKey:@"highestSales"];
+    [self.application setObject:nullObj forKey:@"ccSales"];
+    [self.application setObject:nullObj forKey:@"yearsInBusiness"];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:self.application forKey:@"formDictionary"];
@@ -214,7 +215,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     [self fillDictionary];
     
     //If all the required fields are filled in, do the segue
-    if((first && last && email && phone && address && zip && ssn && trmsAcc && birthFilled) || TRUE){
+    if((first && last && email && phone && address && zip && ssn && trmsAcc && birthFilled) || FALSE){
     [self performSegueWithIdentifier:@"IndivToBankSegue" sender:nil];
     }
     //Otherwise, display the alert view with generated string
@@ -263,15 +264,11 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     }
 }
 
-- (IBAction)Cancel:(id)sender {
-    [self.navigationController popToRootViewControllerAnimated:FALSE];
+- (IBAction)clearForm:(id)sender {
+    [self.birth setTitle:(@"Click to select") forState:UIControlStateNormal];
+    [FunctionsClass clearBaseForm:self];
 }
 
-- (IBAction)termsButon:(id)sender {
-    if([[self.application objectForKey:@"termsAccepted"] isEqualToString:@"False"]){
-        
-    }
-}
 
 #pragma mark - Text Field Delegate
 
@@ -464,4 +461,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     
     [UIView commitAnimations];
 }
+
+
+
 @end
