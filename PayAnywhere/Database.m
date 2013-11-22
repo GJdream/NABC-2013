@@ -263,6 +263,41 @@ NSPersistentStoreCoordinator *coordinator;
     }
 }
 
+- (NSMutableArray *)getUnsentIndividualFroms
+{
+    NSArray *individualForms = [[NSArray alloc] init];
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:@"IndividualForm" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSError *error;
+    
+    individualForms = [context executeFetchRequest:fetchRequest error:&error];
+    
+    NSMutableArray *forms = [[NSMutableArray alloc] init];
+    
+    for (NSManagedObject *info in individualForms) {
+        NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+        [dict setObject:[info valueForKey:@"aid"]!=nil?[info valueForKey:@"aid"]:@"" forKey:@"aid"];
+        [dict setObject:[info valueForKey:@"dba"]!=nil?[info valueForKey:@"dba"]:@"" forKey:@"dba"];
+        [dict setObject:[info valueForKey:@"email"]!=nil?[info valueForKey:@"email"]:@"" forKey:@"email"];
+        [dict setObject:[info valueForKey:@"firstName"]!=nil?[info valueForKey:@"firstName"]:@"" forKey:@"firstName"];
+        [dict setObject:[info valueForKey:@"lastName"]!=nil?[info valueForKey:@"lastName"]:@"" forKey:@"lastName"];
+        [dict setObject:[info valueForKey:@"phoneNumber"]!=nil?[info valueForKey:@"phoneNumber"]:@"" forKey:@"phoneNumber"];
+        [dict setObject:[info valueForKey:@"ssn"]!=nil?[info valueForKey:@"ssn"]:@"" forKey:@"ssn"];
+        [dict setObject:[info valueForKey:@"suiteApt"]!=nil?[info valueForKey:@"suiteApt"]:@"" forKey:@"suiteApt"];
+        [dict setObject:[info valueForKey:@"zipCode"]!=nil?[info valueForKey:@"zipCode"]:@"" forKey:@"zipCode"];
+        [dict setObject:[info valueForKey:@"fid"]!=nil?[info valueForKey:@"fid"]:@"" forKey:@"fid"];
+        [dict setObject:[info valueForKey:@"msid"]!=nil?[info valueForKey:@"msid"]:@"" forKey:@"msid"];
+        [dict setObject:[info valueForKey:@"dob"]!=nil?[info valueForKey:@"dob"]:@"" forKey:@"dob"];
+        
+        [forms addObject:dict];
+    }
+
+    return forms;
+}
+
 #pragma mark - Core Data stack
 
 // Returns the managed object context for the application.
