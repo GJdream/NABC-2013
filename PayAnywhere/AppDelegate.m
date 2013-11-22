@@ -20,33 +20,36 @@ static NSString *URL = @"http://141.212.105.78:8080/symfony/individual/";
 
     NSLog(@"INDIVIDUAL FORMS didFinishLaunching: \n%@\n", unsentForms);
 
-    for (NSMutableDictionary *form in unsentForms) {
-
-        NSError *error;
-
-        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:form
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:unsentForms
                                                             options:0
-                                                            error:&error];
-        
-        NSURLSessionConfiguration *configuration =
-        [NSURLSessionConfiguration defaultSessionConfiguration];
-        configuration.allowsCellularAccess = NO;
+                                                           error:&error];
     
-        _session = [NSURLSession sessionWithConfiguration:configuration
+    NSURLSessionConfiguration *configuration =
+    [NSURLSessionConfiguration defaultSessionConfiguration];
+    configuration.allowsCellularAccess = NO;
+    
+    _session = [NSURLSession sessionWithConfiguration:configuration
                                              delegate:self delegateQueue:nil];
     
-        NSURL *uploadURL = [NSURL URLWithString:URL];
+    NSURL *uploadURL = [NSURL URLWithString:URL];
+   
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:uploadURL];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:jsonData];
+    [request setValue:[NSString stringWithFormat:@"%d", [jsonData length]] forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
-        NSURLRequest *request = [NSURLRequest requestWithURL:uploadURL];
+    _uploadTask = [self.session uploadTaskWithRequest:request fromData:jsonData
+                                completionHandler:
+                    ^(NSData *data, NSURLResponse *response, NSError *error) {
+                    NSLog(@"hi handler: \n%@\n", response);
+                  }];
     
-        _uploadTask = [self.session uploadTaskWithRequest:request fromData:jsonData
-                                        completionHandler:
-                                        ^(NSData *data, NSURLResponse *response, NSError *error) {
-                                            NSLog(@"hi handler: \n%@\n", error);
-                                        }];
+    NSURLResponse *response = nil;
     
-        [_uploadTask resume];
-    }
+    [_uploadTask resume];
+
     return YES;
 }
 							
