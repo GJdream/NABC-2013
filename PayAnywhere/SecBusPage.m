@@ -257,7 +257,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     }
     
     if ([segue.identifier isEqualToString:@"BusToBankSegue"]) {
-        [self.application setObject:@"business" forKey:@"applicationType"];
+        [self.application setObject:@"business" forKey:FORM_TYPE];
         NSLog(@"self: %@", self.application);
         
 //        BankPageViewController * bankPage = segue.destinationViewController;

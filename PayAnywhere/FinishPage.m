@@ -55,7 +55,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     self.application = [[defaults objectForKey:@"formDictionary"]mutableCopy];
     
     NSLog(@"application dictionary: %@", self.application);
-    if([[self.application valueForKey:@"applicationType"] isEqualToString:@"individual"])
+    if([[self.application valueForKey:FORM_TYPE] isEqualToString:@"individual"])
     {
         self.addressField.text = [self.application valueForKey:@"address"];
         self.zipField.text = [self.application valueForKey:@"zipCode"];
@@ -188,6 +188,36 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
         self.addressField.text = [self.application objectForKey:@"address"];
     if([self.application objectForKey:@"suiteApt"])
         self.suiteAptField.text = [self.application objectForKey:@"suiteApt"];
+    
+    /* TEST DATA */
+    NSMutableDictionary *testMarketSource = [[NSMutableDictionary alloc] init];
+    [testMarketSource setObject:@"Chicago" forKey:@"city"];
+    [testMarketSource setObject:@"IL" forKey:@"state"];
+    [testMarketSource setObject:@"Test Trade Show" forKey:@"name"];
+    [testMarketSource setObject:[NSDate date] forKey:@"date"];
+    [testMarketSource setObject:[NSNumber numberWithInt:100] forKey:@"msid"];
+    
+    NSMutableDictionary *testAgent = [[NSMutableDictionary alloc] init];
+    [testAgent setObject:[NSNumber numberWithInt:100] forKey:@"aid"];
+    [testAgent setObject:[NSNumber numberWithInt:1234] forKey:@"pin"];
+    [testAgent setObject:@"Joe" forKey:@"firstName"];
+    [testAgent setObject:@"Agent" forKey:@"lastName"];
+    
+    MarketSource *marketSource = [[Database sharedDB] insertMarketSourceWithInfo:testMarketSource];
+    Agent *agent = [[Database sharedDB] insertAgentWithInfo:testAgent];
+    /**/
+    
+    if ([[self.application objectForKey:FORM_TYPE] isEqualToString:@"individual"]) {
+        //store individual application
+        [[Database sharedDB] insertIndividualFormWithInfo:self.application andAgent:agent andMarketSource:marketSource];
+        
+        NSArray *individualForms = [[Database sharedDB] allIndividualForms];
+        NSLog(@"INDIVIDUAL FORMS IN DB after insert: \n%@\n", individualForms);
+    }
+    else {
+        //store business application
+        [[Database sharedDB] insertBusinessFormWithInfo:self.application andAgent:agent andMarketSource:marketSource];
+    }
 
     [self sendJSON];
     NSMutableDictionary * emptyDict = [NSMutableDictionary dictionary];
@@ -202,9 +232,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     }
     
     [self.navigationController popToRootViewControllerAnimated:YES];
-    
-    individualForms = [[Database sharedDB] allIndividualForms];
-    NSLog(@"INDIVIDUAL FORMS IN DB after insert: \n%@\n", individualForms);
 }
 
 - (IBAction)clearForms:(id)sender {
@@ -258,7 +285,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
                                                        options:0
                                                          error:&error];
     
-    [self.application removeAllObjects];
+
     
     
     
@@ -275,11 +302,9 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     
     // Fix this so it uses macros and appends the "/individual"
     
-    if ([[self.application objectForKey:@"formType"] isEqual: @"individual"]) {
-        [request setURL:[NSURL URLWithString:@"http://141.212.105.78:8080/symfony/individual/"]];
-    } else {
-        [request setURL:[NSURL URLWithString:@"http://141.212.105.78:8080/symfony/business/"]];
-    }
+    
+    [request setURL:[NSURL URLWithString:@"http://141.212.105.78:8080/symfony/individual/"]];
+ 
     
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
@@ -291,36 +316,10 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
                                        queue:[NSOperationQueue mainQueue]
                            completionHandler:
      ^(NSURLResponse *response, NSData *data, NSError *error){
+         
          NSData *POSTReply = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
          NSString *theReply = [[NSString alloc] initWithBytes:[POSTReply bytes] length:[POSTReply length] encoding: NSASCIIStringEncoding];
          NSLog(@"Request completed\n Reply: %@", theReply);
-         
-         /* TEST DATA f*/
-         NSMutableDictionary *testMarketSource = [[NSMutableDictionary alloc] init];
-         [testMarketSource setObject:@"Chicago" forKey:@"city"];
-         [testMarketSource setObject:@"IL" forKey:@"state"];
-         [testMarketSource setObject:@"Test Trade Show" forKey:@"name"];
-         [testMarketSource setObject:[NSDate date] forKey:@"date"];
-         [testMarketSource setObject:[NSNumber numberWithInt:100] forKey:@"msid"];
-         
-         NSMutableDictionary *testAgent = [[NSMutableDictionary alloc] init];
-         [testAgent setObject:[NSNumber numberWithInt:100] forKey:@"aid"];
-         [testAgent setObject:[NSNumber numberWithInt:1234] forKey:@"pin"];
-         [testAgent setObject:@"Joe" forKey:@"firstName"];
-         [testAgent setObject:@"Agent" forKey:@"lastName"];
-         
-         MarketSource *marketSource = [[Database sharedDB] insertMarketSourceWithInfo:testMarketSource];
-         Agent *agent = [[Database sharedDB] insertAgentWithInfo:testAgent];
-         /**/
-         
-         if ([[self.application objectForKey:FORM_TYPE] isEqualToString:@"individual"]) {
-             //store individual application
-             [[Database sharedDB] insertIndividualFormWithInfo:self.application andAgent:agent andMarketSource:marketSource];
-         }
-         else {
-             //store business application
-             [[Database sharedDB] insertBusinessFormWithInfo:self.application andAgent:agent andMarketSource:marketSource];
-         }
 
      }];
 /*
@@ -350,6 +349,8 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     }
  
  */
+    
+    [self.application removeAllObjects];
     
 }
 
