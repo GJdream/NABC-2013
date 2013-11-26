@@ -391,7 +391,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     [self.application setObject:self.ssn.text forKey:@"ssn"];
     [self.application setObject:self.dba.text forKey:@"dba"];
 //    NSLog(@"self: %@", self.application);
-    [self.application setObject:@"individual" forKey:@"applicationType"];
+//    [self.application setObject:@"individual" forKey:@"applicationType"];
 
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
