@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 
-static NSString *URL = @"http://141.212.105.78:8080/symfony/individual/";
+static NSString *URL = @"http://141.212.105.78:8080/symfony/individual/batch";
 
 @implementation AppDelegate
 
