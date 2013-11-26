@@ -228,7 +228,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     for(UIViewController *viewController in self.tabBarController.viewControllers)
     {
         if([viewController isKindOfClass:[UINavigationController class]])
-            [(UINavigationController *)viewController popToRootViewControllerAnimated:NO];
+            [(UINavigationController *)viewController popToRootViewControllerAnimated:YES];
     }
     
     [self.navigationController popToRootViewControllerAnimated:YES];
