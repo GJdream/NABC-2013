@@ -226,6 +226,7 @@ bool fieldsOn;
         [pvc setDelegate:self];
     }
     else if([[segue identifier] isEqualToString:@"Bus1To2Segue"]) {
+        [self.view endEditing:YES];
         [self fillBus1Dictionary];
         
 //        NSLog(@"Bus1 Dictionary: %@", self.application);
@@ -365,7 +366,7 @@ bool fieldsOn;
     }
     
     //If the fields are not filled in, display the alert with generated string.
-    if((first && last && email && phone && address && zip && ssn && birthFilled) || FALSE){
+    if((first && last && email && phone && address && zip && ssn && birthFilled) || TRUE){
         [self performSegueWithIdentifier:@"Bus1To2Segue" sender:nil];
     }
     

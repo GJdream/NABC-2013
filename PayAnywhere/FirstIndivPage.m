@@ -215,7 +215,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     [self fillDictionary];
     
     //If all the required fields are filled in, do the segue
-    if((first && last && email && phone && address && zip && ssn && trmsAcc && birthFilled) || FALSE){
+    if((first && last && email && phone && address && zip && ssn && trmsAcc && birthFilled) || TRUE){
     [self performSegueWithIdentifier:@"IndivToBankSegue" sender:nil];
     }
     //Otherwise, display the alert view with generated string
@@ -321,6 +321,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 //    [self fillDictionary];
 
     if([segue.identifier isEqualToString:@"IndivToBankSegue"]){
+        [self.view endEditing:YES];
         [self fillDictionary];
 //        BankPageViewController * bankPage = segue.destinationViewController;
 //        bankPage.application = self.application;
@@ -461,6 +462,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     
     [UIView commitAnimations];
 }
+
 
 
 

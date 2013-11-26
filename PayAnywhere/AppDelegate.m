@@ -46,7 +46,7 @@ static NSString *URL = @"http://141.212.105.78:8080/symfony/individual/batch";
                     NSLog(@"hi handler: \n%@\n", response);
                   }];
     
-    NSURLResponse *response = nil;
+//    NSURLResponse *response = nil;
     
     [_uploadTask resume];
 

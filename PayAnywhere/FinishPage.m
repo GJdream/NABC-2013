@@ -54,7 +54,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.application = [[defaults objectForKey:@"formDictionary"]mutableCopy];
     
-    NSLog(@"application dictionary: %@", self.application);
+    NSLog(@"application dictionary on load: %@", self.application);
     if([[self.application valueForKey:@"applicationType"] isEqualToString:@"individual"])
     {
         self.addressField.text = [self.application valueForKey:@"address"];
@@ -181,6 +181,20 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 
 - (IBAction)finish:(id)sender {
     
+    NSLog(@"Tab selected : %d", self.tabBarController.selectedIndex);
+    if(self.tabBarController.selectedIndex == 0){
+        [self.application setObject:@"individual" forKey:@"applicationType"];
+    }
+    else if(self.tabBarController.selectedIndex == 1){
+        [self.application setObject:@"business" forKey:@"applicationType"];
+    }
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:self.application forKey:@"formDictionary"];
+    [defaults synchronize];
+    
+    NSLog(@"application dictionary on send: %@", self.application);
+
+    
     NSArray *individualForms = [[Database sharedDB] allIndividualForms];
     NSLog(@"INDIVIDUAL FORMS IN DB before insert: \n%@\n", individualForms);
     
@@ -193,7 +207,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 
     [self sendJSON];
     NSMutableDictionary * emptyDict = [NSMutableDictionary dictionary];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:emptyDict forKey:@"formDictionary"];
     [defaults synchronize];
     
@@ -269,12 +282,12 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     //Create URL request
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     
-    /*
+   
     NSError *e;
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:jsonData options:nil error:&e];
     NSLog(@"json file = %@", dict);
-    */
-/*
+   
+
     // Fix this so it uses macros and appends the "/individual"
     
     if ([[self.application objectForKey:@"formType"] isEqual: @"individual"]) {
