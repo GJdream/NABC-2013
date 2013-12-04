@@ -42,5 +42,6 @@
 - (NSArray *)allBusinessForms;
 - (NSArray *)allAgents;
 - (NSArray *)allMarketSources;
+- (NSMutableArray *)getUnsentIndividualFroms;
 
 @end

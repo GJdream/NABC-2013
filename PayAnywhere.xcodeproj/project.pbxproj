@@ -454,6 +454,15 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = NAB;
+				TargetAttributes = {
+					EDFE06F716CC2CE200EED6D6 = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+				};
 			};
 			buildConfigurationList = EDFE06F316CC2CE200EED6D6 /* Build configuration list for PBXProject "PayAnywhere" */;
 			compatibilityVersion = "Xcode 3.2";

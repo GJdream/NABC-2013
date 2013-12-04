@@ -253,6 +253,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
         [pvc setDelegate:self];
     }
     else{
+        [self.view endEditing:YES];
         [self fillBusinessDictionary];
     }
     

@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Database.h"
 
-
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,NSURLSessionDelegate, NSURLSessionTaskDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic) NSURLSession *session;
+@property (nonatomic) NSURLSessionUploadTask *uploadTask;
 
 @end

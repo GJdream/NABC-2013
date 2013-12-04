@@ -8,13 +8,48 @@
 
 #import "AppDelegate.h"
 
+static NSString *URL = @"http://141.212.105.78:8080/symfony/individual/batch";
+
 @implementation AppDelegate
 
 @synthesize window = _window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    NSMutableArray * unsentForms = [[Database sharedDB] getUnsentIndividualFroms];
+
+    NSLog(@"INDIVIDUAL FORMS didFinishLaunching: \n%@\n", unsentForms);
+
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:unsentForms
+                                                            options:0
+                                                           error:&error];
     
+    NSURLSessionConfiguration *configuration =
+    [NSURLSessionConfiguration defaultSessionConfiguration];
+    configuration.allowsCellularAccess = NO;
+    
+    _session = [NSURLSession sessionWithConfiguration:configuration
+                                             delegate:self delegateQueue:nil];
+    
+    NSURL *uploadURL = [NSURL URLWithString:URL];
+   
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:uploadURL];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:jsonData];
+    [request setValue:[NSString stringWithFormat:@"%d", [jsonData length]] forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    _uploadTask = [self.session uploadTaskWithRequest:request fromData:jsonData
+                                completionHandler:
+                    ^(NSData *data, NSURLResponse *response, NSError *error) {
+                    NSLog(@"hi handler: \n%@\n", response);
+                  }];
+    
+//    NSURLResponse *response = nil;
+    
+    [_uploadTask resume];
+
     return YES;
 }
 							
@@ -44,8 +79,6 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
-
 
 
 
