@@ -138,6 +138,15 @@ bool fieldsOn;
     
     [self toggleTextFields];
 
+    TradeShow *activeTradeshow = [[Database sharedDB] getActiveTradeshow];
+    if (activeTradeshow != nil) {
+        self.activeTradeshowLabel.text = activeTradeshow.name;
+    }
+    else {
+        self.activeTradeshowLabel.text = @"";
+    }
+    
+    
 }
 
 -(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController

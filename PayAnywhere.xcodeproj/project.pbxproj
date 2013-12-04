@@ -43,6 +43,8 @@
 		B287E29A17F210E90001C929 /* Agent.m in Sources */ = {isa = PBXBuildFile; fileRef = B287E29917F210E90001C929 /* Agent.m */; };
 		B287E29D17F210E90001C929 /* MarketSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B287E29C17F210E90001C929 /* MarketSource.m */; };
 		B287E2A017F213BA0001C929 /* Form+ApplicationDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = B287E29F17F213BA0001C929 /* Form+ApplicationDictionary.m */; };
+		B28C91981845125B009DF756 /* CurrentTradeShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B28C91971845125B009DF756 /* CurrentTradeShowViewController.m */; };
+		B28C919B18451870009DF756 /* SelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B28C919A18451870009DF756 /* SelectionViewController.m */; };
 		B28E583118294A6E002419F9 /* AddAgentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B28E583018294A6E002419F9 /* AddAgentViewController.m */; };
 		B28E5834182959D5002419F9 /* AgentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B28E5833182959D5002419F9 /* AgentsTableViewController.m */; };
 		B28E583718295C9C002419F9 /* AgentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B28E583618295C9C002419F9 /* AgentCell.m */; };
@@ -129,6 +131,10 @@
 		B287E29C17F210E90001C929 /* MarketSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarketSource.m; sourceTree = "<group>"; };
 		B287E29E17F213BA0001C929 /* Form+ApplicationDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Form+ApplicationDictionary.h"; sourceTree = "<group>"; };
 		B287E29F17F213BA0001C929 /* Form+ApplicationDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Form+ApplicationDictionary.m"; sourceTree = "<group>"; };
+		B28C91961845125B009DF756 /* CurrentTradeShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentTradeShowViewController.h; sourceTree = "<group>"; };
+		B28C91971845125B009DF756 /* CurrentTradeShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentTradeShowViewController.m; sourceTree = "<group>"; };
+		B28C919918451870009DF756 /* SelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionViewController.h; sourceTree = "<group>"; };
+		B28C919A18451870009DF756 /* SelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionViewController.m; sourceTree = "<group>"; };
 		B28E582F18294A6E002419F9 /* AddAgentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAgentViewController.h; sourceTree = "<group>"; };
 		B28E583018294A6E002419F9 /* AddAgentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAgentViewController.m; sourceTree = "<group>"; };
 		B28E5832182959D5002419F9 /* AgentsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgentsTableViewController.h; sourceTree = "<group>"; };
@@ -283,6 +289,10 @@
 				B2BE960D18328FB800F0A946 /* Agent */,
 				B29C7A01180B23A80091456D /* SettingsViewController.h */,
 				B29C7A02180B23A80091456D /* SettingsViewController.m */,
+				B28C91961845125B009DF756 /* CurrentTradeShowViewController.h */,
+				B28C91971845125B009DF756 /* CurrentTradeShowViewController.m */,
+				B28C919918451870009DF756 /* SelectionViewController.h */,
+				B28C919A18451870009DF756 /* SelectionViewController.m */,
 			);
 			name = "Admin View Controllers";
 			sourceTree = "<group>";
@@ -527,11 +537,13 @@
 				B2D6AD5D17FB31F000D23361 /* BusinessForm.m in Sources */,
 				14BFE8131710A784005AFCA3 /* BankPageViewController.m in Sources */,
 				142E57271812FCCD00B0AE0E /* birthdayViewControllerIndiv.m in Sources */,
+				B28C919B18451870009DF756 /* SelectionViewController.m in Sources */,
 				142E571C1812FC6800B0AE0E /* AnotherTypePickerViewController.m in Sources */,
 				ED22B7EE1704E91B00ACB03F /* SignupAnywhereDB.m in Sources */,
 				B287E28717F1EAFC0001C929 /* PayAnywhereModel.xcdatamodeld in Sources */,
 				B287E28B17F1F7B90001C929 /* Database.m in Sources */,
 				B287E29A17F210E90001C929 /* Agent.m in Sources */,
+				B28C91981845125B009DF756 /* CurrentTradeShowViewController.m in Sources */,
 				B287E29D17F210E90001C929 /* MarketSource.m in Sources */,
 				B287E2A017F213BA0001C929 /* Form+ApplicationDictionary.m in Sources */,
 				B2BE96141832900D00F0A946 /* MarketSourceCell.m in Sources */,

@@ -43,4 +43,9 @@
 @property (strong, nonatomic) UIStoryboardPopoverSegue *currentPopoverSegue;
 @property (strong, nonatomic) BirthdayViewController *pvc;
 
+
+@property (weak, nonatomic) IBOutlet UILabel *activeTradeshowLabel;
+@property (weak, nonatomic) IBOutlet UILabel *currentAgentLabel;
+
+
 @end
