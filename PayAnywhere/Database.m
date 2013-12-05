@@ -74,6 +74,48 @@ NSPersistentStoreCoordinator *coordinator;
     }
 }
 
+-(NSString *)getFirstAndLastNameForAgentID:(NSNumber *)aid
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Agent" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    [fetchRequest setReturnsObjectsAsFaults:NO];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"aid == %@", aid]];
+    [fetchRequest setPredicate:predicate];
+    
+    NSError *error;
+    NSArray *resultAgentArray = [context executeFetchRequest:fetchRequest error:&error];
+
+    if ([resultAgentArray count] != 0) {
+        Agent *resultAgent = [resultAgentArray objectAtIndex:0];
+        return [NSString stringWithFormat:@"%@ %@",resultAgent.firstName, resultAgent.lastName];
+    }
+    else {
+        return @"";
+    }
+}
+
+-(NSString *)getTradeshowNameForMSID:(NSNumber *)msid
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"MarketSource" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    [fetchRequest setReturnsObjectsAsFaults:NO];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"msid == %@", msid]];
+    [fetchRequest setPredicate:predicate];
+    
+    NSError *error;
+    NSArray *resultAgentArray = [context executeFetchRequest:fetchRequest error:&error];
+    
+    if ([resultAgentArray count] != 0) {
+        MarketSource *resultMarketSource = [resultAgentArray objectAtIndex:0];
+        return [NSString stringWithFormat:@"%@",resultMarketSource.name];
+    }
+    else {
+        return @"";
+    }
+}
+
 - (id)insertIndividualFormWithInfo:(NSDictionary *)info
                             andAgent:(Agent *)agent
                      andMarketSource:(MarketSource *)marketSource

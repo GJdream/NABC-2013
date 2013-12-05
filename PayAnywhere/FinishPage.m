@@ -300,33 +300,16 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
                            [self.application setObject:[NSNumber numberWithBool:NO] forKey:@"receivedByServer"];
                        }
                        
-                       //Agent *agent = [[Database sharedDB] getActiveAgent];
-                       //MarketSource *tradeshow = [[Database sharedDB] getActiveTradeshow];
-                       /* TEST DATA */
-                       NSMutableDictionary *testMarketSource = [[NSMutableDictionary alloc] init];
-                       [testMarketSource setObject:@"Chicago" forKey:@"city"];
-                       [testMarketSource setObject:@"IL" forKey:@"state"];
-                       [testMarketSource setObject:@"Test Trade Show" forKey:@"name"];
-                       [testMarketSource setObject:[NSDate date] forKey:@"date"];
-                       [testMarketSource setObject:[NSNumber numberWithInt:100] forKey:@"msid"];
-                       
-                       NSMutableDictionary *testAgent = [[NSMutableDictionary alloc] init];
-                       [testAgent setObject:[NSNumber numberWithInt:100] forKey:@"aid"];
-                       [testAgent setObject:[NSNumber numberWithInt:1234] forKey:@"pin"];
-                       [testAgent setObject:@"Joe" forKey:@"firstName"];
-                       [testAgent setObject:@"Agent" forKey:@"lastName"];
-                       
-                       MarketSource *marketSource = [[Database sharedDB] insertMarketSourceWithInfo:testMarketSource];
-                       Agent *agent = [[Database sharedDB] insertAgentWithInfo:testAgent];
-                       /**/
+                       Agent *agent = [[Database sharedDB] getActiveAgent];
+                       MarketSource *tradeshow = [[Database sharedDB] getActiveTradeshow];
                        
                        if ([[self.application objectForKey:FORM_TYPE] isEqualToString:@"individual"]) {
                            //store individual application
-                           [[Database sharedDB] insertIndividualFormWithInfo:self.application andAgent:agent andMarketSource:marketSource];
+                           [[Database sharedDB] insertIndividualFormWithInfo:self.application andAgent:agent andMarketSource:tradeshow];
                        }
                        else {
                            //store business application
-                           [[Database sharedDB] insertBusinessFormWithInfo:self.application andAgent:agent andMarketSource:marketSource];
+                           [[Database sharedDB] insertBusinessFormWithInfo:self.application andAgent:agent andMarketSource:tradeshow];
                        }
 
                    }];

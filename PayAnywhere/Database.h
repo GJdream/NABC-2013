@@ -36,6 +36,9 @@
 - (MarketSource *)getActiveTradeshow;
 - (Agent *)getActiveAgent;
 
+-(NSString *)getFirstAndLastNameForAgentID:(NSNumber *)aid;
+-(NSString *)getTradeshowNameForMSID:(NSNumber *)msid;
+
 - (NSArray *)allIndividualForms;
 - (NSArray *)allBusinessForms;
 - (NSArray *)allAgents;
