@@ -63,6 +63,26 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     NSLog(@"Second bus page Application: %@", self.application);
 }
 
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    MarketSource *activeTradeshow = [[Database sharedDB] getActiveTradeshow];
+    Agent *activeAgent = [[Database sharedDB] getActiveAgent];
+    if (activeTradeshow != nil) {
+        self.activeTradeshowLabel.text = activeTradeshow.name;
+    }
+    else {
+        self.activeTradeshowLabel.text = @"";
+    }
+    
+    if (activeAgent != nil) {
+        self.currentAgentLabel.text = [NSString stringWithFormat:@"%@ %@", activeAgent.firstName, activeAgent.lastName];
+    }
+    else {
+        self.currentAgentLabel.text = @"";
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

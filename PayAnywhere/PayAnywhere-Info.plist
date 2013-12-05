@@ -10,6 +10,8 @@
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
 	<string>NABiconCompact.PNG</string>
+	<key>CFBundleIconFile~ipad</key>
+	<string>NABiconCompact</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.northamericanbancard.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>

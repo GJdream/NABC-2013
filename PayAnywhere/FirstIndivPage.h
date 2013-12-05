@@ -33,6 +33,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *checkBox;
 @property (strong, nonatomic) IBOutlet UISwitch *termsAcceptedSwitch;
 
+@property (weak, nonatomic) IBOutlet UILabel *activeTradeshowLabel;
+@property (weak, nonatomic) IBOutlet UILabel *currentAgentLabel;
 
 - (IBAction)create:(id)sender;
 - (IBAction)clearForm:(id)sender;

@@ -25,6 +25,9 @@
 @property (strong, nonatomic) IBOutlet UITextField *suiteAptField;
 @property (strong, nonatomic) IBOutlet UITextField *zipField;
 
+@property (weak, nonatomic) IBOutlet UILabel *activeTradeshowLabel;
+@property (weak, nonatomic) IBOutlet UILabel *currentAgentLabel;
+
 - (IBAction)radioButtonOneClicked:(id)sender;
 - (IBAction)radioButtonTwoClicked:(id)sender;
 - (IBAction)create:(id)sender;

@@ -14,6 +14,8 @@
 
 @property (strong, nonatomic) NSMutableDictionary * application;
 
+@property (weak, nonatomic) IBOutlet UILabel *activeTradeshowLabel;
+@property (weak, nonatomic) IBOutlet UILabel *currentAgentLabel;
 
 - (IBAction)enterInfo:(id)sender;
 - (IBAction)skipInfo:(id)sender;

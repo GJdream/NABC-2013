@@ -1162,8 +1162,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="activeTradeshowLabel" destination="Dar-Id-zgE" id="P3u-Oh-HSe"/>
                         <outlet property="address" destination="bms-MO-xIt" id="NeR-IS-sdd"/>
                         <outlet property="birth" destination="Jdn-s6-B1a" id="EQX-2W-lOp"/>
+                        <outlet property="currentAgentLabel" destination="mth-i9-7xX" id="HZH-JJ-Y6t"/>
                         <outlet property="dba" destination="pRX-gM-haW" id="RMm-P2-HBM"/>
                         <outlet property="email" destination="Zu3-KS-pKP" id="sdX-bG-9Oc"/>
                         <outlet property="first" destination="8pj-I4-ejH" id="paJ-ah-NLF"/>
@@ -1290,7 +1292,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Active Tradeshow" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NWY-CH-DXq">
-                                <rect key="frame" x="20" y="202" width="284" height="41"/>
+                                <rect key="frame" x="20" y="101" width="284" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are being assisted by: Johny Deere" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jQA-YG-yxe">
+                                <rect key="frame" x="715" y="101" width="289" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1316,7 +1325,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </navigationItem>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="activeTradeshowLabel" destination="NWY-CH-DXq" id="PXp-F9-NTM"/>
                         <outlet property="addressField" destination="rGf-4A-PSC" id="nGB-yb-d5W"/>
+                        <outlet property="currentAgentLabel" destination="jQA-YG-yxe" id="pNr-yf-2wm"/>
                         <outlet property="radioButtonOne" destination="rBc-R4-Bpg" id="gld-b4-65o"/>
                         <outlet property="radioButtonTwo" destination="zDP-zw-5oG" id="Cav-8B-fUk"/>
                         <outlet property="suiteAptField" destination="PV0-gq-LL4" id="vKq-TV-rdV"/>
@@ -1501,9 +1512,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="activeTradeshowLabel" destination="NlE-Dw-gtS" id="GUN-WB-vcJ"/>
                         <outlet property="anotherTypeButton" destination="9g8-c3-QLn" id="vhj-je-02E"/>
                         <outlet property="busTimeButton" destination="ZAF-Ky-Bmz" id="4Sk-xa-rk2"/>
                         <outlet property="corpName" destination="9ba-bT-MJT" id="yug-AZ-QeT"/>
+                        <outlet property="currentAgentLabel" destination="7zJ-7C-NC9" id="3fD-zD-M2X"/>
                         <outlet property="fedTaxId" destination="Yaa-Cr-Q78" id="MXi-iH-CBE"/>
                         <outlet property="higestSalesButton" destination="hXS-rB-y6a" id="HdY-Ku-nHT"/>
                         <outlet property="monthlySalesButton" destination="DXI-6P-g75" id="Yfk-59-4tl"/>
@@ -1896,6 +1909,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="accountNumberField" destination="gtv-0B-y7c" id="7fY-Mm-lZ2"/>
+                        <outlet property="activeTradeshowLabel" destination="SOo-2Z-73l" id="pIA-sO-L2L"/>
+                        <outlet property="currentAgentLabel" destination="naS-5h-ft9" id="XNe-bt-4Ix"/>
                         <outlet property="routingNumField" destination="6n2-JB-CIh" id="UdC-DR-M8y"/>
                         <segue destination="Wgt-Ge-yuk" kind="push" identifier="BankToFinishSegue" id="i4k-zQ-iQ8"/>
                     </connections>
@@ -2062,6 +2077,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="gxy-QG-x0N"/>
+        <segue reference="QTR-MW-uaq"/>
     </inferredMetricsTieBreakers>
 </document>
