@@ -278,13 +278,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     //Create URL request
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     
-   
-    //Testing
-    NSError *e;
-    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:jsonData options:nil error:&e];
-    NSLog(@"json file = %@", dict);
-    //End Testing
-    
     if ([[self.application objectForKey:FORM_TYPE] isEqualToString:@"individual"]) {
         [request setURL:[NSURL URLWithString:@"http://141.212.105.78:8080/symfony/individual/"]];
     }
