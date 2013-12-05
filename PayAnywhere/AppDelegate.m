@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 
-static NSString *URL = @"http://141.212.105.78:8080/symfony/individual/batch";
+static NSString *URL = @"http://141.212.105.78:8080/symfony/individual/batch/";
 
 @implementation AppDelegate
 
@@ -19,7 +19,7 @@ static NSString *URL = @"http://141.212.105.78:8080/symfony/individual/batch";
     NSMutableArray * unsentForms = [[Database sharedDB] getUnsentIndividualFroms];
     
     NSLog(@"INDIVIDUAL FORMS didFinishLaunching: \n%@\n", unsentForms);
-/*
+
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:unsentForms
                                                             options:0
@@ -33,7 +33,7 @@ static NSString *URL = @"http://141.212.105.78:8080/symfony/individual/batch";
                                              delegate:self delegateQueue:nil];
     
     NSURL *uploadURL = [NSURL URLWithString:URL];
-   
+
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:uploadURL];
     [request setHTTPMethod:@"POST"];
     [request setHTTPBody:jsonData];
@@ -43,13 +43,15 @@ static NSString *URL = @"http://141.212.105.78:8080/symfony/individual/batch";
     _uploadTask = [self.session uploadTaskWithRequest:request fromData:jsonData
                                 completionHandler:
                     ^(NSData *data, NSURLResponse *response, NSError *error) {
-                    NSLog(@"hi handler: \n%@\n", response);
+                        NSLog(@"hi handler: \n%@\n", response);
+                        int code = [(NSHTTPURLResponse*)response statusCode];
+                        if (code == 201) {
+                            [[Database sharedDB] updateAllIndividualFromsToReceived];
+                        }
                   }];
-    
-//    NSURLResponse *response = nil;
-    
+
     [_uploadTask resume];
-*/
+
     return YES;
 }
 							

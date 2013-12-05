@@ -43,5 +43,6 @@
 - (NSArray *)allAgents;
 - (NSArray *)allMarketSources;
 - (NSMutableArray *)getUnsentIndividualFroms;
+- (void) updateAllIndividualFromsToReceived;
 
 @end
