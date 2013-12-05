@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Database.h"
+#import "TradeShow.h"
 
 @interface SettingsViewController : UITableViewController
 

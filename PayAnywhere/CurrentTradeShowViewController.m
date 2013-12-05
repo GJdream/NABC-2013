@@ -142,13 +142,11 @@
 
 -(void)didStartCurrentTradeshow{
     [self.navigationController popViewControllerAnimated:YES];
-    
     [[Database sharedDB] activateTradeshow:self.currentTradeshow];
 }
 
 -(void)didStopCurrentTradeshow{
     [self.navigationController popViewControllerAnimated:YES];
-
     [[Database sharedDB] deactivateTradeshow];
 }
 

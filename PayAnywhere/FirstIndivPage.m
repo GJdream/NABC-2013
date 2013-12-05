@@ -88,8 +88,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     
     self.tabBarController.delegate = self;
     
-    NSLog(@"Indiv on load application dictionary: %@", self.application);
-    
 	// Do any additional setup after loading the view.
     
     //Fill text fields if possible

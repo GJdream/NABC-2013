@@ -1,8 +1,8 @@
 //
-//  Form.m
+//  IndividualForm.m
 //  PayAnywhere
 //
-//  Created by newuser on 10/1/13.
+//  Created by newuser on 12/4/13.
 //  Copyright (c) 2013 NAB. All rights reserved.
 //
 
@@ -13,19 +13,20 @@
 
 @implementation IndividualForm
 
+@dynamic address;
 @dynamic aid;
 @dynamic dba;
+@dynamic dob;
 @dynamic email;
+@dynamic fid;
 @dynamic firstName;
 @dynamic lastName;
+@dynamic msid;
 @dynamic phoneNumber;
+@dynamic receivedByServer;
 @dynamic ssn;
 @dynamic suiteApt;
 @dynamic zipCode;
-@dynamic fid;
-@dynamic msid;
-@dynamic dob;
-@dynamic address;
 @dynamic whereFilled;
 @dynamic whoFilled;
 
