@@ -260,52 +260,59 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     [request setHTTPBody:jsonData];
     
     //Create response
-    [NSURLConnection sendAsynchronousRequest:request
-                                       queue:[NSOperationQueue mainQueue]
-                           completionHandler:
-     ^(NSURLResponse *response, NSData *data, NSError *error){
-         
-        NSData *POSTReply = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
-         NSString *theReply = [[NSString alloc] initWithBytes:[POSTReply bytes] length:[POSTReply length] encoding: NSASCIIStringEncoding];
-         NSLog(@"Request completed\n Reply: %@", theReply);
-         
-         if ([(NSHTTPURLResponse*)response statusCode] == 201) {
-             [self.application setObject:@YES forKey:@"receivedByServer"];
-         }
-         else {
-             [self.application setObject:@NO forKey:@"receivedByServer"];
-         }
-         
-         //Agent *agent = [[Database sharedDB] getActiveAgent];
-         //MarketSource *tradeshow = [[Database sharedDB] getActiveTradeshow];
-         /* TEST DATA */
-         NSMutableDictionary *testMarketSource = [[NSMutableDictionary alloc] init];
-         [testMarketSource setObject:@"Chicago" forKey:@"city"];
-         [testMarketSource setObject:@"IL" forKey:@"state"];
-         [testMarketSource setObject:@"Test Trade Show" forKey:@"name"];
-         [testMarketSource setObject:[NSDate date] forKey:@"date"];
-         [testMarketSource setObject:[NSNumber numberWithInt:100] forKey:@"msid"];
-         
-         NSMutableDictionary *testAgent = [[NSMutableDictionary alloc] init];
-         [testAgent setObject:[NSNumber numberWithInt:100] forKey:@"aid"];
-         [testAgent setObject:[NSNumber numberWithInt:1234] forKey:@"pin"];
-         [testAgent setObject:@"Joe" forKey:@"firstName"];
-         [testAgent setObject:@"Agent" forKey:@"lastName"];
-         
-         MarketSource *marketSource = [[Database sharedDB] insertMarketSourceWithInfo:testMarketSource];
-         Agent *agent = [[Database sharedDB] insertAgentWithInfo:testAgent];
-         /**/
-         
-         if ([[self.application objectForKey:FORM_TYPE] isEqualToString:@"individual"]) {
-             //store individual application
-             [[Database sharedDB] insertIndividualFormWithInfo:self.application andAgent:agent andMarketSource:marketSource];
-         }
-         else {
-             //store business application
-             [[Database sharedDB] insertBusinessFormWithInfo:self.application andAgent:agent andMarketSource:marketSource];
-         }
+    NSURLSessionConfiguration *configuration =
+    [NSURLSessionConfiguration defaultSessionConfiguration];
+    configuration.allowsCellularAccess = NO;
+    
+    _session = [NSURLSession sessionWithConfiguration:configuration
+                                             delegate:self delegateQueue:nil];
+    _uploadTask = [self.session uploadTaskWithRequest:request fromData:jsonData
+                                    completionHandler:
+                   ^(NSData *data, NSURLResponse *response, NSError *error) {
+                       NSData *POSTReply = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+                       NSString *theReply = [[NSString alloc] initWithBytes:[POSTReply bytes] length:[POSTReply length] encoding: NSASCIIStringEncoding];
+                       NSLog(@"Request completed\n Reply: %@", theReply);
+                       
+                       if ([(NSHTTPURLResponse*)response statusCode
+                            ] == 201) {
+                           [self.application setObject:[NSNumber numberWithBool:YES] forKey:@"receivedByServer"];
+                       }
+                       else {
+                           [self.application setObject:[NSNumber numberWithBool:NO] forKey:@"receivedByServer"];
+                       }
+                       
+                       //Agent *agent = [[Database sharedDB] getActiveAgent];
+                       //MarketSource *tradeshow = [[Database sharedDB] getActiveTradeshow];
+                       /* TEST DATA */
+                       NSMutableDictionary *testMarketSource = [[NSMutableDictionary alloc] init];
+                       [testMarketSource setObject:@"Chicago" forKey:@"city"];
+                       [testMarketSource setObject:@"IL" forKey:@"state"];
+                       [testMarketSource setObject:@"Test Trade Show" forKey:@"name"];
+                       [testMarketSource setObject:[NSDate date] forKey:@"date"];
+                       [testMarketSource setObject:[NSNumber numberWithInt:100] forKey:@"msid"];
+                       
+                       NSMutableDictionary *testAgent = [[NSMutableDictionary alloc] init];
+                       [testAgent setObject:[NSNumber numberWithInt:100] forKey:@"aid"];
+                       [testAgent setObject:[NSNumber numberWithInt:1234] forKey:@"pin"];
+                       [testAgent setObject:@"Joe" forKey:@"firstName"];
+                       [testAgent setObject:@"Agent" forKey:@"lastName"];
+                       
+                       MarketSource *marketSource = [[Database sharedDB] insertMarketSourceWithInfo:testMarketSource];
+                       Agent *agent = [[Database sharedDB] insertAgentWithInfo:testAgent];
+                       /**/
+                       
+                       if ([[self.application objectForKey:FORM_TYPE] isEqualToString:@"individual"]) {
+                           //store individual application
+                           [[Database sharedDB] insertIndividualFormWithInfo:self.application andAgent:agent andMarketSource:marketSource];
+                       }
+                       else {
+                           //store business application
+                           [[Database sharedDB] insertBusinessFormWithInfo:self.application andAgent:agent andMarketSource:marketSource];
+                       }
 
-     }];
+                   }];
+    
+    [_uploadTask resume];
 
 }
 
