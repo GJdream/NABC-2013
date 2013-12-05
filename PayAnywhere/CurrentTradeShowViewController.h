@@ -13,7 +13,7 @@
 
 @interface CurrentTradeShowViewController : UITableViewController <SelectionDelegate>
 
-@property (strong, nonatomic) NSArray *agents;
+@property (strong, nonatomic) Agent *agent;
 @property (strong, nonatomic) MarketSource *currentTradeshow;
 
 @property (weak, nonatomic) IBOutlet UILabel *tradeshowLabel;

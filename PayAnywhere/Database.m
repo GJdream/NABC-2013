@@ -42,14 +42,16 @@ NSPersistentStoreCoordinator *coordinator;
     return sharedDB;
 }
 
--(void)activateTradeshow:(MarketSource *)tradeshow
+-(void)activateTradeshow:(MarketSource *)tradeshow withAgent:(Agent *)agent
 {
     activeTradeshow = tradeshow;
+    activeAgent = agent;
 }
 
 -(void)deactivateTradeshow
 {
     activeTradeshow = nil;
+    activeAgent = nil;
 }
 
 -(MarketSource *)getActiveTradeshow
@@ -90,6 +92,7 @@ NSPersistentStoreCoordinator *coordinator;
     form.fid = [info objectForKey:@"fid"];
     form.dob = [info objectForKey:@"dob"];
     form.address = [info objectForKey:@"address"];
+    form.receivedByServer = [info objectForKey:@"receivedByServer"];
     
     //Get object pointers given ids from info dictionary
     form.aid = agent.aid;
@@ -134,6 +137,7 @@ NSPersistentStoreCoordinator *coordinator;
     form.highestSales = [info objectForKey:@"highestSales"];
     form.ccSales = [info objectForKey:@"ccSales"];
     form.corporationName = [info objectForKey:@"corporationName"];
+    form.receivedByServer = [info objectForKey:@"receivedByServer"];
     
     //Get object pointers given ids from info dictionary
     form.aid = agent.aid;

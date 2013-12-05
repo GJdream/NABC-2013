@@ -16,6 +16,8 @@
 
 @interface FinishPage : UIViewController<UITextFieldDelegate, UITabBarControllerDelegate, UITabBarDelegate>
 
+@property (nonatomic) NSURLSession *session;
+@property (nonatomic) NSURLSessionUploadTask *uploadTask;
 @property (strong, nonatomic) NSMutableDictionary * application;
 @property (strong, nonatomic) IBOutlet UIButton *radioButtonOne;
 @property (strong, nonatomic) IBOutlet UIButton *radioButtonTwo;
