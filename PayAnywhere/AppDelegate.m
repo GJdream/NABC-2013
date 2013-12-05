@@ -17,9 +17,9 @@ static NSString *URL = @"http://141.212.105.78:8080/symfony/individual/batch";
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     NSMutableArray * unsentForms = [[Database sharedDB] getUnsentIndividualFroms];
-
+    
     NSLog(@"INDIVIDUAL FORMS didFinishLaunching: \n%@\n", unsentForms);
-
+/*
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:unsentForms
                                                             options:0
@@ -49,7 +49,7 @@ static NSString *URL = @"http://141.212.105.78:8080/symfony/individual/batch";
 //    NSURLResponse *response = nil;
     
     [_uploadTask resume];
-
+*/
     return YES;
 }
 							

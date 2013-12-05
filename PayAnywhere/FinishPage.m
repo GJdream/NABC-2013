@@ -161,8 +161,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     
     [self.navigationController popToRootViewControllerAnimated:YES];
     
-//    [self.navigationController popToRootViewControllerAnimated:YES];
-    
     NSLog(@"Test Tradeshow...\n");
     [testTradeshow printApplicants];
     
@@ -183,10 +181,10 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     
     NSLog(@"Tab selected : %d", self.tabBarController.selectedIndex);
     if(self.tabBarController.selectedIndex == 0){
-        [self.application setObject:@"individual" forKey:@"applicationType"];
+        [self.application setObject:@"individual" forKey:FORM_TYPE];
     }
     else if(self.tabBarController.selectedIndex == 1){
-        [self.application setObject:@"business" forKey:@"applicationType"];
+        [self.application setObject:@"business" forKey:FORM_TYPE];
     }
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:self.application forKey:@"formDictionary"];
@@ -291,27 +289,24 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 
 -(void)sendJSON{
     //Create JSON using self.application
-    //NSError *error;
-   // BOOL isTurnableToJSON = [NSJSONSerialization
-    //                         isValidJSONObject: self.application];
-    //NSLog(@"Appliation is valid JSON: %hhd", isTurnableToJSON);
+    NSError *error;
+    BOOL isTurnableToJSON = [NSJSONSerialization
+                             isValidJSONObject: self.application];
+    NSLog(@"Appliation is valid JSON: %hhd", isTurnableToJSON);
     
-   // NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self.application
-   //                                                    options:0
-   //                                                      error:&error];
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self.application
+                                                       options:0
+                                                         error:&error];
     
-
+    NSString *postLength = [NSString stringWithFormat:@"%d", [jsonData length]];
     
     
-    
-//    NSString *postLength = [NSString stringWithFormat:@"%d", [jsonData length]];
-  /*
     //Create URL request
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     
    
     NSError *e;
-    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:jsonData options:nil error:&e];
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:&e];
     NSLog(@"json file = %@", dict);
    
 
@@ -363,6 +358,11 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
              //store business application
              [[Database sharedDB] insertBusinessFormWithInfo:self.application andAgent:agent andMarketSource:marketSource];
          }
+/*
+     }];
+/*
+    //Make the JSON request
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
 
      }];*/
 }

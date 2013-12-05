@@ -456,6 +456,7 @@
 				ORGANIZATIONNAME = NAB;
 				TargetAttributes = {
 					EDFE06F716CC2CE200EED6D6 = {
+						DevelopmentTeam = T8KZZH4KS6;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -647,10 +648,13 @@
 		EDFE071C16CC2CE200EED6D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PayAnywhere/PayAnywhere-Prefix.pch";
 				INFOPLIST_FILE = "PayAnywhere/PayAnywhere-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -658,10 +662,13 @@
 		EDFE071D16CC2CE200EED6D6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PayAnywhere/PayAnywhere-Prefix.pch";
 				INFOPLIST_FILE = "PayAnywhere/PayAnywhere-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
