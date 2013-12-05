@@ -34,6 +34,23 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    
+    [super viewDidAppear:animated];
+    MarketSource *activeTradeshow = [[Database sharedDB] getActiveTradeshow];
+    Agent *activeAgent = [[Database sharedDB] getActiveAgent];
+    if (activeTradeshow != nil) {
+        self.currentTradeshow = activeTradeshow;
+        self.tradeshowLabel.text = [NSString stringWithFormat:@"Tradeshow: %@", activeTradeshow.name];
+    }
+    
+    if (activeAgent != nil) {
+        self.agentsLabel.text = [NSString stringWithFormat:@"Active Agent: %@ %@", activeAgent.firstName, activeAgent.lastName];
+        self.agent = activeAgent;
+    }
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
