@@ -2,7 +2,7 @@
 //  BusinessForm.m
 //  PayAnywhere
 //
-//  Created by newuser on 10/1/13.
+//  Created by newuser on 12/4/13.
 //  Copyright (c) 2013 NAB. All rights reserved.
 //
 
@@ -13,30 +13,31 @@
 
 @implementation BusinessForm
 
-@dynamic aid;
-@dynamic fid;
-@dynamic msid;
-@dynamic firstName;
-@dynamic lastName;
-@dynamic email;
-@dynamic phoneNumber;
 @dynamic address;
-@dynamic suiteApt;
-@dynamic zipCode;
-@dynamic ssn;
-@dynamic dob;
-@dynamic dba;
+@dynamic aid;
 @dynamic businessAddress;
+@dynamic businessDescription;
 @dynamic businessSuiteApt;
 @dynamic businessZipCode;
-@dynamic fedTaxID;
-@dynamic type;
-@dynamic yearsInBusiness;
-@dynamic businessDescription;
-@dynamic highestSales;
 @dynamic ccSales;
 @dynamic corporationName;
-@dynamic whoFilled;
+@dynamic dba;
+@dynamic dob;
+@dynamic email;
+@dynamic fedTaxID;
+@dynamic fid;
+@dynamic firstName;
+@dynamic highestSales;
+@dynamic lastName;
+@dynamic msid;
+@dynamic phoneNumber;
+@dynamic receivedByServer;
+@dynamic ssn;
+@dynamic suiteApt;
+@dynamic type;
+@dynamic yearsInBusiness;
+@dynamic zipCode;
 @dynamic whereFilled;
+@dynamic whoFilled;
 
 @end

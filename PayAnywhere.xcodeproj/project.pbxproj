@@ -37,6 +37,8 @@
 		14ECA6A916F14509009EEEF1 /* BusinessButtonSelected2.png in Resources */ = {isa = PBXBuildFile; fileRef = 14ECA6A716F14509009EEEF1 /* BusinessButtonSelected2.png */; };
 		14ECA6AA16F14509009EEEF1 /* BusinessButtonUnselected2.png in Resources */ = {isa = PBXBuildFile; fileRef = 14ECA6A816F14509009EEEF1 /* BusinessButtonUnselected2.png */; };
 		14F3FB1D182C36AD0025F54B /* AddMarketSourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F3FB1C182C36AD0025F54B /* AddMarketSourceViewController.m */; };
+		B208D2A7185029DA0049BE15 /* BusinessForm.m in Sources */ = {isa = PBXBuildFile; fileRef = B208D2A6185029DA0049BE15 /* BusinessForm.m */; };
+		B208D2AA185029F90049BE15 /* IndividualForm.m in Sources */ = {isa = PBXBuildFile; fileRef = B208D2A9185029F90049BE15 /* IndividualForm.m */; };
 		B26428CF17F7738B00E0A0E8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B26428CE17F7738B00E0A0E8 /* CoreData.framework */; };
 		B287E28717F1EAFC0001C929 /* PayAnywhereModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B287E28517F1EAFC0001C929 /* PayAnywhereModel.xcdatamodeld */; };
 		B287E28B17F1F7B90001C929 /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = B287E28A17F1F7B90001C929 /* Database.m */; };
@@ -55,8 +57,6 @@
 		B29C7A03180B23A80091456D /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29C7A02180B23A80091456D /* SettingsViewController.m */; };
 		B2BE961118328FF500F0A946 /* MarketSourcesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BE961018328FF500F0A946 /* MarketSourcesTableViewController.m */; };
 		B2BE96141832900D00F0A946 /* MarketSourceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2BE96131832900D00F0A946 /* MarketSourceCell.m */; };
-		B2D6AD5D17FB31F000D23361 /* BusinessForm.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D6AD5C17FB31F000D23361 /* BusinessForm.m */; };
-		B2D6AD6017FB31F000D23361 /* IndividualForm.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D6AD5F17FB31F000D23361 /* IndividualForm.m */; };
 		BA31255D17FCC121005BFB3A /* TradeShow.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31255C17FCC121005BFB3A /* TradeShow.m */; };
 		BA5DB68616F67A8600305C04 /* radio_checked.png in Resources */ = {isa = PBXBuildFile; fileRef = BA5DB68416F67A8600305C04 /* radio_checked.png */; };
 		BA5DB68716F67A8600305C04 /* radio_uncheck.png in Resources */ = {isa = PBXBuildFile; fileRef = BA5DB68516F67A8600305C04 /* radio_uncheck.png */; };
@@ -121,6 +121,10 @@
 		14ECA6A816F14509009EEEF1 /* BusinessButtonUnselected2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BusinessButtonUnselected2.png; path = "../../Buttons-Pictures/BusinessButtonUnselected2.png"; sourceTree = "<group>"; };
 		14F3FB1B182C36AD0025F54B /* AddMarketSourceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMarketSourceViewController.h; sourceTree = "<group>"; };
 		14F3FB1C182C36AD0025F54B /* AddMarketSourceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMarketSourceViewController.m; sourceTree = "<group>"; };
+		B208D2A5185029DA0049BE15 /* BusinessForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessForm.h; sourceTree = "<group>"; };
+		B208D2A6185029DA0049BE15 /* BusinessForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessForm.m; sourceTree = "<group>"; };
+		B208D2A8185029F90049BE15 /* IndividualForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndividualForm.h; sourceTree = "<group>"; };
+		B208D2A9185029F90049BE15 /* IndividualForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndividualForm.m; sourceTree = "<group>"; };
 		B26428CE17F7738B00E0A0E8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B287E28617F1EAFC0001C929 /* PayAnywhereModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PayAnywhereModel.xcdatamodel; sourceTree = "<group>"; };
 		B287E28917F1F7B90001C929 /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
@@ -155,10 +159,6 @@
 		B2BE961018328FF500F0A946 /* MarketSourcesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarketSourcesTableViewController.m; sourceTree = "<group>"; };
 		B2BE96121832900D00F0A946 /* MarketSourceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketSourceCell.h; sourceTree = "<group>"; };
 		B2BE96131832900D00F0A946 /* MarketSourceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarketSourceCell.m; sourceTree = "<group>"; };
-		B2D6AD5B17FB31F000D23361 /* BusinessForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessForm.h; sourceTree = "<group>"; };
-		B2D6AD5C17FB31F000D23361 /* BusinessForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessForm.m; sourceTree = "<group>"; };
-		B2D6AD5E17FB31F000D23361 /* IndividualForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndividualForm.h; sourceTree = "<group>"; };
-		B2D6AD5F17FB31F000D23361 /* IndividualForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndividualForm.m; sourceTree = "<group>"; };
 		BA31255B17FCC121005BFB3A /* TradeShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TradeShow.h; path = Classes/TradeShow.h; sourceTree = "<group>"; };
 		BA31255C17FCC121005BFB3A /* TradeShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TradeShow.m; path = Classes/TradeShow.m; sourceTree = "<group>"; };
 		BA5DB68416F67A8600305C04 /* radio_checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radio_checked.png; sourceTree = "<group>"; };
@@ -251,11 +251,11 @@
 		B287E28817F1F7450001C929 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B208D2A5185029DA0049BE15 /* BusinessForm.h */,
+				B208D2A6185029DA0049BE15 /* BusinessForm.m */,
 				B287E28517F1EAFC0001C929 /* PayAnywhereModel.xcdatamodeld */,
-				B2D6AD5E17FB31F000D23361 /* IndividualForm.h */,
-				B2D6AD5F17FB31F000D23361 /* IndividualForm.m */,
-				B2D6AD5B17FB31F000D23361 /* BusinessForm.h */,
-				B2D6AD5C17FB31F000D23361 /* BusinessForm.m */,
+				B208D2A8185029F90049BE15 /* IndividualForm.h */,
+				B208D2A9185029F90049BE15 /* IndividualForm.m */,
 				B287E29B17F210E90001C929 /* MarketSource.h */,
 				B287E29C17F210E90001C929 /* MarketSource.m */,
 				B287E29817F210E90001C929 /* Agent.h */,
@@ -529,8 +529,8 @@
 				B296F62B183DB963003B4479 /* Constants.m in Sources */,
 				BA31255D17FCC121005BFB3A /* TradeShow.m in Sources */,
 				EDFE070C16CC2CE200EED6D6 /* AppDelegate.m in Sources */,
+				B208D2AA185029F90049BE15 /* IndividualForm.m in Sources */,
 				EDFE072A16CC2D7900EED6D6 /* FinishPage.m in Sources */,
-				B2D6AD6017FB31F000D23361 /* IndividualForm.m in Sources */,
 				EDFE072B16CC2D7900EED6D6 /* FirstBusPage.m in Sources */,
 				14F3FB1D182C36AD0025F54B /* AddMarketSourceViewController.m in Sources */,
 				B2BE961118328FF500F0A946 /* MarketSourcesTableViewController.m in Sources */,
@@ -543,7 +543,6 @@
 				B296F635183DD3D7003B4479 /* FormDetailViewController.m in Sources */,
 				14B47A8616F1129B00197699 /* Application.m in Sources */,
 				14E66B5117020FD100D1FE66 /* FunctionsClass.m in Sources */,
-				B2D6AD5D17FB31F000D23361 /* BusinessForm.m in Sources */,
 				14BFE8131710A784005AFCA3 /* BankPageViewController.m in Sources */,
 				142E57271812FCCD00B0AE0E /* birthdayViewControllerIndiv.m in Sources */,
 				B28C919B18451870009DF756 /* SelectionViewController.m in Sources */,
@@ -555,6 +554,7 @@
 				B28C91981845125B009DF756 /* CurrentTradeShowViewController.m in Sources */,
 				B287E29D17F210E90001C929 /* MarketSource.m in Sources */,
 				B287E2A017F213BA0001C929 /* Form+ApplicationDictionary.m in Sources */,
+				B208D2A7185029DA0049BE15 /* BusinessForm.m in Sources */,
 				B2BE96141832900D00F0A946 /* MarketSourceCell.m in Sources */,
 				14BB7A8C183135C400DD91CA /* FirstTypeViewController.m in Sources */,
 				B296F632183DD3C2003B4479 /* FormCell.m in Sources */,

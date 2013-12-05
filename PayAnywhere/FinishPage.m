@@ -335,38 +335,36 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
          NSData *POSTReply = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
          NSString *theReply = [[NSString alloc] initWithBytes:[POSTReply bytes] length:[POSTReply length] encoding: NSASCIIStringEncoding];
          NSLog(@"Request completed\n Reply: %@", theReply);
+         
+         /* TEST DATA f*/
+    /*
+         NSMutableDictionary *testMarketSource = [[NSMutableDictionary alloc] init];
+         [testMarketSource setObject:@"Chicago" forKey:@"city"];
+         [testMarketSource setObject:@"IL" forKey:@"state"];
+         [testMarketSource setObject:@"Test Trade Show" forKey:@"name"];
+         [testMarketSource setObject:[NSDate date] forKey:@"date"];
+         [testMarketSource setObject:[NSNumber numberWithInt:100] forKey:@"msid"];
+         
+         NSMutableDictionary *testAgent = [[NSMutableDictionary alloc] init];
+         [testAgent setObject:[NSNumber numberWithInt:100] forKey:@"aid"];
+         [testAgent setObject:[NSNumber numberWithInt:1234] forKey:@"pin"];
+         [testAgent setObject:@"Joe" forKey:@"firstName"];
+         [testAgent setObject:@"Agent" forKey:@"lastName"];
+         
+         MarketSource *marketSource = [[Database sharedDB] insertMarketSourceWithInfo:testMarketSource];
+         Agent *agent = [[Database sharedDB] insertAgentWithInfo:testAgent];
+         /**/
+         /*
+         if ([[self.application objectForKey:FORM_TYPE] isEqualToString:@"individual"]) {
+             //store individual application
+             [[Database sharedDB] insertIndividualFormWithInfo:self.application andAgent:agent andMarketSource:marketSource];
+         }
+         else {
+             //store business application
+             [[Database sharedDB] insertBusinessFormWithInfo:self.application andAgent:agent andMarketSource:marketSource];
+         }
 
-     }];
-/*
-    //Make the JSON request
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-
-    NSURLConnection *theConnection=[[NSURLConnection alloc] initWithRequest:request delegate:self];
-
-    if(theConnection){
-    //URL for individual POST
-    if ([[self.application objectForKey:@"formType"] isEqual: @"individual"]) {
-        [request setURL:[NSURL URLWithString:@"http://141.212.105.78:8080/app.php/individual/"]];
-    } else {
-        [request setURL:[NSURL URLWithString:@"http://141.212.105.78:8080/app.php/business/"]];
-    }
-    [request setHTTPMethod:@"POST"];
-    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    [request setValue:@"application/x-www-form-urlencoded;charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
-    [request setHTTPBody:jsonData];
-    
-    //Create and recieve the response from the server
-    NSHTTPURLResponse *response = nil;
-   // NSError *error = nil;
-    NSData *POSTReply = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
-    NSString *theReply = [[NSString alloc] initWithBytes:[POSTReply bytes] length:[POSTReply length] encoding: NSASCIIStringEncoding] ;
-    NSLog(@"Reply: %@", theReply);
-    }
- 
- */
-    
-    [self.application removeAllObjects];
-    
+     }];*/
 }
 
 -(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController

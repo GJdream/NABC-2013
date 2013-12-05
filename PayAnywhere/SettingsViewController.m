@@ -77,6 +77,17 @@
     {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TradeshowModeCell" forIndexPath:indexPath];
         
+        TradeShow * tradeshow = [[Database sharedDB] getActiveTradeshow];
+        
+        if (tradeshow == nil) {
+            cell.textLabel.text = @"Set Active Tradeshow";
+            cell.textLabel.textColor = [UIColor redColor];
+        }
+        else {
+            cell.textLabel.text = [NSString stringWithFormat:@"Deactive %@", tradeshow.name];
+            cell.textLabel.textColor = [UIColor greenColor];
+        }
+        
         return cell;
     }
     else

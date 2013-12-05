@@ -137,7 +137,10 @@ bool fieldsOn;
     self.businessZip.text = [self.application objectForKey:@"businessZipCode"];
     
     [self toggleTextFields];
+}
 
+-(void)viewWillAppear:(BOOL)animated
+{
     TradeShow *activeTradeshow = [[Database sharedDB] getActiveTradeshow];
     if (activeTradeshow != nil) {
         self.activeTradeshowLabel.text = activeTradeshow.name;
@@ -145,8 +148,6 @@ bool fieldsOn;
     else {
         self.activeTradeshowLabel.text = @"";
     }
-    
-    
 }
 
 -(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
