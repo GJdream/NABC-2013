@@ -95,6 +95,34 @@ NSPersistentStoreCoordinator *coordinator;
     }
 }
 
+-(NSString *)getNumFormsForAgentID:(NSNumber *)aid AndMSID:(NSNumber *)msid
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"IndividualForm" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    [fetchRequest setReturnsObjectsAsFaults:NO];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"aid == %@ AND msid == %@", aid, msid]];
+    [fetchRequest setPredicate:predicate];
+    
+    NSError *error;
+    NSArray *resultIndivFormArray = [context executeFetchRequest:fetchRequest error:&error];
+    int numIndivForms = [resultIndivFormArray count];
+    
+    entity = [NSEntityDescription entityForName:@"BusinessForm" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    [fetchRequest setReturnsObjectsAsFaults:NO];
+    
+    predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"aid == %@ AND msid == %@", aid, msid]];
+    [fetchRequest setPredicate:predicate];
+    
+    NSArray *resultBusFormArray = [context executeFetchRequest:fetchRequest error:&error];
+    int numBusForms = [resultBusFormArray count];
+    NSNumber *numForms = [NSNumber numberWithInt:numBusForms + numIndivForms];
+    
+    return [NSString stringWithFormat:@"%@", numForms];
+}
+
 -(NSString *)getTradeshowNameForMSID:(NSNumber *)msid
 {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];

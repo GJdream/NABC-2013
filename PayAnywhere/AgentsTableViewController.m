@@ -86,6 +86,8 @@ NSArray *agentsArray;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    MarketSource *activeTradeshow = [[Database sharedDB] getActiveTradeshow];
+    
     static NSString *CellIdentifier = @"AgentCell";
     if (indexPath.section == 0)
     {
@@ -94,6 +96,16 @@ NSArray *agentsArray;
         Agent *agent = [agentsArray objectAtIndex:indexPath.row];
         cell.name.text = [NSString stringWithFormat:@"%@ %@", agent.firstName, agent.lastName];
         cell.aid.text = [NSString stringWithFormat:@"%@", agent.aid];
+        
+        
+        if(activeTradeshow.msid != nil){
+            NSString *numForms = [[Database sharedDB] getNumFormsForAgentID:agent.aid AndMSID:activeTradeshow.msid];
+            cell.formsFilled.text = [NSString stringWithFormat:@"Forms Filled: %@",
+                            numForms];
+        }
+        else{
+            cell.formsFilled.text = [NSString stringWithFormat:@"Forms Filled: 0"];
+        }
         
         return cell;
     }

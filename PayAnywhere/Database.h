@@ -38,6 +38,8 @@
 
 -(NSString *)getFirstAndLastNameForAgentID:(NSNumber *)aid;
 -(NSString *)getTradeshowNameForMSID:(NSNumber *)msid;
+-(NSString *)getNumFormsForAgentID:(NSNumber *)aid AndMSID:(NSNumber *)msid;
+
 
 - (NSArray *)allIndividualForms;
 - (NSArray *)allBusinessForms;
