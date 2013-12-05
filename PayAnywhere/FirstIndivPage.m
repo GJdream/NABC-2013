@@ -233,7 +233,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     [self fillDictionary];
     
     //If all the required fields are filled in, do the segue
-    if((first && last && email && phone && address && zip && ssn && trmsAcc && birthFilled) || TRUE){
+    if((first && last && email && phone && address && zip && ssn && trmsAcc && birthFilled) || FALSE){
     [self performSegueWithIdentifier:@"IndivToBankSegue" sender:nil];
     }
     //Otherwise, display the alert view with generated string
