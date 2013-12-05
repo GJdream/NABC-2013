@@ -151,10 +151,10 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     
     NSLog(@"Tab selected : %d", self.tabBarController.selectedIndex);
     if(self.tabBarController.selectedIndex == 0){
-        [self.application setObject:@"individual" forKey:FORM_TYPE];
+        [self.application setObject:@"individual" forKey:@"applicationType"];
     }
     else if(self.tabBarController.selectedIndex == 1){
-        [self.application setObject:@"business" forKey:FORM_TYPE];
+        [self.application setObject:@"business" forKey:@"applicationType"];
     }
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:self.application forKey:@"formDictionary"];
@@ -281,7 +281,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
    
     //Testing
     NSError *e;
-    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:&e];
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:jsonData options:nil error:&e];
     NSLog(@"json file = %@", dict);
     //End Testing
     
