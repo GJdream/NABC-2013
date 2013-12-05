@@ -317,16 +317,16 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
              [self.application setObject:@NO forKey:@"receivedByServer"];
          }
          
+         Agent *agent = [[Database sharedDB] getActiveAgent];
+         MarketSource *tradeshow = [[Database sharedDB] getActiveTradeshow];
+         
          if ([[self.application objectForKey:FORM_TYPE] isEqualToString:@"individual"]) {
              //store individual application
-             Agent *agent = [[Database sharedDB] getActiveAgent];
-             MarketSource *tradeshow = [[Database sharedDB] getActiveTradeshow];
-             
-             //[[Database sharedDB] insertIndividualFormWithInfo:self.application andAgent:agent andMarketSource:marketSource];
+             [[Database sharedDB] insertIndividualFormWithInfo:self.application andAgent:agent andMarketSource:tradeshow];
          }
          else {
              //store business application
-             //[[Database sharedDB] insertBusinessFormWithInfo:self.application andAgent:agent andMarketSource:marketSource];
+             [[Database sharedDB] insertBusinessFormWithInfo:self.application andAgent:agent andMarketSource:tradeshow];
          }
 
      }];
