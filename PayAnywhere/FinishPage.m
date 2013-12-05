@@ -273,8 +273,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
                        NSString *theReply = [[NSString alloc] initWithBytes:[POSTReply bytes] length:[POSTReply length] encoding: NSASCIIStringEncoding];
                        NSLog(@"Request completed\n Reply: %@", theReply);
                        
-                       if ([(NSHTTPURLResponse*)response statusCode
-                            ] == 201) {
+                       if ([(NSHTTPURLResponse*)response statusCode] == 201) {
                            [self.application setObject:[NSNumber numberWithBool:YES] forKey:@"receivedByServer"];
                        }
                        else {
