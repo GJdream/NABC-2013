@@ -8,6 +8,8 @@
 
 #import "SecBusPage.h"
 #import "birthdayViewController.h"
+#import "Agent.h"
+
 
 @interface FirstBusPage : UIViewController <UITextFieldDelegate, BirthdayViewControllerDelegate, UIPopoverControllerDelegate,
     UITabBarControllerDelegate, UITabBarDelegate>{

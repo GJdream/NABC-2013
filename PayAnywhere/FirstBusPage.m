@@ -142,11 +142,19 @@ bool fieldsOn;
 -(void)viewWillAppear:(BOOL)animated
 {
     MarketSource *activeTradeshow = [[Database sharedDB] getActiveTradeshow];
+    Agent *activeAgent = [[Database sharedDB] getActiveAgent];
     if (activeTradeshow != nil) {
         self.activeTradeshowLabel.text = activeTradeshow.name;
     }
     else {
         self.activeTradeshowLabel.text = @"";
+    }
+    
+    if (activeAgent != nil) {
+        self.currentAgentLabel.text = [NSString stringWithFormat:@"%@ %@", activeAgent.firstName, activeAgent.lastName];
+    }
+    else {
+        self.currentAgentLabel.text = @"";
     }
 }
 
@@ -159,53 +167,6 @@ bool fieldsOn;
 - (void)viewDidLoad
 {    
     [super viewDidLoad];
-    
-//    self.application = [[NSMutableDictionary alloc]init];
-
-	// Do any additional setup after loading the view.
-/*
-    self.first.delegate = self;
-    self.last.delegate = self;
-    self.email.delegate = self;
-    self.phone.delegate = self;
-    self.address.delegate = self;
-    self.suiteApt.delegate = self;
-    self.zip.delegate = self;
-    self.ssn.delegate = self;
-    self.dba.delegate = self;
-    self.businessAddress.delegate = self;
-    self.businessSuiteApt.delegate = self;
-    self.businessZip.delegate = self;
-    
-    //Fill in text fields if possible
-  
-    if([self.application objectForKey:@"lastName"])
-        self.last.text = [self.application objectForKey:@"lastName"];
-    if([self.application objectForKey:@"firstName"])
-        self.first.text = [self.application objectForKey:@"firstName"];
-    if([self.application objectForKey:@"email"])
-        self.email.text = [self.application objectForKey:@"email"];
-    if([self.application objectForKey:@"phoneNumber"])
-        self.phone.text = [self.application objectForKey:@"phoneNumber"];
-    if([self.application objectForKey:@"address"])
-        self.address.text = [self.application objectForKey:@"address"];
-    if([self.application objectForKey:@"suiteApt"])
-        self.suiteApt.text = [self.application objectForKey:@"suiteApt"];
-    if([self.application objectForKey:@"zipCode"])
-        self.zip.text = [self.application objectForKey:@"zipCode"];
-    if([self.application objectForKey:@"ssn"])
-        self.ssn.text = [self.application objectForKey:@"ssn"];
-    
-    //Business1 only fields
-    if([self.application objectForKey:@"businessAddress"])
-        self.businessAddress.text = [self.application objectForKey:@"businessAddress"];
-    if([self.application objectForKey:@"businessSuiteApartment"])
-        self.businessSuiteApt.text = [self.application objectForKey:@"businessSuiteApartment"];
-    if([self.application objectForKey:@"businessZipCode"])
-        self.businessZip.text = [self.application objectForKey:@"businessZipCode"];
-
-*/
-    
     
 }
 
@@ -238,10 +199,6 @@ bool fieldsOn;
     else if([[segue identifier] isEqualToString:@"Bus1To2Segue"]) {
         [self.view endEditing:YES];
         [self fillBus1Dictionary];
-        
-//        NSLog(@"Bus1 Dictionary: %@", self.application);
-//        SecBusPage * secondBusPage = segue.destinationViewController;
-//        secondBusPage.application = self.application;
     }
 }
 
