@@ -87,18 +87,25 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0)
-    {
-        [self replaceDetailWithView:@"FormsNavigationController"];
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0)
+        {
+            [self replaceDetailWithView:@"FormsNavigationController"];
+        }
+        else if (indexPath.row == 1)
+        {
+            [self replaceDetailWithView:@"MarketSourceNavigationController"];
+        }
+        else if (indexPath.row == 2)
+        {
+            [self replaceDetailWithView:@"AgentNavigationController"];
+        }
     }
-    else if (indexPath.row == 1)
-    {
-        [self replaceDetailWithView:@"MarketSourceNavigationController"];
+    else {
+        [self replaceDetailWithView:@"SetCurrentTradeShowViewController"];
     }
-    else if (indexPath.row == 2)
-    {
-        [self replaceDetailWithView:@"AgentNavigationController"];
-    }
+
+
 }
 
 -(void)replaceDetailWithView:(NSString *)viewIdentifier

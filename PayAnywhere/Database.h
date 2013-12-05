@@ -11,8 +11,14 @@
 #import "Agent.h"
 #import "MarketSource.h"
 
+#import "TradeShow.h"
+
 
 @interface Database : NSObject
+{
+    TradeShow *activeTradeshow;
+    Agent *activeAgent;
+}
 
 + (id)sharedDB;
 - (id)insertIndividualFormWithInfo:(NSDictionary *)info
@@ -25,6 +31,12 @@
 
 - (id)insertAgentWithInfo:(NSDictionary *)info;
 - (id)insertMarketSourceWithInfo:(NSDictionary *)info;
+
+- (void)activateTradeshow:(TradeShow *)tradeshow;
+- (void)deactivateTradeshow;
+
+- (TradeShow *)getActiveTradeshow;
+- (Agent *)getActiveAgent;
 
 - (NSArray *)allIndividualForms;
 - (NSArray *)allBusinessForms;

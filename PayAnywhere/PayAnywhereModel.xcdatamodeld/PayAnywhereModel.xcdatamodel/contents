@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3400" systemVersion="13A603" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Agent" representedClassName="Agent" syncable="YES">
-        <attribute name="aid" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="aid" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="pin" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="pin" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <relationship name="businessForms" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BusinessForm" inverseName="whoFilled" inverseEntity="BusinessForm" syncable="YES"/>
         <relationship name="individualForms" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="IndividualForm" inverseName="whoFilled" inverseEntity="IndividualForm" syncable="YES"/>
     </entity>
     <entity name="BusinessForm" representedClassName="BusinessForm" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="aid" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="aid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="businessAddress" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="businessDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="businessSuiteApt" optional="YES" attributeType="String" syncable="YES"/>
@@ -21,11 +21,11 @@
         <attribute name="dob" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="fedTaxID" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="fid" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="fid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="highestSales" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="msid" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="msid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="receivedByServer" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="ssn" optional="YES" attributeType="String" syncable="YES"/>
@@ -38,14 +38,14 @@
     </entity>
     <entity name="IndividualForm" representedClassName="IndividualForm" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="aid" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="aid" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="dba" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="dob" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="fid" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="fid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="msid" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="msid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="receivedByServer" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="ssn" optional="YES" attributeType="String" syncable="YES"/>
@@ -57,7 +57,7 @@
     <entity name="MarketSource" representedClassName="MarketSource" syncable="YES">
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="msid" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="msid" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="businessForms" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BusinessForm" inverseName="whereFilled" inverseEntity="BusinessForm" syncable="YES"/>

@@ -36,5 +36,30 @@
 }
 
 - (IBAction)createMarketSource:(id)sender {
+    //Error Check Input
+    if ([self.name.text isEqualToString:@""]
+        || [self.city.text isEqualToString:@""]
+        || [self.state.text isEqualToString:@""]
+        || [self.msid.text isEqualToString:@""])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Missing Fields"
+                                                        message:@"Please fill out all the required fields"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles: nil];
+        [alert show];
+    }
+    //Add to database
+    else
+    {
+        NSDictionary *newMarketSourceDict = [NSDictionary
+                                             dictionaryWithObjects:@[self.name.text, self.city.text, self.state.text,
+                                                                     [NSNumber numberWithInt:[self.msid.text intValue]], self.date.date]
+                                             forKeys:@[@"name", @"city", @"state", @"msid", @"date"]];
+        
+        [[Database sharedDB] insertMarketSourceWithInfo:newMarketSourceDict];
+        
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
 }
 @end

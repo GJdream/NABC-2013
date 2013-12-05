@@ -215,7 +215,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     [self fillDictionary];
     
     //If all the required fields are filled in, do the segue
-    if((first && last && email && phone && address && zip && ssn && trmsAcc && birthFilled) || FALSE){
+    if((first && last && email && phone && address && zip && ssn && trmsAcc && birthFilled) || TRUE){
     [self performSegueWithIdentifier:@"IndivToBankSegue" sender:nil];
     }
     //Otherwise, display the alert view with generated string
@@ -321,10 +321,11 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 //    [self fillDictionary];
 
     if([segue.identifier isEqualToString:@"IndivToBankSegue"]){
+        [self.view endEditing:YES];
         [self fillDictionary];
 //        BankPageViewController * bankPage = segue.destinationViewController;
 //        bankPage.application = self.application;
-//        [self.application setObject:@"individual" forKey:@"applicationType"];
+//        [self.application setObject:@"individual" forKey:FORM_TYPE];
     }
     
     //birth pop seague
@@ -389,8 +390,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     [self.application setObject:self.zip.text forKey:@"zipCode"];
     [self.application setObject:self.ssn.text forKey:@"ssn"];
     [self.application setObject:self.dba.text forKey:@"dba"];
-//    NSLog(@"self: %@", self.application);
-    [self.application setObject:@"individual" forKey:@"applicationType"];
+    [self.application setObject:@"individual" forKey:FORM_TYPE];
 
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -461,6 +461,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     
     [UIView commitAnimations];
 }
+
 
 
 

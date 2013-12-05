@@ -27,37 +27,8 @@ NSPersistentStoreCoordinator *coordinator;
 - (id)init
 {
     self = [super init];
-    if (self) {
-        NSLog(@"Initialized successfully");
-        /*
-        document = [[UIManagedDocument alloc] initWithFileURL:documentURL];
-        
-        if([[NSFileManager defaultManager] fileExistsAtPath:[documentURL path]])
-        {
-            [document openWithCompletionHandler:^(BOOL success) {
-               if(success)
-               {
-                   NSLog(@"Opened document successfully");
-                   [self documentIsReady];
-               }
-            }];
-        }
-        else
-        {
-            [document saveToURL:documentURL
-               forSaveOperation:UIDocumentSaveForCreating
-              completionHandler:^(BOOL success) {
-                  if(success)
-                  {
-                      NSLog(@"Saved document");
-                      [self documentIsReady];
-                  }
-              }];
-        }
-         */
+    if (self){
         context = [self managedObjectContext];
-        
-        
     }
     return self;
 }
@@ -71,14 +42,35 @@ NSPersistentStoreCoordinator *coordinator;
     return sharedDB;
 }
 
-/*
-- (void)documentIsReady
+-(void)activateTradeshow:(TradeShow *)tradeshow
 {
-    if (document.documentState == UIDocumentStateNormal)
-    {
-        context = document.managedObjectContext;
+    activeTradeshow = tradeshow;
+}
+
+-(void)deactivateTradeshow
+{
+    activeTradeshow = nil;
+}
+
+-(TradeShow *)getActiveTradeshow
+{
+    if (activeTradeshow) {
+        return activeTradeshow;
     }
-}*/
+    else {
+        return nil;
+    }
+}
+
+-(Agent *)getActiveAgent
+{
+    if (activeAgent) {
+        return activeAgent;
+    }
+    else {
+        return nil;
+    }
+}
 
 - (id)insertIndividualFormWithInfo:(NSDictionary *)info
                             andAgent:(Agent *)agent
@@ -258,7 +250,7 @@ NSPersistentStoreCoordinator *coordinator;
     if (managedObjectContext != nil) {
         if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
             // Replace this implementation with code to handle the error appropriately.
-            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            // abort() causes the application to generate a crash log and terminate. Should not use this function in a shipping application, although it may be useful during development.
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
         }
