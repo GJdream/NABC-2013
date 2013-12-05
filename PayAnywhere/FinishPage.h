@@ -11,17 +11,10 @@
 #import <UIKit/UIKit.h>
 #import "FirstIndivPage.h"
 #import "FirstPage.h"
-
-#import "Application.h"
-#import "SignupAnywhereDB.h"
-
 #import "Database.h"
 #import "Constants.h"
 
 @interface FinishPage : UIViewController<UITextFieldDelegate, UITabBarControllerDelegate, UITabBarDelegate>
-{
-    SignupAnywhereDB * db;
-}
 
 @property (strong, nonatomic) NSMutableDictionary * application;
 @property (strong, nonatomic) IBOutlet UIButton *radioButtonOne;

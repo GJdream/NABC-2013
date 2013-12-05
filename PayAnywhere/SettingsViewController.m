@@ -77,7 +77,7 @@
     {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TradeshowModeCell" forIndexPath:indexPath];
         
-        TradeShow * tradeshow = [[Database sharedDB] getActiveTradeshow];
+        MarketSource * tradeshow = [[Database sharedDB] getActiveTradeshow];
         
         if (tradeshow == nil) {
             cell.textLabel.text = @"Set Active Tradeshow";

@@ -75,10 +75,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     self.zipField.backgroundColor = grayedFieldColor;
     [self.suiteAptField setEnabled:NO];
     self.suiteAptField.backgroundColor = grayedFieldColor;
-    
-    db = [[SignupAnywhereDB alloc] init];
-
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -126,27 +122,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 }
 
 - (IBAction)create:(id)sender {
-    TradeShow * testTradeshow = [[TradeShow alloc] init];
-    testTradeshow.name = @"Test Tradeshow";
-    testTradeshow.city = @"Ann Arbor";
-    testTradeshow.state = @"Michigan";
-    testTradeshow.date = [NSDate date];
-    
-    
-    //[self sendJSON];
-    
-    [self.application removeAllObjects];
-    
-    [db addNewTradeshow:testTradeshow];
-    
-    [self.application setObject:testTradeshow forKey:@"Tradeshow"];
-    
-    [db addNewApplication:self.application];
-    
-    NSLog(@"%@ %@ application was submitted at the %@ in %@, %@",
-          [self.application objectForKey:@"First Name"],
-          [self.application objectForKey:@"Last Name"],
-          testTradeshow.name, testTradeshow.city, testTradeshow.state);
+
   
     UIViewController * target = [[self.tabBarController viewControllers] objectAtIndex:1];
     [target.navigationController popToRootViewControllerAnimated: NO];
@@ -160,14 +136,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     NSLog(@"Second pop to root: %@", className);
     
     [self.navigationController popToRootViewControllerAnimated:YES];
-    
-//    [self.navigationController popToRootViewControllerAnimated:YES];
-    
-    NSLog(@"Test Tradeshow...\n");
-    [testTradeshow printApplicants];
-    
-    NSLog(@"Tradeshow in DB...\n");
-    [[db.tradeshows objectForKey:testTradeshow.name] printApplicants];
 }
 
 - (IBAction)changeAddress:(id)sender {
@@ -198,12 +166,14 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     NSArray *individualForms = [[Database sharedDB] allIndividualForms];
     NSLog(@"INDIVIDUAL FORMS IN DB before insert: \n%@\n", individualForms);
     
+    /*
     if([self.application objectForKey:@"zipCode"])
         self.zipField.text = [self.application objectForKey:@"zipCode"];
     if([self.application objectForKey:@"address"])
         self.addressField.text = [self.application objectForKey:@"address"];
     if([self.application objectForKey:@"suiteApt"])
         self.suiteAptField.text = [self.application objectForKey:@"suiteApt"];
+    */
     
     /* TEST DATA */
     NSMutableDictionary *testMarketSource = [[NSMutableDictionary alloc] init];
@@ -290,36 +260,30 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 }
 
 -(void)sendJSON{
+    //Set application type dependant on selected tab
+    NSLog(@"Tab selected : %d", self.tabBarController.selectedIndex);
+    if(self.tabBarController.selectedIndex == 0){
+        [self.application setObject:@"individual" forKey:FORM_TYPE];
+    }
+    else if(self.tabBarController.selectedIndex == 1){
+        [self.application setObject:@"business" forKey:FORM_TYPE];
+    }
+    
     //Create JSON using self.application
-    //NSError *error;
-   // BOOL isTurnableToJSON = [NSJSONSerialization
-    //                         isValidJSONObject: self.application];
-    //NSLog(@"Appliation is valid JSON: %hhd", isTurnableToJSON);
-    
-   // NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self.application
-   //                                                    options:0
-   //                                                      error:&error];
-    
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self.application
+                                                       options:0
+                                                         error:&error];
 
-    
-    
-    
-//    NSString *postLength = [NSString stringWithFormat:@"%d", [jsonData length]];
-  /*
     //Create URL request
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     
-   
-    NSError *e;
-    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:jsonData options:nil error:&e];
-    NSLog(@"json file = %@", dict);
-   
-
-    // Fix this so it uses macros and appends the "/individual"
-    
-    
-    [request setURL:[NSURL URLWithString:@"http://141.212.105.78:8080/symfony/individual/"]];
- 
+    if ([[self.application objectForKey:FORM_TYPE] isEqualToString:@"individual"]) {
+        [request setURL:[NSURL URLWithString:@"http://141.212.105.78:8080/symfony/individual/"]];
+    }
+    else if ([[self.application objectForKey:FORM_TYPE] isEqualToString:@"business"]) {
+        [request setURL:[NSURL URLWithString:@"http://141.212.105.78:8080/symfony/business/"]];
+    }
     
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
@@ -332,44 +296,34 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
                            completionHandler:
      ^(NSURLResponse *response, NSData *data, NSError *error){
          
-         NSData *POSTReply = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+        NSData *POSTReply = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
          NSString *theReply = [[NSString alloc] initWithBytes:[POSTReply bytes] length:[POSTReply length] encoding: NSASCIIStringEncoding];
          NSLog(@"Request completed\n Reply: %@", theReply);
+        
          
-         /* TEST DATA f*/
-    /*
-         NSMutableDictionary *testMarketSource = [[NSMutableDictionary alloc] init];
-         [testMarketSource setObject:@"Chicago" forKey:@"city"];
-         [testMarketSource setObject:@"IL" forKey:@"state"];
-         [testMarketSource setObject:@"Test Trade Show" forKey:@"name"];
-         [testMarketSource setObject:[NSDate date] forKey:@"date"];
-         [testMarketSource setObject:[NSNumber numberWithInt:100] forKey:@"msid"];
+         bool success = NO;
          
-         NSMutableDictionary *testAgent = [[NSMutableDictionary alloc] init];
-         [testAgent setObject:[NSNumber numberWithInt:100] forKey:@"aid"];
-         [testAgent setObject:[NSNumber numberWithInt:1234] forKey:@"pin"];
-         [testAgent setObject:@"Joe" forKey:@"firstName"];
-         [testAgent setObject:@"Agent" forKey:@"lastName"];
+         if (success) {
+             [self.application setObject:@YES forKey:@"receivedByServer"];
+         }
+         else {
+             [self.application setObject:@NO forKey:@"receivedByServer"];
+         }
          
-         MarketSource *marketSource = [[Database sharedDB] insertMarketSourceWithInfo:testMarketSource];
-         Agent *agent = [[Database sharedDB] insertAgentWithInfo:testAgent];
-         /**/
-         /*
+         Agent *agent = [[Database sharedDB] getActiveAgent];
+         MarketSource *tradeshow = [[Database sharedDB] getActiveTradeshow];
+         
          if ([[self.application objectForKey:FORM_TYPE] isEqualToString:@"individual"]) {
              //store individual application
-             [[Database sharedDB] insertIndividualFormWithInfo:self.application andAgent:agent andMarketSource:marketSource];
+             [[Database sharedDB] insertIndividualFormWithInfo:self.application andAgent:agent andMarketSource:tradeshow];
          }
          else {
              //store business application
-             [[Database sharedDB] insertBusinessFormWithInfo:self.application andAgent:agent andMarketSource:marketSource];
+             [[Database sharedDB] insertBusinessFormWithInfo:self.application andAgent:agent andMarketSource:tradeshow];
          }
-/*
-     }];
-/*
-    //Make the JSON request
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
 
-     }];*/
+     }];
+
 }
 
 -(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController

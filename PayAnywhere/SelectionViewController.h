@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Database.h"
-#import "TradeShow.h"
+#import "MarketSource.h"
 #import "Agent.h"
 
 enum SelectionType {
@@ -20,7 +20,7 @@ enum SelectionType {
 @protocol SelectionDelegate <NSObject>
 
 -(void)didSelectAgents:(NSArray *)selectedAgents;
--(void)didSelectTradeshow:(TradeShow *)tradeshow;
+-(void)didSelectTradeshow:(MarketSource *)tradeshow;
 -(void)didStartCurrentTradeshow;
 -(void)didStopCurrentTradeshow;
 
@@ -34,7 +34,7 @@ enum SelectionType {
 @property (strong, nonatomic) NSArray *tradeshowsArray;
 
 @property (strong, nonatomic) NSMutableArray *selectedAgents;
-@property (strong, nonatomic) TradeShow *selectedTradeshow;
+@property (strong, nonatomic) MarketSource *selectedTradeshow;
 
 @property enum SelectionType selectionType;
 
