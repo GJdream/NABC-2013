@@ -30,7 +30,7 @@
 - (id)insertAgentWithInfo:(NSDictionary *)info;
 - (id)insertMarketSourceWithInfo:(NSDictionary *)info;
 
-- (void)activateTradeshow:(MarketSource *)tradeshow;
+- (void)activateTradeshow:(MarketSource *)tradeshow withAgent:(Agent *)agent;
 - (void)deactivateTradeshow;
 
 - (MarketSource *)getActiveTradeshow;
