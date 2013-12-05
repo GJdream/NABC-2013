@@ -42,7 +42,7 @@
 - (NSArray *)allBusinessForms;
 - (NSArray *)allAgents;
 - (NSArray *)allMarketSources;
-- (NSMutableArray *)getUnsentIndividualFroms;
-- (void) updateAllIndividualFromsToReceived;
+- (NSMutableArray *)getUnsentFroms: (NSString *)type;
+- (void) updateAllFromsToReceived: (NSString *)type;
 
 @end

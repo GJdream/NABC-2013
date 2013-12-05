@@ -8,7 +8,8 @@
 
 #import "AppDelegate.h"
 
-static NSString *URL = @"http://141.212.105.78:8080/symfony/individual/batch/";
+static NSString *INDIVIDUAL_URL = @"http://141.212.105.78:8080/symfony/individual/batch/";
+static NSString *BUSINESS_URL = @"http://141.212.105.78:8080/symfony/business/batch/";
 
 @implementation AppDelegate
 
@@ -16,7 +17,7 @@ static NSString *URL = @"http://141.212.105.78:8080/symfony/individual/batch/";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    NSMutableArray * unsentForms = [[Database sharedDB] getUnsentIndividualFroms];
+    NSMutableArray * unsentForms = [[Database sharedDB] getUnsentFroms:@"IndividualForm"];
     
     NSLog(@"INDIVIDUAL FORMS didFinishLaunching: \n%@\n", unsentForms);
 
@@ -32,7 +33,7 @@ static NSString *URL = @"http://141.212.105.78:8080/symfony/individual/batch/";
     _session = [NSURLSession sessionWithConfiguration:configuration
                                              delegate:self delegateQueue:nil];
     
-    NSURL *uploadURL = [NSURL URLWithString:URL];
+    NSURL *uploadURL = [NSURL URLWithString:INDIVIDUAL_URL];
 
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:uploadURL];
     [request setHTTPMethod:@"POST"];
@@ -46,10 +47,38 @@ static NSString *URL = @"http://141.212.105.78:8080/symfony/individual/batch/";
                         NSLog(@"hi handler: \n%@\n", response);
                         int code = [(NSHTTPURLResponse*)response statusCode];
                         if (code == 201) {
-                            [[Database sharedDB] updateAllIndividualFromsToReceived];
+                            [[Database sharedDB] updateAllFromsToReceived: @"IndividualForm"];
                         }
                   }];
 
+    [_uploadTask resume];
+    
+    unsentForms = [[Database sharedDB] getUnsentFroms:@"BusinessForm"];
+    
+    NSLog(@"BUSINESS FORMS didFinishLaunching: \n%@\n", unsentForms);
+
+    jsonData = [NSJSONSerialization dataWithJSONObject:unsentForms
+                                            options:0
+                                            error:&error];
+    
+    uploadURL = [NSURL URLWithString:BUSINESS_URL];
+    
+    request = [NSMutableURLRequest requestWithURL:uploadURL];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:jsonData];
+    [request setValue:[NSString stringWithFormat:@"%d", [jsonData length]] forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    _uploadTask = [self.session uploadTaskWithRequest:request fromData:jsonData
+                                    completionHandler:
+                   ^(NSData *data, NSURLResponse *response, NSError *error) {
+                       NSLog(@"hi handler: \n%@\n", response);
+                       int code = [(NSHTTPURLResponse*)response statusCode];
+                       if (code == 201) {
+                           [[Database sharedDB] updateAllFromsToReceived: @"BusinessForm"];
+                       }
+                   }];
+    
     [_uploadTask resume];
 
     return YES;

@@ -257,17 +257,17 @@ NSPersistentStoreCoordinator *coordinator;
     }
 }
 
-- (NSMutableArray *)getUnsentIndividualFroms
+- (NSMutableArray *)getUnsentFroms:(NSString *) type
 {
     NSArray *individualForms = [[NSArray alloc] init];
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription
-                                   entityForName:@"IndividualForm" inManagedObjectContext:context];
+                                   entityForName:[NSString stringWithFormat:@"%@", type] inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
     [fetchRequest setReturnsObjectsAsFaults:NO];
 
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"receivedByServer == NO"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"receivedByServer == nil"];
     [fetchRequest setPredicate:predicate];
     NSError *error;
     
@@ -287,6 +287,18 @@ NSPersistentStoreCoordinator *coordinator;
         [dict setObject:[info valueForKey:@"zipCode"]!=nil?[info valueForKey:@"zipCode"]:@"" forKey:@"zipCode"];
         [dict setObject:[info valueForKey:@"dob"]!=nil?[info valueForKey:@"dob"]:@"" forKey:@"dob"];
         [dict setObject:[info valueForKey:@"address"]!=nil?[info valueForKey:@"address"]:@"" forKey:@"address"];
+        if ([type isEqualToString:@"BusinessForm"]) {
+            [dict setObject:[info valueForKey:@"Coporation Name"]!=nil?[info valueForKey:@"Coporation Name"]:@"" forKey:@"Coporation Name"];
+            [dict setObject:[info valueForKey:@"businessType"]!=nil?[info valueForKey:@"businessType"]:@"" forKey:@"businessType"];
+            [dict setObject:[info valueForKey:@"businessDescription"]!=nil?[info valueForKey:@"businessDescription"]:@"" forKey:@"businessDescription"];
+            [dict setObject:[info valueForKey:@"fedTaxID"]!=nil?[info valueForKey:@"fedTaxID"]:@"" forKey:@"fedTaxID"];
+            [dict setObject:[info valueForKey:@"businessAddress"]!=nil?[info valueForKey:@"businessAddress"]:@"" forKey:@"businessAddress"];
+            [dict setObject:[info valueForKey:@"businessSuitApt"]!=nil?[info valueForKey:@"businessSuitApt"]:@"" forKey:@"businessSuitApt"];
+            [dict setObject:[info valueForKey:@"businessZipCode"]!=nil?[info valueForKey:@"businessZipCode"]:@"" forKey:@"businessZipCode"];
+            [dict setObject:[info valueForKey:@"ccSales"]!=nil?[info valueForKey:@"ccSales"]:@"" forKey:@"ccSales"];
+            [dict setObject:[info valueForKey:@"highestSales"]!=nil?[info valueForKey:@"highestSales"]:@"" forKey:@"highestSales"];
+            [dict setObject:[info valueForKey:@"yearsInBusiness"]!=nil?[info valueForKey:@"yearsInBusiness"]:@"" forKey:@"yearsInBusiness"];
+        }
         
         [forms addObject:dict];
     }
@@ -294,12 +306,13 @@ NSPersistentStoreCoordinator *coordinator;
     return forms;
 }
 
-- (void) updateAllIndividualFromsToReceived {
+- (void) updateAllFromsToReceived:(NSString *) type
+{
     NSArray *individualForms = [[NSArray alloc] init];
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription
-                                   entityForName:@"IndividualForm" inManagedObjectContext:context];
+                                   entityForName:[NSString stringWithFormat:@"%@", type] inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
     [fetchRequest setReturnsObjectsAsFaults:NO];
     
