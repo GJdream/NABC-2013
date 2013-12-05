@@ -42,7 +42,6 @@
     
     if (self.selectionType == SelectionTypeAgents) {
         self. agentsArray = [[Database sharedDB] allAgents];
-        self.selectedAgents = [[NSMutableArray alloc] init];
     }
     else if(self.selectionType == SelectionTypeTradeshow){
         self.tradeshowsArray = [[Database sharedDB] allMarketSources];
@@ -59,21 +58,6 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    
-    if (self.selectionType == SelectionTypeAgents) {
-        
-        if (cell.accessoryType == UITableViewCellAccessoryNone) {
-            cell.accessoryType = UITableViewCellAccessoryCheckmark;
-            [self.selectedAgents addObject:[self.agentsArray objectAtIndex:indexPath.row]];
-            [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        }
-        else {
-            cell.accessoryType = UITableViewCellAccessoryNone;
-            [self.selectedAgents removeObject:[self.agentsArray objectAtIndex:indexPath.row]];
-            [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        }
-    }
     if (self.selectionType == SelectionTypeTradeshowMode && indexPath.row == 0) {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
@@ -83,7 +67,6 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-
     return 1;
 }
 
@@ -195,9 +178,10 @@
  */
 
 - (IBAction)doneButton:(id)sender {
-    if (self.selectionType == SelectionTypeAgents && [self.selectedAgents count] != 0) {
-        if ([self.delegate respondsToSelector:@selector(didSelectAgents:)]) {
-            [self.delegate performSelector:@selector(didSelectAgents:) withObject:self.selectedAgents];
+    if (self.selectionType == SelectionTypeAgents && [self.tableView indexPathForSelectedRow]) {
+        if ([self.delegate respondsToSelector:@selector(didSelectAgent:)]) {
+            self.selectedAgent = [self.agentsArray objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+            [self.delegate performSelector:@selector(didSelectAgent:) withObject:self.selectedAgent];
         }
     }
     else if (self.selectionType == SelectionTypeTradeshow && [self.tableView indexPathForSelectedRow]) {

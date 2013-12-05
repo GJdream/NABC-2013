@@ -80,9 +80,9 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 3 && ([self.agents count] == 0 || self.currentTradeshow == nil))
+    if (indexPath.row == 3 && (self.agent == nil || self.currentTradeshow == nil))
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Selection Made" message:@"Please select a tradeshow and the attending agents" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Selection Made" message:@"Please select a tradeshow and an active agent" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alert show];
     }
     else if (indexPath.row == 1 || indexPath.row == 2 || indexPath.row == 3)
@@ -91,26 +91,12 @@
     }
 }
 
--(void)didSelectAgents:(NSArray *)selectedAgents
+-(void)didSelectAgent:(Agent *)selectedAgent
 {
     [self.navigationController popViewControllerAnimated:YES];
     
-    self.agents = selectedAgents;
-    NSString *agentsString = @"Agents: ";
-    
-    for (int i = 0; i < [self.agents count]; i++) {
-        Agent * currentAgent = [self.agents objectAtIndex:i];
-        
-        //If last agent, don't add a comma
-        if (i == ([self.agents count] - 1)) {
-            agentsString = [agentsString stringByAppendingString:[NSString stringWithFormat:@"%@ %@", currentAgent.firstName, currentAgent.lastName]];
-        }
-        else {
-            agentsString = [agentsString stringByAppendingString:[NSString stringWithFormat:@"%@ %@, ", currentAgent.firstName, currentAgent.lastName]];
-        }
-    }
-    
-    self.agentsLabel.text = agentsString;
+    self.agent = selectedAgent;
+    self.agentsLabel.text = [NSString stringWithFormat:@"Active Agent: %@ %@", self.agent.firstName, self.agent.lastName];
 }
 
 -(void)didSelectTradeshow:(MarketSource *)tradeshow
@@ -124,7 +110,7 @@
 
 -(void)didStartCurrentTradeshow{
     [self.navigationController popViewControllerAnimated:YES];
-    [[Database sharedDB] activateTradeshow:self.currentTradeshow];
+    [[Database sharedDB] activateTradeshow:self.currentTradeshow withAgent:self.agent];
 }
 
 -(void)didStopCurrentTradeshow{
@@ -185,12 +171,12 @@
 
 - (IBAction)startTradeshow:(id)sender {
     //If no selected agent(s)
-    if ([self.agents count] == 0) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Select Attending Agents" message:@"Please select a list of agents attending this tradeshow" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    if (self.agent == nil) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Select Active Agent" message:@"Please select the agent currently using this iPad" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alert show];
     }
     //If no selected tradeshow
-    else if (self.currentTradeshow == Nil) {
+    else if (self.currentTradeshow == nil) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Select a Tradeshow" message:@"Please designate an Active Tradeshow. While it remains active, all forms filled will be associated with the Active Tradeshow. " delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alert show];
     }

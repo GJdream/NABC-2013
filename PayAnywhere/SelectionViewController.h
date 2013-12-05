@@ -19,7 +19,7 @@ enum SelectionType {
 
 @protocol SelectionDelegate <NSObject>
 
--(void)didSelectAgents:(NSArray *)selectedAgents;
+-(void)didSelectAgent:(Agent *)selectedAgent;
 -(void)didSelectTradeshow:(MarketSource *)tradeshow;
 -(void)didStartCurrentTradeshow;
 -(void)didStopCurrentTradeshow;
@@ -33,7 +33,7 @@ enum SelectionType {
 @property (strong, nonatomic) NSArray *agentsArray;
 @property (strong, nonatomic) NSArray *tradeshowsArray;
 
-@property (strong, nonatomic) NSMutableArray *selectedAgents;
+@property (strong, nonatomic) Agent *selectedAgent;
 @property (strong, nonatomic) MarketSource *selectedTradeshow;
 
 @property enum SelectionType selectionType;
