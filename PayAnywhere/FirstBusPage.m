@@ -218,9 +218,29 @@ bool fieldsOn;
 }
 
 - (IBAction)nextPage:(id)sender {
+    NSMutableString * alertMessageMutable = [[NSMutableString alloc] init];
+    
+    //Check agent and market Source
+    MarketSource *activeTradeshow = [[Database sharedDB] getActiveTradeshow];
+    Agent *activeAgent = [[Database sharedDB] getActiveAgent];
+    if(activeAgent == nil || activeTradeshow == nil){
+        if(activeAgent == nil){
+            [alertMessageMutable appendString:@"Active Agent, "];
+        }
+        if(activeTradeshow == nil){
+            [alertMessageMutable appendString:@"Active Tradeshow, "];
+        }
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Administrative Info Not Set:"
+                                                          message:alertMessageMutable
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+        [message show];
+        return;
+    }
+    
     //Check if birthday has been set
     NSString *buttonName = [self.birthdayButton titleForState:UIControlStateNormal];
-    NSMutableString * alertMessageMutable = [[NSMutableString alloc] init];
     NSLog(@"birth title label: %@, %i", buttonName, [buttonName isEqualToString:@"Click to select"]);
     BOOL birthFilled = !([buttonName isEqualToString:@"Click to select"]);
     NSLog(@"birthFilled: %i", birthFilled);
