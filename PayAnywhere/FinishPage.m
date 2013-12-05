@@ -151,10 +151,10 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     
     NSLog(@"Tab selected : %d", self.tabBarController.selectedIndex);
     if(self.tabBarController.selectedIndex == 0){
-        [self.application setObject:@"individual" forKey:@"applicationType"];
+        [self.application setObject:@"individual" forKey:FORM_TYPE];
     }
     else if(self.tabBarController.selectedIndex == 1){
-        [self.application setObject:@"business" forKey:@"applicationType"];
+        [self.application setObject:@"business" forKey:FORM_TYPE];
     }
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:self.application forKey:@"formDictionary"];
@@ -174,36 +174,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     if([self.application objectForKey:@"suiteApt"])
         self.suiteAptField.text = [self.application objectForKey:@"suiteApt"];
     */
-    
-    /* TEST DATA */
-    NSMutableDictionary *testMarketSource = [[NSMutableDictionary alloc] init];
-    [testMarketSource setObject:@"Chicago" forKey:@"city"];
-    [testMarketSource setObject:@"IL" forKey:@"state"];
-    [testMarketSource setObject:@"Test Trade Show" forKey:@"name"];
-    [testMarketSource setObject:[NSDate date] forKey:@"date"];
-    [testMarketSource setObject:[NSNumber numberWithInt:100] forKey:@"msid"];
-    
-    NSMutableDictionary *testAgent = [[NSMutableDictionary alloc] init];
-    [testAgent setObject:[NSNumber numberWithInt:100] forKey:@"aid"];
-    [testAgent setObject:[NSNumber numberWithInt:1234] forKey:@"pin"];
-    [testAgent setObject:@"Joe" forKey:@"firstName"];
-    [testAgent setObject:@"Agent" forKey:@"lastName"];
-    
-    MarketSource *marketSource = [[Database sharedDB] insertMarketSourceWithInfo:testMarketSource];
-    Agent *agent = [[Database sharedDB] insertAgentWithInfo:testAgent];
-    /**/
-    
-    if ([[self.application objectForKey:FORM_TYPE] isEqualToString:@"individual"]) {
-        //store individual application
-        [[Database sharedDB] insertIndividualFormWithInfo:self.application andAgent:agent andMarketSource:marketSource];
-        
-        NSArray *individualForms = [[Database sharedDB] allIndividualForms];
-        NSLog(@"INDIVIDUAL FORMS IN DB after insert: \n%@\n", individualForms);
-    }
-    else {
-        //store business application
-        [[Database sharedDB] insertBusinessFormWithInfo:self.application andAgent:agent andMarketSource:marketSource];
-    }
 
     [self sendJSON];
     NSMutableDictionary * emptyDict = [NSMutableDictionary dictionary];
@@ -290,7 +260,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     [request setHTTPBody:jsonData];
     
     //Create response
-    
     [NSURLConnection sendAsynchronousRequest:request
                                        queue:[NSOperationQueue mainQueue]
                            completionHandler:
@@ -299,27 +268,41 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
         NSData *POSTReply = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
          NSString *theReply = [[NSString alloc] initWithBytes:[POSTReply bytes] length:[POSTReply length] encoding: NSASCIIStringEncoding];
          NSLog(@"Request completed\n Reply: %@", theReply);
-        
          
-         bool success = NO;
-         
-         if (success) {
+         if ([(NSHTTPURLResponse*)response statusCode] == 201) {
              [self.application setObject:@YES forKey:@"receivedByServer"];
          }
          else {
              [self.application setObject:@NO forKey:@"receivedByServer"];
          }
          
-         Agent *agent = [[Database sharedDB] getActiveAgent];
-         MarketSource *tradeshow = [[Database sharedDB] getActiveTradeshow];
+         //Agent *agent = [[Database sharedDB] getActiveAgent];
+         //MarketSource *tradeshow = [[Database sharedDB] getActiveTradeshow];
+         /* TEST DATA */
+         NSMutableDictionary *testMarketSource = [[NSMutableDictionary alloc] init];
+         [testMarketSource setObject:@"Chicago" forKey:@"city"];
+         [testMarketSource setObject:@"IL" forKey:@"state"];
+         [testMarketSource setObject:@"Test Trade Show" forKey:@"name"];
+         [testMarketSource setObject:[NSDate date] forKey:@"date"];
+         [testMarketSource setObject:[NSNumber numberWithInt:100] forKey:@"msid"];
+         
+         NSMutableDictionary *testAgent = [[NSMutableDictionary alloc] init];
+         [testAgent setObject:[NSNumber numberWithInt:100] forKey:@"aid"];
+         [testAgent setObject:[NSNumber numberWithInt:1234] forKey:@"pin"];
+         [testAgent setObject:@"Joe" forKey:@"firstName"];
+         [testAgent setObject:@"Agent" forKey:@"lastName"];
+         
+         MarketSource *marketSource = [[Database sharedDB] insertMarketSourceWithInfo:testMarketSource];
+         Agent *agent = [[Database sharedDB] insertAgentWithInfo:testAgent];
+         /**/
          
          if ([[self.application objectForKey:FORM_TYPE] isEqualToString:@"individual"]) {
              //store individual application
-             [[Database sharedDB] insertIndividualFormWithInfo:self.application andAgent:agent andMarketSource:tradeshow];
+             [[Database sharedDB] insertIndividualFormWithInfo:self.application andAgent:agent andMarketSource:marketSource];
          }
          else {
              //store business application
-             [[Database sharedDB] insertBusinessFormWithInfo:self.application andAgent:agent andMarketSource:tradeshow];
+             [[Database sharedDB] insertBusinessFormWithInfo:self.application andAgent:agent andMarketSource:marketSource];
          }
 
      }];

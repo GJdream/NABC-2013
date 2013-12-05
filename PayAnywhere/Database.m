@@ -267,7 +267,7 @@ NSPersistentStoreCoordinator *coordinator;
     [fetchRequest setEntity:entity];
     [fetchRequest setReturnsObjectsAsFaults:NO];
 
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"receivedByServer == nil"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"receivedByServer == NO"];
     [fetchRequest setPredicate:predicate];
     NSError *error;
     
@@ -288,12 +288,12 @@ NSPersistentStoreCoordinator *coordinator;
         [dict setObject:[info valueForKey:@"dob"]!=nil?[info valueForKey:@"dob"]:@"" forKey:@"dob"];
         [dict setObject:[info valueForKey:@"address"]!=nil?[info valueForKey:@"address"]:@"" forKey:@"address"];
         if ([type isEqualToString:@"BusinessForm"]) {
-            [dict setObject:[info valueForKey:@"Coporation Name"]!=nil?[info valueForKey:@"Coporation Name"]:@"" forKey:@"Coporation Name"];
-            [dict setObject:[info valueForKey:@"businessType"]!=nil?[info valueForKey:@"businessType"]:@"" forKey:@"businessType"];
+            [dict setObject:[info valueForKey:FORM_CORPORATION_NAME]!=nil?[info valueForKey:FORM_CORPORATION_NAME]:@"" forKey:FORM_CORPORATION_NAME];
+            [dict setObject:[info valueForKey:@"type"]!=nil?[info valueForKey:@"type"]:@"" forKey:@"type"];
             [dict setObject:[info valueForKey:@"businessDescription"]!=nil?[info valueForKey:@"businessDescription"]:@"" forKey:@"businessDescription"];
             [dict setObject:[info valueForKey:@"fedTaxID"]!=nil?[info valueForKey:@"fedTaxID"]:@"" forKey:@"fedTaxID"];
             [dict setObject:[info valueForKey:@"businessAddress"]!=nil?[info valueForKey:@"businessAddress"]:@"" forKey:@"businessAddress"];
-            [dict setObject:[info valueForKey:@"businessSuitApt"]!=nil?[info valueForKey:@"businessSuitApt"]:@"" forKey:@"businessSuitApt"];
+            [dict setObject:[info valueForKey:FORM_BUSINESS_SUITE_APT]!=nil?[info valueForKey:FORM_BUSINESS_SUITE_APT]:@"" forKey:FORM_BUSINESS_SUITE_APT];
             [dict setObject:[info valueForKey:@"businessZipCode"]!=nil?[info valueForKey:@"businessZipCode"]:@"" forKey:@"businessZipCode"];
             [dict setObject:[info valueForKey:@"ccSales"]!=nil?[info valueForKey:@"ccSales"]:@"" forKey:@"ccSales"];
             [dict setObject:[info valueForKey:@"highestSales"]!=nil?[info valueForKey:@"highestSales"]:@"" forKey:@"highestSales"];

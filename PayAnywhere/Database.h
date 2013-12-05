@@ -10,6 +10,7 @@
 #import <CoreData/CoreData.h>
 #import "Agent.h"
 #import "MarketSource.h"
+#import "Constants.h"
 
 @interface Database : NSObject
 {
