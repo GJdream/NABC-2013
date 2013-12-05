@@ -297,8 +297,11 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
          NSString *theReply = [[NSString alloc] initWithBytes:[POSTReply bytes] length:[POSTReply length] encoding: NSASCIIStringEncoding];
          NSLog(@"Request completed\n Reply: %@", theReply);
          
-         /* TEST DATA f*/
-    /*
+         // TEST DATA 
+ 
+ 
+    */
+    
          NSMutableDictionary *testMarketSource = [[NSMutableDictionary alloc] init];
          [testMarketSource setObject:@"Chicago" forKey:@"city"];
          [testMarketSource setObject:@"IL" forKey:@"state"];
@@ -314,8 +317,8 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
          
          MarketSource *marketSource = [[Database sharedDB] insertMarketSourceWithInfo:testMarketSource];
          Agent *agent = [[Database sharedDB] insertAgentWithInfo:testAgent];
-         /**/
-         /*
+     
+    
          if ([[self.application objectForKey:FORM_TYPE] isEqualToString:@"individual"]) {
              //store individual application
              [[Database sharedDB] insertIndividualFormWithInfo:self.application andAgent:agent andMarketSource:marketSource];
@@ -325,7 +328,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
              [[Database sharedDB] insertBusinessFormWithInfo:self.application andAgent:agent andMarketSource:marketSource];
          }
 
-     }];*/
+   //  }];
 }
 
 -(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController

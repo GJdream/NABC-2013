@@ -17,7 +17,8 @@ static NSString *URL = @"http://141.212.105.78:8080/symfony/individual/batch";
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     NSMutableArray * unsentForms = [[Database sharedDB] getUnsentIndividualFroms];
-
+    //NSArray * unsentForms = [[Database sharedDB] allIndividualForms];
+    
     NSLog(@"INDIVIDUAL FORMS didFinishLaunching: \n%@\n", unsentForms);
 
     NSError *error;
