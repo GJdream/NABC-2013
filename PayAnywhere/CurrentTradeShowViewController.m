@@ -78,24 +78,6 @@
     }
 }
 
-/*
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.row == 3) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-        TradeShow *activeTradeshow = [[Database sharedDB] getActiveTradeshow];
-        if (activeTradeshow == nil) {
-            cell.textLabel.text = @"Start Active Tradeshow";
-            cell.textLabel.textColor = [UIColor greenColor];
-        }
-        else {
-            cell.textLabel.text = @"Stop Active Tradeshow";
-            cell.textLabel.textColor = [UIColor redColor];
-        }
-        return cell;
-    }
-}*/
-
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 3 && ([self.agents count] == 0 || self.currentTradeshow == nil))
@@ -131,7 +113,7 @@
     self.agentsLabel.text = agentsString;
 }
 
--(void)didSelectTradeshow:(TradeShow *)tradeshow
+-(void)didSelectTradeshow:(MarketSource *)tradeshow
 {
     [self.navigationController popViewControllerAnimated:YES];
     

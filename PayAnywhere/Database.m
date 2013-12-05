@@ -42,7 +42,7 @@ NSPersistentStoreCoordinator *coordinator;
     return sharedDB;
 }
 
--(void)activateTradeshow:(TradeShow *)tradeshow
+-(void)activateTradeshow:(MarketSource *)tradeshow
 {
     activeTradeshow = tradeshow;
 }
@@ -52,7 +52,7 @@ NSPersistentStoreCoordinator *coordinator;
     activeTradeshow = nil;
 }
 
--(TradeShow *)getActiveTradeshow
+-(MarketSource *)getActiveTradeshow
 {
     if (activeTradeshow) {
         return activeTradeshow;

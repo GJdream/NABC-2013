@@ -9,12 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "SelectionViewController.h"
 #import "Agent.h"
-#import "TradeShow.h"
+#import "MarketSource.h"
 
 @interface CurrentTradeShowViewController : UITableViewController <SelectionDelegate>
 
 @property (strong, nonatomic) NSArray *agents;
-@property (strong, nonatomic) TradeShow *currentTradeshow;
+@property (strong, nonatomic) MarketSource *currentTradeshow;
 
 @property (weak, nonatomic) IBOutlet UILabel *tradeshowLabel;
 @property (weak, nonatomic) IBOutlet UILabel *agentsLabel;

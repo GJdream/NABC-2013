@@ -114,12 +114,12 @@
         cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", currentAgent.firstName, currentAgent.lastName];
     }
     else if(self.selectionType == SelectionTypeTradeshow) {
-        TradeShow *currentTradeshow = [self.tradeshowsArray objectAtIndex:indexPath.row];
+        MarketSource *currentTradeshow = [self.tradeshowsArray objectAtIndex:indexPath.row];
     
         cell.textLabel.text = currentTradeshow.name;
     }
     else if(self.selectionType == SelectionTypeTradeshowMode) {
-        TradeShow *activeTradeshow = [[Database sharedDB] getActiveTradeshow];
+        MarketSource *activeTradeshow = [[Database sharedDB] getActiveTradeshow];
         if (activeTradeshow == nil) {
             if (indexPath.row == 0) {
                 cell.textLabel.textAlignment = NSTextAlignmentCenter;
@@ -202,14 +202,13 @@
     }
     else if (self.selectionType == SelectionTypeTradeshow && [self.tableView indexPathForSelectedRow]) {
         if ([self.delegate respondsToSelector:@selector(didSelectTradeshow:)]) {
-            self.selectedTradeshow = [[TradeShow alloc] init];
             self.selectedTradeshow = [self.tradeshowsArray objectAtIndex:[self.tableView indexPathForSelectedRow].row];
             [self.delegate performSelector:@selector(didSelectTradeshow:) withObject:self.selectedTradeshow];
         }
     }
     else if (self.selectionType == SelectionTypeTradeshowMode && [self.tableView indexPathForSelectedRow])
     {
-        TradeShow *activeTradeshow = [[Database sharedDB] getActiveTradeshow];
+        MarketSource *activeTradeshow = [[Database sharedDB] getActiveTradeshow];
         if (activeTradeshow == nil && [self.delegate respondsToSelector:@selector(didStartCurrentTradeshow)]) {
             [self.delegate performSelector:@selector(didStartCurrentTradeshow)];
         }

@@ -228,7 +228,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 }
 
 - (void)dismissPopHighestSales:(NSString *)sales {
-    [self.application setObject:sales forKey:@"higestSales"];
+    [self.application setObject:sales forKey:FORM_HIGHEST_SALES];
     [higestSalesButton setTitle:sales forState:UIControlStateNormal];
 }
 

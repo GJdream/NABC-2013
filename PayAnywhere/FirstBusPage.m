@@ -141,7 +141,7 @@ bool fieldsOn;
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    TradeShow *activeTradeshow = [[Database sharedDB] getActiveTradeshow];
+    MarketSource *activeTradeshow = [[Database sharedDB] getActiveTradeshow];
     if (activeTradeshow != nil) {
         self.activeTradeshowLabel.text = activeTradeshow.name;
     }
