@@ -265,7 +265,9 @@ NSPersistentStoreCoordinator *coordinator;
     NSEntityDescription *entity = [NSEntityDescription
                                    entityForName:@"IndividualForm" inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"receivedBySerever == NO"];
+    [fetchRequest setReturnsObjectsAsFaults:NO];
+
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"receivedByServer == NO"];
     [fetchRequest setPredicate:predicate];
     NSError *error;
     

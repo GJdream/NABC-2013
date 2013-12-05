@@ -161,8 +161,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     
     [self.navigationController popToRootViewControllerAnimated:YES];
     
-//    [self.navigationController popToRootViewControllerAnimated:YES];
-    
     NSLog(@"Test Tradeshow...\n");
     [testTradeshow printApplicants];
     
@@ -183,10 +181,10 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     
     NSLog(@"Tab selected : %d", self.tabBarController.selectedIndex);
     if(self.tabBarController.selectedIndex == 0){
-        [self.application setObject:@"individual" forKey:@"applicationType"];
+        [self.application setObject:@"individual" forKey:FORM_TYPE];
     }
     else if(self.tabBarController.selectedIndex == 1){
-        [self.application setObject:@"business" forKey:@"applicationType"];
+        [self.application setObject:@"business" forKey:FORM_TYPE];
     }
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:self.application forKey:@"formDictionary"];
@@ -291,27 +289,24 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 
 -(void)sendJSON{
     //Create JSON using self.application
-    //NSError *error;
-   // BOOL isTurnableToJSON = [NSJSONSerialization
-    //                         isValidJSONObject: self.application];
-    //NSLog(@"Appliation is valid JSON: %hhd", isTurnableToJSON);
+    NSError *error;
+    BOOL isTurnableToJSON = [NSJSONSerialization
+                             isValidJSONObject: self.application];
+    NSLog(@"Appliation is valid JSON: %hhd", isTurnableToJSON);
     
-   // NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self.application
-   //                                                    options:0
-   //                                                      error:&error];
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self.application
+                                                       options:0
+                                                         error:&error];
     
-
+    NSString *postLength = [NSString stringWithFormat:@"%d", [jsonData length]];
     
     
-    
-//    NSString *postLength = [NSString stringWithFormat:@"%d", [jsonData length]];
-  /*
     //Create URL request
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     
    
     NSError *e;
-    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:jsonData options:nil error:&e];
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:&e];
     NSLog(@"json file = %@", dict);
    
 
@@ -336,11 +331,8 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
          NSString *theReply = [[NSString alloc] initWithBytes:[POSTReply bytes] length:[POSTReply length] encoding: NSASCIIStringEncoding];
          NSLog(@"Request completed\n Reply: %@", theReply);
          
-         // TEST DATA 
- 
- 
-    */
-    
+         /* TEST DATA f*/
+    /*
          NSMutableDictionary *testMarketSource = [[NSMutableDictionary alloc] init];
          [testMarketSource setObject:@"Chicago" forKey:@"city"];
          [testMarketSource setObject:@"IL" forKey:@"state"];
@@ -356,8 +348,8 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
          
          MarketSource *marketSource = [[Database sharedDB] insertMarketSourceWithInfo:testMarketSource];
          Agent *agent = [[Database sharedDB] insertAgentWithInfo:testAgent];
-     
-    
+         /**/
+         /*
          if ([[self.application objectForKey:FORM_TYPE] isEqualToString:@"individual"]) {
              //store individual application
              [[Database sharedDB] insertIndividualFormWithInfo:self.application andAgent:agent andMarketSource:marketSource];
@@ -372,32 +364,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     //Make the JSON request
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
 
-    NSURLConnection *theConnection=[[NSURLConnection alloc] initWithRequest:request delegate:self];
-
-    if(theConnection){
-    //URL for individual POST
-    if ([[self.application objectForKey:@"formType"] isEqual: @"individual"]) {
-        [request setURL:[NSURL URLWithString:@"http://141.212.105.78:8080/app.php/individual/"]];
-    } else {
-        [request setURL:[NSURL URLWithString:@"http://141.212.105.78:8080/app.php/business/"]];
-    }
-    [request setHTTPMethod:@"POST"];
-    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    [request setValue:@"application/x-www-form-urlencoded;charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
-    [request setHTTPBody:jsonData];
-    
-    //Create and recieve the response from the server
-    NSHTTPURLResponse *response = nil;
-   // NSError *error = nil;
-    NSData *POSTReply = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
-    NSString *theReply = [[NSString alloc] initWithBytes:[POSTReply bytes] length:[POSTReply length] encoding: NSASCIIStringEncoding] ;
-    NSLog(@"Reply: %@", theReply);
-    }
- 
- */
-    
-    [self.application removeAllObjects];
-    
+     }];*/
 }
 
 -(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController

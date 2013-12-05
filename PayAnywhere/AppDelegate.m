@@ -15,7 +15,7 @@ static NSString *URL = @"http://141.212.105.78:8080/symfony/individual/batch";
 @synthesize window = _window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{/*
+{
     NSMutableArray * unsentForms = [[Database sharedDB] getUnsentIndividualFroms];
     
     NSLog(@"INDIVIDUAL FORMS didFinishLaunching: \n%@\n", unsentForms);
