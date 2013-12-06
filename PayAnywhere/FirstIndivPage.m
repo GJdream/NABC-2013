@@ -113,6 +113,26 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 }
 
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    MarketSource *activeTradeshow = [[Database sharedDB] getActiveTradeshow];
+    Agent *activeAgent = [[Database sharedDB] getActiveAgent];
+    if (activeTradeshow != nil) {
+        self.activeTradeshowLabel.text = activeTradeshow.name;
+    }
+    else {
+        self.activeTradeshowLabel.text = @"";
+    }
+    
+    if (activeAgent != nil) {
+        self.currentAgentLabel.text = [NSString stringWithFormat:@"%@ %@", activeAgent.firstName, activeAgent.lastName];
+    }
+    else {
+        self.currentAgentLabel.text = @"";
+    }
+}
+
+
 
 -(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 {
@@ -129,6 +149,26 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
 }
 
 - (IBAction)create:(id)sender {
+    NSMutableString * alertMessageMutable = [[NSMutableString alloc] init];
+    
+    //Check agent and market Source
+    MarketSource *activeTradeshow = [[Database sharedDB] getActiveTradeshow];
+    Agent *activeAgent = [[Database sharedDB] getActiveAgent];
+    if(activeAgent == nil || activeTradeshow == nil){
+        if(activeAgent == nil){
+            [alertMessageMutable appendString:@"Active Agent, "];
+        }
+        if(activeTradeshow == nil){
+            [alertMessageMutable appendString:@"Active Tradeshow, "];
+        }
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Administrative Info Not Set:"
+                                                          message:alertMessageMutable
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+        [message show];
+        return;
+    }
     //Create variable to track terms accepted
     BOOL trmsAcc = [self.termsAcceptedSwitch isOn];
 //    NSNumber * tru = [NSNumber numberWithBool:TRUE];
@@ -141,7 +181,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     
     //Check if birthday has been set
     NSString *buttonName = [self.birth titleForState:UIControlStateNormal];
-    NSMutableString * alertMessageMutable = [[NSMutableString alloc] init];
     BOOL birthFilled = !([buttonName isEqualToString:@"Click to select"]);
     
     //Check for contents of all fields
@@ -213,7 +252,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
     [self fillDictionary];
     
     //If all the required fields are filled in, do the segue
-    if((first && last && email && phone && address && zip && ssn && trmsAcc && birthFilled) || TRUE){
+    if((first && last && email && phone && address && zip && ssn && trmsAcc && birthFilled) || FALSE){
     [self performSegueWithIdentifier:@"IndivToBankSegue" sender:nil];
     }
     //Otherwise, display the alert view with generated string

@@ -74,6 +74,76 @@ NSPersistentStoreCoordinator *coordinator;
     }
 }
 
+-(NSString *)getFirstAndLastNameForAgentID:(NSNumber *)aid
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Agent" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    [fetchRequest setReturnsObjectsAsFaults:NO];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"aid == %@", aid]];
+    [fetchRequest setPredicate:predicate];
+    
+    NSError *error;
+    NSArray *resultAgentArray = [context executeFetchRequest:fetchRequest error:&error];
+
+    if ([resultAgentArray count] != 0) {
+        Agent *resultAgent = [resultAgentArray objectAtIndex:0];
+        return [NSString stringWithFormat:@"%@ %@",resultAgent.firstName, resultAgent.lastName];
+    }
+    else {
+        return @"";
+    }
+}
+
+-(NSString *)getNumFormsForAgentID:(NSNumber *)aid AndMSID:(NSNumber *)msid
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"IndividualForm" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    [fetchRequest setReturnsObjectsAsFaults:NO];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"aid == %@ AND msid == %@", aid, msid]];
+    [fetchRequest setPredicate:predicate];
+    
+    NSError *error;
+    NSArray *resultIndivFormArray = [context executeFetchRequest:fetchRequest error:&error];
+    int numIndivForms = [resultIndivFormArray count];
+    
+    entity = [NSEntityDescription entityForName:@"BusinessForm" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    [fetchRequest setReturnsObjectsAsFaults:NO];
+    
+    predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"aid == %@ AND msid == %@", aid, msid]];
+    [fetchRequest setPredicate:predicate];
+    
+    NSArray *resultBusFormArray = [context executeFetchRequest:fetchRequest error:&error];
+    int numBusForms = [resultBusFormArray count];
+    NSNumber *numForms = [NSNumber numberWithInt:numBusForms + numIndivForms];
+    
+    return [NSString stringWithFormat:@"%@", numForms];
+}
+
+-(NSString *)getTradeshowNameForMSID:(NSNumber *)msid
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"MarketSource" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    [fetchRequest setReturnsObjectsAsFaults:NO];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"msid == %@", msid]];
+    [fetchRequest setPredicate:predicate];
+    
+    NSError *error;
+    NSArray *resultAgentArray = [context executeFetchRequest:fetchRequest error:&error];
+    
+    if ([resultAgentArray count] != 0) {
+        MarketSource *resultMarketSource = [resultAgentArray objectAtIndex:0];
+        return [NSString stringWithFormat:@"%@",resultMarketSource.name];
+    }
+    else {
+        return @"";
+    }
+}
+
 - (id)insertIndividualFormWithInfo:(NSDictionary *)info
                             andAgent:(Agent *)agent
                      andMarketSource:(MarketSource *)marketSource
@@ -92,6 +162,7 @@ NSPersistentStoreCoordinator *coordinator;
     form.fid = [info objectForKey:@"fid"];
     form.dob = [info objectForKey:@"dob"];
     form.address = [info objectForKey:@"address"];
+    form.receivedByServer = [info objectForKey:@"receivedByServer"];
     
     //Get object pointers given ids from info dictionary
     form.aid = agent.aid;
@@ -136,6 +207,7 @@ NSPersistentStoreCoordinator *coordinator;
     form.highestSales = [info objectForKey:@"highestSales"];
     form.ccSales = [info objectForKey:@"ccSales"];
     form.corporationName = [info objectForKey:@"corporationName"];
+    form.receivedByServer = [info objectForKey:@"receivedByServer"];
     
     //Get object pointers given ids from info dictionary
     form.aid = agent.aid;

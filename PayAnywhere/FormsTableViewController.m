@@ -68,16 +68,29 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"FormCell";
+    MarketSource *activeTradeshow = [[Database sharedDB] getActiveTradeshow];
     FormCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     if (indexPath.section == 0) {
         IndividualForm *currentForm = [self.individualForms objectAtIndex:indexPath.row];
         cell.applicantName.text = [NSString stringWithFormat:@"%@ %@", currentForm.firstName, currentForm.lastName];
+        cell.dateFilled.text = [NSString stringWithFormat:@"Email: %@", currentForm.email];
+        
+        NSString *agentName = [[Database sharedDB] getFirstAndLastNameForAgentID:currentForm.aid];
+        cell.agentName.text = [NSString stringWithFormat:@"Agent: %@", agentName];
+        NSString *msName = [[Database sharedDB] getTradeshowNameForMSID:currentForm.msid];
+        cell.marketSource.text = [NSString stringWithFormat:@"Market Source: %@",msName];
 
     }
     else if (indexPath.section == 1) {
         BusinessForm *currentForm = [self.businessForms objectAtIndex:indexPath.row];
         cell.applicantName.text = [NSString stringWithFormat:@"%@ %@", currentForm.firstName, currentForm.lastName];
+        cell.dateFilled.text = [NSString stringWithFormat:@"Email: %@", currentForm.email];
+        
+        NSString *agentName = [[Database sharedDB] getFirstAndLastNameForAgentID:currentForm.aid];
+        cell.agentName.text = [NSString stringWithFormat:@"Agent: %@", agentName];
+        
+        cell.marketSource.text = [NSString stringWithFormat:@"Market Source: %@",activeTradeshow.name];
     }
     
     return cell;

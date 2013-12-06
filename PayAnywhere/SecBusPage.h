@@ -42,5 +42,7 @@
 @property (strong, nonatomic) UIPopoverController *typePopoverController;
 @property (strong, nonatomic) UIStoryboardPopoverSegue *currentPopoverSeague;
 @property (strong, nonatomic) TypePickerViewController *pvc;
+@property (weak, nonatomic) IBOutlet UILabel *activeTradeshowLabel;
+@property (weak, nonatomic) IBOutlet UILabel *currentAgentLabel;
 
 @end

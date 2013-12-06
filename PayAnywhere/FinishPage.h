@@ -16,12 +16,17 @@
 
 @interface FinishPage : UIViewController<UITextFieldDelegate, UITabBarControllerDelegate, UITabBarDelegate>
 
+@property (nonatomic) NSURLSession *session;
+@property (nonatomic) NSURLSessionUploadTask *uploadTask;
 @property (strong, nonatomic) NSMutableDictionary * application;
 @property (strong, nonatomic) IBOutlet UIButton *radioButtonOne;
 @property (strong, nonatomic) IBOutlet UIButton *radioButtonTwo;
 @property (strong, nonatomic) IBOutlet UITextField *addressField;
 @property (strong, nonatomic) IBOutlet UITextField *suiteAptField;
 @property (strong, nonatomic) IBOutlet UITextField *zipField;
+
+@property (weak, nonatomic) IBOutlet UILabel *activeTradeshowLabel;
+@property (weak, nonatomic) IBOutlet UILabel *currentAgentLabel;
 
 - (IBAction)radioButtonOneClicked:(id)sender;
 - (IBAction)radioButtonTwoClicked:(id)sender;
