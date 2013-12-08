@@ -380,6 +380,34 @@ NSPersistentStoreCoordinator *coordinator;
     return forms;
 }
 
+- (void)removeSentForms
+{
+    NSArray *forms = [[NSArray alloc] init];
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"IndividualForm" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    [fetchRequest setReturnsObjectsAsFaults:NO];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"receivedByServer == YES"];
+    [fetchRequest setPredicate:predicate];
+    NSError *error;
+    
+    forms = [context executeFetchRequest:fetchRequest error:&error];
+    
+    for (NSManagedObject *currentObject in forms) {
+        [context deleteObject:currentObject];
+    }
+    
+    entity = [NSEntityDescription entityForName:@"BusinessForm" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    
+    forms = [context executeFetchRequest:fetchRequest error:&error];
+    
+    for (NSManagedObject *currentObject in forms) {
+        [context deleteObject:currentObject];
+    }
+}
+
 - (void) updateAllFromsToReceived:(NSString *) type
 {
     NSArray *individualForms = [[NSArray alloc] init];

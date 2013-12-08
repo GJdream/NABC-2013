@@ -17,4 +17,6 @@
 @property NSArray *individualForms;
 @property NSArray *businessForms;
 
+- (IBAction)deleteSentForms:(id)sender;
+
 @end
