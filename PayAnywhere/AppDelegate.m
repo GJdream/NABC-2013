@@ -67,7 +67,7 @@ static NSString *BUSINESS_URL = @"http://141.212.105.78:8080/symfony/business/ba
     _uploadTask = [self.session uploadTaskWithRequest:request fromData:jsonData
                                     completionHandler:
                    ^(NSData *data, NSURLResponse *response, NSError *error) {
-                       NSLog(@"hi handler: \n%@\n", response);
+                       NSLog(@"Response header: \n%@\n", response);
                        int code = [(NSHTTPURLResponse*)response statusCode];
                        if (code == 201) {
                            [[Database sharedDB] updateAllFromsToReceived: @"IndividualForm"];

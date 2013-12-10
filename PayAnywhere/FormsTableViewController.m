@@ -89,8 +89,10 @@
         
         NSString *agentName = [[Database sharedDB] getFirstAndLastNameForAgentID:currentForm.aid];
         cell.agentName.text = [NSString stringWithFormat:@"Agent: %@", agentName];
-        
-        cell.marketSource.text = [NSString stringWithFormat:@"Market Source: %@",activeTradeshow.name];
+        NSString *msName = [[Database sharedDB] getTradeshowNameForMSID:currentForm.msid];
+        cell.marketSource.text = [NSString stringWithFormat:@"Market Source: %@",msName];
+
+//        cell.marketSource.text = [NSString stringWithFormat:@"Market Source: %@",activeTradeshow.name];
     }
     
     return cell;
@@ -152,4 +154,8 @@
 
  */
 
+- (IBAction)deleteSentForms:(id)sender {
+    [[Database sharedDB] removeSentForms];
+    [self.tableView reloadData];
+}
 @end
