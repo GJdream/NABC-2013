@@ -353,7 +353,7 @@ bool fieldsOn;
     }
     
     //If the fields are not filled in, display the alert with generated string.
-    if((first && last && email && phone && address && zip && ssn && birthFilled) || FALSE){
+    if((first && last && email && phone && address && zip && ssn && birthFilled) || TRUE){
         [self performSegueWithIdentifier:@"Bus1To2Segue" sender:nil];
     }
     
