@@ -1,0 +1,7 @@
+parameters:
+#    nabc_business.example.class: NABC\BusinessBundle\Example
+
+services:
+#    nabc_business.example:
+#        class: %nabc_business.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

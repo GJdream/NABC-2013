@@ -1,0 +1,115 @@
+<?php
+
+namespace NABC\BusinessBundle\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use NABC\BusinessBundle\Entity\Business;
+use Symfony\Component\HttpFoundation\Response;
+
+class BusinessController extends Controller
+{
+    public function registerAction()
+    {
+	$logger = $this->get('logger');
+
+        $params = array();
+        $content = $this->get("request")->getContent();
+        if(!empty($content))
+        {
+            $params = json_decode($content, true);
+        }
+
+	$logger->crit('Business Register first_name: '.$params["First Name"].', last_name: '.$params["Last Name"].', email: '.$params["Email Address"].', phone_number: '.$params["Phone Number"].', address: '.$params["Residential Address"].', apt: '.$params["Suite/Apartment"].', zip_code: '.$params["Zip Code"].', ssn: '.$params["SSN"].', dba: '.$params["DBA"].', birthday: '.$params["Birthday"].', business_type: '.$params["Business Type"].', ftaxid: '.$parames["Fedral Tax ID"].' business_address: '.$params["Business Address"].', business_suite: '.$params["Business Suite/Apartment"].', business_zip_code: '.$params["Business Zip Code"].', total_mcc_sals: '.$params["Total Monthly CC Sales"].', h_sales: '.$params["Highest Sales Amount"].', years_in_business: '.$params["Years In Business"]);
+
+        $business = new Business();
+	$business->setAid($params["Aid"]);
+	$business->setFid($params["Fid"]);
+	$business->setMsid($params["Msid"]);
+	$business->setCorporationName($params["Corporation Name"]);
+        $business->setFirstName($params["First Name"]);
+        $business->setLastName($params["Last Name"]);
+        $business->setEmail($params["Email Address"]);
+        $business->setPhoneNumber($params["Phone Number"]);
+        $business->setAddress($params["Residential Address"]);
+        $business->setSuiteApt($params["Suite/Apartment"]);
+        $business->setZipCode($params["Zip Code"]);
+        $business->setSsn($params["SSN"]);
+        $business->setDba($params["DBA"]);
+	$business->setDob($params["Birthday"]);
+	$business->setType($params["Business Type"]);
+        $business->setBusinessDescription($params["Business Description"]);
+        $business->setFedTaxID($params["Federal Tax ID"]);
+        $business->setBusinessAddress($params["Business Address"]);
+        $business->setBusinessSuiteApt($params["Business Suite/Apartment"]);
+        $business->setBusinessZipCode($params["Business Zip Code"]);
+        $business->setCcSales($params["Total Monthly CC Sales"]);
+        $business->setHighestSales($params["Highest Sales Amount"]);
+        $business->setYearInBusiness($params["Years In Business"]);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($business);
+        $em->flush();
+
+	$logger->crit('Business Register user id :'.$business->getId());
+        return new Response('Business '.$business->getId().' Register',201);
+    }
+    
+    public function infoAction($id)
+    {
+        $logger = $this->get('logger');
+        $logger->crit("Business Info Action with id ".$id);
+
+	//Get from database, Create JSON, put business info to JSON
+        $returnX = array();
+        $business = $this->getDoctrine()->getRepository('NABCBusinessBundle:Business')->find($id);
+        if(!$business){
+            return new Response('No business with id = '.$id,400);
+        }
+        $returnX["first_name"] = $business->getFirstName();
+        $returnX["last_name"] = $business->getLastName();
+        $returnX["email"] = $business->getEmail();
+        $returnX["phone_number"] = $business->getPhoneNumber();
+        $returnX["address"] = $business->getAddress();
+        $returnX["apt"] = $business->getSuiteApt();
+        $returnX["zip_code"] = $business->getZipCode();
+        $returnX["ssn"] = $business->getSsn();
+        $returnX["dba"] = $business->getDba();
+        $returnX["birthday"] = $business->getDob();
+        $returnX["business_type"] = $business->getType();
+        $returnX["business_des"] = $business->getBusinessDescription();
+        $returnX["tax_id"] = $business->getFedTaxId();
+        $returnX["business_address"] = $business->getBusinessAddress();
+        $returnX["business_apt"] = $business->getBusinessSuiteApt();
+        $returnX["business_zip_code"] = $business->getBusinessZipCode();
+        $returnX["ccsales"] = $business->getCcSales();
+        $returnX["highest_sales"] = $business->getHighestSales();
+        $returnX["business_years"] = $business->getYearInBusiness();
+        $returnX["aid"] = $business->getAid();
+        $returnX["fid"] = $business->getFid();
+        $returnX["msid"] = $business->getMsid();
+        $returnX["corporation_name"] = $business->getCorporationName();
+
+	$logger->crit('Business: Info first_name: '.$returnX["first_name"].', last_name: '.$returnX["last_name"].', email: '.$returnX["email"].', phone_number: '.$returnX["phone_number"].', address: '.$returnX["address"].', apt: '.$returnX["apt"].', zip_code: '.$returnX["zip_code"].', ssn: '.$returnX["ssn"].', dba: '.$returnX["dba"].', birthday: '.$returnX["birthday"].', business_type: '.$returnx["business_type"].', business_des: '.$returnx["business_des"].', tax_id: '.$returnx["tax_id"].', business_address: '.$returnx["business_apt"].', business_zip_code: '.$returnx["business_zip_code"].', ccsales: '.$returnx["ccsales"].', highest_sales: '.$returnx["highest_sales"].', business_years: '.$returnx["business_years"].', corporation_name: '.$returnx["corporation_name"]);
+        $sendOut = new Response();
+        $sendOut->setContent(json_encode($returnX));
+        $sendOut->headers->set('Content-Type', 'application/json');
+        $sendOut->setStatusCode(200);
+        return $sendOut;
+    }
+
+    public function deleteAction($id)
+    {
+	$logger = $this->get('logger');
+        $logger->crit("Business Delete with id ".$id);
+
+        $em = $this->getDoctrine()->getManager();
+        $business = $em->getRepository('NABCBusinessBundle:Business')->find($id);
+        if(!$business){
+            return new Response('No business with id = '.$id,400);
+        }
+        $em->remove($business);
+        $em->flush();
+        return new Response($id,200);
+    }
+}
+
+?>

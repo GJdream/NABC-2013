@@ -1,0 +1,3 @@
+nabc_business_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: NABCBusinessBundle:Default:index }

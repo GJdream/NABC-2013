@@ -1,0 +1,157 @@
+<?php
+
+namespace NABC\IndividualBundle\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use NABC\IndividualBundle\Entity\Individual;
+use Symfony\Component\HttpFoundation\Response;
+
+class IndividualController extends Controller
+{
+    public function registerAction()
+    {
+	$logger = $this->get('logger');
+
+        $params = array();
+        $content = $this->get("request")->getContent();
+	var_dump($content);
+        if(!empty($content))
+        {
+            $params = json_decode($content, true);
+        }
+
+	$logger->crit('Individual Register first_name: '.$params["firstName"].', last_name: '.$params["lastName"].', email: '.$params["email"].', phone_number: '.$params["phoneNumber"].', address: '.$params["address"].', apt: '.$params["suiteApt"].', zip_code: '.$params["zipCode"].', ssn: '.$params["ssn"].', dba: '.$params["dba"].', birthday: '.$params["dob"]);
+
+        $individual = new Individual();
+        $individual->setFirstName($params["firstName"]);
+        $individual->setLastName($params["lastName"]);
+        $individual->setEmail($params["email"]);
+        $individual->setPhoneNumber($params["phoneNumber"]);
+        $individual->setAddress($params["address"]);
+        $individual->setSuiteApt($params["suiteApt"]);
+        $individual->setZipCode($params["zipCode"]);
+        $individual->setSsn($params["ssn"]);
+        $individual->setDBA($params["dba"]);
+        $individual->setDOB($params["dob"]);
+
+	
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($individual);
+        $em->flush();
+	
+	$logger->crit('Individual Register user id :'.$individual->getId());
+        return new Response("Individual ".$individual->getId()." Registered", 201);
+    }
+
+    public function add_individual($params)
+    {
+	var_dump($params);
+	$individual = new Individual();
+        $individual->setFirstName($params["firstName"]);
+        $individual->setLastName($params["lastName"]);
+        $individual->setEmail($params["email"]);
+        $individual->setPhoneNumber($params["phoneNumber"]);
+        $individual->setAddress($params["address"]);
+        $individual->setSuiteApt($params["suiteApt"]);
+        $individual->setZipCode($params["zipCode"]);
+        $individual->setSsn($params["ssn"]);
+        $individual->setDBA($params["dba"]);
+        $individual->setDOB($params["dob"]);
+
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($individual);
+        $em->flush();
+    }
+    
+    public function infoAction($id)
+    {
+        
+	$logger = $this->get('logger');
+	$logger->crit("Individual Info Action with id".$id);
+
+	//Get from database, Create JSON, put individual info to JSON
+        $returnX = array();
+        $individual = $this->getDoctrine()->getRepository('NABCIndividualBundle:Individual')->find($id);
+        if(!$individual){
+	    $logger->crit('No individual with id = '.$id);
+            return new Response('No individual with id = '.$id, 400);
+        }
+        $returnX["first_name"] = $individual->getFirstName();
+        $returnX["last_name"] = $individual->getLastName();
+        $returnX["email"] = $individual->getEmail();
+        $returnX["phone_number"] = $individual->getPhoneNumber();
+        $returnX["address"] = $individual->getAddress();
+        $returnX["apt"] = $individual->getSuiteApt();
+        $returnX["zip_code"] = $individual->getZipCode();
+        $returnX["ssn"] = $individual->getSsn();
+        $returnX["dba"] = $individual->getDBA();
+        $returnX["birthday"] = $individual->getDOB();
+
+	$logger->crit('Individual Info first_name: '.$returnX["first_name"].', last_name: '.$returnX["last_name"].', email: '.$returnX["email"].', phone_number: '.$returnX["phone_number"].', address: '.$returnX["address"].', apt: '.$returnX["apt"].', zip_code: '.$returnX["zip_code"].', ssn: '.$returnX["ssn"].', dba: '.$returnX["dba"].', birthday: '.$returnX["birthday"]);
+
+        $sendOut = new Response();
+        $sendOut->setContent(json_encode($returnX));
+        $sendOut->headers->set('Content-Type', 'application/json');
+        $sendOut->setStatusCode(200);
+        return $sendOut;
+    }
+
+    public function deleteAction($id)
+    {
+	$logger = $this->get('logger');
+	$logger->crit("Individual Delete with id".$id);
+    
+        $em = $this->getDoctrine()->getManager();
+        $individual = $em->getRepository('NABCIndividualBundle:Individual')->find($id);
+        if(!$individual){
+	    $logger->crit('No individual with id = '.$id);
+            return new Response('No individual with id = '.$id,400);
+        }
+        $em->remove($individual);
+        $em->flush();
+        return new Response($id,200);
+    }
+
+    public function batch_registerAction(){
+    	$logger = $this->get('logger');
+
+        $params = array();
+        $content = $this->get("request")->getContent();
+	var_dump($content);       
+ 	if(!empty($content))
+        {
+            $params = json_decode($content, true);
+        }
+	
+	var_dump($params);
+
+	$i = 0;
+		
+	while(($param = $params[$i++]) != NULL) {
+		var_dump($param);
+
+		$individual = new Individual();
+       		$individual->setFirstName($param["firstName"]);
+        	$individual->setLastName($param["lastName"]);
+        	$individual->setEmail($param["email"]);
+        	$individual->setPhoneNumber($param["phoneNumber"]);
+       	 	$individual->setAddress($param["address"]);
+        	$individual->setSuiteApt($param["suiteApt"]);
+        	$individual->setZipCode($param["zipCode"]);
+        	$individual->setSsn($param["ssn"]);
+        	$individual->setDBA($param["dba"]);
+        	$individual->setDOB($param["dob"]);
+	
+
+        	$em = $this->getDoctrine()->getManager();
+        	$em->persist($individual);
+        	$em->flush();
+	}
+
+	return new Response("Batch", 201);
+    }    
+}
+
+?>
+

@@ -1,0 +1,16 @@
+nabc_admin_login:
+    pattern:  /admin/login/
+    defaults: { _controller: NABCAdminBundle:Admin:login }
+
+nabc_admin_main:
+    pattern:  /admin/
+    defaults: { _controller: NABCAdminBundle:Admin:main }
+    requirements:
+        _methods:  GET
+
+nabc_admin_info:
+    pattern:  /admin/info/
+    defaults: { _controller: NABCAdminBundle:Admin:info }
+    requirements:
+        _methods:  POST
+

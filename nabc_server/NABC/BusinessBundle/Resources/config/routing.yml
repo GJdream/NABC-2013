@@ -1,0 +1,23 @@
+nabc_business_register:
+    pattern:  /business/
+    defaults: { _controller: NABCBusinessBundle:Business:register }
+    requirements: 
+        _methods:  POST
+
+nabc_business_info:
+    pattern:  /business/{id}
+    defaults: { _controller: NABCBusinessBundle:Business:info }
+    requirements:    
+        _methods:  GET
+
+nabc_business_delete:
+    pattern:  /business/delete/{id}
+    defaults: { _controller: NABCBusinessBundle:Business:delete }
+    requirements:
+        _methods:  GET
+
+nabc_business_batch_register:
+    pattern:  /business/batch/
+    defaults: { _controller: NABCBusinessBundle:Business:batch_register }
+    requirements: 
+        _methods:  POST

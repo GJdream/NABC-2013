@@ -1,0 +1,23 @@
+nabc_individual_register:
+    pattern:  /individual/
+    defaults: { _controller: NABCIndividualBundle:Individual:register }
+    requirements: 
+        _methods:  POST
+
+nabc_individual_info:
+    pattern:  /individual/{id}
+    defaults: { _controller: NABCIndividualBundle:Individual:info }
+    requirements:    
+        _methods:  GET
+
+nabc_individual_delete:
+    pattern:  /individual/delete/{id}
+    defaults: { _controller: NABCIndividualBundle:Individual:delete }
+    requirements:
+        _methods:  GET
+
+nabc_individual_batch_register:
+    pattern:  /individual/batch/
+    defaults: { _controller: NABCIndividualBundle:Individual:batch_register }
+    requirements:
+        _methods:  POST

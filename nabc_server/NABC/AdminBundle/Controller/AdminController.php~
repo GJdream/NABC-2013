@@ -1,0 +1,66 @@
+<?php
+
+namespace NABC\AdminBundle\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use NABC\AdminBundle\Entity\Individual;
+use Symfony\Component\HttpFoundation\Response;
+
+class AdminController extends Controller
+{
+    public function loginAction()
+    {
+        //return $this->render(
+        //      'AdminBundle:Login:login.html.twig');
+        return new Response('<html><body>Login</body></html>');
+    }
+
+    public function mainAction()
+    {
+	$logger = $this->get('logger');
+	$logger->crit("Admin Main Action");
+	$individuals = $this->getDoctrine()->getRepository('NABCAdminBundle:Individual')->findAll();
+	$businesses = $this->getDoctrine()->getRepository('NABCAdminBundle:Business')->findAll();
+
+	$logger->crit($individuals[0]->getId());
+	$logger->crit($businesses[0]->getId());
+	
+	return new Response('Main', 201);
+    }
+
+    public function infoIndividualAction()
+    {
+	$logger = $this->get('logger');
+	$logger->crit("Admin Info Action");
+
+	$content = $this->get("request")->getContent();
+	if(!empty($content))
+        {
+            $params = json_decode($content, true);
+        }
+
+	$result = $this->getDoctrine()->getRepository('NABCAdminBundle:Individual')->findBy($params);
+	$logger->crit($result[0]->getId());
+
+	return new Response('Info', 201);
+    }
+
+	public function infoBusinessAction()
+    {
+	$logger = $this->get('logger');
+	$logger->crit("Admin Info Action");
+
+	$content = $this->get("request")->getContent();
+	if(!empty($content))
+        {
+            $params = json_decode($content, true);
+        }
+
+	$result = $this->getDoctrine()->getRepository('NABCAdminBundle:Business')->findBy($params);
+	$logger->crit($result[0]->getId());
+
+	return new Response('Info', 201);
+    }
+}
+?>
+

@@ -1,0 +1,7 @@
+parameters:
+#    nabc_individual.example.class: NABC\IndividualBundle\Example
+
+services:
+#    nabc_individual.example:
+#        class: %nabc_individual.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

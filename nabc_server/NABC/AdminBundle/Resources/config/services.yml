@@ -1,0 +1,9 @@
+parameters:
+#    nabc_admin.example.class: NABC\AdminBundle\Example
+
+services:
+#    nabc_admin.example:
+#        class: %nabc_admin.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+    cache:
+        class: Doctrine\Common\Cache\ApcCache

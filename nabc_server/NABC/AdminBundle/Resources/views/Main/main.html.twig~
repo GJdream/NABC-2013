@@ -1,0 +1,346 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+{% block individual %}
+<h3>Individual Information</h3>
+<form action="/symfony/admin/info/individual/" id="individualform", method="POST">
+  <input type="submit" value="Submit">
+</form>
+<table border="1">
+<tr>
+<th>Id</th>
+<th>First Name</th>
+<th>Last Name</th>
+<th>Email</th>
+<th>Phone Number</th>
+<th>Address</th>
+<th>Suite Apt</th>
+<th>Zip Code</th>
+<th>SSN</th>
+<th>Birthday</th>
+<th>DBA</th>
+</tr>
+<tr>
+<td>
+<select name="id" form="individualform">
+<option value = "null" ></option>
+{% for individual in individuals %}
+	<option value="{{ individual.id }}">{{ individual.id }}</option>
+{% endfor %}
+</select>
+</td>
+<td>
+<select name="firstName" form="individualform">
+<option value = "null" ></option>
+{% for individual in individuals %}
+	<option value="{{ individual.firstName}}">{{ individual.firstName }}</option>
+{% endfor %}
+</select>
+</td>
+<td>
+<select name="lastName" form="individualform">
+<option value = "null" ></option>
+{% for individual in individuals %}
+	<option value="{{ individual.lastName}}">{{ individual.lastName }}</option>
+{% endfor %}
+</select>
+</td>
+<td>
+<select name="email" form="individualform">
+<option value = "null" ></option>
+{% for individual in individuals %}
+	<option value="{{ individual.email}}">{{ individual.email }}</option>
+{% endfor %}
+</select>
+</td>
+<td>
+<select name="phoneNumber" form="individualform">
+<option value = "null" ></option>
+{% for individual in individuals %}
+	<option value="{{ individual.phoneNumber}}">{{ individual.phoneNumber }}</option>
+{% endfor %}
+</select>
+</td>
+<td>
+<select name="address" form="individualform">
+<option value = "null" ></option>
+{% for individual in individuals %}
+	<option value="{{ individual.address}}">{{ individual.address }}</option>
+{% endfor %}
+</select>
+</td>
+<td>
+<select name="suiteApt" form="individualform">
+<option value = "null" ></option>
+{% for individual in individuals %}
+	<option value="{{ individual.suiteApt}}">{{ individual.suiteApt }}</option>
+{% endfor %}
+</select>
+</td>
+<td>
+<select name="zipCode" form="individualform">
+<option value = "null" ></option>
+{% for individual in individuals %}
+	<option value="{{ individual.zipCode}}">{{ individual.zipCode }}</option>
+{% endfor %}
+</select>
+</td>
+<td>
+<select name="sSN" form="individualform">
+<option value = "null" ></option>
+{% for individual in individuals %}
+	<option value="{{ individual.ssn}}">{{ individual.ssn }}</option>
+{% endfor %}
+</select>
+</td>
+<td>
+<select name="dOB" form="individualform">
+<option value = "null" ></option>
+{% for individual in individuals %}
+	<option value="{{ individual.dob }}">{{ individual.dob }}</option>
+{% endfor %}
+</select>
+</td>
+<td>
+<select name="dBA" form="individualform">
+<option value = "null" ></option>
+{% for individual in individuals %}
+	<option value="{{ individual.dba }}">{{ individual.dba }}</option>
+{% endfor %}
+</select>
+</td>
+</tr>
+{% for individual in individuals_q %}
+<tr>
+<td>{{ individual.id }}</td>
+<td>{{ individual.firstName }}</td>
+<td>{{ individual.lastName }}</td>
+<td>{{ individual.email }}</td>
+<td>{{ individual.phoneNumber }}</td>
+<td>{{ individual.address }}</td>
+<td>{{ individual.suiteApt }}</td>
+<td>{{ individual.zipCode }}</td>
+<td>{{ individual.ssn }}</td>
+<td>{{ individual.dob }}</td>
+<td>{{ individual.dba }}</td>
+</tr>
+{% endfor %}
+</table> 
+{% endblock %}
+{% block business %}
+<h3>Business Information</h3>
+<form action="/symfony/admin/info/business/" id="businessform", method="POST">
+  <input type="submit" value="Submit">
+</form>
+<table border="1">
+<tr>
+<th>Id</th>
+<th>First Name</th>
+<th>Last Name</th>
+<th>Email</th>
+<th>Phone Number</th>
+<th>Address</th>
+<th>Suite Apt</th>
+<th>Zip Code</th>
+<th>SSN</th>
+<th>Birthday</th>
+<th>DBA</th>
+<th>Business Type</th>
+<th>Business Description</th>
+<th>Federal Tax ID</th>
+<th>Business Address</th>
+<th>Business Suite Aparment</th>
+<th>Business Zip Code</th>
+<th>Total Monthly CC Sales</th>
+<th>Highest Sales Amount</th>
+<th>Years In Business</th>
+</tr>
+<tr>
+<td>
+<select name="id" form="businessform">
+<option value = "null" ></option>
+{% for business in businessess %}
+	<option value="{{ business.id }}">{{ business.id }}</option>
+{% endfor %}
+</select>
+</td>
+<td>
+<select name="firstName" form="businessform">
+<option value = "null" ></option>
+{% for business in  businesses %}
+	<option value="{{ business.firstName}}">{{ business.firstName }}</option>
+{% endfor %}
+</select>
+</td>
+<td>
+<select name="lastName" form="businessform">
+<option value = "null" ></option>
+{% for business in  businesses %}
+	<option value="{{ business.lastName}}">{{ business.lastName }}</option>
+{% endfor %}
+</select>
+</td>
+<td>
+<select name="email" form="businessform">
+<option value = "null" ></option>
+{% for business in  businesses %}
+	<option value="{{ business.email}}">{{ business.email }}</option>
+{% endfor %}
+</select>
+</td>
+<td>
+<select name="phoneNumber" form="businessform">
+<option value = "null" ></option>
+{% for business in  businesses %}
+	<option value="{{ business.phoneNumber}}">{{ business.phoneNumber }}</option>
+{% endfor %}
+</select>
+</td>
+<td>
+<select name="address" form="businessform">
+<option value = "null" ></option>
+{% for business in  businesses %}
+	<option value="{{ business.address}}">{{ business.address }}</option>
+{% endfor %}
+</select>
+</td>
+<td>
+<select name="suiteApt" form="businessform">
+<option value = "null" ></option>
+{% for business in  businesses %}
+	<option value="{{ business.suiteApt}}">{{ business.suiteApt }}</option>
+{% endfor %}
+</select>
+</td>
+<td>
+<select name="zipCode" form="businessform">
+<option value = "null" ></option>
+{% for business in  businesses %}
+	<option value="{{ business.zipCode}}">{{ business.zipCode }}</option>
+{% endfor %}
+</select>
+</td>
+<td>
+<select name="sSN" form="businessform">
+<option value = "null" ></option>
+{% for business in  businesses %}
+	<option value="{{ business.ssn}}">{{ business.ssn }}</option>
+{% endfor %}
+</select>
+</td>
+<td>
+<select name="dOB" form="businessform">
+<option value = "null" ></option>
+{% for business in  businesses %}
+	<option value="{{ business.dob }}">{{ business.dob }}</option>
+{% endfor %}
+</select>
+</td>
+<td>
+<select name="dBA" form="businessform">
+<option value = "null" ></option>
+{% for business in  businesses %}
+	<option value="{{ business.dba }}">{{ business.dba }}</option>
+{% endfor %}
+</select>
+</td>
+<td>
+<select name="type" form="businessform">
+<option value = "null" ></option>
+{% for business in  businesses %}
+	<option value="{{ business.type }}">{{ business.type }}</option>
+{% endfor %}
+</select>
+</td>
+<td>
+<select name="businessDescription" form="businessform">
+<option value = "null" ></option>
+{% for business in  businesses %}
+	<option value="{{ business.bussinessDescroption }}">{{ business.businessDescription }}</option>
+{% endfor %}
+</select>
+</td>
+<td>
+<select name="fedTaxID" form="businessform">
+<option value = "null" ></option>
+{% for business in  businesses %}
+	<option value="{{ business.fedTaxID }}">{{ business.fedTaxID }}</option>
+{% endfor %}
+</select>
+</td>
+<td>
+<select name="businessAddress" form="businessform">
+<option value = "null" ></option>
+{% for business in  businesses %}
+	<option value="{{ business.businessAddress }}">{{ business.businessAddress }}</option>
+{% endfor %}
+</select>
+</td>
+<td>
+<select name="businessSuiteApt" form="businessform">
+<option value = "null" ></option>
+{% for business in  businesses %}
+	<option value="{{ business.businessSuiteApt }}">{{ business.businessSuiteApt }}</option>
+{% endfor %}
+</select>
+</td>
+<td>
+<select name="businessZipCode" form="businessform">
+<option value = "null" ></option>
+{% for business in  businesses %}
+	<option value="{{ business.businessZipCode }}">{{ business.businessZipCode }}</option>
+{% endfor %}
+</select>
+</td>
+<td>
+<select name="ccSales" form="businessform">
+<option value = "null" ></option>
+{% for business in  businesses %}
+	<option value="{{ business.ccSales }}">{{ business.ccSales }}</option>
+{% endfor %}
+</select>
+</td>
+<td>
+<select name="highestSales" form="businessform">
+<option value = "null" ></option>
+{% for business in  businesses %}
+	<option value="{{ business.highestSales }}">{{ business.highestSales }}</option>
+{% endfor %}
+</select>
+</td>
+<td>
+<select name="yearsInBusiness" form="businessform">
+<option value = "null" ></option>
+{% for business in  businesses %}
+	<option value="{{ business.yearsInBusiness }}">{{ business.yearsInBusiness }}</option>
+{% endfor %}
+</select>
+</td>
+</tr>
+{% for business in businesses_q %}
+<tr>
+<td>{{ business.id }}</td>
+<td>{{ business.firstName }}</td>
+<td>{{ business.lastName }}</td>
+<td>{{ business.email }}</td>
+<td>{{ business.phoneNumber }}</td>
+<td>{{ business.address }}</td>
+<td>{{ business.suiteApt }}</td>
+<td>{{ business.zipCode }}</td>
+<td>{{ business.ssn }}</td>
+<td>{{ business.dob }}</td>
+<td>{{ business.dba }}</td>
+<td>{{ business.type }}</td>
+<td>{{ business.businessDescription }}</td>
+<td>{{ business.fedTaxID }}</td>
+<td>{{ business.businessAddress }}</td>
+<td>{{ business.businessSuiteApt }}</td>
+<td>{{ business.businessZipCode }}</td>
+<td>{{ business.ccSales }}</td>
+<td>{{ business.highestSales }}</td>
+<td>{{ business.yearInBusiness }}</td>
+</tr>
+{% endfor %}
+</table> 
+{% endblock %}
+{% endblock %}
