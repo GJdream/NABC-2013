@@ -1,2 +1,6 @@
 NABC folder is the bundle containing all server side code.
 business and individual are output of pg_dump in postgresql
+
+A dummy admin page can be found here:
+http://141.212.105.78:8080/symfony/admin/
+This website is only for testing purpose.
